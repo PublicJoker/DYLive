@@ -12,5 +12,10 @@ pod 'Alamofire'
 pod 'Kingfisher'
 # 菜单框架 - https://github.com/monoqlo/ExpandingMenu
 pod 'ExpandingMenu', '~> 0.4'
-
+# 友盟统计
+pod 'UMCCommon'
+# Log
+pod 'XCGLogger'
+# 极光推送
+pod 'JPush'
 end

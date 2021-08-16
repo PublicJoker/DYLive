@@ -12,16 +12,16 @@ import UIKit
 
 private let kProfileNormalCellID = "kProfileNormalCellID"
 
-private let kProfileHeaderViewH : CGFloat = kScreenH * 3 / 8 + (kIsPhoneX ? 64 : 40)
+private let kProfileHeaderViewH : CGFloat = kScreenH
 private let kBarButtonItemW : CGFloat = 40.0
 
 
 class ProfileViewController: BaseViewController {
     
     // MARK: 定义属性
-    fileprivate var sectionOneArray : [[String : Any]] = [["name":"开播提醒","icon_name":"app3DTouch_checkin"]
-        ,["name":"务票查询","icon_name":"home_newSeacrhcon"],["name":"设置选项","icon_name":"image_my_settings"]]
-    fileprivate var sectionTwoArray : [[String : Any]] = [["name":"手游中心","icon_name":"Image_handle"]]
+//    fileprivate var sectionOneArray : [[String : Any]] = [["name":"开播提醒","icon_name":"app3DTouch_checkin"]
+//        ,["name":"务票查询","icon_name":"home_newSeacrhcon"],["name":"设置选项","icon_name":"image_my_settings"]]
+//    fileprivate var sectionTwoArray : [[String : Any]] = [["name":"手游中心","icon_name":"Image_handle"]]
     
     // MARK: 懒加载属性
     fileprivate lazy var tableView : UITableView = {
@@ -52,23 +52,6 @@ class ProfileViewController: BaseViewController {
         
     }()
     
-    fileprivate lazy var leftBarItem : UIBarButtonItem = {
-        
-        let leftBarItem = UIBarButtonItem.init(imageName: "dyla_编辑", highImageName: "", size: CGSize(width: kBarButtonItemW, height: kBarButtonItemW), viewController: self, selector: #selector(editAction))
-        
-        return leftBarItem
-        
-    }()
-    
-    fileprivate lazy var rightBarItem : UIBarButtonItem = {
-        
-        let rightBarItem = UIBarButtonItem.init(imageName: "video_player_danmu_send", highImageName: "", size: CGSize(width: kBarButtonItemW, height: kBarButtonItemW), viewController: self, selector: #selector(msgAction))
-        
-        return rightBarItem
-        
-    }()
-    
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -93,10 +76,7 @@ extension ProfileViewController {
         tableView.contentInset = UIEdgeInsets(top: kProfileHeaderViewH, left: 0, bottom: 0, right: 0)
         
         self.loadDataFinished()
-        
-        navigationItem.leftBarButtonItem = leftBarItem
-        navigationItem.rightBarButtonItem = rightBarItem
-        
+
         super.setUpUI()
     }
     
@@ -122,24 +102,16 @@ extension ProfileViewController {
 extension ProfileViewController : UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 0
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let count = section == 0 ? 3 : 1
-        return count
+        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: kProfileNormalCellID, for: indexPath) as! TableProfileNormalCell
-        
-        var array = indexPath.section == 0 ? sectionOneArray : sectionTwoArray
-        cell.nameLabel.text = array[indexPath.item]["name"] as! String
-        cell.iconImageView.image = UIImage(named: array[indexPath.item]["icon_name"] as! String)
-        
         return cell
-        
     }
     
 }

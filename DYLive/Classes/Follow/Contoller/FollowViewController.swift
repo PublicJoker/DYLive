@@ -15,15 +15,15 @@ private let kFollowHeaderViewH : CGFloat = 120.0
 class FollowViewController: BaseAnchorViewController {
     
     fileprivate lazy var followViewModel : FollowViewModel = FollowViewModel()
-    fileprivate lazy var followHeaderView : FollowHeaderView = {
-        
-        let followHeaderView = FollowHeaderView.followHeaderView()
-        
-        followHeaderView.frame = CGRect(x: 0, y: -kFollowHeaderViewH, width: kScreenW, height: kFollowHeaderViewH)
-        
-        return followHeaderView
-        
-    }()
+//    fileprivate lazy var followHeaderView : FollowHeaderView = {
+//
+//        let followHeaderView = FollowHeaderView.followHeaderView()
+//
+//        followHeaderView.frame = CGRect(x: 0, y: -kFollowHeaderViewH, width: kScreenW, height: kFollowHeaderViewH)
+//
+//        return followHeaderView
+//
+//    }()
 
 }
 
@@ -33,16 +33,32 @@ extension FollowViewController {
     
     override func setUpUI() {
         
-        self.title = "关注"
+        self.title = "发现"
         
-        collectionView.addSubview(followHeaderView)
-        collectionView.contentInset = UIEdgeInsets(top: kFollowHeaderViewH, left: 0, bottom: 0, right: 0)
+        //2. 设置右侧 item
+        let historyItem = UIBarButtonItem(image: UIImage(named: "icon_hind_history")?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(historyAction))
+        let searchItem = UIBarButtonItem(image: UIImage(named: "icon_find_search")?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(searchAction))
+        navigationItem.rightBarButtonItems = [searchItem,historyItem]
+        
+//        collectionView.addSubview(followHeaderView)
+//        collectionView.contentInset = UIEdgeInsets(top: kFollowHeaderViewH, left: 0, bottom: 0, right: 0)
         
         super.setUpUI()
     }
     
 }
 
+// MARK: 监听事件点击
+extension FollowViewController {
+    
+    @objc fileprivate func historyAction() {
+        print("历史记录")
+    }
+    
+    @objc fileprivate func searchAction() {
+        print("下载")
+    }
+}
 
 // MARK: 请求数据
 extension FollowViewController {

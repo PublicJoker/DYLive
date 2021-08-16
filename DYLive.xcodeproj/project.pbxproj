@@ -109,6 +109,10 @@
 		7AF1CD3A2269A5F9002DBE91 /* CollectionGameCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7AF1CD382269A5F9002DBE91 /* CollectionGameCell.xib */; };
 		7AF1CD3C2269B8CF002DBE91 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF1CD3B2269B8CF002DBE91 /* GameViewController.swift */; };
 		7AF1CD3E2269C6AF002DBE91 /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF1CD3D2269C6AF002DBE91 /* GameViewModel.swift */; };
+		F96C2CA426CA971900DF5863 /* PlatformConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96C2CA326CA971900DF5863 /* PlatformConfig.swift */; };
+		F96C2CA626CA989300DF5863 /* DeviceTypeDefine.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96C2CA526CA989300DF5863 /* DeviceTypeDefine.swift */; };
+		F96C2CB026CA9D6500DF5863 /* LogUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96C2CAF26CA9D6400DF5863 /* LogUtil.swift */; };
+		F96C2CB226CAA16C00DF5863 /* Define.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96C2CB126CAA16B00DF5863 /* Define.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -217,6 +221,11 @@
 		7AF1CD3B2269B8CF002DBE91 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		7AF1CD3D2269C6AF002DBE91 /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
 		B66F738A0471E3DFE48D0EDF /* Pods_DYLive.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DYLive.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F96C2CA326CA971900DF5863 /* PlatformConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlatformConfig.swift; sourceTree = "<group>"; };
+		F96C2CA526CA989300DF5863 /* DeviceTypeDefine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceTypeDefine.swift; sourceTree = "<group>"; };
+		F96C2CAE26CA9D1500DF5863 /* fvideo-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "fvideo-Bridging-Header.h"; sourceTree = "<group>"; };
+		F96C2CAF26CA9D6400DF5863 /* LogUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogUtil.swift; sourceTree = "<group>"; };
+		F96C2CB126CAA16B00DF5863 /* Define.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Define.swift; sourceTree = "<group>"; };
 		FB62A64FCB76AE217FEF7140 /* Pods-DYLive.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DYLive.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DYLive/Pods-DYLive.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -274,8 +283,10 @@
 		7A0F063B226089F900DD89F5 /* DYLive */ = {
 			isa = PBXGroup;
 			children = (
+				F96C2CA226CA971900DF5863 /* Config */,
 				7A0F064E22608A5A00DD89F5 /* Classes */,
 				7A0F063C226089F900DD89F5 /* AppDelegate.swift */,
+				F96C2CAE26CA9D1500DF5863 /* fvideo-Bridging-Header.h */,
 				7A0F0645226089FA00DD89F5 /* LaunchScreen.storyboard */,
 				7A0F0648226089FA00DD89F5 /* Info.plist */,
 				7A0F0643226089FA00DD89F5 /* Assets.xcassets */,
@@ -616,6 +627,17 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		F96C2CA226CA971900DF5863 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				F96C2CB126CAA16B00DF5863 /* Define.swift */,
+				F96C2CAF26CA9D6400DF5863 /* LogUtil.swift */,
+				F96C2CA526CA989300DF5863 /* DeviceTypeDefine.swift */,
+				F96C2CA326CA971900DF5863 /* PlatformConfig.swift */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -767,11 +789,13 @@
 				7AF1CCF22265D981002DBE91 /* CollectionHeaderView.swift in Sources */,
 				7AF1CD3E2269C6AF002DBE91 /* GameViewModel.swift in Sources */,
 				7AC53765226EA080001CB912 /* CustomNavigationVc.swift in Sources */,
+				F96C2CB226CAA16C00DF5863 /* Define.swift in Sources */,
 				7AC5375B226DBD71001CB912 /* BaseViewController.swift in Sources */,
 				7A82A1D022714E7400915D9C /* FollowHeaderView.swift in Sources */,
 				7AF1CCED22648331002DBE91 /* UIColor-Extension.swift in Sources */,
 				7AC5374D226D6C68001CB912 /* BaseAnchorViewController.swift in Sources */,
 				7AF1CD3C2269B8CF002DBE91 /* GameViewController.swift in Sources */,
+				F96C2CA426CA971900DF5863 /* PlatformConfig.swift in Sources */,
 				7AF1CCEF2265AC24002DBE91 /* RecommendViewController.swift in Sources */,
 				7AC5378F226FEAEE001CB912 /* GiftView.swift in Sources */,
 				7A0F063D226089F900DD89F5 /* AppDelegate.swift in Sources */,
@@ -802,12 +826,14 @@
 				7A0F06822264653D00DD89F5 /* Common.swift in Sources */,
 				7A73A0742275377900FC2CCA /* RoomVipViewController.swift in Sources */,
 				7A73A076227543DA00FC2CCA /* NSString-Extension.swift in Sources */,
+				F96C2CA626CA989300DF5863 /* DeviceTypeDefine.swift in Sources */,
 				7A82A1D42271545000915D9C /* ProfileViewController.swift in Sources */,
 				7AF1CD3422699F15002DBE91 /* RecommendGameView.swift in Sources */,
 				7A82A1D6227158A600915D9C /* LiveViewController.swift in Sources */,
 				7AC53787226EFC46001CB912 /* RoomShowHeadView.swift in Sources */,
 				7AF1CD242267297D002DBE91 /* AnchorGroupModel.swift in Sources */,
 				7A73A07C22754D8600FC2CCA /* BaseTableViewController.swift in Sources */,
+				F96C2CB026CA9D6500DF5863 /* LogUtil.swift in Sources */,
 				7AC53797226FFD6D001CB912 /* ChatShowView.swift in Sources */,
 				7AF1CD2222672643002DBE91 /* NSDate-Extension.swift in Sources */,
 				7A82A1CE227140F400915D9C /* FollowViewModel.swift in Sources */,
@@ -974,6 +1000,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 2B7856P9V4;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				INFOPLIST_FILE = DYLive/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -983,6 +1010,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.future.fvideo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = fvideo_dev_20210816;
+				SWIFT_OBJC_BRIDGING_HEADER = "DYLive/fvideo-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -997,6 +1025,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 2B7856P9V4;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				INFOPLIST_FILE = DYLive/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1006,6 +1035,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.future.fvideo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = fvideo_adHoc_20210816;
+				SWIFT_OBJC_BRIDGING_HEADER = "DYLive/fvideo-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

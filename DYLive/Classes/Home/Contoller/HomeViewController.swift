@@ -10,14 +10,14 @@
 
 import UIKit
 
-private let kTitleViewH : CGFloat = 40
+private let kTitleViewH : CGFloat = 50
 
 class HomeViewController: UIViewController {
 
     // MARK: 懒加载属性
     private lazy var pageTitleView : PageTitleView = {[weak self] in
         let titleFrame = CGRect(x: 0, y: kNavigationBarH, width: kScreenW, height: kTitleViewH)
-        let titles = ["推荐","游戏","娱乐","趣玩"]
+        let titles = ["推荐","电影","连续剧","综艺","动漫"]
         let titleView = PageTitleView(frame: titleFrame, titles: titles)
         titleView.delegate = self
         
@@ -31,6 +31,7 @@ class HomeViewController: UIViewController {
         
         //2. 确定所有子控制器
         var childVcs = [UIViewController]()
+        childVcs.append(RecommendViewController())
         childVcs.append(RecommendViewController())
         childVcs.append(GameViewController())
         childVcs.append(AmuseViewController())
@@ -50,6 +51,10 @@ class HomeViewController: UIViewController {
         setUpUI()
     }
 
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        navigationController?.navigationBar.backgroundColor = kPageTitleBgColor
+    }
 }
 
 // MARK: 设置 UI 界面
@@ -72,18 +77,34 @@ extension HomeViewController {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.backgroundColor = kPageTitleBgColor
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        if #available(iOS 13.0, *) {
+            return .darkContent
+        } else {
+            return .default
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.navigationBar.backgroundColor = nil
+    }
+    
     private func setUpNavigationBar() {
-        
         //1. 设置左侧 item
-        navigationItem.leftBarButtonItem = UIBarButtonItem(imageName: "logo", viewController: self, selector: #selector(logoAction))
+//        navigationItem.leftBarButtonItem = UIBarButtonItem(imageName: "logo", viewController: self, selector: #selector(logoAction))
         
         //2. 设置右侧 item
-        let size = CGSize(width: 40, height: 40)
-        let historyItem = UIBarButtonItem(imageName: "image_my_history", highImageName: "Image_my_history_click", size: size, viewController: self, selector: #selector(historyAction))
-        let searchItem = UIBarButtonItem(imageName: "btn_search", highImageName: "btn_search_clicked", size: size, viewController: self, selector: #selector(searchAction))
-        let grcodeItem = UIBarButtonItem(imageName: "Image_scan", highImageName: "Image_scan_click", size: size, viewController: self, selector: #selector(scanAction))
+        let historyItem = UIBarButtonItem(image: UIImage(named: "icon_history")?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(historyAction))
+        let searchItem = UIBarButtonItem(image: UIImage(named: "icon_download")?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(searchAction))
+        let grcodeItem = UIBarButtonItem(image: UIImage(named: "icon_filter")?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(scanAction))
         
-        navigationItem.rightBarButtonItems = [historyItem,searchItem,grcodeItem]
+        navigationItem.rightBarButtonItems = [grcodeItem,searchItem,historyItem]
         
     }
     
@@ -123,11 +144,11 @@ extension HomeViewController {
     }
     
     @objc fileprivate func searchAction() {
-        print("搜索")
+        print("下载")
     }
     
     @objc fileprivate func scanAction() {
-        print("浏览")
+        print("筛选")
     }
     
 }

@@ -11,13 +11,12 @@
 import UIKit
 
 // MARK: 定义常量
-private let kScrollLineH : CGFloat = 2.0
-private let kNormalColor : (CGFloat, CGFloat, CGFloat) = (85, 85, 85)
-private let kSelectColor : (CGFloat, CGFloat, CGFloat) = (255, 128, 0)
-
+private let kScrollLineH : CGFloat = 10.0
+private let kNormalColor : (CGFloat, CGFloat, CGFloat) = (255, 255, 255)
+private let kSelectColor : (CGFloat, CGFloat, CGFloat) = (189, 31, 39)
 
 // MARK: 定义协议
-protocol PageTitleViewDelegate : class {
+protocol PageTitleViewDelegate : NSObject {
     func pageTitleView(titleView: PageTitleView, selectedIndex index : Int)
 }
 
@@ -45,8 +44,9 @@ class PageTitleView: UIView {
     // MARK: 添加 scrollLine
     private lazy var scrollLine : UIView = {
         let scrollLine = UIView()
-        scrollLine.backgroundColor = UIColor.orange
-        
+        scrollLine.backgroundColor = RGBCOLOR(r: 189, 31, 39)
+        scrollLine.layer.cornerRadius = kScrollLineH/2.0
+        scrollLine.layer.masksToBounds = true
         return scrollLine
     }()
     
@@ -74,7 +74,7 @@ class PageTitleView: UIView {
 extension PageTitleView {
     
     private func setUpUI () {
-        
+        backgroundColor = kPageTitleBgColor
         //1. 添加 ScrollView
         addSubview(scrollView)
         scrollView.frame = bounds
@@ -100,7 +100,7 @@ extension PageTitleView {
             //2. 设置 label 属性
             label.text = title
             label.tag = index
-            label.font = UIFont.systemFont(ofSize: 16.0)
+            label.font = UIFont.boldSystemFont(ofSize: 18.0)
             label.textColor = UIColor(r: kNormalColor.0, g: kNormalColor.1, b: kNormalColor.2)
             label.textAlignment = .center
             
@@ -134,10 +134,11 @@ extension PageTitleView {
         //2.1 获取第一个 Label
         guard let firstLabel = titleLabels.first else { return }
         firstLabel.textColor = UIColor(r: kSelectColor.0, g: kSelectColor.1, b: kSelectColor.2)
+        firstLabel.font = UIFont.boldSystemFont(ofSize: 20.0)
         
         //2.2 设置 scrollLine 的属性
         scrollView.addSubview(scrollLine)
-        scrollLine.frame = CGRect(x: firstLabel.frame.origin.x, y: frame.height - kScrollLineH, width: firstLabel.frame.width, height: kScrollLineH)
+        scrollLine.frame = CGRect(x: firstLabel.center.x - kScrollLineH/2.0, y: frame.height - kScrollLineH - 5, width: kScrollLineH, height: kScrollLineH)
         
     }
     
@@ -162,14 +163,16 @@ extension PageTitleView {
         //3. 切换文字的颜色
         currentLabel.textColor = UIColor(r: kSelectColor.0, g: kSelectColor.1, b: kSelectColor.2)
         oldLabel.textColor = UIColor(r: kNormalColor.0, g: kNormalColor.1, b: kNormalColor.2)
+        oldLabel.font = UIFont.boldSystemFont(ofSize: 18.0)
+        currentLabel.font = UIFont.boldSystemFont(ofSize: 20.0)
         
         //4. 保存最新 Label 的下标值
         currentIndex = currentLabel.tag
         
         //5. 滚动条位置修改
-        let scrollLinePosition = CGFloat(currentLabel.tag) * scrollLine.frame.width
+        let scrollLinePosition = currentLabel.center.x
         UIView.animate(withDuration: 0.15) {
-            self.scrollLine.frame.origin.x = scrollLinePosition
+            self.scrollLine.center.x = scrollLinePosition
         }
         
         
@@ -192,9 +195,9 @@ extension PageTitleView {
         let targetLabel = titleLabels[targetIndex]
         
         //2. 处理滑块逻辑
-        let moveTotalX = targetLabel.frame.origin.x - sourceLabel.frame.origin.x
+        let moveTotalX = targetLabel.center.x - sourceLabel.center.x
         let moveX = moveTotalX * progress
-        scrollLine.frame.origin.x = sourceLabel.frame.origin.x + moveX
+        scrollLine.center.x = sourceLabel.center.x + moveX
         
         //3. 颜色渐变(复杂)
         //3.1 取出变化的范围
@@ -205,6 +208,9 @@ extension PageTitleView {
         
         //3.3 变化 targetLabel
         targetLabel.textColor = UIColor(r: kNormalColor.0 + colorDelta.0 * progress, g: kNormalColor.1 + colorDelta.1 * progress, b: kNormalColor.2 + colorDelta.2 * progress)
+        
+        sourceLabel.font = UIFont.boldSystemFont(ofSize: 20.0 - 2 * progress)
+        targetLabel.font = UIFont.boldSystemFont(ofSize: 18.0 + 2 * progress)
         
         //4. 记录最新的 index
         currentIndex = targetIndex

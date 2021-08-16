@@ -16,10 +16,9 @@ class MainViewController: UITabBarController {
         super.viewDidLoad()
 
         addChildVc("Home")
-        addChildVc("Live")
+//        addChildVc("Live")
         addChildVc("Follow")
         addChildVc("Profile")
-        
     }
     
     private func addChildVc(_ name : String) {
@@ -29,8 +28,5 @@ class MainViewController: UITabBarController {
         
         //2. 将自控制器添加
         addChild(childVc)
-        
     }
-    
-
 }
