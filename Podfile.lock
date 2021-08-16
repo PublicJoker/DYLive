@@ -9,7 +9,7 @@ DEPENDENCIES:
   - Kingfisher
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  https://mirrors.tuna.tsinghua.edu.cn/git/CocoaPods/Specs.git:
     - Alamofire
     - ExpandingMenu
     - Kingfisher
@@ -19,6 +19,6 @@ SPEC CHECKSUMS:
   ExpandingMenu: 3187a4ed1aa1aea85418e444c213e4cd6063c122
   Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
 
-PODFILE CHECKSUM: 514640a731ae70ee3220acfdadf4618f99c7b92c
+PODFILE CHECKSUM: 023af4ab5792ca2a293b323fb5d9fdf7321f9a02
 
-COCOAPODS: 1.5.0
+COCOAPODS: 1.10.1

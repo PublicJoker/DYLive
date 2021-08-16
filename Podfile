@@ -1,7 +1,8 @@
 # Uncomment the next line to define a global platform for your project
 platform :ios, '8.0'
-# Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+inhibit_all_warnings!
 use_frameworks!
+source 'https://mirrors.tuna.tsinghua.edu.cn/git/CocoaPods/Specs.git'
 
 target 'DYLive' do
 
