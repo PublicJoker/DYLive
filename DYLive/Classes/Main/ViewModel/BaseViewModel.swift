@@ -12,7 +12,7 @@ import UIKit
 
 class BaseViewModel {
     
-    lazy var anchorGroups : [AnchorGroupModel] = [AnchorGroupModel]()
+    lazy var anchorGroups : [VideoGroupModel] = [VideoGroupModel]()
 
 }
 
@@ -31,16 +31,16 @@ extension BaseViewModel {
                 
                 //2.1 字典转模型对象
                 for dict in dataArray {
-                    self.anchorGroups.append(AnchorGroupModel(dict: dict))
+                    self.anchorGroups.append(VideoGroupModel(dict: dict))
                 }
                 
             } else {
                 //2.1 创建组
-                let group = AnchorGroupModel()
+                let group = VideoGroupModel()
                 
                 //2.2 遍历 dataArray 所有的字典
                 for dict in dataArray {
-                    group.anchors.append(AnchorModel(dict: dict))
+                    group.video_list.append(VideoModel(dict: dict))
                 }
                 
                 //2.3 将 group 添加到 anchorGroups 里面

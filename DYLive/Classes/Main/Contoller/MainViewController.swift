@@ -19,6 +19,8 @@ class MainViewController: UITabBarController {
 //        addChildVc("Live")
         addChildVc("Follow")
         addChildVc("Profile")
+        
+        delegate = self
     }
     
     private func addChildVc(_ name : String) {
@@ -29,4 +31,17 @@ class MainViewController: UITabBarController {
         //2. 将自控制器添加
         addChild(childVc)
     }
+}
+
+extension MainViewController: UITabBarControllerDelegate {
+    func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
+        if viewController == tabBarController.children.first {
+            UINavigationBar.appearance().barTintColor = kPageTitleBgColor
+        } else {
+            UINavigationBar.appearance().barTintColor = .white
+        }
+        
+        return true
+    }
+
 }

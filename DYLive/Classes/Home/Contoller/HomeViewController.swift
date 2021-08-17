@@ -10,32 +10,51 @@
 
 import UIKit
 
-private let kTitleViewH : CGFloat = 50
+private let kTitleViewH : CGFloat = 65
+
+extension UIView {
+    /// 递归隐藏所有的线
+    func hideAllLine() {
+        for subV in subviews {
+            if subV.frame.height.isLessThanOrEqualTo(1) && CGFloat(0.1).isLessThanOrEqualTo(subV.frame.height) {
+                subV.alpha = 0
+            } else {
+                subV.hideAllLine()
+            }
+        }
+    }
+}
 
 class HomeViewController: UIViewController {
-
+    // MARK: 懒加载属性
+    private lazy var homeViewModel : HomeViewModel = HomeViewModel()
+    
+    var titles = [String]()
+    
     // MARK: 懒加载属性
     private lazy var pageTitleView : PageTitleView = {[weak self] in
-        let titleFrame = CGRect(x: 0, y: kNavigationBarH, width: kScreenW, height: kTitleViewH)
-        let titles = ["推荐","电影","连续剧","综艺","动漫"]
+        let titleFrame = CGRect(x: 0, y: 0, width: kScreenW, height: kTitleViewH)
         let titleView = PageTitleView(frame: titleFrame, titles: titles)
         titleView.delegate = self
-        
         return titleView
     }()
     
     private lazy var pageContentView : PageContentView = {[weak self] in
         //1. 确定内容 frame
         let contentH = kScreenH - kNavigationBarH - kTitleViewH - kTabBarH
-        let contentFrame = CGRect(x: 0, y:  kNavigationBarH + kTitleViewH, width: kScreenW, height: contentH)
+        let contentFrame = CGRect(x: 0, y: kTitleViewH, width: kScreenW, height: contentH)
         
         //2. 确定所有子控制器
         var childVcs = [UIViewController]()
-        childVcs.append(RecommendViewController())
-        childVcs.append(RecommendViewController())
-        childVcs.append(GameViewController())
-        childVcs.append(AmuseViewController())
-        childVcs.append(FunnyViewController())
+        
+        for (index, title) in titles.enumerated() {
+            if index == 0 {//推荐
+                childVcs.append(RecommendViewController())
+            } else {
+                // 传分类id
+                childVcs.append(RecommendViewController(homeViewModel.tabModels[index-1].list_id))
+            }
+        }
         
         let pageContentView = PageContentView(frame: contentFrame, childVcs: childVcs, parentVc: self)
         pageContentView.delegate = self
@@ -47,14 +66,40 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        titles.append("推荐")
+
         // 设置 UI 页面
         setUpUI()
+        homeViewModel.requestData {
+            print(self.homeViewModel.tabModels)
+            
+            let tabs = self.homeViewModel.tabModels.compactMap { $0.list_name }
+            self.titles.append(contentsOf: tabs)
+            let titleFrame = CGRect(x: 0, y: 0, width: kScreenW, height: kTitleViewH)
+            self.pageTitleView = PageTitleView(frame: titleFrame, titles: self.titles)
+            
+            //2. 添加 titleView
+            self.view.addSubview(self.pageTitleView)
+            
+            //3. 添加 contentView
+            self.view.addSubview(self.pageContentView)
+        }
     }
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        navigationController?.navigationBar.backgroundColor = kPageTitleBgColor
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: true)
+        navigationController?.navigationBar.isTranslucent = false
+        navigationController?.navigationBar.barTintColor = kThemeColor
     }
+    
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.navigationBar.isTranslucent = true
+        navigationController?.navigationBar.barTintColor = UIColor.white
+    }
+    
 }
 
 // MARK: 设置 UI 界面
@@ -67,32 +112,14 @@ extension HomeViewController {
         
         //1. 设置导航栏
         setUpNavigationBar()
-        
-        //2. 添加 titleView
-        view.addSubview(pageTitleView)
-        
-        //3. 添加 contentView
-        view.addSubview(pageContentView)
-        pageContentView.backgroundColor = .purple
-        
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.navigationBar.backgroundColor = kPageTitleBgColor
-    }
-    
+
     override var preferredStatusBarStyle: UIStatusBarStyle {
         if #available(iOS 13.0, *) {
-            return .darkContent
+            return .lightContent
         } else {
             return .default
         }
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        navigationController?.navigationBar.backgroundColor = nil
     }
     
     private func setUpNavigationBar() {
@@ -106,6 +133,8 @@ extension HomeViewController {
         
         navigationItem.rightBarButtonItems = [grcodeItem,searchItem,historyItem]
         
+        // 隐藏导航栏底部的线
+        navigationController?.navigationBar.hideAllLine()
     }
     
 }

@@ -12,29 +12,21 @@ import UIKit
 
 private let kProfileNormalCellID = "kProfileNormalCellID"
 
-private let kProfileHeaderViewH : CGFloat = kScreenH
-private let kBarButtonItemW : CGFloat = 40.0
+private let kProfileHeaderViewH : CGFloat = kScreenH - 44
 
 
 class ProfileViewController: BaseViewController {
-    
-    // MARK: 定义属性
-//    fileprivate var sectionOneArray : [[String : Any]] = [["name":"开播提醒","icon_name":"app3DTouch_checkin"]
-//        ,["name":"务票查询","icon_name":"home_newSeacrhcon"],["name":"设置选项","icon_name":"image_my_settings"]]
-//    fileprivate var sectionTwoArray : [[String : Any]] = [["name":"手游中心","icon_name":"Image_handle"]]
-    
     // MARK: 懒加载属性
     fileprivate lazy var tableView : UITableView = {
         
-        let tableView = UITableView(frame: CGRect(x: 0, y: -(kIsPhoneX ? 88 : 64), width: kScreenW, height: kScreenH), style: .grouped)
+        let tableView = UITableView(frame: CGRect(x: 0, y: -(kIsPhoneX ? 88 : 64), width: kScreenW, height: kScreenH + 20), style: .plain)
         
         tableView.showsVerticalScrollIndicator = false
         tableView.showsHorizontalScrollIndicator = false
         tableView.estimatedRowHeight = UITableView.automaticDimension
         tableView.rowHeight = 50
-        tableView.sectionHeaderHeight = 10
-        tableView.sectionFooterHeight = 1
         tableView.dataSource = self
+        tableView.bounces = false
         
         tableView.register(UINib(nibName: "TableProfileNormalCell", bundle: nil), forCellReuseIdentifier: kProfileNormalCellID)
         

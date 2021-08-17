@@ -5,6 +5,8 @@ PODS:
   - JPush (3.7.0):
     - JCore (< 3.0.0, >= 2.0.0)
   - Kingfisher (4.10.1)
+  - LLCycleScrollView (1.5.4):
+    - Kingfisher (<= 4.10.1)
   - ObjcExceptionBridging (1.0.1):
     - ObjcExceptionBridging/ObjcExceptionBridging (= 1.0.1)
   - ObjcExceptionBridging/ObjcExceptionBridging (1.0.1)
@@ -23,6 +25,7 @@ DEPENDENCIES:
   - ExpandingMenu (~> 0.4)
   - JPush
   - Kingfisher
+  - LLCycleScrollView
   - UMCCommon
   - XCGLogger
 
@@ -33,6 +36,7 @@ SPEC REPOS:
     - JCore
     - JPush
     - Kingfisher
+    - LLCycleScrollView
     - ObjcExceptionBridging
     - UMAPM
     - UMCCommon
@@ -45,12 +49,13 @@ SPEC CHECKSUMS:
   JCore: 9d5bda3a172c65bbe14f2806ab0f6246f8a06065
   JPush: 1fd7a326e7e6588eba517659ce1b79a144e54938
   Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
+  LLCycleScrollView: 77f6e11980d1cd010ee9ee87e94da4e8026ccd21
   ObjcExceptionBridging: c30e00eb3700467e695faeea30e26e18bd445001
   UMAPM: 7c2cb69fa45756915aa59799163ae145a65f58ee
   UMCCommon: a5532d26b49a9e8f803df1c8e2a45f71490d70ec
   UMDevice: c883577d50c382a33be6ca3dde25c7ed89298b6c
   XCGLogger: 1943831ef907df55108b0b18657953f868de973b
 
-PODFILE CHECKSUM: 14c292e240c10d02bb44ecdc620f30ce89175d77
+PODFILE CHECKSUM: 5409e3015da619e32015a5abc663078d81a31fb2
 
 COCOAPODS: 1.10.1

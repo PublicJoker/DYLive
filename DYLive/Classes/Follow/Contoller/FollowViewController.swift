@@ -13,18 +13,7 @@ import UIKit
 private let kFollowHeaderViewH : CGFloat = 120.0
 
 class FollowViewController: BaseAnchorViewController {
-    
     fileprivate lazy var followViewModel : FollowViewModel = FollowViewModel()
-//    fileprivate lazy var followHeaderView : FollowHeaderView = {
-//
-//        let followHeaderView = FollowHeaderView.followHeaderView()
-//
-//        followHeaderView.frame = CGRect(x: 0, y: -kFollowHeaderViewH, width: kScreenW, height: kFollowHeaderViewH)
-//
-//        return followHeaderView
-//
-//    }()
-
 }
 
 
@@ -42,7 +31,8 @@ extension FollowViewController {
         
 //        collectionView.addSubview(followHeaderView)
 //        collectionView.contentInset = UIEdgeInsets(top: kFollowHeaderViewH, left: 0, bottom: 0, right: 0)
-        
+        let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
+        layout.itemSize = CGSize(width: kScreenWidth - 30, height: 200)
         super.setUpUI()
     }
     

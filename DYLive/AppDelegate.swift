@@ -27,6 +27,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 }
 
+extension AppDelegate {
+    func signForContent(_ content: String) -> String {
+        let charArray = content.cString(using: .utf8)!
+        let length = charArray.count
+        let pointer = UnsafeMutablePointer<Int8>.allocate(capacity: length)
+        for i in 0..<length
+        {
+            pointer[i]=charArray[i]
+        }
+        let signResultChar = sign(pointer)!
+        return String(cString: signResultChar, encoding: .utf8) ?? ""
+    }
+}
+
 //MARK:--推送代理
 extension AppDelegate : JPUSHRegisterDelegate {
     @available(iOS 10.0, *)

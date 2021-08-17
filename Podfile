@@ -18,4 +18,18 @@ pod 'UMCCommon'
 pod 'XCGLogger'
 # 极光推送
 pod 'JPush'
+# 轮播
+pod 'LLCycleScrollView'
+end
+
+# 指定target的swift版本
+post_install do |installer|
+  installer.pods_project.targets.each do |target|
+    # 也可以不用 if，讓所有pod的版本都設為一樣的
+#    if ['RxSwift', 'RxSwiftExt', 'RxCocoa', 'XCGLogger', 'HandyJSON'].include? target.name
+      target.build_configurations.each do |config|
+        config.build_settings['SWIFT_VERSION'] = '5.0'
+#      end
+    end
+  end
 end

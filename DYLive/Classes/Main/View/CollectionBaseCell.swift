@@ -13,40 +13,31 @@ import Kingfisher
 
 
 class CollectionBaseCell: UICollectionViewCell {
-    
-    
     // MARK: 控件属性
     @IBOutlet weak var iconImageView: UIImageView!
-    @IBOutlet weak var onlineBtn: UIButton!
-    @IBOutlet weak var nickNameLabel: UILabel!
     
     // MARK: 定义模型属性
-    var anchor : AnchorModel? {
-        
+    var anchor : VideoModel? {
         didSet {
-            
             //0. 校验模型是否有值
             guard let anchor = anchor else { return }
-            
-            //1. 取出在线人数显示的文字
-            var onlineStr : String = ""
-            if anchor.online >= 10000 {
-                onlineStr = "\(Int(anchor.online / 10000))万在线"
-            } else {
-                onlineStr = "\(anchor.online)在线"
-            }
-            onlineBtn.setTitle(onlineStr, for: .normal)
-            
-            //2. 昵称显示
-            nickNameLabel.text = anchor.nickname
-            
+
             //3. 设置图片封面
-            guard let iconURL = NSURL(string: anchor.vertical_src) else { return }
+            guard let iconURL = NSURL(string: anchor.vod_pic) else { return }
             let url = ImageResource(downloadURL: iconURL as URL)
             iconImageView.kf.setImage(with: url)
-            
         }
-        
     }
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        contentView.layer.cornerRadius = 5
+        contentView.layer.masksToBounds = false
+        contentView.layer.borderWidth = 0.5
+        contentView.layer.borderColor = kTextLightGrayColor.cgColor
+        contentView.layer.shadowOpacity = 0.3
+        contentView.layer.shadowRadius = 5
+        contentView.layer.shadowOffset = CGSize(width: 0, height: 3)
+        contentView.layer.shadowColor = kTextLightGrayColor.cgColor
+    }
 }

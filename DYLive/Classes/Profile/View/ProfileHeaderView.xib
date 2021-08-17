@@ -10,14 +10,14 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ProfileHeaderView" customModule="DYLive" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="360"/>
+            <rect key="frame" x="0.0" y="0.0" width="367" height="625"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Img_orange" translatesAutoresizingMaskIntoConstraints="NO" id="Zo0-e0-UX6">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                    <rect key="frame" x="0.0" y="0.0" width="367" height="293.5"/>
                 </imageView>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="N7n-dU-BSx">
-                    <rect key="frame" x="0.0" y="70" width="375" height="290"/>
+                    <rect key="frame" x="0.0" y="329.5" width="367" height="254.5"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="hyk-Kw-j9s">
                         <size key="itemSize" width="50" height="50"/>
@@ -29,24 +29,42 @@
                         <outlet property="dataSource" destination="iN0-l3-epB" id="xNe-Ua-IoY"/>
                     </connections>
                 </collectionView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="奖励到期时间:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eGM-N2-Bd6">
+                    <rect key="frame" x="142" y="303.5" width="83.5" height="16"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="超影" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C8W-5N-o4C">
+                    <rect key="frame" x="170" y="594" width="27" height="16"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="C8W-5N-o4C" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="1eH-p4-lu3"/>
                 <constraint firstItem="Zo0-e0-UX6" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="C4P-x3-pyJ"/>
                 <constraint firstAttribute="trailing" secondItem="Zo0-e0-UX6" secondAttribute="trailing" id="E4f-cO-NRP"/>
                 <constraint firstItem="N7n-dU-BSx" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="QEQ-tP-Vbu"/>
+                <constraint firstItem="Zo0-e0-UX6" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.8" id="QWj-wt-iFq"/>
                 <constraint firstAttribute="trailing" secondItem="N7n-dU-BSx" secondAttribute="trailing" id="QeP-YD-9Wc"/>
                 <constraint firstItem="Zo0-e0-UX6" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Wtz-TH-J8h"/>
-                <constraint firstAttribute="bottom" secondItem="Zo0-e0-UX6" secondAttribute="bottom" constant="300" id="cqn-3u-4LM"/>
-                <constraint firstItem="N7n-dU-BSx" firstAttribute="top" secondItem="Zo0-e0-UX6" secondAttribute="bottom" constant="10" id="s2z-7P-pyU"/>
-                <constraint firstAttribute="bottom" secondItem="N7n-dU-BSx" secondAttribute="bottom" id="spV-5E-4W2"/>
+                <constraint firstItem="C8W-5N-o4C" firstAttribute="top" secondItem="N7n-dU-BSx" secondAttribute="bottom" constant="10" id="h7N-TM-7NM"/>
+                <constraint firstItem="eGM-N2-Bd6" firstAttribute="top" secondItem="Zo0-e0-UX6" secondAttribute="bottom" constant="10" id="ip8-ij-fJ6"/>
+                <constraint firstItem="eGM-N2-Bd6" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="jFt-o9-HB8"/>
+                <constraint firstAttribute="bottom" secondItem="C8W-5N-o4C" secondAttribute="bottom" constant="15" id="nMV-lj-J7M"/>
+                <constraint firstItem="N7n-dU-BSx" firstAttribute="top" secondItem="eGM-N2-Bd6" secondAttribute="bottom" constant="10" id="nPY-R7-jFH"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="bgImageView" destination="Zo0-e0-UX6" id="8JG-jc-EUe"/>
                 <outlet property="collectionView" destination="N7n-dU-BSx" id="hvg-b6-RW7"/>
+                <outlet property="expireTimeLabel" destination="eGM-N2-Bd6" id="I2y-8N-rDM"/>
+                <outlet property="versionLabel" destination="C8W-5N-o4C" id="SYt-Za-cjF"/>
             </connections>
-            <point key="canvasLocation" x="35.507246376811594" y="34.821428571428569"/>
+            <point key="canvasLocation" x="29.710144927536234" y="9.0401785714285712"/>
         </view>
     </objects>
     <resources>

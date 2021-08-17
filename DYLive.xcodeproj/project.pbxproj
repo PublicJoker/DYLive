@@ -113,6 +113,11 @@
 		F96C2CA626CA989300DF5863 /* DeviceTypeDefine.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96C2CA526CA989300DF5863 /* DeviceTypeDefine.swift */; };
 		F96C2CB026CA9D6500DF5863 /* LogUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96C2CAF26CA9D6400DF5863 /* LogUtil.swift */; };
 		F96C2CB226CAA16C00DF5863 /* Define.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96C2CB126CAA16B00DF5863 /* Define.swift */; };
+		F99C3A4426CB541700E81799 /* libnative-signtools.so in Resources */ = {isa = PBXBuildFile; fileRef = F99C3A4326CB541700E81799 /* libnative-signtools.so */; };
+		F99C3A4726CB939A00E81799 /* ProxyCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99C3A4626CB939A00E81799 /* ProxyCheck.swift */; };
+		F99C3A4A26CB968900E81799 /* ProxyCheck.m in Sources */ = {isa = PBXBuildFile; fileRef = F99C3A4926CB968900E81799 /* ProxyCheck.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F99C3A4C26CB9E6E00E81799 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99C3A4B26CB9E6E00E81799 /* HomeViewModel.swift */; };
+		F99C3A4E26CBA35E00E81799 /* HomeTabModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99C3A4D26CBA35E00E81799 /* HomeTabModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -226,6 +231,13 @@
 		F96C2CAE26CA9D1500DF5863 /* fvideo-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "fvideo-Bridging-Header.h"; sourceTree = "<group>"; };
 		F96C2CAF26CA9D6400DF5863 /* LogUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogUtil.swift; sourceTree = "<group>"; };
 		F96C2CB126CAA16B00DF5863 /* Define.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Define.swift; sourceTree = "<group>"; };
+		F99C3A4326CB541700E81799 /* libnative-signtools.so */ = {isa = PBXFileReference; lastKnownFileType = file; path = "libnative-signtools.so"; sourceTree = "<group>"; };
+		F99C3A4526CB57E000E81799 /* SignUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignUtil.h; sourceTree = "<group>"; };
+		F99C3A4626CB939A00E81799 /* ProxyCheck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProxyCheck.swift; sourceTree = "<group>"; };
+		F99C3A4826CB968900E81799 /* ProxyCheck.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProxyCheck.h; sourceTree = "<group>"; };
+		F99C3A4926CB968900E81799 /* ProxyCheck.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProxyCheck.m; sourceTree = "<group>"; };
+		F99C3A4B26CB9E6E00E81799 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		F99C3A4D26CBA35E00E81799 /* HomeTabModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabModel.swift; sourceTree = "<group>"; };
 		FB62A64FCB76AE217FEF7140 /* Pods-DYLive.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DYLive.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DYLive/Pods-DYLive.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -283,6 +295,7 @@
 		7A0F063B226089F900DD89F5 /* DYLive */ = {
 			isa = PBXGroup;
 			children = (
+				F99C3A4226CB533A00E81799 /* lib */,
 				F96C2CA226CA971900DF5863 /* Config */,
 				7A0F064E22608A5A00DD89F5 /* Classes */,
 				7A0F063C226089F900DD89F5 /* AppDelegate.swift */,
@@ -423,8 +436,9 @@
 		7A0F066F22609A6700DD89F5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				7AF1CD2D2269778A002DBE91 /* CycleModel.swift */,
+				F99C3A4D26CBA35E00E81799 /* HomeTabModel.swift */,
 				7AC53741226D4787001CB912 /* GameModel.swift */,
+				7AF1CD2D2269778A002DBE91 /* CycleModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -619,6 +633,7 @@
 		7AF1CD1E22671B8C002DBE91 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				F99C3A4B26CB9E6E00E81799 /* HomeViewModel.swift */,
 				7AF1CD1F22671C51002DBE91 /* RecommendViewModel.swift */,
 				7AF1CD3D2269C6AF002DBE91 /* GameViewModel.swift */,
 				7AC53747226D624F001CB912 /* AmuseViewModel.swift */,
@@ -636,6 +651,18 @@
 				F96C2CA326CA971900DF5863 /* PlatformConfig.swift */,
 			);
 			path = Config;
+			sourceTree = "<group>";
+		};
+		F99C3A4226CB533A00E81799 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				F99C3A4326CB541700E81799 /* libnative-signtools.so */,
+				F99C3A4526CB57E000E81799 /* SignUtil.h */,
+				F99C3A4626CB939A00E81799 /* ProxyCheck.swift */,
+				F99C3A4826CB968900E81799 /* ProxyCheck.h */,
+				F99C3A4926CB968900E81799 /* ProxyCheck.m */,
+			);
+			path = lib;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -668,7 +695,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 1020;
 				LastUpgradeCheck = 1020;
-				ORGANIZATIONNAME = "君凯商联网";
+				ORGANIZATIONNAME = PublicJoker;
 				TargetAttributes = {
 					7A0F0638226089F900DD89F5 = {
 						CreatedOnToolsVersion = 10.2;
@@ -699,6 +726,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7A73A0802275528000FC2CCA /* RoomRankCell.xib in Resources */,
+				F99C3A4426CB541700E81799 /* libnative-signtools.so in Resources */,
 				7A82A1F02272ABF800915D9C /* RoomNormalFooterView.xib in Resources */,
 				7A0F0647226089FA00DD89F5 /* LaunchScreen.storyboard in Resources */,
 				7AC5378D226EFC8C001CB912 /* RoomShowBottomView.xib in Resources */,
@@ -791,6 +819,7 @@
 				7AC53765226EA080001CB912 /* CustomNavigationVc.swift in Sources */,
 				F96C2CB226CAA16C00DF5863 /* Define.swift in Sources */,
 				7AC5375B226DBD71001CB912 /* BaseViewController.swift in Sources */,
+				F99C3A4726CB939A00E81799 /* ProxyCheck.swift in Sources */,
 				7A82A1D022714E7400915D9C /* FollowHeaderView.swift in Sources */,
 				7AF1CCED22648331002DBE91 /* UIColor-Extension.swift in Sources */,
 				7AC5374D226D6C68001CB912 /* BaseAnchorViewController.swift in Sources */,
@@ -802,6 +831,7 @@
 				7AC53754226D9D48001CB912 /* AmuseMenuViewCell.swift in Sources */,
 				7AC53763226E9C0E001CB912 /* RoomNormalViewController.swift in Sources */,
 				7AC53757226DAB38001CB912 /* FunnyViewController.swift in Sources */,
+				F99C3A4E26CBA35E00E81799 /* HomeTabModel.swift in Sources */,
 				7A82A1F42272DBA900915D9C /* RoomNormalContentView.swift in Sources */,
 				7AF1CD1D226712C9002DBE91 /* NetWorkTools.swift in Sources */,
 				7A82A1E02271626B00915D9C /* ProfileHeaderView.swift in Sources */,
@@ -813,6 +843,7 @@
 				7AC53742226D4787001CB912 /* GameModel.swift in Sources */,
 				7AC53759226DAE29001CB912 /* FunnyViewModel.swift in Sources */,
 				7A82A1FA2273089300915D9C /* RoomChatViewController.swift in Sources */,
+				F99C3A4A26CB968900E81799 /* ProxyCheck.m in Sources */,
 				7AC53744226D4B92001CB912 /* BaseGameModel.swift in Sources */,
 				7A73A0702275370900FC2CCA /* RoomAnchorViewController.swift in Sources */,
 				7AF1CD2E2269778A002DBE91 /* CycleModel.swift in Sources */,
@@ -825,6 +856,7 @@
 				7A0F067E22645AFF00DD89F5 /* UIBarButtonItem-Extension.swift in Sources */,
 				7A0F06822264653D00DD89F5 /* Common.swift in Sources */,
 				7A73A0742275377900FC2CCA /* RoomVipViewController.swift in Sources */,
+				F99C3A4C26CB9E6E00E81799 /* HomeViewModel.swift in Sources */,
 				7A73A076227543DA00FC2CCA /* NSString-Extension.swift in Sources */,
 				F96C2CA626CA989300DF5863 /* DeviceTypeDefine.swift in Sources */,
 				7A82A1D42271545000915D9C /* ProfileViewController.swift in Sources */,

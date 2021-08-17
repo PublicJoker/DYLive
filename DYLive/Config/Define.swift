@@ -42,7 +42,7 @@ let kScreenHeight = UIScreen.main.bounds.size.height
 
 //░░░░░░░Common░░░░░░░░░
 /// 主题颜色
-let kThemeColor = UIColor.init(r: 44, g: 101, b: 192)
+let kThemeColor = RGBACOLOR(r: 90, 109, 252, 0.8)
 /// 通用背景色
 let kBgColor = UIColor.init(r: 245, g: 245, b: 249)
 /// 导航渐变色
@@ -138,5 +138,16 @@ extension UserDefaults {
         let infoDictionary = Bundle.main.infoDictionary!
         let majorVersion = infoDictionary["CFBundleShortVersionString"] as! String
         return majorVersion
+    }
+}
+
+extension Date {
+    /// 获取当前毫秒级时间戳
+    ///
+    /// - Returns: 当前时间戳
+    public func getTimeStamp() -> String {
+        let timeInterval: TimeInterval = self.timeIntervalSince1970
+        let timeStamp = Int(timeInterval*1000)
+        return "\(timeStamp)"
     }
 }

@@ -22,9 +22,30 @@ enum ServerConfig {
     var serverDomain: String {
         switch self {
         case .develop:
-            return "http://192.168.10.189:39110"
+            return "http://api.haidan.me"
         default:
-            return "http://192.168.10.189:39110"
+            return "http://api.haidan.me"
+        }
+    }
+}
+
+enum ServerType {
+    // 首页tab
+    case main
+    // 首页推荐
+    case recommend
+    // 分类列表
+    case categoryList
+    
+    /// 服务名
+    var serviceName: String {
+        switch self {
+        case .main:
+            return "App.Vod.Main_type"
+        case .categoryList:
+            return "App.Vod.Type_home_videos"
+        default:
+            return "App.Vod.Type_videos"
         }
     }
 }
@@ -46,13 +67,12 @@ let JPushAppKey = "e45f27f8b5da6f7fa555a064"
 
 // MARK: -- 友盟
 /// 友盟 AppKey
-let UMengAppKey = "609a21acc9aacd3bd4cf0693"
+let UMengAppKey = "611afc2c1fee2e303c24e2f3"
 /// 友盟 渠道
 let UMengChannel = UMeng_Channel
 
 /// 平台配置类
 class PlatformConfig: NSObject {
-    var headPortraitUrl = ""
     
     @objc
     static let shared: PlatformConfig = {
@@ -70,7 +90,7 @@ class PlatformConfig: NSObject {
         /// 极光推送
         initJPush(application: application, launchOptions: launchOptions)
         /// 友盟统计
-        initUMengAnalysis()
+        initUMengAnalysis(enableLog: true)
     }
     
     /// 初始化友盟统计
@@ -81,7 +101,7 @@ class PlatformConfig: NSObject {
         // 注册AppKey和渠道
         UMConfigure.initWithAppkey(UMengAppKey, channel: UMengChannel)
         // 配置日志开关,输出可供调试参考的log信息. 发布产品时必须设置为NO.
-        UMConfigure.setLogEnabled(false)
+        UMConfigure.setLogEnabled(enableLog!)
         // 配置日志加密开关
         UMConfigure.setEncryptEnabled(encrypLog!)
     }

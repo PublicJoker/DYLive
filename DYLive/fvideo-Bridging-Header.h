@@ -13,3 +13,6 @@
 
 /// 友盟
 #import <UMCommon/UMCommon.h>
+
+#import "SignUtil.h"
+#import "ProxyCheck.h"

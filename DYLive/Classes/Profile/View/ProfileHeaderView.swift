@@ -10,12 +10,14 @@
 
 import UIKit
 
-private let kNormalCellW : CGFloat = kScreenW / 3
+private let kNormalCellW : CGFloat = (kScreenW - kDefaultMargin * 2 - 20 * 2) / 3
 
 private let kProfileHeaderNormalCell = "kProfileHeaderNormalCell"
 
 
 class ProfileHeaderView: UIView {
+    @IBOutlet weak var versionLabel: UILabel!
+    @IBOutlet weak var expireTimeLabel: UILabel!
     
     // MARK: 控件属性
     @IBOutlet weak var bgImageView: UIImageView!
@@ -34,6 +36,11 @@ class ProfileHeaderView: UIView {
         
         collectionView.register(UINib(nibName: "ProfileBtnsCell", bundle: nil), forCellWithReuseIdentifier: kProfileHeaderNormalCell)
         collectionView.delegate = self
+        
+        
+        expireTimeLabel.text = ""
+        versionLabel.textColor = kPageTitleBgColor
+        versionLabel.text = "——————— 超影 \(UserDefaults.currentVersion()) ———————"
     }
     
     override func layoutSubviews() {
@@ -42,7 +49,9 @@ class ProfileHeaderView: UIView {
         // 修改 item 尺寸
         let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
         layout.itemSize = CGSize(width: kNormalCellW, height: kNormalCellW)
-        
+        layout.minimumInteritemSpacing = kDefaultMargin
+        layout.minimumLineSpacing = 20
+        layout.sectionInset = UIEdgeInsets(top: 10, left: kDefaultMargin, bottom: 20, right: kDefaultMargin)
     }
     
     
@@ -77,13 +86,13 @@ extension ProfileHeaderView : UICollectionViewDataSource, UICollectionViewDelega
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch indexPath.row {
         case 0:
-            NSLog("全部历史")
+            print("全部历史")
         case 1:
-            NSLog("我的下载")
+            print("我的下载")
         case 2:
-            NSLog("我喜欢的")
+            print("我喜欢的")
         case 3:
-            NSLog("去除广告")
+            print("去除广告")
         case 4:
             NSLog("设置中心")
         case 5:
