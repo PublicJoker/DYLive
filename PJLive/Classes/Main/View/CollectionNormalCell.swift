@@ -1,0 +1,28 @@
+//
+//  CollectionNormalCell.swift
+//  PJLive
+//
+//  Created by Mr_Han on 2019/4/16.
+//  Copyright © 2019 Mr_Han. All rights reserved.
+
+//
+
+import UIKit
+
+class CollectionNormalCell: CollectionBaseCell {
+    
+    // MARK: 控件属性
+    @IBOutlet weak var roomNameLabel: UILabel!
+    
+    
+    // MARK: 定义模型属性
+    override var anchor : VideoModel? {
+        didSet {
+            //1. 将属性传递给父类
+            super.anchor = anchor
+            //2. 房间名称
+            roomNameLabel.text = anchor?.vod_name
+            roomNameLabel.font = UIFont.systemFont(ofSize: 13)
+        }
+    }
+}

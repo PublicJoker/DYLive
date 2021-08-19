@@ -1,61 +1,132 @@
 PODS:
   - Alamofire (4.8.1)
+  - ATKit_Swift (0.2.4)
+  - ATRefresh_Swift (0.2.2):
+    - EmptyDataSet-Swift (~> 5.0.0)
+    - MJRefresh (~> 3.4.3)
+  - EmptyDataSet-Swift (5.0.0)
   - ExpandingMenu (0.4.0)
+  - FDFullscreenPopGesture (1.1)
+  - FMDB (2.7.5):
+    - FMDB/standard (= 2.7.5)
+  - FMDB/standard (2.7.5)
+  - HandyJSON (5.0.2)
+  - Hue (5.0.0)
   - JCore (2.7.1)
   - JPush (3.7.0):
     - JCore (< 3.0.0, >= 2.0.0)
   - Kingfisher (4.10.1)
   - LLCycleScrollView (1.5.4):
     - Kingfisher (<= 4.10.1)
+  - MBProgressHUD (1.2.0)
+  - MGJRouter_Swift (0.1.2)
+  - MJRefresh (3.4.3)
+  - Moya (13.0.1):
+    - Moya/Core (= 13.0.1)
+  - Moya/Core (13.0.1):
+    - Alamofire (~> 4.1)
+    - Result (~> 4.1)
   - ObjcExceptionBridging (1.0.1):
     - ObjcExceptionBridging/ObjcExceptionBridging (= 1.0.1)
   - ObjcExceptionBridging/ObjcExceptionBridging (1.0.1)
+  - Result (4.1.0)
+  - SnapKit (5.0.1)
+  - SVProgressHUD (2.2.5)
+  - SwiftyJSON (5.0.1)
   - UMAPM (1.3.1)
   - UMCCommon (7.3.1):
     - UMAPM
     - UMDevice
   - UMDevice (2.0.2)
+  - VTMagic (1.2.4):
+    - VTMagic/Core (= 1.2.4)
+  - VTMagic/Core (1.2.4)
   - XCGLogger (7.0.1):
     - XCGLogger/Core (= 7.0.1)
   - XCGLogger/Core (7.0.1):
     - ObjcExceptionBridging
 
 DEPENDENCIES:
-  - Alamofire
+  - Alamofire (~> 4.8)
+  - ATKit_Swift (~> 0.2)
+  - ATRefresh_Swift (~> 0.2)
   - ExpandingMenu (~> 0.4)
-  - JPush
-  - Kingfisher
-  - LLCycleScrollView
-  - UMCCommon
-  - XCGLogger
+  - FDFullscreenPopGesture (~> 1.1)
+  - FMDB (~> 2.7)
+  - HandyJSON (~> 5.0)
+  - Hue (~> 5.0)
+  - JPush (~> 3.7)
+  - Kingfisher (~> 4.10)
+  - LLCycleScrollView (~> 1.5)
+  - MBProgressHUD (~> 1.2)
+  - MGJRouter_Swift (~> 0.1)
+  - Moya (~> 13.0)
+  - SnapKit (~> 5.0)
+  - SVProgressHUD (~> 2.2)
+  - SwiftyJSON (~> 5.0)
+  - UMCCommon (~> 7.3)
+  - VTMagic (~> 1.2)
+  - XCGLogger (~> 7.0)
 
 SPEC REPOS:
   https://mirrors.tuna.tsinghua.edu.cn/git/CocoaPods/Specs.git:
     - Alamofire
+    - ATKit_Swift
+    - ATRefresh_Swift
+    - EmptyDataSet-Swift
     - ExpandingMenu
+    - FDFullscreenPopGesture
+    - FMDB
+    - HandyJSON
+    - Hue
     - JCore
     - JPush
     - Kingfisher
     - LLCycleScrollView
+    - MBProgressHUD
+    - MGJRouter_Swift
+    - MJRefresh
+    - Moya
     - ObjcExceptionBridging
+    - Result
+    - SnapKit
+    - SVProgressHUD
+    - SwiftyJSON
     - UMAPM
     - UMCCommon
     - UMDevice
+    - VTMagic
     - XCGLogger
 
 SPEC CHECKSUMS:
   Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
+  ATKit_Swift: 2303e6f461fcaccff31f5e455a287994f9edc3fe
+  ATRefresh_Swift: ea95c33edbddf7ef3144f81dada27ff7f47f5218
+  EmptyDataSet-Swift: eb382c0c87a2d9c678077385a595cec52da38171
   ExpandingMenu: 3187a4ed1aa1aea85418e444c213e4cd6063c122
+  FDFullscreenPopGesture: a8a620179e3d9c40e8e00256dcee1c1a27c6d0f0
+  FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
+  HandyJSON: 9e4e236f5d2dbefad5155a77417bbea438201c03
+  Hue: c129cb67be7d093a82bbbc30ce8a96757bf6f37a
   JCore: 9d5bda3a172c65bbe14f2806ab0f6246f8a06065
   JPush: 1fd7a326e7e6588eba517659ce1b79a144e54938
   Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
   LLCycleScrollView: 77f6e11980d1cd010ee9ee87e94da4e8026ccd21
+  MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
+  MGJRouter_Swift: ae89cc7c4c82618b636cc9c7b15636e516080d3c
+  MJRefresh: 53e3e3219f204425ee6d3e62e8733d3295944cd6
+  Moya: f4a4b80ff2f8a4ffc208dfb31cd91636622fee6e
   ObjcExceptionBridging: c30e00eb3700467e695faeea30e26e18bd445001
+  Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
+  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
+  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+  SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
   UMAPM: 7c2cb69fa45756915aa59799163ae145a65f58ee
   UMCCommon: a5532d26b49a9e8f803df1c8e2a45f71490d70ec
   UMDevice: c883577d50c382a33be6ca3dde25c7ed89298b6c
+  VTMagic: b49e5f456dbcbfd9a3588ba92417233a105bc193
   XCGLogger: 1943831ef907df55108b0b18657953f868de973b
 
-PODFILE CHECKSUM: 5409e3015da619e32015a5abc663078d81a31fb2
+PODFILE CHECKSUM: 547c1d2cfc86b83e857dc34892a6a4a54774841e
 
 COCOAPODS: 1.10.1
