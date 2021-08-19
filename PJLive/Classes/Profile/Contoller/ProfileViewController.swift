@@ -8,13 +8,46 @@
 //
 
 import UIKit
+import LLCycleScrollView
 
 private let kProfileNormalCellID = "kProfileNormalCellID"
 
-private let kProfileHeaderViewH : CGFloat = kScreenH - 44
+private let kProfileHeaderViewH : CGFloat = kScreenH - kTabBarH
+// MARK: 常量
+private let kCycleViewH : CGFloat = kScreenW * 9 / 16.0
 
-
-class ProfileViewController: BaseViewController {
+class ProfileViewController: BaseViewController, LLCycleScrollViewDelegate {
+    func cycleScrollView(_ cycleScrollView: LLCycleScrollView, didSelectItemIndex index: NSInteger) {
+        let model = self.cycleModels![index]
+        print("点击了视频:\(model.vod_id)")
+        AppJump.jumpToPlayControl(movieId: model.vod_id)
+    }
+    
+    var cycleModels : [Player_vod]? {
+        didSet {
+            cycleView.titles = cycleModels?.compactMap({
+                
+                let his = String(format:"%.1f",Float($0.playItem.currentTime/$0.playItem.totalTime*100))
+                return $0.vod_name + " \($0.playItem.title)" + " 观看至" + his + "%" + "\n点击继续观看"
+            }) ?? []
+            cycleView.imagePaths = cycleModels?.compactMap({ $0.vod_pic }) ?? []
+            
+            profileHeaderView.bgImageView.addSubview(cycleView)
+            cycleView.snp.makeConstraints { make in
+                make.edges.equalToSuperview()
+            }
+            profileHeaderView.bgImageView.isUserInteractionEnabled = true
+            cycleView.delegate = self
+        }
+    }
+    
+    private lazy var cycleView : LLCycleScrollView = {
+        let cycleView = LLCycleScrollView()
+        cycleView.customPageControlStyle = .pill
+        cycleView.frame = CGRect.zero
+        return cycleView
+    }()
+    
     // MARK: 懒加载属性
     fileprivate lazy var tableView : UITableView = {
         
@@ -37,7 +70,7 @@ class ProfileViewController: BaseViewController {
         
         let profileHeaderView = ProfileHeaderView.profileHeaderView()
         
-        profileHeaderView.frame = CGRect(x: 0, y: -kProfileHeaderViewH, width: kScreenW, height: kProfileHeaderViewH)
+        profileHeaderView.frame = CGRect(x: 0, y: 0, width: kScreenW, height: kProfileHeaderViewH)
         
         return profileHeaderView
         
@@ -45,15 +78,14 @@ class ProfileViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        fd_prefersNavigationBarHidden = true
+    
         // 设置 UI
         setUpUI()
     }
 
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
+//    override var preferredStatusBarStyle: UIStatusBarStyle {
+//        return .lightContent
+//    }
 }
 
 
@@ -62,13 +94,13 @@ extension ProfileViewController {
     
     override func setUpUI() {
         
-        tableView.backgroundColor = UIColor(r: 250, g: 250, b: 250)
-        view.addSubview(tableView)
+//        tableView.backgroundColor = UIColor(r: 250, g: 250, b: 250)
+        view.addSubview(profileHeaderView)
         
-        tableView.addSubview(profileHeaderView)
-        
-        tableView.contentInset = UIEdgeInsets(top: kProfileHeaderViewH, left: 0, bottom: 0, right: 0)
-        
+//        tableView.addSubview(profileHeaderView)
+//
+//        tableView.contentInset = UIEdgeInsets(top: kProfileHeaderViewH, left: 0, bottom: 0, right: 0)
+//
         self.loadDataFinished()
 
         super.setUpUI()
@@ -84,11 +116,29 @@ extension ProfileViewController {
         super.viewWillAppear(animated)
         
         // 设置导航栏和阴影为透明色
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        navigationController?.navigationBar.shadowImage = UIImage()
+//        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+//        navigationController?.navigationBar.shadowImage = UIImage()
         
+        fd_prefersNavigationBarHidden = true
+        navigationController?.navigationBar.isTranslucent = true
+        
+        let size = Int(RefreshPageSize);
+        AVBrowseDataQueue.getBrowseDatas(page:RefreshPageStart, size: size) { (listData) in
+            let firstRecord = listData.first
+            
+            guard firstRecord != nil else {
+                return
+            }
+            
+            self.cycleModels = listData
+        }
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        fd_prefersNavigationBarHidden = false
+    }
 }
 
 
