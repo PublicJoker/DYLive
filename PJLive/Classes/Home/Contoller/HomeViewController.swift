@@ -2,8 +2,8 @@
 //  HomeViewController.swift
 //  PJLive
 //
-//  Created by Mr_Han on 2019/4/15.
-//  Copyright © 2019 Mr_Han. All rights reserved.
+//  Created by Tony-sg on 2019/4/15.
+//  Copyright © 2019 Tony-sg. All rights reserved.
 
 //
 
@@ -91,6 +91,7 @@ class HomeViewController: UIViewController {
         navigationController?.setNavigationBarHidden(false, animated: true)
         navigationController?.navigationBar.isTranslucent = false
         navigationController?.navigationBar.barTintColor = kPageTitleBgColor
+        navigationController?.navigationBar.setBackgroundImage(nil, for: .default)
     }
     
     
@@ -98,6 +99,10 @@ class HomeViewController: UIViewController {
         super.viewWillDisappear(animated)
         navigationController?.navigationBar.isTranslucent = true
         navigationController?.navigationBar.barTintColor = UIColor.white
+        
+        let imageV : UIImage = UIImage.imageWithColor(color: UIColor.init(hex:"ffffff"))
+        navigationController?.navigationBar.setBackgroundImage(imageV, for: .default)
+        navigationController?.navigationBar.shadowImage = UIImage.init()
     }
     
 }
@@ -114,22 +119,33 @@ extension HomeViewController {
         setUpNavigationBar()
     }
 
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        if #available(iOS 13.0, *) {
-            return .lightContent
-        } else {
-            return .default
-        }
-    }
+//    override var preferredStatusBarStyle: UIStatusBarStyle {
+//        return .lightContent
+//    }
     
     private func setUpNavigationBar() {
         //1. 设置左侧 item
-//        navigationItem.leftBarButtonItem = UIBarButtonItem(imageName: "logo", viewController: self, selector: #selector(logoAction))
+        let searchView = UIView(frame:CGRect(x: kDefaultMargin, y: 0, width: kScreenW * 0.55, height: 44))
+        let searchBtn = UIButton(frame: CGRect(x: 0, y: 5, width: kScreenW * 0.55, height: 34))
+        searchBtn.setTitle("你想看的都在这里", for: .normal)
+        searchBtn.titleLabel?.font = UIFont.systemFont(ofSize: 14)
+        searchBtn.setTitleColor(kTextLightGrayColor, for: .normal)
+        searchBtn.setImage(UIImage(named: "icon_search"), for: .normal)
+        searchBtn.titleEdgeInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 0)
+        searchBtn.contentEdgeInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 0)
+        searchBtn.contentHorizontalAlignment = .left
+        searchBtn.backgroundColor = .white
+        searchBtn.layer.cornerRadius = 17
+        searchBtn.layer.masksToBounds = true
+        searchBtn.addTarget(self, action: #selector(searcAction), for: .touchUpInside)
+        
+        searchView.addSubview(searchBtn)
+        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: searchView)
         
         //2. 设置右侧 item
         let historyItem = UIBarButtonItem(image: UIImage(named: "icon_history")?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(historyAction))
-        let searchItem = UIBarButtonItem(image: UIImage(named: "icon_download")?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(searchAction))
-        let grcodeItem = UIBarButtonItem(image: UIImage(named: "icon_filter")?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(scanAction))
+        let searchItem = UIBarButtonItem(image: UIImage(named: "icon_download")?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(downloadAction))
+        let grcodeItem = UIBarButtonItem(image: UIImage(named: "icon_filter")?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(filterAction))
         
         navigationItem.rightBarButtonItems = [grcodeItem,searchItem,historyItem]
         
@@ -162,19 +178,19 @@ extension HomeViewController : PageContentViewDelegate {
 // MARK: 监听事件点击
 extension HomeViewController {
     
-    @objc fileprivate func logoAction() {
-        print("logo")
+    @objc fileprivate func searcAction() {
+        AppJump.jumpToSearchControl()
     }
     
     @objc fileprivate func historyAction() {
-        print("历史记录")
+        AppJump.jumpToHisControl()
     }
     
-    @objc fileprivate func searchAction() {
+    @objc fileprivate func downloadAction() {
         print("下载")
     }
     
-    @objc fileprivate func scanAction() {
+    @objc fileprivate func filterAction() {
         print("筛选")
     }
     

@@ -13,6 +13,8 @@ private let primaryId = "vod_id";
 class AVBrowseDataQueue: NSObject {
     
     public class func browseData(model : Player_vod,completion :@escaping ((_ success : Bool) ->Void)){
+        print("记录播放历史:" + (model.toJSONString(prettyPrint: true) ?? ""))
+        
         model.updateTime = ATTime.timeStamp();
         BaseDataQueue.insertData(toDataBase:table, primaryId: primaryId, userInfo: model.toJSON()!, completion:completion);
     }
@@ -24,6 +26,7 @@ class AVBrowseDataQueue: NSObject {
             let json = JSON(object);
 
             if let info = Player_vod.deserialize(from: json.rawString()){
+                print("查询到播放历史:" + (info.toJSONString(prettyPrint: true) ?? ""))
                 completion(info);
             }else{
                 completion(Player_vod());

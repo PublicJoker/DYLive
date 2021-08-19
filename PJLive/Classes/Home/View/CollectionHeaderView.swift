@@ -2,8 +2,8 @@
 //  CollectionHeaderView.swift
 //  PJLive
 //
-//  Created by Mr_Han on 2019/4/16.
-//  Copyright © 2019 Mr_Han. All rights reserved.
+//  Created by Tony-sg on 2019/4/16.
+//  Copyright © 2019 Tony-sg. All rights reserved.
 
 //
 
@@ -13,7 +13,6 @@ class CollectionHeaderView: UICollectionReusableView {
     
     // MARK: 控件属性
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var iconImageView: UIImageView!
     @IBOutlet weak var moreBtn: UIButton!
     
     // MARK: 定义模型属性
@@ -21,9 +20,7 @@ class CollectionHeaderView: UICollectionReusableView {
         
         didSet {
             
-            titleLabel.text = group?.title
-            iconImageView.image = UIImage(named: nil ?? "home_header_normal")
-            
+            titleLabel.text = group?.title            
         }
         
     }

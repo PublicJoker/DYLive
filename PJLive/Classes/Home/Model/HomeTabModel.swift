@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import HandyJSON
 
 class HomeTabModel: NSObject {
     /// 标签id
@@ -49,7 +50,9 @@ class VideoGroupModel: BaseGameModel {
     }
 }
 
-class VideoModel: NSObject {
+class VideoModel: NSObject, HandyJSON {
+    required override init() { }
+    
     @objc var vod_name = ""
     @objc var vod_pic_slide = ""
     @objc var vod_continu = ""

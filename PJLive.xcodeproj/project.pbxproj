@@ -121,6 +121,10 @@
 		F945370726CE117400E6AA41 /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F945370026CE117400E6AA41 /* BaseModel.swift */; };
 		F945370926CE22B400E6AA41 /* MoyaPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = F945370826CE22B400E6AA41 /* MoyaPlugin.swift */; };
 		F945370B26CE399300E6AA41 /* VodDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = F945370A26CE399300E6AA41 /* VodDetail.swift */; };
+		F945370F26CED86300E6AA41 /* 2021@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F945370D26CED86200E6AA41 /* 2021@3x.png */; };
+		F945371026CED86300E6AA41 /* 2021@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F945370E26CED86200E6AA41 /* 2021@2x.png */; };
+		F945371326CED8B400E6AA41 /* UIViewController+ChangeAppIcon.m in Sources */ = {isa = PBXBuildFile; fileRef = F945371226CED8B400E6AA41 /* UIViewController+ChangeAppIcon.m */; };
+		F945371826CEE62C00E6AA41 /* AppVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = F945371726CEE62C00E6AA41 /* AppVersion.swift */; };
 		F96C2CA426CA971900DF5863 /* PlatformConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96C2CA326CA971900DF5863 /* PlatformConfig.swift */; };
 		F96C2CA626CA989300DF5863 /* DeviceTypeDefine.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96C2CA526CA989300DF5863 /* DeviceTypeDefine.swift */; };
 		F96C2CB026CA9D6500DF5863 /* LogUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96C2CAF26CA9D6400DF5863 /* LogUtil.swift */; };
@@ -253,6 +257,11 @@
 		F945370026CE117400E6AA41 /* BaseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
 		F945370826CE22B400E6AA41 /* MoyaPlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoyaPlugin.swift; sourceTree = "<group>"; };
 		F945370A26CE399300E6AA41 /* VodDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VodDetail.swift; sourceTree = "<group>"; };
+		F945370D26CED86200E6AA41 /* 2021@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "2021@3x.png"; sourceTree = "<group>"; };
+		F945370E26CED86200E6AA41 /* 2021@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "2021@2x.png"; sourceTree = "<group>"; };
+		F945371126CED8B400E6AA41 /* UIViewController+ChangeAppIcon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+ChangeAppIcon.h"; sourceTree = "<group>"; };
+		F945371226CED8B400E6AA41 /* UIViewController+ChangeAppIcon.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ChangeAppIcon.m"; sourceTree = "<group>"; };
+		F945371726CEE62C00E6AA41 /* AppVersion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppVersion.swift; sourceTree = "<group>"; };
 		F96C2CA326CA971900DF5863 /* PlatformConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlatformConfig.swift; sourceTree = "<group>"; };
 		F96C2CA526CA989300DF5863 /* DeviceTypeDefine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceTypeDefine.swift; sourceTree = "<group>"; };
 		F96C2CAE26CA9D1500DF5863 /* fvideo-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "fvideo-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -608,6 +617,7 @@
 		F945369626CE0FA200E6AA41 /* Live */ = {
 			isa = PBXGroup;
 			children = (
+				F945370C26CED7F400E6AA41 /* Logo */,
 				F945369726CE0FC900E6AA41 /* App */,
 				F94536F726CE117400E6AA41 /* Base */,
 				F94536C026CE115600E6AA41 /* Class */,
@@ -641,10 +651,10 @@
 		F94536A426CE10F200E6AA41 /* ObjectCBridge */ = {
 			isa = PBXGroup;
 			children = (
+				F94536A826CE10F200E6AA41 /* BaseDataQueue.h */,
 				F94536A526CE10F200E6AA41 /* BaseDataQueue.m */,
 				F94536A626CE10F200E6AA41 /* AVSearchDataQueueOC.m */,
 				F94536A726CE10F200E6AA41 /* AVSearchDataQueueOC.h */,
-				F94536A826CE10F200E6AA41 /* BaseDataQueue.h */,
 			);
 			path = ObjectCBridge;
 			sourceTree = "<group>";
@@ -774,6 +784,18 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		F945370C26CED7F400E6AA41 /* Logo */ = {
+			isa = PBXGroup;
+			children = (
+				F945370E26CED86200E6AA41 /* 2021@2x.png */,
+				F945370D26CED86200E6AA41 /* 2021@3x.png */,
+				F945371126CED8B400E6AA41 /* UIViewController+ChangeAppIcon.h */,
+				F945371226CED8B400E6AA41 /* UIViewController+ChangeAppIcon.m */,
+				F945371726CEE62C00E6AA41 /* AppVersion.swift */,
+			);
+			path = Logo;
+			sourceTree = "<group>";
+		};
 		F96C2CA226CA971900DF5863 /* Config */ = {
 			isa = PBXGroup;
 			children = (
@@ -868,6 +890,7 @@
 				7AF1CCF72265DDEC002DBE91 /* CollectionNormalCell.xib in Resources */,
 				7A82A1DE22715B5C00915D9C /* TableProfileNormalCell.xib in Resources */,
 				7A0F0644226089FA00DD89F5 /* Assets.xcassets in Resources */,
+				F945370F26CED86300E6AA41 /* 2021@3x.png in Resources */,
 				F945369126CE02D500E6AA41 /* Follow.storyboard in Resources */,
 				F94536E926CE115700E6AA41 /* AVHomeCell.xib in Resources */,
 				F94536E326CE115700E6AA41 /* AVHomeReusableView.xib in Resources */,
@@ -880,6 +903,7 @@
 				7AF1CD2C2269639F002DBE91 /* RecommendCycleView.xib in Resources */,
 				F94536E126CE115700E6AA41 /* ATHomeHotCell.xib in Resources */,
 				F94536F126CE115700E6AA41 /* AVSearchView.xib in Resources */,
+				F945371026CED86300E6AA41 /* 2021@2x.png in Resources */,
 				7A82A1EC2271885D00915D9C /* ProfileBtnsCell.xib in Resources */,
 				7AF1CD3222697BB3002DBE91 /* CollectionCycleCell.xib in Resources */,
 				7AF1CCFB2266B457002DBE91 /* CollectionPrettyCell.xib in Resources */,
@@ -952,6 +976,7 @@
 				7A82A1D022714E7400915D9C /* FollowHeaderView.swift in Sources */,
 				F94536E526CE115700E6AA41 /* AVHomeCell.swift in Sources */,
 				7AF1CCED22648331002DBE91 /* UIColor-Extension.swift in Sources */,
+				F945371826CEE62C00E6AA41 /* AppVersion.swift in Sources */,
 				F94536DE26CE115700E6AA41 /* AVHomeMoreController.swift in Sources */,
 				7AC5374D226D6C68001CB912 /* BaseAnchorViewController.swift in Sources */,
 				7AF1CD3C2269B8CF002DBE91 /* GameViewController.swift in Sources */,
@@ -1004,6 +1029,7 @@
 				F94536A226CE0FC900E6AA41 /* ApiMoya.swift in Sources */,
 				7AF1CD242267297D002DBE91 /* AnchorGroupModel.swift in Sources */,
 				F96C2CB026CA9D6500DF5863 /* LogUtil.swift in Sources */,
+				F945371326CED8B400E6AA41 /* UIViewController+ChangeAppIcon.m in Sources */,
 				F94536B626CE10F200E6AA41 /* AVSearchDataQueueOC.m in Sources */,
 				7AF1CD2222672643002DBE91 /* NSDate-Extension.swift in Sources */,
 				7A82A1CE227140F400915D9C /* FollowViewModel.swift in Sources */,
@@ -1174,10 +1200,10 @@
 			baseConfigurationReference = 6DA5CF54DA7C015298C99F8F /* Pods-PJLive.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "";
 				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2B7856P9V4;
-				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				INFOPLIST_FILE = PJLive/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -1185,6 +1211,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.tony.voiceRobotQ;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "XC Wildcard Development";
@@ -1199,11 +1226,11 @@
 			baseConfigurationReference = FF8E759C36862C39206A8B00 /* Pods-PJLive.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "";
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = ZF4N554VYJ;
-				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				INFOPLIST_FILE = PJLive/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -1211,6 +1238,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.tony.voiceRobotQ;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = wildcard_inhouse_20210604;

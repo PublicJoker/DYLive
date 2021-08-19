@@ -35,7 +35,8 @@ class AVSearchController: BaseTableViewController,searchDelegate {
         self.fd_prefersNavigationBarHidden = true;
         self.view.addSubview(self.searchView);
         self.searchView.snp.makeConstraints { (make) in
-            make.left.right.top.equalToSuperview();
+            make.top.equalTo(kStatusBarHeight + kTopSafeH);
+            make.left.right.equalToSuperview();
             make.height.equalTo(NAVI_BAR_HIGHT);
         }
         self.tableView.snp.remakeConstraints { (make) in

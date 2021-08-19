@@ -10,11 +10,12 @@ import UIKit
 import ATKit_Swift
 class AVFavController: BaseConnectionController {
 
-    private lazy var listData : [AVMovie] = {
+    private lazy var listData : [Player_vod] = {
         return []
     }()
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "收藏"
         self.setupRefresh(scrollView: self.collectionView, options: .defaults)
     }
     override func viewDidAppear(_ animated: Bool) {
@@ -59,6 +60,6 @@ class AVFavController: BaseConnectionController {
     }
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let model = self.listData[indexPath.row]
-        AppJump.jumpToPlayControl(movieId: model.movieId)
+        AppJump.jumpToPlayControl(movieId: model.vod_id)
     }
 }

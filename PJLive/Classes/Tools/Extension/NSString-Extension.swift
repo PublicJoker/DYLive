@@ -2,8 +2,8 @@
 //  NSString-Extension.swift
 //  PJLive
 //
-//  Created by Mr_Han on 2019/4/28.
-//  Copyright © 2019 Mr_Han. All rights reserved.
+//  Created by Tony-sg on 2019/4/28.
+//  Copyright © 2019 Tony-sg. All rights reserved.
 
 //
 

@@ -10,7 +10,7 @@
         <!--Home View Controller-->
         <scene sceneID="LlD-I6-ASR">
             <objects>
-                <viewController id="WW9-2t-cCP" customClass="HomeViewController" customModule="DYLive" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="WW9-2t-cCP" customClass="HomeViewController" customModule="PJLive" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8uI-6d-k2r"/>
                         <viewControllerLayoutGuide type="bottom" id="SMJ-eo-e6E"/>
@@ -29,7 +29,7 @@
         <!--首页-->
         <scene sceneID="Hnj-EV-BHJ">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ssh-mE-RpY" customClass="CustomNavigationVc" customModule="DYLive" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ssh-mE-RpY" customClass="BaseNavigationController" customModule="PJLive" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="首页" image="btn_home_normal" selectedImage="btn_home_selected" id="CiD-7a-UGS"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="mW8-GK-wa8">

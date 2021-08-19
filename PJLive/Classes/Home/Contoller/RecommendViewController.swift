@@ -2,8 +2,8 @@
 //  RecommendViewController.swift
 //  PJLive
 //
-//  Created by Mr_Han on 2019/4/16.
-//  Copyright © 2019 Mr_Han. All rights reserved.
+//  Created by Tony-sg on 2019/4/16.
+//  Copyright © 2019 Tony-sg. All rights reserved.
 
 //
 
@@ -60,11 +60,21 @@ extension RecommendViewController {
             collectionView.contentInset = UIEdgeInsets.zero
         }
     }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
 }
 
 
 // MARK: 请求数据
 extension RecommendViewController {
+    
+    override func didClickMore() {
+        super.didClickMore()
+        
+        AppJump.jumpToSearchControl()
+    }
     
     override func loadData() {
         //0. 给父类中 viewModel 赋值

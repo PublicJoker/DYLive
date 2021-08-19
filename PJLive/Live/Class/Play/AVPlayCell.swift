@@ -22,7 +22,7 @@ class AVPlayCell: UICollectionViewCell {
             self.titleLab.backgroundColor = select ? AppColor : Appxf8f8f8
         }
     }
-    private lazy var titleLab : UILabel = {
+    lazy var titleLab : UILabel = {
         let titleLab = UILabel.init();
         titleLab.font = UIFont.systemFont(ofSize: 16);
         titleLab.textColor = Appx333333;

@@ -2,8 +2,8 @@
 //  ProfileViewController.swift
 //  PJLive
 //
-//  Created by Mr_Han on 2019/4/25.
-//  Copyright © 2019 Mr_Han. All rights reserved.
+//  Created by Tony-sg on 2019/4/25.
+//  Copyright © 2019 Tony-sg. All rights reserved.
 
 //
 
@@ -46,11 +46,14 @@ class ProfileViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        fd_prefersNavigationBarHidden = true
         // 设置 UI
         setUpUI()
-
     }
 
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
 }
 
 

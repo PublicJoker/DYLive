@@ -65,7 +65,7 @@ extension BaseRefreshController : ATRefreshDataSource{
         return image
     }
     var refreshTitle: NSAttributedString{
-        let text :String = self.refreshData.refreshing ? "Data Loading..." : (self.refreshNetAvailable ? "Data Empty..." : "Data Error...")
+        let text :String = self.refreshData.refreshing ? "数据加载中..." : (self.refreshNetAvailable ? "暂无数据" : "网络异常,请重试")
         var dic : [NSAttributedString.Key : Any ] = [:]
         let font : UIFont = UIFont.systemFont(ofSize: 16)
         let color : UIColor = Appx999999

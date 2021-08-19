@@ -16,13 +16,13 @@ class AVHomeCell: UICollectionViewCell {
     @IBOutlet weak var hitLab: UILabel!
     @IBOutlet weak var categorybtn: UIButton!
     @IBOutlet weak var titleLab: UILabel!
-    var model : AVMovie?{
+    var model : Player_vod?{
         didSet{
             guard let item = model else { return }
-            self.titleLab.text = item.name;
-            self.categorybtn.setTitle("评分" + item.pf, for: .normal);
-            self.imageV.kf.setImage(with: URL.init(string: item.pic),placeholder: placeholder);
-            self.hitLab.text = item.hits;
+            self.titleLab.text = item.vod_name;
+            self.categorybtn.setTitle("评分" + item.vod_douban_score, for: .normal);
+            self.imageV.kf.setImage(with: URL.init(string: item.vod_pic),placeholder: placeholder);
+            self.hitLab.text = item.vod_gold;
         }
     }
     override func awakeFromNib() {

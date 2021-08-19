@@ -1,7 +1,6 @@
 {
   "images" : [
     {
-      "filename" : "icon_my_like.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -10,6 +9,7 @@
       "scale" : "2x"
     },
     {
+      "filename" : "icon_my_download.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

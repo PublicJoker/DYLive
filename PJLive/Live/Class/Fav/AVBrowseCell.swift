@@ -23,9 +23,11 @@ class AVBrowseCell: UICollectionViewCell {
                 self.currentLab.text = "直播中";
                 self.totalLab.text = "";
             }else{
-                self.totalLab.text = ATTime.totalTimeTurnToTime(timeStamp: item.playItem.totalTime);
+                let totalTime = ATTime.totalTimeTurnToTime(timeStamp: item.playItem.totalTime)
+                let playedTime = ATTime.totalTimeTurnToTime(timeStamp: item.playItem.currentTime)
+                self.totalLab.text = playedTime + "/" + totalTime
                 let his = String(format:"%.1f",Float(item.playItem.currentTime/item.playItem.totalTime*100))
-                self.currentLab.text = "观看了" + his + "%";
+                self.currentLab.text = "\(item.playItem.title)" + " 观看至" + his + "%";
             }
         }
     }

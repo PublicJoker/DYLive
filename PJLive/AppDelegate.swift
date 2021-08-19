@@ -2,12 +2,13 @@
 //  AppDelegate.swift
 //  PJLive
 //
-//  Created by Mr_Han on 2019/4/12.
-//  Copyright © 2019 Mr_Han. All rights reserved.
+//  Created by Tony-sg on 2019/4/12.
+//  Copyright © 2019 Tony-sg. All rights reserved.
 
 //
 
 import UIKit
+import Alamofire
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -23,7 +24,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // 三方SDK初始化
         PlatformConfig.shared.init3rdSDK(application: application, launchOptions: launchOptions)
+        
+        
+        ApiMoya.apiMoyaRequest(target: ApiMoya.getAppVersion(appId: "1581815639")) { json in
+            let model = AppVersion.deserialize(from: json.rawString())
+            //线上版本
+            let appStoreVersion = model?.results.first?.version.toDouble() ?? 0.0
+            //当前版本号
+            let currentVersion = UserDefaults.currentVersionNum().toDouble()
+            
+            let checked = currentVersion <= appStoreVersion
+            self.showLive(checked)//当前版本已上线
+        } failure: { error in
+            self.showLive(false)
+        }
         return true
+    }
+    
+    func showLive(_ checked: Bool) {
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.backgroundColor = .white
+        window?.rootViewController = checked ? MainViewController() : BaseTableViewController()
+        window?.makeKeyAndVisible()
+        
+        if checked {//更换图标
+            changeIcon()
+        }
     }
     
     open func supportedInterfaceOrientations(for window: UIWindow?) -> UIInterfaceOrientationMask{
@@ -39,6 +65,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 //强制设置成横屏
                 UIDevice.current.setValue(UIInterfaceOrientation.landscapeRight.rawValue, forKey: "orientation")
                 
+            }
+        }
+    }
+    
+    func changeIcon() {
+        if #available(iOS 10.3, *) {
+            guard UIApplication.shared.supportsAlternateIcons else {
+                return
+            }
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                UIApplication.shared.setAlternateIconName("2021") { error in
+                    print(error?.localizedDescription ?? "")
+                }
             }
         }
     }

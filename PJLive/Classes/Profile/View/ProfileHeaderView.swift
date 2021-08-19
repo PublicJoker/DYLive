@@ -2,8 +2,8 @@
 //  ProfileHeaderView.swift
 //  PJLive
 //
-//  Created by Mr_Han on 2019/4/25.
-//  Copyright © 2019 Mr_Han. All rights reserved.
+//  Created by Tony-sg on 2019/4/25.
+//  Copyright © 2019 Tony-sg. All rights reserved.
 
 //
 
@@ -85,11 +85,11 @@ extension ProfileHeaderView : UICollectionViewDataSource, UICollectionViewDelega
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch indexPath.row {
         case 0:
-            print("全部历史")
+            AppJump.jumpToHisControl()
         case 1:
             print("我的下载")
         case 2:
-            print("我喜欢的")
+            AppJump.jumpToFavControl()
         case 3:
             print("去除广告")
         case 4:

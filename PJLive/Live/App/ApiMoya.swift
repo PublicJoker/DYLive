@@ -19,6 +19,7 @@ public func defaultAlamofireManager() -> Manager {
 }
 
 public enum ApiMoya{
+    case getAppVersion(appId: String)
     case apiHome(vsize: String)
     case apiMovie(movieId: String, vsize:String)
     case apiHomeMore(page: Int, size: Int, ztid: String)
@@ -29,6 +30,8 @@ public enum ApiMoya{
 extension ApiMoya : TargetType{
     public var baseURL: URL {
         switch self {
+        case let .getAppVersion(appId):
+            return URL.init(string: "http://itunes.apple.com/cn/lookup?id=\(appId)")!
         default:
             return URL.init(string: "http://api.haidan.me")!
         }
@@ -48,7 +51,7 @@ extension ApiMoya : TargetType{
     }
     public var method: Moya.Method {
         switch self {
-        case .apiHome, .apiMovie:
+        case .apiHome, .apiMovie, .getAppVersion:
             return .get
         default:
             return .post
@@ -114,8 +117,14 @@ extension ApiMoya : TargetType{
         }) { (result) in
             switch result{
             case let .success(respond):
-                
                 let json = JSON(respond.data)
+                
+                //该接口返回没有code
+                if target.baseURL.absoluteString.contains("http://itunes.apple.com/cn/lookup") {
+                    sucesss(json)
+                    break
+                }
+                
                 if json["ret"] == 200 {
                     sucesss(json["data"])
                 }else{

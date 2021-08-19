@@ -37,6 +37,7 @@ enum ServerType {
     // 分类列表
     case categoryList
     case detail
+    case fliter
     
     /// 服务名
     var serviceName: String {
@@ -47,6 +48,8 @@ enum ServerType {
             return "App.Vod.Type_home_videos"
         case .detail:
             return "App.Vod.Video"
+        case .fliter:
+            return "App.Vod.Videos"
         default:
             return "App.Vod.Type_videos"
         }

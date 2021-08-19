@@ -2,8 +2,8 @@
 //  CustomNavigationVc.swift
 //  PJLive
 //
-//  Created by Mr_Han on 2019/4/23.
-//  Copyright © 2019 Mr_Han. All rights reserved.
+//  Created by Tony-sg on 2019/4/23.
+//  Copyright © 2019 Tony-sg. All rights reserved.
 
 //
 
@@ -42,9 +42,9 @@ class CustomNavigationVc: UINavigationController {
         let action = Selector(("handleNavigationTransition:"))
         
         //4. 创建自己的 Pan 手势
-//        let panGes = UIPanGestureRecognizer()
-//        gesView.addGestureRecognizer(panGes)
-//        panGes.addTarget(target, action: action)
+        let panGes = UIPanGestureRecognizer()
+        gesView.addGestureRecognizer(panGes)
+        panGes.addTarget(target, action: action)
     }
     
     
@@ -55,5 +55,4 @@ class CustomNavigationVc: UINavigationController {
         
         super.pushViewController(viewController, animated: animated)
     }
-
 }

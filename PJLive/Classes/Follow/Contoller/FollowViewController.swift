@@ -2,8 +2,8 @@
 //  FollowViewController.swift
 //  PJLive
 //
-//  Created by Mr_Han on 2019/4/25.
-//  Copyright © 2019 Mr_Han. All rights reserved.
+//  Created by Tony-sg on 2019/4/25.
+//  Copyright © 2019 Tony-sg. All rights reserved.
 
 //
 
@@ -41,7 +41,7 @@ extension FollowViewController {
 extension FollowViewController {
     
     @objc fileprivate func historyAction() {
-        print("历史记录")
+        AppJump.jumpToHisControl()
     }
     
     @objc fileprivate func searchAction() {
@@ -81,7 +81,6 @@ extension FollowViewController {
         
         //2. 设置属性
         headerView.titleLabel.text = "推荐直播"
-        headerView.iconImageView.image = UIImage(named: "Img_orange")
         headerView.moreBtn.isHidden = true
         
         return headerView

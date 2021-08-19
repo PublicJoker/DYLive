@@ -12,7 +12,8 @@ import HandyJSON
 class VodDetail: HandyJSON {
     var type = ""
     var player_vod = Player_vod()
-
+    var related_vod: VodRecommand?
+    
     required init() {}
 }
 
@@ -39,14 +40,19 @@ class Player_vod: HandyJSON {
     required init() {}
 }
 
+class VodRecommand: HandyJSON {
+    var type = ""
+    var arrangementSize: Int = 0
+    var title = ""
+    var videos_size: Int = 0
+    var videos: [VideoModel] = []
+    required init() {}
+}
+
 class Players: HandyJSON {
-    var name  : String = ""
-    var itemId  : String = ""//每一部的id
-    var url : String = "";//播放地址做主键 就怕地址会变化
-    
     var title = ""
     var snifferType: Int = 0
-
+    var url = ""
     required init() {}
 }
 

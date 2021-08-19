@@ -19,7 +19,7 @@
 
 #import "SignUtil.h"
 #import "ProxyCheck.h"
-
+#import "UIViewController+ChangeAppIcon.h"
 
 #import "VTMagic.h"
 #import "UINavigationController+FDFullscreenPopGesture.h"

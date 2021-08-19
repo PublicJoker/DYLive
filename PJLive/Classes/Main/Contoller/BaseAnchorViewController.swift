@@ -2,8 +2,8 @@
 //  BaseAnchorViewController.swift
 //  PJLive
 //
-//  Created by Mr_Han on 2019/4/22.
-//  Copyright © 2019 Mr_Han. All rights reserved.
+//  Created by Tony-sg on 2019/4/22.
+//  Copyright © 2019 Tony-sg. All rights reserved.
 
 //
 
@@ -13,7 +13,7 @@ import UIKit
 let kNormalItemW : CGFloat = (kScreenW - kItemMargin * 2 - kDefaultMargin * 2) / 3
 let kNormalItemH : CGFloat = kNormalItemW * 5 / 3
 let kPrettyItemH : CGFloat = kNormalItemW * 5 / 3
-private let kItemMargin : CGFloat = 10.0
+let kItemMargin : CGFloat = 10.0
 private let kHeaderViewH : CGFloat = 50.0
 
 
@@ -88,6 +88,9 @@ extension BaseAnchorViewController {
     @objc func loadData() {
     }
     
+    @objc func didClickMore() {
+        
+    }
 }
 
 
@@ -113,6 +116,8 @@ extension BaseAnchorViewController : UICollectionViewDataSource {
         
         //1. 取出 headerView
         let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: kHeaderViewID, for: indexPath) as! CollectionHeaderView
+        
+        headerView.moreBtn.addTarget(self, action: #selector(didClickMore), for: .touchUpInside)
         
         //2. 给 headerView 设置数据
         headerView.group = baseVM.anchorGroups[indexPath.section]
