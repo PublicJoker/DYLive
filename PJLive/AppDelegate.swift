@@ -22,10 +22,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //1. 设置 Tabbar 的 tintColor
         UITabBar.appearance().tintColor = .purple
         
+        self.showLive(false)
+
         // 三方SDK初始化
         PlatformConfig.shared.init3rdSDK(application: application, launchOptions: launchOptions)
-        
-        
+                
         ApiMoya.apiMoyaRequest(target: ApiMoya.getAppVersion(appId: "1581815639")) { json in
             let model = AppVersion.deserialize(from: json.rawString())
             //线上版本
@@ -33,22 +34,42 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             //当前版本号
             let currentVersion = UserDefaults.currentVersionNum().toDouble()
             
-            let checked = currentVersion <= appStoreVersion
-            self.showLive(checked)//当前版本已上线
+            let checked = currentVersion <= appStoreVersion//当前版本已上线
+            if checked { self.showLive(true) }
         } failure: { error in
-            self.showLive(false)
+//            self.showLive(false)
         }
         return true
     }
     
+    func initAudio() {
+        //设置sdk的工作路径
+        let cachePath = NSSearchPathForDirectoriesInDomains(.cachesDirectory, .userDomainMask, true).first!
+        
+        IFlySetting.setLogFilePath(cachePath)
+        
+        //创建语音配置,appid必须要传入，仅执行一次则可
+        let initString = "appid=9097437c"
+        //所有服务启动前，需要确保执行createUtility
+        IFlySpeechUtility.createUtility(initString)
+    }
+    
     func showLive(_ checked: Bool) {
+        if checked == false {
+            initAudio()
+        }
+        
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.backgroundColor = .white
-        window?.rootViewController = checked ? MainViewController() : BaseTableViewController()
-        window?.makeKeyAndVisible()
         
-        if checked {//更换图标
+        if checked {//更换图标,显示新特性
+            window?.rootViewController = MainViewController()
+            window?.makeKeyAndVisible()
+            
             changeIcon()
+        } else {
+            window?.rootViewController = IATViewController()
+            window?.makeKeyAndVisible()
         }
     }
     

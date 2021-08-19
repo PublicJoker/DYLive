@@ -125,6 +125,22 @@
 		F945371026CED86300E6AA41 /* 2021@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F945370E26CED86200E6AA41 /* 2021@2x.png */; };
 		F945371326CED8B400E6AA41 /* UIViewController+ChangeAppIcon.m in Sources */ = {isa = PBXBuildFile; fileRef = F945371226CED8B400E6AA41 /* UIViewController+ChangeAppIcon.m */; };
 		F945371826CEE62C00E6AA41 /* AppVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = F945371726CEE62C00E6AA41 /* AppVersion.swift */; };
+		F945371C26CEF83800E6AA41 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F945371B26CEF83800E6AA41 /* QuartzCore.framework */; };
+		F945371D26CEF84800E6AA41 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F945371926CEF7F800E6AA41 /* libc++.tbd */; };
+		F945371F26CEF85400E6AA41 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F945371A26CEF80F00E6AA41 /* libz.tbd */; };
+		F945372226CEF86200E6AA41 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F945372126CEF86200E6AA41 /* SystemConfiguration.framework */; };
+		F945372426CEF86B00E6AA41 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F945372326CEF86B00E6AA41 /* AudioToolbox.framework */; };
+		F945372626CEF87600E6AA41 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F945372526CEF87500E6AA41 /* AVFoundation.framework */; };
+		F945372826CEF88300E6AA41 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F945372726CEF88300E6AA41 /* CoreTelephony.framework */; };
+		F945372A26CEF88E00E6AA41 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F945372926CEF88E00E6AA41 /* CoreLocation.framework */; };
+		F945372C26CEF89D00E6AA41 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F945372B26CEF89D00E6AA41 /* CoreGraphics.framework */; };
+		F945373926CEF97700E6AA41 /* iflyMSC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F945372E26CEF97700E6AA41 /* iflyMSC.framework */; };
+		F945373A26CEF97700E6AA41 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = F945372F26CEF97700E6AA41 /* LICENSE */; };
+		F945373B26CEF97700E6AA41 /* ChangeLanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F945373326CEF97700E6AA41 /* ChangeLanViewController.m */; };
+		F945373C26CEF97700E6AA41 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = F945373426CEF97700E6AA41 /* .gitignore */; };
+		F945373D26CEF97700E6AA41 /* MySingleData.m in Sources */ = {isa = PBXBuildFile; fileRef = F945373526CEF97700E6AA41 /* MySingleData.m */; };
+		F945373E26CEF97700E6AA41 /* IATConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = F945373626CEF97700E6AA41 /* IATConfig.m */; };
+		F945373F26CEF97700E6AA41 /* IATViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F945373826CEF97700E6AA41 /* IATViewController.m */; };
 		F96C2CA426CA971900DF5863 /* PlatformConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96C2CA326CA971900DF5863 /* PlatformConfig.swift */; };
 		F96C2CA626CA989300DF5863 /* DeviceTypeDefine.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96C2CA526CA989300DF5863 /* DeviceTypeDefine.swift */; };
 		F96C2CB026CA9D6500DF5863 /* LogUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96C2CAF26CA9D6400DF5863 /* LogUtil.swift */; };
@@ -262,6 +278,27 @@
 		F945371126CED8B400E6AA41 /* UIViewController+ChangeAppIcon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+ChangeAppIcon.h"; sourceTree = "<group>"; };
 		F945371226CED8B400E6AA41 /* UIViewController+ChangeAppIcon.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ChangeAppIcon.m"; sourceTree = "<group>"; };
 		F945371726CEE62C00E6AA41 /* AppVersion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppVersion.swift; sourceTree = "<group>"; };
+		F945371926CEF7F800E6AA41 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		F945371A26CEF80F00E6AA41 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		F945371B26CEF83800E6AA41 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		F945372126CEF86200E6AA41 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		F945372326CEF86B00E6AA41 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		F945372526CEF87500E6AA41 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		F945372726CEF88300E6AA41 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		F945372926CEF88E00E6AA41 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		F945372B26CEF89D00E6AA41 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		F945372E26CEF97700E6AA41 /* iflyMSC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = iflyMSC.framework; sourceTree = "<group>"; };
+		F945372F26CEF97700E6AA41 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		F945373026CEF97700E6AA41 /* IATConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IATConfig.h; sourceTree = "<group>"; };
+		F945373126CEF97700E6AA41 /* MySingleData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MySingleData.h; sourceTree = "<group>"; };
+		F945373226CEF97700E6AA41 /* IATViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IATViewController.h; sourceTree = "<group>"; };
+		F945373326CEF97700E6AA41 /* ChangeLanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangeLanViewController.m; sourceTree = "<group>"; };
+		F945373426CEF97700E6AA41 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		F945373526CEF97700E6AA41 /* MySingleData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MySingleData.m; sourceTree = "<group>"; };
+		F945373626CEF97700E6AA41 /* IATConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IATConfig.m; sourceTree = "<group>"; };
+		F945373726CEF97700E6AA41 /* ChangeLanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangeLanViewController.h; sourceTree = "<group>"; };
+		F945373826CEF97700E6AA41 /* IATViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IATViewController.m; sourceTree = "<group>"; };
+		F945374226CEFA7400E6AA41 /* Headers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Headers.h; sourceTree = "<group>"; };
 		F96C2CA326CA971900DF5863 /* PlatformConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlatformConfig.swift; sourceTree = "<group>"; };
 		F96C2CA526CA989300DF5863 /* DeviceTypeDefine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceTypeDefine.swift; sourceTree = "<group>"; };
 		F96C2CAE26CA9D1500DF5863 /* fvideo-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "fvideo-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -283,7 +320,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F945371D26CEF84800E6AA41 /* libc++.tbd in Frameworks */,
+				F945372226CEF86200E6AA41 /* SystemConfiguration.framework in Frameworks */,
+				F945371F26CEF85400E6AA41 /* libz.tbd in Frameworks */,
+				F945372A26CEF88E00E6AA41 /* CoreLocation.framework in Frameworks */,
+				F945371C26CEF83800E6AA41 /* QuartzCore.framework in Frameworks */,
+				F945372826CEF88300E6AA41 /* CoreTelephony.framework in Frameworks */,
 				9064D507D98D2FF716F6357A /* Pods_PJLive.framework in Frameworks */,
+				F945373926CEF97700E6AA41 /* iflyMSC.framework in Frameworks */,
+				F945372626CEF87600E6AA41 /* AVFoundation.framework in Frameworks */,
+				F945372C26CEF89D00E6AA41 /* CoreGraphics.framework in Frameworks */,
+				F945372426CEF86B00E6AA41 /* AudioToolbox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,6 +351,15 @@
 		5FFDF7E77F710942143C94C5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F945372B26CEF89D00E6AA41 /* CoreGraphics.framework */,
+				F945372926CEF88E00E6AA41 /* CoreLocation.framework */,
+				F945372726CEF88300E6AA41 /* CoreTelephony.framework */,
+				F945372526CEF87500E6AA41 /* AVFoundation.framework */,
+				F945372326CEF86B00E6AA41 /* AudioToolbox.framework */,
+				F945372126CEF86200E6AA41 /* SystemConfiguration.framework */,
+				F945371B26CEF83800E6AA41 /* QuartzCore.framework */,
+				F945371A26CEF80F00E6AA41 /* libz.tbd */,
+				F945371926CEF7F800E6AA41 /* libc++.tbd */,
 				E5786B290C8BC0C056A88C48 /* Pods_PJLive.framework */,
 			);
 			name = Frameworks;
@@ -334,6 +390,7 @@
 		7A0F063B226089F900DD89F5 /* PJLive */ = {
 			isa = PBXGroup;
 			children = (
+				F945372D26CEF97700E6AA41 /* RobotQ */,
 				F945369626CE0FA200E6AA41 /* Live */,
 				F99C3A4226CB533A00E81799 /* lib */,
 				F96C2CA226CA971900DF5863 /* Config */,
@@ -796,6 +853,25 @@
 			path = Logo;
 			sourceTree = "<group>";
 		};
+		F945372D26CEF97700E6AA41 /* RobotQ */ = {
+			isa = PBXGroup;
+			children = (
+				F945374226CEFA7400E6AA41 /* Headers.h */,
+				F945372E26CEF97700E6AA41 /* iflyMSC.framework */,
+				F945372F26CEF97700E6AA41 /* LICENSE */,
+				F945373026CEF97700E6AA41 /* IATConfig.h */,
+				F945373126CEF97700E6AA41 /* MySingleData.h */,
+				F945373226CEF97700E6AA41 /* IATViewController.h */,
+				F945373326CEF97700E6AA41 /* ChangeLanViewController.m */,
+				F945373426CEF97700E6AA41 /* .gitignore */,
+				F945373526CEF97700E6AA41 /* MySingleData.m */,
+				F945373626CEF97700E6AA41 /* IATConfig.m */,
+				F945373726CEF97700E6AA41 /* ChangeLanViewController.h */,
+				F945373826CEF97700E6AA41 /* IATViewController.m */,
+			);
+			path = RobotQ;
+			sourceTree = "<group>";
+		};
 		F96C2CA226CA971900DF5863 /* Config */ = {
 			isa = PBXGroup;
 			children = (
@@ -880,6 +956,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F945373C26CEF97700E6AA41 /* .gitignore in Resources */,
 				F99C3A4426CB541700E81799 /* libnative-signtools.so in Resources */,
 				F94536EC26CE115700E6AA41 /* AVBrowseCell.xib in Resources */,
 				7A0F0647226089FA00DD89F5 /* LaunchScreen.storyboard in Resources */,
@@ -889,6 +966,7 @@
 				7A82A1E22271627E00915D9C /* ProfileHeaderView.xib in Resources */,
 				7AF1CCF72265DDEC002DBE91 /* CollectionNormalCell.xib in Resources */,
 				7A82A1DE22715B5C00915D9C /* TableProfileNormalCell.xib in Resources */,
+				F945373A26CEF97700E6AA41 /* LICENSE in Resources */,
 				7A0F0644226089FA00DD89F5 /* Assets.xcassets in Resources */,
 				F945370F26CED86300E6AA41 /* 2021@3x.png in Resources */,
 				F945369126CE02D500E6AA41 /* Follow.storyboard in Resources */,
@@ -981,6 +1059,7 @@
 				7AC5374D226D6C68001CB912 /* BaseAnchorViewController.swift in Sources */,
 				7AF1CD3C2269B8CF002DBE91 /* GameViewController.swift in Sources */,
 				F96C2CA426CA971900DF5863 /* PlatformConfig.swift in Sources */,
+				F945373F26CEF97700E6AA41 /* IATViewController.m in Sources */,
 				7AF1CCEF2265AC24002DBE91 /* RecommendViewController.swift in Sources */,
 				7A0F063D226089F900DD89F5 /* AppDelegate.swift in Sources */,
 				7AC53754226D9D48001CB912 /* AmuseMenuViewCell.swift in Sources */,
@@ -997,6 +1076,7 @@
 				F945370326CE117400E6AA41 /* BaseTableViewController.swift in Sources */,
 				7A0F06802264635700DD89F5 /* PageTitleView.swift in Sources */,
 				7AC5374B226D67CD001CB912 /* BaseViewModel.swift in Sources */,
+				F945373E26CEF97700E6AA41 /* IATConfig.m in Sources */,
 				F94536EB26CE115700E6AA41 /* AVFavController.swift in Sources */,
 				7AF1CD3122697BB3002DBE91 /* CollectionCycleCell.swift in Sources */,
 				7AC53742226D4787001CB912 /* GameModel.swift in Sources */,
@@ -1009,6 +1089,7 @@
 				7AC53744226D4B92001CB912 /* BaseGameModel.swift in Sources */,
 				7AF1CD2E2269778A002DBE91 /* CycleModel.swift in Sources */,
 				F94536F326CE115700E6AA41 /* AVSearchView.swift in Sources */,
+				F945373B26CEF97700E6AA41 /* ChangeLanViewController.m in Sources */,
 				7A82A1CB22713E5F00915D9C /* FollowViewController.swift in Sources */,
 				7AC53746226D5D84001CB912 /* AmuseViewController.swift in Sources */,
 				F94536F526CE115700E6AA41 /* AVPlayController.swift in Sources */,
@@ -1032,6 +1113,7 @@
 				F945371326CED8B400E6AA41 /* UIViewController+ChangeAppIcon.m in Sources */,
 				F94536B626CE10F200E6AA41 /* AVSearchDataQueueOC.m in Sources */,
 				7AF1CD2222672643002DBE91 /* NSDate-Extension.swift in Sources */,
+				F945373D26CEF97700E6AA41 /* MySingleData.m in Sources */,
 				7A82A1CE227140F400915D9C /* FollowViewModel.swift in Sources */,
 				7A82A1EB2271885D00915D9C /* ProfileBtnsCell.swift in Sources */,
 				F94536E626CE115700E6AA41 /* AVHomeReusableView.swift in Sources */,
@@ -1204,6 +1286,11 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2B7856P9V4;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/PJLive/RobotQ",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				INFOPLIST_FILE = PJLive/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -1211,7 +1298,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.tony.voiceRobotQ;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "XC Wildcard Development";
@@ -1231,6 +1318,11 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = ZF4N554VYJ;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/PJLive/RobotQ",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				INFOPLIST_FILE = PJLive/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -1238,7 +1330,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.tony.voiceRobotQ;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = wildcard_inhouse_20210604;
