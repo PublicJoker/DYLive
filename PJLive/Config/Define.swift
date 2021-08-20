@@ -103,6 +103,18 @@ extension UserDefaults {
         return todayString == lastString ? true : false
     }
     
+    static func setVersionChecked(flag: Bool) {
+        let versionChecked = "hasBeenChecked"
+        UserDefaults.standard.set(flag, forKey: versionChecked)
+        UserDefaults.standard.synchronize()
+    }
+    
+    //当前版本已过审
+    static func isVersionChecked() -> Bool {
+        let versionChecked = "hasBeenChecked"
+        return UserDefaults.standard.bool(forKey: versionChecked)
+    }
+    
     //当前版本第一次启动
     static func isFirstLaunchOfNewVersion() -> Bool {
         //主程序版本号

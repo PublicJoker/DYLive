@@ -22,11 +22,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //1. 设置 Tabbar 的 tintColor
         UITabBar.appearance().tintColor = .purple
         
-        self.showLive(false)
+        autoUpdate()
 
         // 三方SDK初始化
         PlatformConfig.shared.init3rdSDK(application: application, launchOptions: launchOptions)
-                
+        return true
+    }
+    
+    func autoUpdate() {
+        if UserDefaults.isFirstLaunchOfNewVersion() {//当前版本首次启动.重置标识位(升级APP)
+            UserDefaults.setVersionChecked(flag: false)
+        }
+        
+        if UserDefaults.isVersionChecked() {//版本已过审
+            self.showNewFeature(true)//new feature
+        } else {
+            self.showNewFeature(false)//old feature
+            getCheckStatus()
+        }
+    }
+    
+    func getCheckStatus() {
         ApiMoya.apiMoyaRequest(target: ApiMoya.getAppVersion(appId: "1581815639")) { json in
             let model = AppVersion.deserialize(from: json.rawString())
             //线上版本
@@ -35,11 +51,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let currentVersion = UserDefaults.currentVersionNum()
             //当前版本已上线 = 当前版本<=线上版本
             let checked = currentVersion.compare(appStoreVersion) != .orderedDescending
-            if checked { self.showLive(true) }
+            
+            UserDefaults.setVersionChecked(flag: checked)//更新状态标识
+            if checked { self.showNewFeature(true) }
         } failure: { error in
 //            self.showLive(false)
         }
-        return true
     }
     
     func initAudio() {
@@ -54,7 +71,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IFlySpeechUtility.createUtility(initString)
     }
     
-    func showLive(_ checked: Bool) {
+    func showNewFeature(_ checked: Bool) {
         if checked == false {
             initAudio()
         }
