@@ -137,7 +137,6 @@
 		F945373926CEF97700E6AA41 /* iflyMSC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F945372E26CEF97700E6AA41 /* iflyMSC.framework */; };
 		F945373A26CEF97700E6AA41 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = F945372F26CEF97700E6AA41 /* LICENSE */; };
 		F945373B26CEF97700E6AA41 /* ChangeLanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F945373326CEF97700E6AA41 /* ChangeLanViewController.m */; };
-		F945373C26CEF97700E6AA41 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = F945373426CEF97700E6AA41 /* .gitignore */; };
 		F945373D26CEF97700E6AA41 /* MySingleData.m in Sources */ = {isa = PBXBuildFile; fileRef = F945373526CEF97700E6AA41 /* MySingleData.m */; };
 		F945373E26CEF97700E6AA41 /* IATConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = F945373626CEF97700E6AA41 /* IATConfig.m */; };
 		F945373F26CEF97700E6AA41 /* IATViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F945373826CEF97700E6AA41 /* IATViewController.m */; };
@@ -293,7 +292,6 @@
 		F945373126CEF97700E6AA41 /* MySingleData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MySingleData.h; sourceTree = "<group>"; };
 		F945373226CEF97700E6AA41 /* IATViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IATViewController.h; sourceTree = "<group>"; };
 		F945373326CEF97700E6AA41 /* ChangeLanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangeLanViewController.m; sourceTree = "<group>"; };
-		F945373426CEF97700E6AA41 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		F945373526CEF97700E6AA41 /* MySingleData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MySingleData.m; sourceTree = "<group>"; };
 		F945373626CEF97700E6AA41 /* IATConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IATConfig.m; sourceTree = "<group>"; };
 		F945373726CEF97700E6AA41 /* ChangeLanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangeLanViewController.h; sourceTree = "<group>"; };
@@ -863,7 +861,6 @@
 				F945373126CEF97700E6AA41 /* MySingleData.h */,
 				F945373226CEF97700E6AA41 /* IATViewController.h */,
 				F945373326CEF97700E6AA41 /* ChangeLanViewController.m */,
-				F945373426CEF97700E6AA41 /* .gitignore */,
 				F945373526CEF97700E6AA41 /* MySingleData.m */,
 				F945373626CEF97700E6AA41 /* IATConfig.m */,
 				F945373726CEF97700E6AA41 /* ChangeLanViewController.h */,
@@ -956,7 +953,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F945373C26CEF97700E6AA41 /* .gitignore in Resources */,
 				F99C3A4426CB541700E81799 /* libnative-signtools.so in Resources */,
 				F94536EC26CE115700E6AA41 /* AVBrowseCell.xib in Resources */,
 				7A0F0647226089FA00DD89F5 /* LaunchScreen.storyboard in Resources */,
