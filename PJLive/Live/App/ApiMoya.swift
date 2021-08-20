@@ -19,6 +19,7 @@ public func defaultAlamofireManager() -> Manager {
 }
 
 public enum ApiMoya{
+    //MARK:--📢:查询版本要用post请求!!!get请求有缓存,会导致版本信息不同步
     case getAppVersion(appId: String)
     case apiHome(vsize: String)
     case apiMovie(movieId: String, vsize:String)
@@ -30,8 +31,8 @@ public enum ApiMoya{
 extension ApiMoya : TargetType{
     public var baseURL: URL {
         switch self {
-        case let .getAppVersion(appId):
-            return URL.init(string: "http://itunes.apple.com/lookup?id=\(appId)")!
+        case .getAppVersion:
+            return URL.init(string: "https://itunes.apple.com")!
         default:
             return URL.init(string: "http://api.haidan.me")!
         }
@@ -43,15 +44,15 @@ extension ApiMoya : TargetType{
               return "/index.php/app/ios/topic/index"
           case .apiMovie:
               return "/index.php/app/ios/type/index"
-          case .apiShow:
-              return ""
+        case .getAppVersion:
+            return "/lookup"
           default :
               return ""
           }
     }
     public var method: Moya.Method {
         switch self {
-        case .apiHome, .apiMovie, .getAppVersion:
+        case .apiHome, .apiMovie:
             return .get
         default:
             return .post
@@ -76,22 +77,28 @@ extension ApiMoya : TargetType{
             var param = getDefaulParam(type: .detail)
             param["id"] = movieId
             return .requestParameters(parameters: param, encoding: parameterEncoding)
-            
+        case let .getAppVersion(appId):
+            return .requestParameters(parameters: ["id": appId], encoding: parameterEncoding)
         default:
             return .requestPlain
         }
     }
     
     public var headers: [String : String]? {
-        return [
-            "Accept": "*/*",
-            "accept-encoding": "br, gzip, deflate",
-            "Accept-Language": "en-CN;q=1, zh-CN",
-            "Connection": "keep-alive",
-            "Content-Type": "application/x-www-form-urlencoded;charset=utf8",
-            "origin": self.baseURL.absoluteString,
-            "Host": self.baseURL.host ?? ""
-        ]
+        switch self {
+        case .getAppVersion://查询版本号不传请求头
+            return nil
+        default:
+            return [
+                "Accept": "*/*",
+                "accept-encoding": "br, gzip, deflate",
+                "Accept-Language": "en-CN;q=1, zh-CN",
+                "Connection": "keep-alive",
+                "Content-Type": "application/x-www-form-urlencoded;charset=utf8",
+                "origin": self.baseURL.absoluteString,
+                "Host": self.baseURL.host ?? ""
+            ]
+        }
     }
     
     /// 参数编码
@@ -120,7 +127,7 @@ extension ApiMoya : TargetType{
                 let json = JSON(respond.data)
                 
                 //该接口返回没有code
-                if target.baseURL.absoluteString.contains("http://itunes.apple.com/lookup") {
+                if target.baseURL.absoluteString.contains("itunes.apple.com") {
                     sucesss(json)
                     break
                 }
