@@ -30,11 +30,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         ApiMoya.apiMoyaRequest(target: ApiMoya.getAppVersion(appId: "1581815639")) { json in
             let model = AppVersion.deserialize(from: json.rawString())
             //线上版本
-            let appStoreVersion = model?.results.first?.version.toDouble() ?? 0.0
+            let appStoreVersion = model?.results.first?.version ?? ""
             //当前版本号
-            let currentVersion = UserDefaults.currentVersionNum().toDouble()
-            
-            let checked = currentVersion <= appStoreVersion//当前版本已上线
+            let currentVersion = UserDefaults.currentVersionNum()
+            //当前版本已上线 = 当前版本<=线上版本
+            let checked = currentVersion.compare(appStoreVersion) != .orderedDescending
             if checked { self.showLive(true) }
         } failure: { error in
 //            self.showLive(false)

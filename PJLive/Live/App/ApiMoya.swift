@@ -31,7 +31,7 @@ extension ApiMoya : TargetType{
     public var baseURL: URL {
         switch self {
         case let .getAppVersion(appId):
-            return URL.init(string: "http://itunes.apple.com/cn/lookup?id=\(appId)")!
+            return URL.init(string: "http://itunes.apple.com/lookup?id=\(appId)")!
         default:
             return URL.init(string: "http://api.haidan.me")!
         }
@@ -120,7 +120,7 @@ extension ApiMoya : TargetType{
                 let json = JSON(respond.data)
                 
                 //该接口返回没有code
-                if target.baseURL.absoluteString.contains("http://itunes.apple.com/cn/lookup") {
+                if target.baseURL.absoluteString.contains("http://itunes.apple.com/lookup") {
                     sucesss(json)
                     break
                 }
