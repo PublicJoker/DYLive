@@ -1,4 +1,11 @@
 PODS:
+  - Ads-CN (3.8.1.0):
+    - Ads-CN/BUAdSDK (= 3.8.1.0)
+  - Ads-CN/BUAdSDK (3.8.1.0):
+    - Ads-CN/BUFoundation
+    - Ads-CN/Domestic
+  - Ads-CN/BUFoundation (3.8.1.0)
+  - Ads-CN/Domestic (3.8.1.0)
   - Alamofire (4.8.1)
   - ATKit_Swift (0.2.4)
   - ATRefresh_Swift (0.2.2):
@@ -47,6 +54,7 @@ PODS:
     - ObjcExceptionBridging
 
 DEPENDENCIES:
+  - Ads-CN
   - Alamofire (~> 4.8)
   - ATKit_Swift (~> 0.2)
   - ATRefresh_Swift (~> 0.2)
@@ -70,6 +78,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   https://mirrors.tuna.tsinghua.edu.cn/git/CocoaPods/Specs.git:
+    - Ads-CN
     - Alamofire
     - ATKit_Swift
     - ATRefresh_Swift
@@ -99,6 +108,7 @@ SPEC REPOS:
     - XCGLogger
 
 SPEC CHECKSUMS:
+  Ads-CN: 49af96ac9f7b1a43ef4cfb37b6a74863421d4ee1
   Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
   ATKit_Swift: 2303e6f461fcaccff31f5e455a287994f9edc3fe
   ATRefresh_Swift: ea95c33edbddf7ef3144f81dada27ff7f47f5218
@@ -127,6 +137,6 @@ SPEC CHECKSUMS:
   VTMagic: b49e5f456dbcbfd9a3588ba92417233a105bc193
   XCGLogger: 1943831ef907df55108b0b18657953f868de973b
 
-PODFILE CHECKSUM: 547c1d2cfc86b83e857dc34892a6a4a54774841e
+PODFILE CHECKSUM: cc60ae1383568e4229e18ac1860c178eb6390fcd
 
 COCOAPODS: 1.10.1

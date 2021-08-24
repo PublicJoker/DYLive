@@ -7,10 +7,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Browse Controller-->
+        <!--Browser Controller-->
         <scene sceneID="xVT-dD-9Qv">
             <objects>
-                <viewController id="a6o-CB-s5L" customClass="AVBrowseController" customModule="PJLive" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="a6o-CB-s5L" customClass="BrowserController" customModule="PJLive" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="O1Z-xz-G3u"/>
                         <viewControllerLayoutGuide type="bottom" id="oKF-KQ-gki"/>

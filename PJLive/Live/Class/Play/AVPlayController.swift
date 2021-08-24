@@ -9,6 +9,9 @@
 import UIKit
 import MGJRouter_Swift
 import SwiftyJSON
+
+private let kHeaderViewID = "kHeaderViewID"
+
 class AVPlayController: BaseConnectionController,playerDelegate,playVideoDelegate {
     convenience init(movieId : String) {
         self.init()
@@ -85,7 +88,10 @@ class AVPlayController: BaseConnectionController,playerDelegate,playVideoDelegat
             make.top.equalTo(self.playerView.snp.bottom)
         }
         self.view.sendSubviewToBack(self.playerView)
+        
+        collectionView.register(CollectionHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: kHeaderViewID)
     }
+    
     private func loadData(){
         self.refreshData(page:RefreshPageStart)
     }
@@ -427,6 +433,17 @@ class AVPlayController: BaseConnectionController,playerDelegate,playVideoDelegat
             movieId = item.vod_id
             loadData()
         }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        
+        //1. 取出 headerView
+        let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: kHeaderViewID, for: indexPath) as! CollectionHeaderView
+                
+        //2. 给 headerView 设置数据
+        headerView.titleLabel.text = info?.player_vod.vod_name
+        headerView.moreBtn.isHidden = true
+        return headerView
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {

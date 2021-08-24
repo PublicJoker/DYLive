@@ -3,7 +3,7 @@
 //  PJLive
 //
 //  Created by PublicJoker on 2021/8/17.
-//  Copyright © 2021 君凯商联网. All rights reserved.
+//  Copyright © 2021 PublicJoker. All rights reserved.
 //
 
 import UIKit

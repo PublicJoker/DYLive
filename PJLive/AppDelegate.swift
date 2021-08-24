@@ -72,10 +72,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func showNewFeature(_ checked: Bool) {
-        if checked == false {
-            initAudio()
-        }
-        
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.backgroundColor = .white
         
@@ -85,10 +81,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             changeIcon()
         } else {
+            initAudio()
             window?.rootViewController = IATViewController()
             window?.makeKeyAndVisible()
         }
     }
+    
+    func initAd() {
+        BUAdSDKManager.setAppID("5208554")
+        
+        #if DEBUG
+        BUAdSDKManager.setLoglevel(.debug)
+        #endif
+        
+        /// Coppa 0 adult, 1 child
+        BUAdSDKManager.setCoppa(0)
+        
+        splashAdView.delegate = self
+        
+        let rootTab = window?.rootViewController as? MainViewController
+        let rootNavi = rootTab?.selectedViewController as? BaseNavigationController
+        rootNavi?.visibleViewController?.view.addSubview(splashAdView)
+        splashAdView.rootViewController = rootNavi?.visibleViewController
+    }
+    
+    lazy var splashAdView: BUSplashAdView = {
+        let frame = UIScreen.main.bounds
+        let adView = BUSplashAdView(slotID: "946575698", frame: frame)
+        adView.tolerateTimeout = 5
+        return adView
+    }()
     
     open func supportedInterfaceOrientations(for window: UIWindow?) -> UIInterfaceOrientationMask{
         return .allButUpsideDown//支持倒立除外的其他方向
@@ -122,6 +144,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 }
 
+extension AppDelegate: BUSplashAdDelegate {
+    func splashAdDidClickSkip(_ splashAd: BUSplashAdView) {
+        splashAd.removeFromSuperview()
+    }
+    
+    func splashAdDidLoad(_ splashAd: BUSplashAdView) {
+        
+    }
+    
+    func splashAdCountdown(toZero splashAd: BUSplashAdView) {
+        splashAd.removeFromSuperview()
+    }
+    
+    func splashAd(_ splashAd: BUSplashAdView, didFailWithError error: Error?) {
+        splashAd.removeFromSuperview()
+    }
+}
+
 extension AppDelegate {
     func signForContent(_ content: String) -> String {
         let charArray = content.cString(using: .utf8)!
@@ -140,7 +180,14 @@ extension AppDelegate {
 extension AppDelegate : JPUSHRegisterDelegate {
     @available(iOS 10.0, *)
     func jpushNotificationCenter(_ center: UNUserNotificationCenter!, openSettingsFor notification: UNNotification!) {
+        let userInfo = notification.request.content.userInfo
         
+        //从通知界面直接进入应用
+        if notification.request.trigger is UNPushNotificationTrigger {
+            JPUSHService.handleRemoteNotification(userInfo)
+        } else {//从通知设置界面进入应用
+            
+        }
     }
     
     func jpushNotificationAuthorization(_ status: JPAuthorizationStatus, withInfo info: [AnyHashable : Any]!) {
@@ -173,7 +220,7 @@ extension AppDelegate : JPUSHRegisterDelegate {
     }
 
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-                 
+        // Required, iOS 7 Support
         JPUSHService.handleRemoteNotification(userInfo)
                 
         completionHandler(UIBackgroundFetchResult.newData)

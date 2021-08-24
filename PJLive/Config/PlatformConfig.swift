@@ -59,11 +59,11 @@ enum ServerType {
 public let Base_URL = currentServer.serverDomain
 
 #if DEBUG
-public let UMeng_Channel = "dev"
+public let UMeng_Channel = "Dev"
 public let APSForProduction = false
 public let UMeng_LogEnable = true
 #else
-public let UMeng_Channel = "release"
+public let UMeng_Channel = "App Store"
 public let APSForProduction = true
 public let UMeng_LogEnable = false
 #endif
@@ -96,7 +96,7 @@ class PlatformConfig: NSObject {
     ///   - launchOptions: 启动项
     func init3rdSDK(application: UIApplication, launchOptions: [UIApplication.LaunchOptionsKey: Any]?) {
         /// 极光推送
-//        initJPush(application: application, launchOptions: launchOptions)
+        initJPush(application: application, launchOptions: launchOptions)
         /// 友盟统计
         initUMengAnalysis(enableLog: UMeng_LogEnable)
     }
@@ -121,8 +121,8 @@ class PlatformConfig: NSObject {
             entity.types = 1 << 0 | 1 << 1 | 1 << 2
             JPUSHService.register(forRemoteNotificationConfig: entity, delegate: application as? JPUSHRegisterDelegate)
             // 需要IDFA 功能，定向投放广告功能
-            // let advertisingId = ASIdentifierManager.shared().advertisingIdentifier.uuidString
-            JPUSHService.setup(withOption: launchOptions, appKey: JPushAppKey, channel: "Develop", apsForProduction: APSForProduction, advertisingIdentifier: nil)
+//             let advertisingId = ASIdentifierManager.shared().advertisingIdentifier.uuidString
+            JPUSHService.setup(withOption: launchOptions, appKey: JPushAppKey, channel: UMengChannel, apsForProduction: APSForProduction, advertisingIdentifier: nil)
             
             JPUSHService.registrationIDCompletionHandler { (statusCode, registrationID) in
                 /// 配置当前用户的registrationID,登录时传给服务器

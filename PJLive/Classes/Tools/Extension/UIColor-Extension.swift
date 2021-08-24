@@ -2,8 +2,8 @@
 //  UIColor-Extension.swift
 //  PJLive
 //
-//  Created by 君凯商联网 on 2019/4/15.
-//  Copyright © 2019 君凯商联网. All rights reserved.
+//  Created by PublicJoker on 2019/4/15.
+//  Copyright © 2019 PublicJoker. All rights reserved.
 //
 
 import UIKit

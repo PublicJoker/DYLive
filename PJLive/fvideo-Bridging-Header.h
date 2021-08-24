@@ -16,6 +16,8 @@
 
 /// 友盟
 #import <UMCommon/UMCommon.h>
+/// 穿山甲
+#import <BUAdSDK/BUAdSDK.h>
 
 #import "SignUtil.h"
 #import "ProxyCheck.h"
