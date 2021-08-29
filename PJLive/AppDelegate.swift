@@ -9,6 +9,8 @@
 
 import UIKit
 import Alamofire
+import AppTrackingTransparency
+import AdSupport
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -78,12 +80,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if checked {//更换图标,显示新特性
             window?.rootViewController = MainViewController()
             window?.makeKeyAndVisible()
-            
+            requestIDFA()
             changeIcon()
         } else {
             initAudio()
             window?.rootViewController = IATViewController()
             window?.makeKeyAndVisible()
+            
+            requestIDFA()
+        }
+    }
+    
+    
+    func requestIDFA() {
+        if #available(iOS 14, *) {
+            ATTrackingManager.requestTrackingAuthorization(completionHandler: { [self] status in
+                initAd()
+            })
+        } else {
+            initAd()
         }
     }
     
@@ -97,18 +112,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         /// Coppa 0 adult, 1 child
         BUAdSDKManager.setCoppa(0)
         
-        splashAdView.delegate = self
-        
-        let rootTab = window?.rootViewController as? MainViewController
-        let rootNavi = rootTab?.selectedViewController as? BaseNavigationController
-        rootNavi?.visibleViewController?.view.addSubview(splashAdView)
-        splashAdView.rootViewController = rootNavi?.visibleViewController
+        DispatchQueue.main.async {
+            self.splashAdView.delegate = self
+            self.splashAdView.loadAdData()
+            let rootVC = self.window?.rootViewController
+            rootVC?.view.addSubview(self.splashAdView)
+            self.splashAdView.rootViewController = rootVC
+        }
     }
     
     lazy var splashAdView: BUSplashAdView = {
         let frame = UIScreen.main.bounds
-        let adView = BUSplashAdView(slotID: "946575698", frame: frame)
-        adView.tolerateTimeout = 5
+        let adView = BUSplashAdView(slotID: "887544324", frame: frame)
+        adView.tolerateTimeout = 10
+//        adView.hideSkipButton = true//隐藏跳过按钮
         return adView
     }()
     

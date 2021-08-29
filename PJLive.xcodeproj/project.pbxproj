@@ -948,13 +948,13 @@
 				F945374226CEFA7400E6AA41 /* Headers.h */,
 				F945372E26CEF97700E6AA41 /* iflyMSC.framework */,
 				F945373026CEF97700E6AA41 /* IATConfig.h */,
-				F945373126CEF97700E6AA41 /* MySingleData.h */,
-				F945373226CEF97700E6AA41 /* IATViewController.h */,
-				F945373326CEF97700E6AA41 /* ChangeLanViewController.m */,
-				F945373526CEF97700E6AA41 /* MySingleData.m */,
 				F945373626CEF97700E6AA41 /* IATConfig.m */,
-				F945373726CEF97700E6AA41 /* ChangeLanViewController.h */,
+				F945373126CEF97700E6AA41 /* MySingleData.h */,
+				F945373526CEF97700E6AA41 /* MySingleData.m */,
+				F945373226CEF97700E6AA41 /* IATViewController.h */,
 				F945373826CEF97700E6AA41 /* IATViewController.m */,
+				F945373726CEF97700E6AA41 /* ChangeLanViewController.h */,
+				F945373326CEF97700E6AA41 /* ChangeLanViewController.m */,
 			);
 			path = RobotQ;
 			sourceTree = "<group>";
