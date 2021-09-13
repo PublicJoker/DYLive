@@ -23,9 +23,12 @@ class ProfileHeaderView: UIView {
     @IBOutlet weak var collectionView: UICollectionView!
     
     // MARK: 定义属性
-    fileprivate var names : [[String : Any]] = [["name":"全部历史","icon_name":"icon_my_history"],["name":"我的下载","icon_name":"icon_my_download"],["name":"我喜欢的","icon_name":"icon_my_like"],["name":"去除广告","icon_name":"icon_my_reward"],
-        ["name":"设置中心","icon_name":"icon_my_setting"],
-        ["name":"分享好友","icon_name":"icon_my_share"]]
+    fileprivate var names : [[String : Any]] = [["name":"全部历史","icon_name":"icon_my_history"],
+//                                                ["name":"我的下载","icon_name":"icon_my_download"],
+                                                ["name":"我喜欢的","icon_name":"icon_my_like"],
+                                                ["name":"去除广告","icon_name":"icon_my_reward"],
+                                                ["name":"设置中心","icon_name":"icon_my_setting"],
+                                                ["name":"分享好友","icon_name":"icon_my_share"]]
     
 
     override func awakeFromNib() {
@@ -69,7 +72,7 @@ extension ProfileHeaderView {
 extension ProfileHeaderView : UICollectionViewDataSource, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+        return names.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -86,15 +89,15 @@ extension ProfileHeaderView : UICollectionViewDataSource, UICollectionViewDelega
         switch indexPath.row {
         case 0:
             AppJump.jumpToHisControl()
+//        case 1:
+//            print("我的下载")
         case 1:
-            print("我的下载")
-        case 2:
             AppJump.jumpToFavControl()
-        case 3:
+        case 2:
             print("去除广告")
-        case 4:
+        case 3:
             NSLog("设置中心")
-        case 5:
+        case 4:
             NSLog("分享好友")
         default:
             NSLog("...")
