@@ -11,7 +11,7 @@ import UIKit
 
 class CycleModel: NSObject {
     /// 专辑id
-    @objc var vod_id : String = ""
+    @objc var vod_id : Int = 0
     /// 标题
     @objc var vod_name : String = ""
     /// 图片

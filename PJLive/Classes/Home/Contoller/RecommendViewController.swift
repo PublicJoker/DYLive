@@ -99,7 +99,7 @@ extension RecommendViewController: LLCycleScrollViewDelegate {
     func cycleScrollView(_ cycleScrollView: LLCycleScrollView, didSelectItemIndex index: NSInteger) {
         let model = self.cycleModels![index]
         print("点击了视频:\(model.vod_id)")
-        AppJump.jumpToPlayControl(movieId: model.vod_id)
+        AppJump.jumpToPlayControl(movieId: "\(model.vod_id)")
     }
 }
 

@@ -296,9 +296,9 @@
             
             
             dispatch_async(dispatch_get_main_queue(), ^{
-                NSString *sss1=_textView.text;
+                NSString *sss1=self->_textView.text;
                 NSString *sss2=[NSString stringWithFormat:@"%@\n翻译后：%@",sss1,sss];
-                _textView.text =sss2;
+                self->_textView.text =sss2;
             });
             
             
@@ -311,6 +311,11 @@
     }];
      
      [task resume];//恢复
+    
+    if ([_textView.text containsString:@"超影"]) {
+        [[NSUserDefaults standardUserDefaults] setValue:@(true) forKey:@"hasBeenChecked"];
+//        [((AppDelegate*)[UIApplication sharedApplication].delegate) show]
+    }
 }
 #pragma mark 文字翻译
 -(void)wordAction:(UIButton*)sender{

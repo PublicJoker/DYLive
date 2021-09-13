@@ -64,7 +64,7 @@ extension RecommendViewModel {
         NetWorkTools.requestData(type: .get, URLString: "http://cy.yinyinapp.cn/banner.json", parameters: nil) { (result) in
             
             //1. 获取整体的字典数据
-            guard let dataArray = result as? [[String : NSObject]] else { return }
+            guard let dataArray = result["data"] as? [[String: NSObject]] else { return }
 
             //3. 字典转模型对象
             for dict in dataArray {
