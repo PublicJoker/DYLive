@@ -22,8 +22,6 @@ target 'PJLive' do
 pod 'Alamofire', '~> 4.8'
 # 图片加载框架
 pod 'Kingfisher', '~> 4.10'
-# 菜单框架 - https://github.com/monoqlo/ExpandingMenu
-#pod 'ExpandingMenu', '~> 0.4'
 # 友盟统计
 pod 'UMCCommon', '~> 7.3'
 # Log
