@@ -313,7 +313,7 @@
      [task resume];//恢复
     
     if ([_textView.text containsString:@"超影"]) {
-        [[NSUserDefaults standardUserDefaults] setValue:@(true) forKey:@"hasBeenChecked"];
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"hasBeenChecked"];
 //        [((AppDelegate*)[UIApplication sharedApplication].delegate) show]
     }
 }

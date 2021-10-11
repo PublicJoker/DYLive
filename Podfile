@@ -1,7 +1,7 @@
 source 'https://mirrors.tuna.tsinghua.edu.cn/git/CocoaPods/Specs.git'
 platform :ios, '10.0'
 use_frameworks!
-inhibit_all_warnings!
+#inhibit_all_warnings!
 
 target 'PJLive' do
   pod 'ATRefresh_Swift', '~> 0.2'
@@ -23,7 +23,7 @@ pod 'Alamofire', '~> 4.8'
 # 图片加载框架
 pod 'Kingfisher', '~> 4.10'
 # 菜单框架 - https://github.com/monoqlo/ExpandingMenu
-pod 'ExpandingMenu', '~> 0.4'
+#pod 'ExpandingMenu', '~> 0.4'
 # 友盟统计
 pod 'UMCCommon', '~> 7.3'
 # Log

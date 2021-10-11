@@ -1,8 +1,7 @@
 
 
 #import <UIKit/UIKit.h>
-#import "iflyMSC/iflyMSC.h"
-
+#import <iflyMSC/IFlyMSC.h>
 @interface IATViewController : UIViewController
 
 @end
