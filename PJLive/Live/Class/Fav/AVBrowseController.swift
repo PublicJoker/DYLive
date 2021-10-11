@@ -15,8 +15,8 @@ class AVBrowseController: BaseConnectionController {
     }()
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.showNavTitle(title: "观看记录");
-        self.setupRefresh(scrollView: self.collectionView, options: .defaults);
+        showNavTitle(title: "观看记录")
+        setupRefresh(scrollView: self.collectionView, options: .defaults)
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated);

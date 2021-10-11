@@ -55,8 +55,6 @@ class ProfileHeaderView: UIView {
         layout.minimumLineSpacing = 20
         layout.sectionInset = UIEdgeInsets(top: 10, left: kDefaultMargin, bottom: 20, right: kDefaultMargin)
     }
-    
-    
 }
 
 
@@ -81,7 +79,6 @@ extension ProfileHeaderView : UICollectionViewDataSource, UICollectionViewDelega
         
         cell.nameLabel.text = names[indexPath.item]["name"] as? String
         cell.iconImageView.image = UIImage(named: names[indexPath.item]["icon_name"] as! String)
-        
         return cell
     }
     

@@ -1,34 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="gTV-IL-0wX" customClass="AVHomeCell" customModule="云播放" customModuleProvider="target">
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="gTV-IL-0wX" customClass="AVHomeCell" customModule="PJLive" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="157" height="171"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                 <rect key="frame" x="0.0" y="0.0" width="157" height="171"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Yje-rd-jZ2">
-                        <rect key="frame" x="0.0" y="0.0" width="157" height="171"/>
-                    </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Tk-gR-lzC">
                         <rect key="frame" x="0.0" y="0.0" width="157" height="171"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4c0-KI-BmR">
-                                <rect key="frame" x="8" y="146" width="141" height="17"/>
+                                <rect key="frame" x="5" y="149" width="147" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9CJ-4J-wyx">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9CJ-4J-wyx">
                                 <rect key="frame" x="8" y="8" width="41" height="16"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.34999999999999998" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -45,27 +42,31 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.10000000000000001" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="4c0-KI-BmR" secondAttribute="trailing" constant="8" id="5lh-uQ-NUy"/>
+                            <constraint firstAttribute="trailing" secondItem="4c0-KI-BmR" secondAttribute="trailing" constant="5" id="5lh-uQ-NUy"/>
                             <constraint firstAttribute="trailing" secondItem="TEr-ch-3Pz" secondAttribute="trailing" constant="8" id="8BW-oN-Pe5"/>
-                            <constraint firstAttribute="bottom" secondItem="4c0-KI-BmR" secondAttribute="bottom" constant="8" id="9Rh-Hz-4Kb"/>
+                            <constraint firstAttribute="bottom" secondItem="4c0-KI-BmR" secondAttribute="bottom" constant="5" id="9Rh-Hz-4Kb"/>
                             <constraint firstItem="9CJ-4J-wyx" firstAttribute="top" secondItem="2Tk-gR-lzC" secondAttribute="top" constant="8" id="AVq-kp-c4p"/>
                             <constraint firstItem="TEr-ch-3Pz" firstAttribute="centerY" secondItem="9CJ-4J-wyx" secondAttribute="centerY" id="GHC-ws-KOD"/>
                             <constraint firstItem="9CJ-4J-wyx" firstAttribute="leading" secondItem="2Tk-gR-lzC" secondAttribute="leading" constant="8" id="HYM-Jj-xbS"/>
-                            <constraint firstItem="4c0-KI-BmR" firstAttribute="leading" secondItem="2Tk-gR-lzC" secondAttribute="leading" constant="8" id="x9p-a1-XZX"/>
+                            <constraint firstItem="4c0-KI-BmR" firstAttribute="leading" secondItem="2Tk-gR-lzC" secondAttribute="leading" constant="5" id="x9p-a1-XZX"/>
                         </constraints>
                     </view>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Yje-rd-jZ2">
+                        <rect key="frame" x="0.0" y="0.0" width="157" height="141"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </imageView>
                 </subviews>
             </view>
             <constraints>
                 <constraint firstItem="2Tk-gR-lzC" firstAttribute="top" secondItem="Yje-rd-jZ2" secondAttribute="top" id="0qU-d3-6fC"/>
                 <constraint firstItem="Yje-rd-jZ2" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="B5a-EM-a4S"/>
-                <constraint firstItem="2Tk-gR-lzC" firstAttribute="bottom" secondItem="Yje-rd-jZ2" secondAttribute="bottom" id="L1V-AM-wOf"/>
                 <constraint firstAttribute="trailing" secondItem="Yje-rd-jZ2" secondAttribute="trailing" id="Tad-NP-63L"/>
                 <constraint firstItem="2Tk-gR-lzC" firstAttribute="trailing" secondItem="Yje-rd-jZ2" secondAttribute="trailing" id="mfb-GF-aHb"/>
+                <constraint firstAttribute="bottom" secondItem="2Tk-gR-lzC" secondAttribute="bottom" id="pse-lT-nHA"/>
                 <constraint firstItem="2Tk-gR-lzC" firstAttribute="leading" secondItem="Yje-rd-jZ2" secondAttribute="leading" id="qBu-nd-Kc5"/>
-                <constraint firstAttribute="bottom" secondItem="Yje-rd-jZ2" secondAttribute="bottom" id="uJI-1U-hHf"/>
+                <constraint firstAttribute="bottom" secondItem="Yje-rd-jZ2" secondAttribute="bottom" constant="30" id="uJI-1U-hHf"/>
                 <constraint firstItem="Yje-rd-jZ2" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="xzH-n0-hSz"/>
             </constraints>
             <size key="customSize" width="157" height="171"/>

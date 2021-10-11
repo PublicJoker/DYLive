@@ -15,8 +15,8 @@ class AVFavController: BaseConnectionController {
     }()
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "收藏"
-        self.setupRefresh(scrollView: self.collectionView, options: .defaults)
+        showNavTitle(title: "我喜欢的")
+        setupRefresh(scrollView: self.collectionView, options: .defaults)
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated);
@@ -41,16 +41,16 @@ class AVFavController: BaseConnectionController {
         return self.listData.count;
     }
     override func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return itemTop;
+        return 10;
     }
     override func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return itemTop;
+        return 10;
     }
     override func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top:itemTop, left: itemTop, bottom: 0, right: itemTop);
+        return UIEdgeInsets(top:10, left: 10, bottom: 0, right: 10);
     }
     override func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = itemWidth;
+        let width = (kScreenWidth - 10 * 3) / 3.0;
         return CGSize.init(width: width, height: itemHeight)
     }
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

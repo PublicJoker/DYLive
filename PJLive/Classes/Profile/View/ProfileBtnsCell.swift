@@ -20,11 +20,14 @@ class ProfileBtnsCell: UICollectionViewCell {
         super.awakeFromNib()
         // Initialization code
         backgroundColor = .white
-        layer.cornerRadius = 5
-        layer.borderWidth = 0.5
-        layer.borderColor = kTextLightGrayColor.cgColor
-        layer.shadowColor = UIColor.darkGray.cgColor
         
+//        layer.cornerRadius = 5
+//        layer.borderWidth = 0.5
+//        layer.borderColor = kTextLightGrayColor.cgColor
+        layer.shadowColor = kTextLightGrayColor.cgColor
+        layer.masksToBounds = false
+        layer.shadowRadius = 1.5
+        layer.shadowOffset = CGSize(width: 0.5, height: 1)
+        layer.shadowOpacity = 0.8
     }
-
 }
