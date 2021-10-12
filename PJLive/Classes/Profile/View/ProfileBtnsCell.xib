@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -17,19 +17,19 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="观看历史" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3p0-Hn-Tpo">
-                        <rect key="frame" x="21.5" y="73" width="57.5" height="17"/>
+                        <rect key="frame" x="19.5" y="73" width="61.5" height="17"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="17" id="zP7-ep-V88"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="live_cell_default_phone" translatesAutoresizingMaskIntoConstraints="NO" id="2SJ-o9-DcH">
-                        <rect key="frame" x="35" y="20" width="30" height="30"/>
+                        <rect key="frame" x="32.5" y="18" width="35" height="35"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="2SJ-o9-DcH" secondAttribute="height" multiplier="1:1" id="K7p-jg-ckE"/>
-                            <constraint firstAttribute="width" constant="30" id="ape-zx-f1J"/>
+                            <constraint firstAttribute="width" constant="35" id="ape-zx-f1J"/>
                         </constraints>
                     </imageView>
                 </subviews>
@@ -37,7 +37,7 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="3p0-Hn-Tpo" firstAttribute="centerX" secondItem="2SJ-o9-DcH" secondAttribute="centerX" id="5IW-wT-8oE"/>
-                <constraint firstItem="2SJ-o9-DcH" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="20" id="M5p-fl-Jm6"/>
+                <constraint firstItem="2SJ-o9-DcH" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="18" id="M5p-fl-Jm6"/>
                 <constraint firstItem="3p0-Hn-Tpo" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="Yor-x9-5Pg"/>
                 <constraint firstAttribute="bottom" secondItem="3p0-Hn-Tpo" secondAttribute="bottom" constant="10" id="vkE-uc-mWC"/>
             </constraints>

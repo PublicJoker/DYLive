@@ -50,8 +50,8 @@ class AVFavController: BaseConnectionController {
         return UIEdgeInsets(top:10, left: 10, bottom: 0, right: 10);
     }
     override func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = (kScreenWidth - 10 * 3) / 3.0;
-        return CGSize.init(width: width, height: itemHeight)
+        let width = (kScreenWidth - 10 * 4) / 3.0;
+        return CGSize.init(width: width, height: width*1.45)
     }
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell : AVHomeCell = AVHomeCell.cellForCollectionView(collectionView: collectionView, indexPath: indexPath);

@@ -93,7 +93,7 @@ extension ProfileHeaderView : UICollectionViewDataSource, UICollectionViewDelega
         case 2:
             print("去除广告")
         case 3:
-            NSLog("设置中心")
+            AppJump.jumpToSettingControl()
         case 4:
             NSLog("分享好友")
         default:

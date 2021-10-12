@@ -9,34 +9,40 @@
 import UIKit
 
 class AppJump: NSObject {
-    class func jumpToFavControl(){
-        let vc = AVFavController.init();
-        vc.hidesBottomBarWhenPushed = true;
+    class func jumpToFavControl() {
+        let vc = AVFavController()
+        vc.hidesBottomBarWhenPushed = true
         UIViewController.rootTopPresentedController().navigationController?.pushViewController(vc, animated: false)
     }
-    class func jumpToHisControl(){
-        let vc = AVBrowseController.init();
-        vc.hidesBottomBarWhenPushed = true;
+    class func jumpToHisControl() {
+        let vc = AVBrowseController()
+        vc.hidesBottomBarWhenPushed = true
         UIViewController.rootTopPresentedController().navigationController?.pushViewController(vc, animated: false)
     }
-    class func jumpToSearchControl(){
-        let vc = AVSearchController.init();
-        vc.hidesBottomBarWhenPushed = true;
+    class func jumpToSearchControl() {
+        let vc = AVSearchController()
+        vc.hidesBottomBarWhenPushed = true
         UIViewController.rootTopPresentedController().navigationController?.pushViewController(vc, animated: false)
     }
-    class func jumpToMoreControl(movieId : String){
+    class func jumpToMoreControl(movieId : String) {
 //        let vc = AVHomeMoreController(movieId: movieId, ztid: nil)
 //        vc.hidesBottomBarWhenPushed = true;
 //        UIViewController.rootTopPresentedController().navigationController?.pushViewController(vc, animated: true)
     }
-    class func jumpToIndexMoreControl(ztid : String){
+    class func jumpToIndexMoreControl(ztid : String) {
 //        let vc = AVHomeMoreController(movieId: nil, ztid: ztid)
 //        vc.hidesBottomBarWhenPushed = true;
 //        UIViewController.rootTopPresentedController().navigationController?.pushViewController(vc, animated: true)
     }
-    class func jumpToPlayControl(movieId : String){
+    class func jumpToPlayControl(movieId : String) {
         let vc = AVPlayController(movieId: movieId);
         vc.hidesBottomBarWhenPushed = true;
-        UIViewController.rootTopPresentedController().navigationController?.pushViewController(vc, animated: true)
+        UIViewController.rootTopPresentedController().navigationController?.pushViewController(vc, animated: false)
+    }
+    
+    class func jumpToSettingControl() {
+        let vc = SettingController()
+        vc.hidesBottomBarWhenPushed = true
+        UIViewController.rootTopPresentedController().navigationController?.pushViewController(vc, animated: false)
     }
 }

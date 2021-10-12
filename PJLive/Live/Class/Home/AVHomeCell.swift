@@ -30,10 +30,15 @@ class AVHomeCell: UICollectionViewCell {
         super.awakeFromNib()
         imageV.layer.masksToBounds = true
         imageV.layer.cornerRadius = 3
-        contentView.layer.cornerRadius = 5
-        contentView.layer.borderColor = kBorderColor.cgColor
-        contentView.layer.borderWidth = 1
-        contentView.layer.shadowOffset = CGSize(width: 0, height: 1)
+        
+        layer.cornerRadius = 5
+        layer.borderWidth = 0.3
+        layer.borderColor = kBorderColor.cgColor
+        layer.shadowColor = kBorderColor.cgColor
+        layer.masksToBounds = false
+        layer.shadowRadius = 2
+        layer.shadowOffset = CGSize(width: 1, height: 1)
+        layer.shadowOpacity = 0.8
     }
 
 }

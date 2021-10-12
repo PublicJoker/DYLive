@@ -69,6 +69,10 @@
 		7AF1CD3C2269B8CF002DBE91 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF1CD3B2269B8CF002DBE91 /* GameViewController.swift */; };
 		7AF1CD3E2269C6AF002DBE91 /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF1CD3D2269C6AF002DBE91 /* GameViewModel.swift */; };
 		9064D507D98D2FF716F6357A /* Pods_PJLive.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5786B290C8BC0C056A88C48 /* Pods_PJLive.framework */; };
+		EA77FF542715188E0082D717 /* SettingController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA77FF522715188E0082D717 /* SettingController.xib */; };
+		EA77FF552715188E0082D717 /* SettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA77FF532715188E0082D717 /* SettingController.swift */; };
+		EA77FF5827157C320082D717 /* ShareController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA77FF5627157C320082D717 /* ShareController.xib */; };
+		EA77FF5927157C320082D717 /* ShareController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA77FF5727157C320082D717 /* ShareController.swift */; };
 		F945368F26CE02CC00E6AA41 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F945368E26CE02CB00E6AA41 /* Profile.storyboard */; };
 		F945369126CE02D500E6AA41 /* Follow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F945369026CE02D500E6AA41 /* Follow.storyboard */; };
 		F945369326CE02DE00E6AA41 /* Live.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F945369226CE02DE00E6AA41 /* Live.storyboard */; };
@@ -241,6 +245,10 @@
 		7AF1CD3B2269B8CF002DBE91 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		7AF1CD3D2269C6AF002DBE91 /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
 		E5786B290C8BC0C056A88C48 /* Pods_PJLive.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PJLive.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EA77FF522715188E0082D717 /* SettingController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingController.xib; sourceTree = "<group>"; };
+		EA77FF532715188E0082D717 /* SettingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingController.swift; sourceTree = "<group>"; };
+		EA77FF5627157C320082D717 /* ShareController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShareController.xib; sourceTree = "<group>"; };
+		EA77FF5727157C320082D717 /* ShareController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareController.swift; sourceTree = "<group>"; };
 		EAE74D802714259E009B7A07 /* PJLive.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PJLive.entitlements; sourceTree = "<group>"; };
 		F945368E26CE02CB00E6AA41 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Profile.storyboard; path = PJLive/Classes/Profile/Profile.storyboard; sourceTree = "<group>"; };
 		F945369026CE02D500E6AA41 /* Follow.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Follow.storyboard; path = PJLive/Classes/Follow/Follow.storyboard; sourceTree = "<group>"; };
@@ -761,6 +769,17 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		EA77FF51271518640082D717 /* Mine */ = {
+			isa = PBXGroup;
+			children = (
+				EA77FF532715188E0082D717 /* SettingController.swift */,
+				EA77FF522715188E0082D717 /* SettingController.xib */,
+				EA77FF5727157C320082D717 /* ShareController.swift */,
+				EA77FF5627157C320082D717 /* ShareController.xib */,
+			);
+			path = Mine;
+			sourceTree = "<group>";
+		};
 		F945369626CE0FA200E6AA41 /* Live */ = {
 			isa = PBXGroup;
 			children = (
@@ -840,6 +859,7 @@
 		F94536C026CE115600E6AA41 /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				EA77FF51271518640082D717 /* Mine */,
 				F94536C126CE115600E6AA41 /* Home */,
 				F94536CF26CE115600E6AA41 /* Fav */,
 				F94536D426CE115600E6AA41 /* Search */,
@@ -1068,11 +1088,13 @@
 				F945369326CE02DE00E6AA41 /* Live.storyboard in Resources */,
 				7AC53751226D912A001CB912 /* AmuseMenuView.xib in Resources */,
 				7AF1CD2C2269639F002DBE91 /* RecommendCycleView.xib in Resources */,
+				EA77FF542715188E0082D717 /* SettingController.xib in Resources */,
 				F94536E126CE115700E6AA41 /* ATHomeHotCell.xib in Resources */,
 				F94536F126CE115700E6AA41 /* AVSearchView.xib in Resources */,
 				F945371026CED86300E6AA41 /* 2021@2x.png in Resources */,
 				7A82A1EC2271885D00915D9C /* ProfileBtnsCell.xib in Resources */,
 				7AF1CD3222697BB3002DBE91 /* CollectionCycleCell.xib in Resources */,
+				EA77FF5827157C320082D717 /* ShareController.xib in Resources */,
 				7AF1CCFB2266B457002DBE91 /* CollectionPrettyCell.xib in Resources */,
 				7AF1CD3622699F38002DBE91 /* RecommendGameView.xib in Resources */,
 				7A82A1D222714E9E00915D9C /* FollowHeaderView.xib in Resources */,
@@ -1166,6 +1188,7 @@
 				7AF1CD3C2269B8CF002DBE91 /* GameViewController.swift in Sources */,
 				F96C2CA426CA971900DF5863 /* PlatformConfig.swift in Sources */,
 				F945373F26CEF97700E6AA41 /* IATViewController.m in Sources */,
+				EA77FF5927157C320082D717 /* ShareController.swift in Sources */,
 				7AF1CCEF2265AC24002DBE91 /* RecommendViewController.swift in Sources */,
 				7A0F063D226089F900DD89F5 /* AppDelegate.swift in Sources */,
 				7AC53754226D9D48001CB912 /* AmuseMenuViewCell.swift in Sources */,
@@ -1202,6 +1225,7 @@
 				7AF1CCEB22648068002DBE91 /* PageContentView.swift in Sources */,
 				F945370126CE117400E6AA41 /* BaseMacro.swift in Sources */,
 				7A0F067E22645AFF00DD89F5 /* UIBarButtonItem-Extension.swift in Sources */,
+				EA77FF552715188E0082D717 /* SettingController.swift in Sources */,
 				F945369F26CE0FC900E6AA41 /* AppJump.swift in Sources */,
 				F94536F226CE115700E6AA41 /* AVSearchController.swift in Sources */,
 				7A0F06822264653D00DD89F5 /* Common.swift in Sources */,

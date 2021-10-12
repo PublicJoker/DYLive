@@ -144,7 +144,7 @@ extension HomeViewController {
         
         //2. 设置右侧 item
         let historyItem = UIBarButtonItem(image: UIImage(named: "icon_history")?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(historyAction))
-        let downloadItem = UIBarButtonItem(image: UIImage(named: "icon_download")?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(downloadAction))
+//        let downloadItem = UIBarButtonItem(image: UIImage(named: "icon_download")?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(downloadAction))
         let filterItem = UIBarButtonItem(image: UIImage(named: "icon_filter")?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(filterAction))
         
 //        navigationItem.rightBarButtonItems = [filterItem,downloadItem,historyItem]

@@ -21,7 +21,7 @@ class BrowserController: BaseViewController {
         super.viewDidLoad()
         
         self.view.backgroundColor = .white
-        self.title = "发现"
+        showNavTitle(title: "发现")
         
         self.view.addSubview(self.webView)
         self.view.addSubview(self.progressView)

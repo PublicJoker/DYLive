@@ -21,7 +21,7 @@ extension FollowViewController {
     
     override func setUpUI() {
         
-        self.title = "发现"
+        showNavTitle(title: "发现")
         
         //2. 设置右侧 item
         let historyItem = UIBarButtonItem(image: UIImage(named: "icon_hind_history")?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(historyAction))

@@ -32,6 +32,7 @@ class ProfileViewController: BaseViewController, LLCycleScrollViewDelegate {
             }) ?? []
             cycleView.imagePaths = cycleModels?.compactMap({ $0.vod_pic }) ?? []
             cycleView.imageViewContentMode = .scaleAspectFill
+            cycleView.autoScroll = false
             
             profileHeaderView.bgImageView.addSubview(cycleView)
             cycleView.snp.makeConstraints { make in
@@ -66,9 +67,9 @@ class ProfileViewController: BaseViewController, LLCycleScrollViewDelegate {
         setUpUI()
     }
 
-    override var prefersStatusBarHidden: Bool {
-        return true
-    }
+//    override var prefersStatusBarHidden: Bool {
+//        return true
+//    }
 //    override var preferredStatusBarStyle: UIStatusBarStyle {
 //        return .lightContent
 //    }
@@ -93,8 +94,8 @@ extension ProfileViewController {
         super.viewWillAppear(animated)
         
         // 设置导航栏和阴影为透明色
-//        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-//        navigationController?.navigationBar.shadowImage = UIImage()
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController?.navigationBar.shadowImage = UIImage()
         
         fd_prefersNavigationBarHidden = true
         navigationController?.navigationBar.isTranslucent = true
