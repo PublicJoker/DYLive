@@ -73,6 +73,7 @@
 		EA77FF552715188E0082D717 /* SettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA77FF532715188E0082D717 /* SettingController.swift */; };
 		EA77FF5827157C320082D717 /* ShareController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA77FF5627157C320082D717 /* ShareController.xib */; };
 		EA77FF5927157C320082D717 /* ShareController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA77FF5727157C320082D717 /* ShareController.swift */; };
+		EA77FF5B27166B490082D717 /* AVCaptureSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA77FF5A27166B480082D717 /* AVCaptureSessionManager.swift */; };
 		F945368F26CE02CC00E6AA41 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F945368E26CE02CB00E6AA41 /* Profile.storyboard */; };
 		F945369126CE02D500E6AA41 /* Follow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F945369026CE02D500E6AA41 /* Follow.storyboard */; };
 		F945369326CE02DE00E6AA41 /* Live.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F945369226CE02DE00E6AA41 /* Live.storyboard */; };
@@ -249,6 +250,7 @@
 		EA77FF532715188E0082D717 /* SettingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingController.swift; sourceTree = "<group>"; };
 		EA77FF5627157C320082D717 /* ShareController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShareController.xib; sourceTree = "<group>"; };
 		EA77FF5727157C320082D717 /* ShareController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareController.swift; sourceTree = "<group>"; };
+		EA77FF5A27166B480082D717 /* AVCaptureSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVCaptureSessionManager.swift; sourceTree = "<group>"; };
 		EAE74D802714259E009B7A07 /* PJLive.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PJLive.entitlements; sourceTree = "<group>"; };
 		F945368E26CE02CB00E6AA41 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Profile.storyboard; path = PJLive/Classes/Profile/Profile.storyboard; sourceTree = "<group>"; };
 		F945369026CE02D500E6AA41 /* Follow.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Follow.storyboard; path = PJLive/Classes/Follow/Follow.storyboard; sourceTree = "<group>"; };
@@ -776,6 +778,7 @@
 				EA77FF522715188E0082D717 /* SettingController.xib */,
 				EA77FF5727157C320082D717 /* ShareController.swift */,
 				EA77FF5627157C320082D717 /* ShareController.xib */,
+				EA77FF5A27166B480082D717 /* AVCaptureSessionManager.swift */,
 			);
 			path = Mine;
 			sourceTree = "<group>";
@@ -1206,6 +1209,7 @@
 				7A0F06802264635700DD89F5 /* PageTitleView.swift in Sources */,
 				7AC5374B226D67CD001CB912 /* BaseViewModel.swift in Sources */,
 				F945373E26CEF97700E6AA41 /* IATConfig.m in Sources */,
+				EA77FF5B27166B490082D717 /* AVCaptureSessionManager.swift in Sources */,
 				F94536EB26CE115700E6AA41 /* AVFavController.swift in Sources */,
 				7AF1CD3122697BB3002DBE91 /* CollectionCycleCell.swift in Sources */,
 				7AC53742226D4787001CB912 /* GameModel.swift in Sources */,

@@ -45,4 +45,11 @@ class AppJump: NSObject {
         vc.hidesBottomBarWhenPushed = true
         UIViewController.rootTopPresentedController().navigationController?.pushViewController(vc, animated: false)
     }
+    
+    class func jumpToShareControl() {
+        let vc = ShareController()
+        vc.hidesBottomBarWhenPushed = true
+        UIViewController.rootTopPresentedController().navigationController?.pushViewController(vc, animated: false)
+    }
 }
+

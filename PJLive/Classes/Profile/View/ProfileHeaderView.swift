@@ -95,7 +95,7 @@ extension ProfileHeaderView : UICollectionViewDataSource, UICollectionViewDelega
         case 3:
             AppJump.jumpToSettingControl()
         case 4:
-            NSLog("分享好友")
+            AppJump.jumpToShareControl()
         default:
             NSLog("...")
         }
