@@ -26,17 +26,17 @@ class AppJump: NSObject {
     }
     class func jumpToMoreControl(movieId : String) {
 //        let vc = AVHomeMoreController(movieId: movieId, ztid: nil)
-//        vc.hidesBottomBarWhenPushed = true;
+//        vc.hidesBottomBarWhenPushed = true
 //        UIViewController.rootTopPresentedController().navigationController?.pushViewController(vc, animated: true)
     }
     class func jumpToIndexMoreControl(ztid : String) {
 //        let vc = AVHomeMoreController(movieId: nil, ztid: ztid)
-//        vc.hidesBottomBarWhenPushed = true;
+//        vc.hidesBottomBarWhenPushed = true
 //        UIViewController.rootTopPresentedController().navigationController?.pushViewController(vc, animated: true)
     }
     class func jumpToPlayControl(movieId : String) {
-        let vc = AVPlayController(movieId: movieId);
-        vc.hidesBottomBarWhenPushed = true;
+        let vc = AVPlayController(movieId: movieId)
+        vc.hidesBottomBarWhenPushed = true
         UIViewController.rootTopPresentedController().navigationController?.pushViewController(vc, animated: false)
     }
     
@@ -48,6 +48,13 @@ class AppJump: NSObject {
     
     class func jumpToShareControl() {
         let vc = ShareController()
+        vc.hidesBottomBarWhenPushed = true
+        UIViewController.rootTopPresentedController().navigationController?.pushViewController(vc, animated: false)
+    }
+    
+    class func jumpToCategeryControl(listId: String) {
+        let vc = AVFindController()
+        vc.listId = listId
         vc.hidesBottomBarWhenPushed = true
         UIViewController.rootTopPresentedController().navigationController?.pushViewController(vc, animated: false)
     }

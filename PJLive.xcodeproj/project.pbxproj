@@ -74,6 +74,10 @@
 		EA77FF5827157C320082D717 /* ShareController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA77FF5627157C320082D717 /* ShareController.xib */; };
 		EA77FF5927157C320082D717 /* ShareController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA77FF5727157C320082D717 /* ShareController.swift */; };
 		EA77FF5B27166B490082D717 /* AVCaptureSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA77FF5A27166B480082D717 /* AVCaptureSessionManager.swift */; };
+		EA77FF622717FEA40082D717 /* AVFindCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA77FF5F2717FEA40082D717 /* AVFindCell.xib */; };
+		EA77FF632717FEA40082D717 /* AVFindCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA77FF602717FEA40082D717 /* AVFindCell.swift */; };
+		EA77FF642717FEA40082D717 /* AVFindController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA77FF612717FEA40082D717 /* AVFindController.swift */; };
+		EA77FF662717FF4D0082D717 /* FindViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA77FF652717FF4D0082D717 /* FindViewModel.swift */; };
 		F945368F26CE02CC00E6AA41 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F945368E26CE02CB00E6AA41 /* Profile.storyboard */; };
 		F945369126CE02D500E6AA41 /* Follow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F945369026CE02D500E6AA41 /* Follow.storyboard */; };
 		F945369326CE02DE00E6AA41 /* Live.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F945369226CE02DE00E6AA41 /* Live.storyboard */; };
@@ -251,6 +255,10 @@
 		EA77FF5627157C320082D717 /* ShareController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShareController.xib; sourceTree = "<group>"; };
 		EA77FF5727157C320082D717 /* ShareController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareController.swift; sourceTree = "<group>"; };
 		EA77FF5A27166B480082D717 /* AVCaptureSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVCaptureSessionManager.swift; sourceTree = "<group>"; };
+		EA77FF5F2717FEA40082D717 /* AVFindCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AVFindCell.xib; sourceTree = "<group>"; };
+		EA77FF602717FEA40082D717 /* AVFindCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AVFindCell.swift; sourceTree = "<group>"; };
+		EA77FF612717FEA40082D717 /* AVFindController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AVFindController.swift; sourceTree = "<group>"; };
+		EA77FF652717FF4D0082D717 /* FindViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindViewModel.swift; sourceTree = "<group>"; };
 		EAE74D802714259E009B7A07 /* PJLive.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PJLive.entitlements; sourceTree = "<group>"; };
 		F945368E26CE02CB00E6AA41 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Profile.storyboard; path = PJLive/Classes/Profile/Profile.storyboard; sourceTree = "<group>"; };
 		F945369026CE02D500E6AA41 /* Follow.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Follow.storyboard; path = PJLive/Classes/Follow/Follow.storyboard; sourceTree = "<group>"; };
@@ -783,6 +791,17 @@
 			path = Mine;
 			sourceTree = "<group>";
 		};
+		EA77FF5E2717FE760082D717 /* Find */ = {
+			isa = PBXGroup;
+			children = (
+				EA77FF602717FEA40082D717 /* AVFindCell.swift */,
+				EA77FF5F2717FEA40082D717 /* AVFindCell.xib */,
+				EA77FF612717FEA40082D717 /* AVFindController.swift */,
+				EA77FF652717FF4D0082D717 /* FindViewModel.swift */,
+			);
+			path = Find;
+			sourceTree = "<group>";
+		};
 		F945369626CE0FA200E6AA41 /* Live */ = {
 			isa = PBXGroup;
 			children = (
@@ -862,6 +881,7 @@
 		F94536C026CE115600E6AA41 /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				EA77FF5E2717FE760082D717 /* Find */,
 				EA77FF51271518640082D717 /* Mine */,
 				F94536C126CE115600E6AA41 /* Home */,
 				F94536CF26CE115600E6AA41 /* Fav */,
@@ -1091,6 +1111,7 @@
 				F945369326CE02DE00E6AA41 /* Live.storyboard in Resources */,
 				7AC53751226D912A001CB912 /* AmuseMenuView.xib in Resources */,
 				7AF1CD2C2269639F002DBE91 /* RecommendCycleView.xib in Resources */,
+				EA77FF622717FEA40082D717 /* AVFindCell.xib in Resources */,
 				EA77FF542715188E0082D717 /* SettingController.xib in Resources */,
 				F94536E126CE115700E6AA41 /* ATHomeHotCell.xib in Resources */,
 				F94536F126CE115700E6AA41 /* AVSearchView.xib in Resources */,
@@ -1213,6 +1234,7 @@
 				F94536EB26CE115700E6AA41 /* AVFavController.swift in Sources */,
 				7AF1CD3122697BB3002DBE91 /* CollectionCycleCell.swift in Sources */,
 				7AC53742226D4787001CB912 /* GameModel.swift in Sources */,
+				EA77FF632717FEA40082D717 /* AVFindCell.swift in Sources */,
 				7AC53759226DAE29001CB912 /* FunnyViewModel.swift in Sources */,
 				F94536B526CE10F200E6AA41 /* BaseDataQueue.m in Sources */,
 				F945370226CE117400E6AA41 /* BaseViewController.swift in Sources */,
@@ -1240,6 +1262,7 @@
 				7A82A1D42271545000915D9C /* ProfileViewController.swift in Sources */,
 				7AF1CD3422699F15002DBE91 /* RecommendGameView.swift in Sources */,
 				7A82A1D6227158A600915D9C /* LiveViewController.swift in Sources */,
+				EA77FF642717FEA40082D717 /* AVFindController.swift in Sources */,
 				F94536B726CE10F200E6AA41 /* AVFavDataQueue.swift in Sources */,
 				F94536A226CE0FC900E6AA41 /* ApiMoya.swift in Sources */,
 				7AF1CD242267297D002DBE91 /* AnchorGroupModel.swift in Sources */,
@@ -1269,6 +1292,7 @@
 				7A0F067B2264547900DD89F5 /* HomeViewController.swift in Sources */,
 				F94536BD26CE10F200E6AA41 /* TVPlayer.swift in Sources */,
 				F94536EA26CE115700E6AA41 /* ATHomeHotCell.swift in Sources */,
+				EA77FF662717FF4D0082D717 /* FindViewModel.swift in Sources */,
 				7AF1CD2022671C51002DBE91 /* RecommendViewModel.swift in Sources */,
 				7AF1CD2622672FDD002DBE91 /* AnchorModel.swift in Sources */,
 			);

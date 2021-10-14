@@ -31,6 +31,15 @@ class ProfileHeaderView: UIView {
                                                 ["name":"分享好友","icon_name":"icon_my_share"]]
     
 
+    
+    lazy var splashAdView: BUSplashAdView = {
+        let frame = UIScreen.main.bounds
+        let adView = BUSplashAdView(slotID: "946575694", frame: frame)
+        adView.tolerateTimeout = 10
+//        adView.hideSkipButton = true//隐藏跳过按钮
+        return adView
+    }()
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -92,6 +101,18 @@ extension ProfileHeaderView : UICollectionViewDataSource, UICollectionViewDelega
             AppJump.jumpToFavControl()
         case 2:
             print("去除广告")
+            DispatchQueue.main.async {
+                self.splashAdView.delegate = self
+                self.splashAdView.loadAdData()
+                
+                guard let rootVC = kAppdelegate?.window?.rootViewController as? UITabBarController,
+                      let navi = rootVC.selectedViewController as? BaseNavigationController,
+                      let vc = navi.topViewController
+                else { return }
+              
+                vc.view.addSubview(self.splashAdView)
+                self.splashAdView.rootViewController = vc
+            }
         case 3:
             AppJump.jumpToSettingControl()
         case 4:
@@ -99,5 +120,24 @@ extension ProfileHeaderView : UICollectionViewDataSource, UICollectionViewDelega
         default:
             NSLog("...")
         }
+    }
+    
+}
+
+extension ProfileHeaderView: BUSplashAdDelegate {
+    func splashAdDidClickSkip(_ splashAd: BUSplashAdView) {
+        splashAd.removeFromSuperview()
+    }
+    
+    func splashAdDidLoad(_ splashAd: BUSplashAdView) {
+        
+    }
+    
+    func splashAdCountdown(toZero splashAd: BUSplashAdView) {
+        splashAd.removeFromSuperview()
+    }
+    
+    func splashAd(_ splashAd: BUSplashAdView, didFailWithError error: Error?) {
+        splashAd.removeFromSuperview()
     }
 }

@@ -39,6 +39,10 @@ enum ServerType {
     case detail
     case fliter
     case search
+    // 发现热门
+    case findHot
+    // 发现-分类查询
+    case findCategory
     
     /// 服务名
     var serviceName: String {
@@ -53,6 +57,10 @@ enum ServerType {
             return "App.Vod.Videos"
         case .search:
             return "App.Vod.Search"
+        case .findHot:
+            return "App.Special.GetSpecials"
+        case .findCategory:
+            return "App.Special.GetSpecial"
         default:
             return "App.Vod.Type_videos"
         }
