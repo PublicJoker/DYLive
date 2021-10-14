@@ -33,7 +33,11 @@ class ShareController: BaseViewController {
     }
 
     @IBAction func shareAction(_ sender: Any) {
-        
+        let image = self.qrcodeView.image!
+        let activityVC = UIActivityViewController.init(activityItems: [image], applicationActivities: nil)
+        //设置不出现的项目
+        activityVC.excludedActivityTypes = [.assignToContact]
+        present(activityVC, animated: true)
     }
     
     @IBAction func saveAction(_ sender: Any) {
