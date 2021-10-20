@@ -258,4 +258,7 @@ extension AppDelegate : JPUSHRegisterDelegate {
         
     }
     
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        autoUpdate()
+    }
 }

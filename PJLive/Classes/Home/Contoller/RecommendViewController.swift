@@ -79,7 +79,7 @@ extension RecommendViewController {
     override func loadData() {
         //0. 给父类中 viewModel 赋值
         baseVM = recommendViewModel
-        
+        RefreshPageSize = (20)
         //1. 请求推荐数据
         recommendViewModel.requestData(listId: listId) {
             //1.1 展示推荐数据

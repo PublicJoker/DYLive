@@ -70,6 +70,7 @@ class HomeViewController: UIViewController {
         // 设置 UI 页面
         setUpUI()
         homeViewModel.requestData {
+            RefreshPageSize = (20)
             print(self.homeViewModel.tabModels)
             
             let tabs = self.homeViewModel.tabModels.compactMap { $0.list_name }

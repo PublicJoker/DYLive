@@ -11,7 +11,7 @@ import ATRefresh_Swift
 import ATKit_Swift
 import Alamofire
 public let RefreshPageStart : Int = (1)
-public let RefreshPageSize  : Int = (20)
+public var RefreshPageSize  : Int = (20)
 
 
 class BaseRefreshController: BaseViewController {
@@ -22,14 +22,14 @@ class BaseRefreshController: BaseViewController {
         return refresh
     }()
     private lazy var images: [UIImage] = {
-        var images :[UIImage] = [];
+        var images :[UIImage] = []
         for i in 0...35{
-            let image = UIImage(named:String("下拉loading_00") + String(i < 10 ? ("0"+String(i)) : String(i)));
+            let image = UIImage(named:String("下拉loading_00") + String(i < 10 ? ("0"+String(i)) : String(i)))
             if image != nil {
-                images.append(image!);
+                images.append(image!)
             }
         }
-        return images;
+        return images
     }()
     deinit {
         

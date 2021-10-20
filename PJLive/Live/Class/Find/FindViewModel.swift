@@ -75,17 +75,12 @@ class FindViewModel : BaseViewModel {
 extension FindViewModel {
     
     // 请求推荐数据
-    func requestData(listId:String?, finishCallback: @escaping () -> ()) {
+    func requestData(finishCallback: @escaping () -> ()) {
         var parameters = [String: Any]()
-        
-        if listId == nil {
-            parameters = getDefaulParam(type: .findHot)
-        } else {
-            parameters = getDefaulParam(type: .findCategory)
-            parameters["id"] = listId!//分类列表id
-        }
+        parameters = getDefaulParam(type: .findHot)
 
         NetWorkTools.requestData(type: .post, URLString: currentServer.serverDomain, parameters: parameters) { (result) in
+            LogUtil.debug(result)
             
             //1.1. 将 result 转成字典类型
             guard let resultDic = result as? [String : NSObject] else {
@@ -104,6 +99,34 @@ extension FindViewModel {
                 self.listModels.append(FindListModel.init(dict: dict))
             }
             
+            //1.4 离开组
+            finishCallback()
+        }
+    }
+    
+    // 请求分类数据
+    func requestCategoryData(listId:String, finishCallback: @escaping () -> ()) {
+        var parameters = [String: Any]()
+        parameters = getDefaulParam(type: .findCategory)
+        parameters["id"] = listId//分类列表id
+
+        NetWorkTools.requestData(type: .post, URLString: currentServer.serverDomain, parameters: parameters) { (result) in
+            LogUtil.debug(result)
+            
+            //1.1. 将 result 转成字典类型
+            guard let resultDic = result as? [String : NSObject] else {
+                finishCallback()
+                return
+            }
+            
+            //1.2. 根据 data 该 key，获取数组
+            guard let dataDic = resultDic["data"] as? [String : NSObject] else {
+                finishCallback()
+                return
+            }
+            
+            //1.3.2 获取分类视频数据
+            self.listModels.append(FindListModel.init(dict: dataDic))
             //1.4 离开组
             finishCallback()
         }

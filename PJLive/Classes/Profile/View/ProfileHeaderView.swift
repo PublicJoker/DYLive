@@ -26,7 +26,7 @@ class ProfileHeaderView: UIView {
     fileprivate var names : [[String : Any]] = [["name":"全部历史","icon_name":"icon_my_history"],
 //                                                ["name":"我的下载","icon_name":"icon_my_download"],
                                                 ["name":"我喜欢的","icon_name":"icon_my_like"],
-                                                ["name":"去除广告","icon_name":"icon_my_reward"],
+//                                                ["name":"去除广告","icon_name":"icon_my_reward"],
                                                 ["name":"设置中心","icon_name":"icon_my_setting"],
                                                 ["name":"分享好友","icon_name":"icon_my_share"]]
     
@@ -99,23 +99,23 @@ extension ProfileHeaderView : UICollectionViewDataSource, UICollectionViewDelega
 //            print("我的下载")
         case 1:
             AppJump.jumpToFavControl()
+//        case 2:
+//            print("去除广告")
+//            DispatchQueue.main.async {
+//                self.splashAdView.delegate = self
+//                self.splashAdView.loadAdData()
+//
+//                guard let rootVC = kAppdelegate?.window?.rootViewController as? UITabBarController,
+//                      let navi = rootVC.selectedViewController as? BaseNavigationController,
+//                      let vc = navi.topViewController
+//                else { return }
+//
+//                vc.view.addSubview(self.splashAdView)
+//                self.splashAdView.rootViewController = vc
+//            }
         case 2:
-            print("去除广告")
-            DispatchQueue.main.async {
-                self.splashAdView.delegate = self
-                self.splashAdView.loadAdData()
-                
-                guard let rootVC = kAppdelegate?.window?.rootViewController as? UITabBarController,
-                      let navi = rootVC.selectedViewController as? BaseNavigationController,
-                      let vc = navi.topViewController
-                else { return }
-              
-                vc.view.addSubview(self.splashAdView)
-                self.splashAdView.rootViewController = vc
-            }
-        case 3:
             AppJump.jumpToSettingControl()
-        case 4:
+        case 3:
             AppJump.jumpToShareControl()
         default:
             NSLog("...")

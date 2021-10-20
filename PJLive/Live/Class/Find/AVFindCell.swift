@@ -23,8 +23,18 @@ class AVFindCell: UICollectionViewCell {
             self.currentLab.text = ""
         }
     }
+    
+    var video: VideoModel?{
+        didSet{
+            guard let item = video else { return }
+            self.imageV.kf.setImage(with: URL.init(string: item.vod_pic));
+            self.titleLab.text = item.vod_name;
+            self.totalLab.text = ""
+            self.currentLab.text = ""
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
-
 }

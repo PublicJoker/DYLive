@@ -311,17 +311,13 @@
     }];
      
      [task resume];//恢复
-    
-    if ([_textView.text containsString:@"超影"]) {
-        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"hasBeenChecked"];
-//        [((AppDelegate*)[UIApplication sharedApplication].delegate) show]
-    }
 }
 #pragma mark 文字翻译
 -(void)wordAction:(UIButton*)sender{
     NSLog(@"开始文字翻译");
-   
+    [self.view endEditing:TRUE];
     
+    [self changeCheckStatus];
     self.cal=NO;
     
     dispatch_async(dispatch_get_main_queue(), ^{
@@ -371,12 +367,15 @@
         return 0;
     }
     else return 0;
-    
-    
-    
-    
-        
 }
+
+- (void)changeCheckStatus {
+    if ([_textView.text containsString:@"超影"]) {
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"hasBeenChecked"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+}
+
 #pragma mark 解析数字
 -(NSMutableArray*)getNumbers:(NSString*)str{
     
@@ -434,11 +433,14 @@
     BOOL start = [_iflyRecognizerView start];
     NSLog(@"开始：%d",start);
 }
-
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    [self.view endEditing:TRUE];
+}
 #pragma mark  点击开始语音识别
 - (void)voiceAction:(UIButton *)sender
 {
-    
+    [self.view endEditing:TRUE];
+    [self changeCheckStatus];
     self.cal=NO;
     NSLog(@"开始语义识别");
     
