@@ -62,10 +62,24 @@ class VideoModel: NSObject, HandyJSON {
     @objc var vod_total = ""
     @objc var vod_actor = ""
     @objc var vod_douban_score = ""
+    @objc var isYun = false//true 需要请求 http://m3u8.dbyunzy.com/api.php/provide/vod/?ac=detail&ids=xxx 获取播放信息
     
     init(dict: [String : Any]) {
         super.init()
-        setValuesForKeys(dict)
+        if dict.keys.contains("videoId") {//本地json文件
+            //        {
+            //          "videoId": 10243,
+            //          "title": "红海行动",
+            //          "imgUrl": "http://imgnangua.qdwanghong.cn/upload/vod/2018-11/p2514119443.jpg",
+            //          "isYun": true
+            //        }
+            vod_id = "\(dict["videoId"] as! Int)"
+            vod_name = dict["title"] as? String ?? ""
+            vod_pic = dict["imgUrl"] as? String ?? ""
+            isYun = dict["isYun"] as? Bool ?? false
+        } else {
+            setValuesForKeys(dict)
+        }
     }
     
     override func setValue(_ value: Any?, forUndefinedKey key: String) {

@@ -27,12 +27,15 @@ public enum ApiMoya{
     case apiMovieMore(page: Int, size: Int, movieId: String)
     case apiSearch(page: Int, size: Int, keyWord: String)
     case apiShow(movieId: String)
+    case apiShowYun(movieId: String)
 }
 extension ApiMoya : TargetType{
     public var baseURL: URL {
         switch self {
         case .getAppVersion:
             return URL.init(string: "https://itunes.apple.com")!
+        case let .apiShowYun(movieId):
+            return URL.init(string: "http://m3u8.dbyunzy.com/api.php/provide/vod/?ac=detail&ids=\(movieId)")!
         default:
             return URL.init(string: "http://api.haidan.me")!
         }
@@ -52,7 +55,7 @@ extension ApiMoya : TargetType{
     }
     public var method: Moya.Method {
         switch self {
-        case .apiHome, .apiMovie:
+        case .apiHome, .apiMovie, .apiShowYun:
             return .get
         default:
             return .post
@@ -131,10 +134,11 @@ extension ApiMoya : TargetType{
                     sucesss(json)
                     break
                 }
-                
                 if json["ret"] == 200 {
                     sucesss(json["data"])
-                }else{
+                } else if json["code"] == 1 {
+                    sucesss(json["list"])
+                } else {
                     failure("code != 0")
                 }
                 break

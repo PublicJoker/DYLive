@@ -9,13 +9,17 @@
 import UIKit
 import MGJRouter_Swift
 import SwiftyJSON
+import Moya
 
 private let kHeaderViewID = "kHeaderViewID"
 
 class AVPlayController: BaseConnectionController,playerDelegate,playVideoDelegate {
-    convenience init(movieId : String) {
+    private var isYun = false
+    
+    convenience init(movieId : String, isYun: Bool? = false) {
         self.init()
         self.movieId = movieId
+        self.isYun = isYun!
     }
     
     private var sourceIndex = 0
@@ -98,7 +102,8 @@ class AVPlayController: BaseConnectionController,playerDelegate,playVideoDelegat
     override func refreshData(page: Int) {
         self.show()
         if self.movieId != nil {
-            ApiMoya.apiMoyaRequest(target: .apiShow(movieId: self.movieId!), sucesss: { (json) in
+            let target: ApiMoya = isYun ? .apiShowYun(movieId: self.movieId!) : .apiShow(movieId: self.movieId!)
+            ApiMoya.apiMoyaRequest(target: target, sucesss: { (json) in
                 
                 let detailJson: JSON = json.array?.first ?? [:]
                 

@@ -34,8 +34,8 @@ class AppJump: NSObject {
 //        vc.hidesBottomBarWhenPushed = true
 //        UIViewController.rootTopPresentedController().navigationController?.pushViewController(vc, animated: true)
     }
-    class func jumpToPlayControl(movieId : String) {
-        let vc = AVPlayController(movieId: movieId)
+    class func jumpToPlayControl(movieId : String, isYun: Bool? = false) {
+        let vc = AVPlayController(movieId: movieId, isYun: isYun)
         vc.hidesBottomBarWhenPushed = true
         UIViewController.rootTopPresentedController().navigationController?.pushViewController(vc, animated: false)
     }
@@ -52,7 +52,7 @@ class AppJump: NSObject {
         UIViewController.rootTopPresentedController().navigationController?.pushViewController(vc, animated: false)
     }
     
-    class func jumpToCategeryControl(listId: String) {
+    class func jumpToCategeryControl(listId: Int) {
         let vc = AVFindController()
         vc.listId = listId
         vc.hidesBottomBarWhenPushed = true

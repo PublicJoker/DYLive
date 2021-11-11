@@ -7,33 +7,18 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 /// 发现列表页model
-
 @objcMembers class FindListModel: NSObject {
     /// 分类id
-    @objc var special_id = ""
+    @objc var albumId = 0
     /// 分类图
-    @objc var special_logo = ""
+    @objc var albumImageUrl = ""
     /// 分类名称
-    @objc var special_name = ""
-    
-    @objc var special_gold = ""
-    
-    @objc var special_hits_month = ""
-    @objc var special_up = ""
-    @objc var special_ename = ""
-    @objc var special_hits_week = ""
-    @objc var videos_size: Int = 0
-    @objc var special_ids_vod = ""
-    var special_down = ""
-    var special_type = ""
-    var special_stars = ""
-    var special_hits = ""
-    var type = ""
-    var special_addtime = ""
-    var special_hits_day = ""
-    var special_content = ""
+    @objc var albumTitle = ""
+    /// 分类描述
+    @objc var albumDes = ""
     
     /// 定义视频的模型对象数组
     @objc lazy var video_list : [VideoModel] = [VideoModel]()
@@ -76,59 +61,72 @@ extension FindViewModel {
     
     // 请求推荐数据
     func requestData(finishCallback: @escaping () -> ()) {
-        var parameters = [String: Any]()
-        parameters = getDefaulParam(type: .findHot)
+//        var parameters = [String: Any]()
+//        parameters = getDefaulParam(type: .findHot)
 
-        NetWorkTools.requestData(type: .post, URLString: currentServer.serverDomain, parameters: parameters) { (result) in
-            LogUtil.debug(result)
+        let fileUrl = Bundle.main.url(forResource: "find_list", withExtension: ".json")!
+        let jsonArr = try! JSON(data: Data(contentsOf: fileUrl)).arrayObject!
+//        NetWorkTools.requestData(type: .post, URLString: currentServer.serverDomain, parameters: parameters) { (result) in
+//            LogUtil.debug(result)
             
-            //1.1. 将 result 转成字典类型
-            guard let resultDic = result as? [String : NSObject] else {
-                finishCallback()
-                return
-            }
-            
-            //1.2. 根据 data 该 key，获取数组
-            guard let dataArray = resultDic["data"] as? [[String : NSObject]] else {
-                finishCallback()
-                return
-            }
+//            //1.1. 将 result 转成字典类型
+//            guard let resultDic = result as? [String : NSObject] else {
+//                finishCallback()
+//                return
+//            }
+//
+//            //1.2. 根据 data 该 key，获取数组
+//            guard let dataArray = resultDic["data"] as? [[String : NSObject]] else {
+//                finishCallback()
+//                return
+//            }
             
             //1.3.2 获取推荐视频数据
-            for dict in dataArray {
-                self.listModels.append(FindListModel.init(dict: dict))
+            for dict in jsonArr {
+                self.listModels.append(FindListModel.init(dict: dict as! [String : NSObject]))
             }
             
             //1.4 离开组
             finishCallback()
-        }
+//        }
     }
     
     // 请求分类数据
-    func requestCategoryData(listId:String, finishCallback: @escaping () -> ()) {
-        var parameters = [String: Any]()
-        parameters = getDefaulParam(type: .findCategory)
-        parameters["id"] = listId//分类列表id
-
-        NetWorkTools.requestData(type: .post, URLString: currentServer.serverDomain, parameters: parameters) { (result) in
-            LogUtil.debug(result)
-            
-            //1.1. 将 result 转成字典类型
-            guard let resultDic = result as? [String : NSObject] else {
-                finishCallback()
-                return
-            }
-            
-            //1.2. 根据 data 该 key，获取数组
-            guard let dataDic = resultDic["data"] as? [String : NSObject] else {
-                finishCallback()
-                return
-            }
-            
-            //1.3.2 获取分类视频数据
-            self.listModels.append(FindListModel.init(dict: dataDic))
-            //1.4 离开组
-            finishCallback()
-        }
+    func requestCategoryData(listId: Int, finishCallback: @escaping () -> ()) {
+        let fileUrl = Bundle.main.url(forResource: "\(listId)", withExtension: ".json")!
+        let jsonArr = try! JSON(data: Data(contentsOf: fileUrl)).arrayObject!
+        
+        //获取分类视频数据
+        let listItem = FindListModel()
+        listItem.videos = jsonArr as? [[String : NSObject]]
+        self.listModels.append(listItem)
+        
+        //1.4 离开组
+        finishCallback()
+        
+//        var parameters = [String: Any]()
+//        parameters = getDefaulParam(type: .findCategory)
+//        parameters["id"] = listId//分类列表id
+//
+//        NetWorkTools.requestData(type: .post, URLString: currentServer.serverDomain, parameters: parameters) { (result) in
+//            LogUtil.debug(result)
+//
+//            //1.1. 将 result 转成字典类型
+//            guard let resultDic = result as? [String : NSObject] else {
+//                finishCallback()
+//                return
+//            }
+//
+//            //1.2. 根据 data 该 key，获取数组
+//            guard let dataDic = resultDic["data"] as? [String : NSObject] else {
+//                finishCallback()
+//                return
+//            }
+//
+//            //1.3.2 获取分类视频数据
+//            self.listModels.append(FindListModel.init(dict: dataDic))
+//            //1.4 离开组
+//            finishCallback()
+//        }
     }
 }

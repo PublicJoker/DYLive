@@ -17,8 +17,8 @@ class AVFindCell: UICollectionViewCell {
     var info : FindListModel?{
         didSet{
             guard let item = info else { return }
-            self.imageV.kf.setImage(with: URL.init(string: item.special_logo));
-            self.titleLab.text = item.special_name;
+            self.imageV.kf.setImage(with: URL.init(string: item.albumImageUrl));
+            self.titleLab.text = item.albumTitle + ":\(item.albumDes)";
             self.totalLab.text = ""
             self.currentLab.text = ""
         }

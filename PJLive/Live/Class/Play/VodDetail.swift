@@ -13,7 +13,7 @@ class VodDetail: HandyJSON {
     var type = ""
     var player_vod = Player_vod()
     var related_vod: VodRecommand?
-    
+    var vod_play_url = ""
     required init() {}
 }
 

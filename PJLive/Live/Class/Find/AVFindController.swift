@@ -13,7 +13,7 @@ class AVFindController: BaseConnectionController {
         return FindViewModel()
     }()
     
-    var listId: String?
+    var listId: Int?
     
     private lazy var listData : [FindListModel] = {
         return []
@@ -81,10 +81,10 @@ class AVFindController: BaseConnectionController {
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if listId == nil {//类型列表页
             let model = self.listData[indexPath.row]
-            AppJump.jumpToCategeryControl(listId: model.special_id)
+            AppJump.jumpToCategeryControl(listId: model.albumId)
         } else {//分类列表页
             let videos = self.listData.first!.video_list
-            AppJump.jumpToPlayControl(movieId: videos[indexPath.row].vod_id)
+            AppJump.jumpToPlayControl(movieId: videos[indexPath.row].vod_id, isYun: videos[indexPath.row].isYun)
         }
     }
 }
