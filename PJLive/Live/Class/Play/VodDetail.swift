@@ -13,21 +13,32 @@ class VodDetail: HandyJSON {
     var type = ""
     var player_vod = Player_vod()
     var related_vod: VodRecommand?
-    var vod_play_url = ""
+    
+    class func videoFromJson(dic: [String: Any]) -> VodDetail {
+        let detail = VodDetail()
+        let vod = Player_vod()
+        vod.vod_id = "\(dic["vod_id"] as! Int)"
+        vod.vod_pic = dic["vod_pic"] as? String ?? ""
+        
+        let 
+        detail.player_vod = vod
+        return detail
+    }
+    
     required init() {}
 }
 
 class Player_vod: HandyJSON {
     var updateTime :TimeInterval = 0;
 
-    var vod_total = ""
+    //    var vod_total = ""
+    //    var vod_url = ""
+    //    var vod_douban_id = ""
+    //    var vod_cid = ""
+    //    var vod_title = ""
+    //    var vod_continu = ""
     var vod_id = ""
     var vod_pic = ""
-    var vod_url = ""
-    var vod_douban_id = ""
-    var vod_cid = ""
-    var vod_title = ""
-    var vod_continu = ""
     var vod_play = [Vod_play]()
     var vod_name = ""
     var vod_douban_score = ""
