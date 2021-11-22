@@ -14,20 +14,21 @@ import AdSupport
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    var appLaunchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil
     var window: UIWindow?
 
     var makeOrientation :UIInterfaceOrientation?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        appLaunchOptions = launchOptions
+        
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.rootViewController = BaseViewController()
+        window?.backgroundColor = .white
+        window?.makeKeyAndVisible()
         
         //1. 设置 Tabbar 的 tintColor
         UITabBar.appearance().tintColor = .purple
-        
-        autoUpdate()
-
-        // 三方SDK初始化
-        PlatformConfig.shared.init3rdSDK(application: application, launchOptions: launchOptions)
         return true
     }
     
@@ -95,7 +96,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func requestIDFA() {
         if #available(iOS 14, *) {
             ATTrackingManager.requestTrackingAuthorization(completionHandler: { [self] status in
-                initAd()
+                if status == .authorized {//已授权
+                    initAd()
+                }
             })
         } else {
             initAd()

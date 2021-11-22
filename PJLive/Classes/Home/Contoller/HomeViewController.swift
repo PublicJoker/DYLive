@@ -65,6 +65,10 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        // 三方SDK初始化(延迟初始化,避免与请求ATT权限弹框冲突)
+        PlatformConfig.shared.init3rdSDK(application: UIApplication.shared, launchOptions: appDelegate.appLaunchOptions)
+        
         titles.append("推荐")
 
         // 设置 UI 页面
