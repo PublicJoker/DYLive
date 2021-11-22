@@ -56,7 +56,7 @@ class SettingController: BaseViewController {
         let pas = UIPasteboard.general
         pas.string = emailLabel.text
         
-        SVProgressHUD.showSuccess(withStatus: "邮箱复制成功")
+        SVProgressHUD.showSuccess(withStatus: "邮箱已复制到剪贴板")
         SVProgressHUD.dismiss(withDelay: 1.0)
     }
     

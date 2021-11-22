@@ -35,7 +35,7 @@ class AVSearchController: BaseTableViewController,searchDelegate {
         self.fd_prefersNavigationBarHidden = true;
         self.view.addSubview(self.searchView);
         self.searchView.snp.makeConstraints { (make) in
-            make.top.equalTo(kStatusBarHeight + kTopSafeH);
+            make.top.equalTo(0);
             make.left.right.equalToSuperview();
             make.height.equalTo(NAVI_BAR_HIGHT);
         }
@@ -49,21 +49,40 @@ class AVSearchController: BaseTableViewController,searchDelegate {
         if self.keyWord!.count > 0 {
             let hud = MBProgressHUD.showAdded(to: view, animated: true)
             
-            ApiMoya.apiMoyaRequest(target: .apiSearch(page: page, size: RefreshPageSize, keyWord: self.keyWord!), sucesss: { (json) in
+            var parameters: [String: Any] = getDefaulParam(type: .search)
+            parameters.updateValue(keyWord!, forKey: "search")
+            
+            NetWorkTools.requestData(type: .post, URLString: currentServer.serverDomain, parameters: parameters) { (result) in
                 hud.hide(animated: true)
-                if let datas = [AVMovie].deserialize(from: json.rawString()){
-                    if page == RefreshPageStart {
-                        self.listData.removeAll();
-                    }
-                    self.listData.append(contentsOf: datas as [Any]);
-                    self.tableView.reloadData();
-                    self.endRefresh(more: datas.count >= RefreshPageSize);
-                }else{
-                    self.endRefreshFailure();
+                
+                //1.1. 将 result 转成字典类型
+                guard let resultDic = result as? [String : NSObject] else {
+                    self.endRefreshFailure()
+                    return
                 }
-            }) { (error) in
-                hud.hide(animated: true)
-                self.endRefreshFailure();
+                
+                //1.2. 根据 data 该 key，获取数组
+                guard let dataArray = resultDic["data"] as? [[String : NSObject]] else {
+                    self.endRefreshFailure()
+                    return
+                }
+                
+                //1.3. 视频
+                guard let videoArray = dataArray.last?["videos"] as? [[String : NSObject]] else {
+                    self.endRefreshFailure()
+                    return
+                }
+                
+                if let datas = [VideoModel].deserialize(from: videoArray) {
+                    if page == RefreshPageStart {
+                        self.listData.removeAll()
+                    }
+                    self.listData.append(contentsOf: datas as [Any])
+                    self.tableView.reloadData()
+                    self.endRefresh(more: datas.count >= RefreshPageSize)
+                }else{
+                    self.endRefreshFailure()
+                }
             }
         }else{
             AVSearchDataQueue.getKeyWords(page: page, size: RefreshPageSize) { (datas) in
@@ -110,10 +129,13 @@ class AVSearchController: BaseTableViewController,searchDelegate {
             let cell = AVSearchCell.cellForTableView(tableView: tableView, indexPath: indexPath);
             cell.titleLab.text = (self.listData[indexPath.row] as! String);
             return cell;
-        }else if object is AVMovie{
-            let cell = AVSearchResultCell.cellForTableView(tableView: tableView, indexPath: indexPath);
-            cell.model = (object as! AVMovie)
-            return cell;
+        }else if object is VideoModel{
+            let cell = AVSearchResultCell.cellForTableView(tableView: tableView, indexPath: indexPath)
+            let video = (object as! VideoModel)
+            cell.imageV.kf.setImage(with: URL(string: video.vod_pic))
+            cell.titleLab.text = video.vod_name
+            cell.subTitleLab.text = video.vod_actor
+            return cell
         }
         return UITableViewCell.cellForTableView(tableView: tableView, indexPath: indexPath);
     }
@@ -124,9 +146,9 @@ class AVSearchController: BaseTableViewController,searchDelegate {
             self.searchText(text: (object as! String))
             self.searchView.keyWord = self.keyWord;
 
-        }else if object is AVMovie{
-            let model : AVMovie = object as! AVMovie;
-            AppJump.jumpToPlayControl(movieId: model.movieId);
+        }else if object is VideoModel{
+            let model : VideoModel = object as! VideoModel;
+            AppJump.jumpToPlayControl(movieId: model.vod_id);
         }
     }
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

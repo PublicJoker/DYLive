@@ -11,22 +11,23 @@ import UIKit
 class AVSearchResultCell: UITableViewCell {
     @IBOutlet weak var imageV: UIImageView!
     @IBOutlet weak var titleLab: UILabel!
-    @IBOutlet weak var hitLab: UILabel!
     @IBOutlet weak var subTitleLab: UILabel!
-    @IBOutlet weak var vip: UIImageView!
+    @IBOutlet weak var playBtn: UIButton!
     var model : AVMovie?{
         didSet{
             guard let item = model else { return }
-            self.titleLab.text = item.name;
-            self.imageV.kf.setImage(with: URL.init(string: item.pic),placeholder: placeholder);
-            self.subTitleLab.text = item.type + "/" + item.state + "/" + item.info;
-            self.vip.isHidden = item.vip == 0;
-            self.hitLab.text = "点击量" + item.hits;
+            self.titleLab.text = item.name
+            self.imageV.kf.setImage(with: URL.init(string: item.pic),placeholder: placeholder)
+            self.subTitleLab.text = item.type + "/" + item.state + "/" + item.info
         }
     }
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        imageV.layer.cornerRadius = 3
+        imageV.layer.masksToBounds = true
+        playBtn.layer.cornerRadius = 15
+        playBtn.layer.masksToBounds = true
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

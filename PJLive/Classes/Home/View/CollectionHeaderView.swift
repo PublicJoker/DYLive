@@ -13,6 +13,7 @@ class CollectionHeaderView: UICollectionReusableView {
     
     // MARK: 控件属性
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var subTitleLabel: UILabel!
     @IBOutlet weak var moreBtn: UIButton!
     
     // MARK: 定义模型属性

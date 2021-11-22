@@ -93,7 +93,7 @@ class AVPlayController: BaseConnectionController,playerDelegate,playVideoDelegat
         }
         self.view.sendSubviewToBack(self.playerView)
         
-        collectionView.register(CollectionHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: kHeaderViewID)
+        collectionView.register(UINib(nibName: "CollectionHeaderView", bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: kHeaderViewID)
     }
     
     private func loadData(){
@@ -444,13 +444,28 @@ class AVPlayController: BaseConnectionController,playerDelegate,playVideoDelegat
         }
     }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return CGSize.init(width: SCREEN_WIDTH, height:40)
+    }
+    
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         
         //1. 取出 headerView
         let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: kHeaderViewID, for: indexPath) as! CollectionHeaderView
                 
+        switch indexPath.section {
+        case 0:
+            headerView.titleLabel.text = "资源"
+            headerView.subTitleLabel.text = "(如不能正常播放，请切换资源)"
+        case 1:
+            headerView.titleLabel.text = "集选"
+            headerView.subTitleLabel.text = "(如遇播放卡顿，请下载观看)"
+        default:
+            headerView.titleLabel.text = "推荐"
+            headerView.subTitleLabel.text = nil
+        }
         //2. 给 headerView 设置数据
-        headerView.titleLabel.text = info?.player_vod.vod_name
+//        headerView.titleLabel.text = info?.player_vod.vod_name
         headerView.moreBtn.isHidden = true
         return headerView
     }
