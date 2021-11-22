@@ -17,10 +17,25 @@ class VodDetail: HandyJSON {
     class func videoFromJson(dic: [String: Any]) -> VodDetail {
         let detail = VodDetail()
         let vod = Player_vod()
-        vod.vod_id = "\(dic["vod_id"] as! Int)"
+        vod.vod_id = "\(dic["vod_id"]!)"
         vod.vod_pic = dic["vod_pic"] as? String ?? ""
+        let vod_play = Vod_play()
+        vod_play.player_name_zh = dic["vod_name"] as? String ?? ""
+        //片源 bjm3u8
+        vod_play.title = dic["vod_play_from"] as? String ?? ""
         
-        let 
+        let listStr = dic["vod_play_url"] as? String ?? ""
+        let vod_list: [String] = listStr.components(separatedBy: "#")
+        for vod in vod_list {
+            let vodName = vod.components(separatedBy: "$").first ?? ""
+            let vodUrl = vod.components(separatedBy: "$").last ?? ""
+            
+            let video = Players()
+            video.title = vodName
+            video.url = vodUrl
+            vod_play.players.append(video)
+        }
+        vod.vod_play = [vod_play]
         detail.player_vod = vod
         return detail
     }

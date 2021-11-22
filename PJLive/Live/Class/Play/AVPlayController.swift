@@ -107,8 +107,12 @@ class AVPlayController: BaseConnectionController,playerDelegate,playVideoDelegat
                 
                 let detailJson: JSON = json.array?.first ?? [:]
                 
-                guard let info = VodDetail.deserialize(from: detailJson.rawString())else{
-                    return
+                var info = VodDetail()
+                
+                if self.isYun {//云播,数据结构不同,需要自定义解析
+                    info = VodDetail.videoFromJson(dic: detailJson.object as? [String : Any] ?? [:])
+                } else {
+                    info = VodDetail.deserialize(from: detailJson.rawString())!
                 }
                 
                 // 推荐视频
