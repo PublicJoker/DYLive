@@ -93,21 +93,44 @@ class HomeViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         navigationController?.setNavigationBarHidden(false, animated: true)
         navigationController?.navigationBar.isTranslucent = false
-        navigationController?.navigationBar.barTintColor = kPageTitleBgColor
-        navigationController?.navigationBar.setBackgroundImage(nil, for: .default)
+
+        if #available(iOS 13.0, *) {
+            let naviAppearance = UINavigationBarAppearance()
+            naviAppearance.backgroundImage = nil
+            naviAppearance.shadowImage = nil
+            naviAppearance.backgroundColor = kPageTitleBgColor
+            navigationController?.navigationBar.scrollEdgeAppearance = naviAppearance
+            navigationController?.navigationBar.standardAppearance = naviAppearance
+        } else {
+            // Fallback on earlier versions
+            navigationController?.navigationBar.barTintColor = kPageTitleBgColor
+            navigationController?.navigationBar.setBackgroundImage(nil, for: .default)
+        }
     }
     
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         navigationController?.navigationBar.isTranslucent = true
-        navigationController?.navigationBar.barTintColor = UIColor.white
         
         let imageV : UIImage = UIImage.imageWithColor(color: UIColor.init(hex:"ffffff"))
-        navigationController?.navigationBar.setBackgroundImage(imageV, for: .default)
-        navigationController?.navigationBar.shadowImage = UIImage.init()
+        
+        if #available(iOS 13.0, *) {
+            let naviAppearance = UINavigationBarAppearance()
+            naviAppearance.backgroundImage = imageV
+            naviAppearance.backgroundColor = UIColor.white
+            naviAppearance.shadowImage = nil
+            navigationController?.navigationBar.scrollEdgeAppearance = naviAppearance
+            navigationController?.navigationBar.standardAppearance = naviAppearance
+        } else {
+            // Fallback on earlier versions
+            navigationController?.navigationBar.barTintColor = UIColor.white
+            navigationController?.navigationBar.setBackgroundImage(imageV, for: .default)
+            navigationController?.navigationBar.shadowImage = UIImage.init()
+        }
     }
     
 }
