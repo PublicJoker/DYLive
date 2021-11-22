@@ -209,7 +209,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		40F0C4B231C3CB73660DA66D /* Pods-DYLive.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DYLive.release.xcconfig"; path = "Pods/Target Support Files/Pods-DYLive/Pods-DYLive.release.xcconfig"; sourceTree = "<group>"; };
 		6DA5CF54DA7C015298C99F8F /* Pods-PJLive.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PJLive.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PJLive/Pods-PJLive.debug.xcconfig"; sourceTree = "<group>"; };
 		7A0F0639226089F900DD89F5 /* PJLive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PJLive.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A0F063C226089F900DD89F5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -424,7 +423,6 @@
 		F99C3A4926CB968900E81799 /* ProxyCheck.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProxyCheck.m; sourceTree = "<group>"; };
 		F99C3A4B26CB9E6E00E81799 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		F99C3A4D26CBA35E00E81799 /* HomeTabModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabModel.swift; sourceTree = "<group>"; };
-		FB62A64FCB76AE217FEF7140 /* Pods-DYLive.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DYLive.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DYLive/Pods-DYLive.debug.xcconfig"; sourceTree = "<group>"; };
 		FF8E759C36862C39206A8B00 /* Pods-PJLive.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PJLive.release.xcconfig"; path = "Pods/Target Support Files/Pods-PJLive/Pods-PJLive.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -476,8 +474,6 @@
 		1D8F9EAE51919F142221BB5D /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				FB62A64FCB76AE217FEF7140 /* Pods-DYLive.debug.xcconfig */,
-				40F0C4B231C3CB73660DA66D /* Pods-DYLive.release.xcconfig */,
 				6DA5CF54DA7C015298C99F8F /* Pods-PJLive.debug.xcconfig */,
 				FF8E759C36862C39206A8B00 /* Pods-PJLive.release.xcconfig */,
 			);
