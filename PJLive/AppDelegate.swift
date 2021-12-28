@@ -35,10 +35,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func autoUpdate() {
         if UserDefaults.isFirstLaunchOfNewVersion() {//当前版本首次启动.重置标识位(升级APP)
             UserDefaults.setVersionChecked(flag: false)
+            UserDefaults.setHasShowNewFeature(flag: false)
         }
         
         if UserDefaults.isVersionChecked() {//版本已过审
-            self.showNewFeature(true)//new feature
+            if UserDefaults.isShowNewFeature() {
+                return
+            } else {
+                self.showNewFeature(true)//new feature
+            }
         } else {
             self.showNewFeature(false)//old feature
             getCheckStatus()
@@ -79,6 +84,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.backgroundColor = .white
         
         if checked {//更换图标,显示新特性
+            UserDefaults.setHasShowNewFeature(flag: true)
             window?.rootViewController = MainViewController()
             window?.makeKeyAndVisible()
             requestIDFA()

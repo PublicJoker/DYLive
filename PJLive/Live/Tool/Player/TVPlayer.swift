@@ -145,7 +145,7 @@ class TVPlayer: BasePlayer {
         
     }
     @objc private func playerItemDidPlayToEnd(){
-        self.state = .finish;
+        self.state = .finish
     }
     @objc private func appDidEnterBackground(){
         guard let player = self.player else { return  }
@@ -153,7 +153,7 @@ class TVPlayer: BasePlayer {
     }
     @objc private func appDidEnterPlayGround(){
         if self.userPause == false {
-            self.resume();
+            self.resume()
         }
     }
     private func readyPlay(){
@@ -169,7 +169,7 @@ class TVPlayer: BasePlayer {
                     }
                 }
             }
-        });
+        })
     }
     override func playUrl(url: String) {
         self.playUrl(url: url, time:0)
@@ -206,7 +206,7 @@ class TVPlayer: BasePlayer {
     }
     override func play() {
         if self.userPause == false {
-            self.playVideo();
+            self.playVideo()
         }
     }
     private func playVideo(){
@@ -216,33 +216,33 @@ class TVPlayer: BasePlayer {
     }
     override func stop() {
         self.pause();
-        self.releasePlayer();
-        self.state = .stoped;
+        self.releasePlayer()
+        self.state = .stoped
     }
     override func resume() {
-        self.userPause = false;
-        self.play();
+        self.userPause = false
+        self.play()
     }
     override func pause() {
-        self.userPause = true;
-        self.pauseVideo();
+        self.userPause = true
+        self.pauseVideo()
     }
     private func pauseVideo(){
         guard let player = self.player else { return  }
         player.pause()
-        player.rate = 0;
+        player.rate = 0
     }
     override func seek(time: TimeInterval) {
         guard let player = self.player else { return }
-        let  time1 = time >= self.duration ? 0 : time;
-        let  time2 = time1 < 0 ? 0 : time1;
-           self.seek = true;
-           player.pause();
-          weak var weakSelf = self;
+        let  time1 = time >= self.duration ? 0 : time
+        let  time2 = time1 < 0 ? 0 : time1
+           self.seek = true
+           player.pause()
+          weak var weakSelf = self
           player.seek(to: CMTimeMake(value: Int64(time2), timescale: 1), toleranceBefore:CMTime.zero, toleranceAfter: CMTime.zero, completionHandler: { (finish) in
-              weakSelf?.seek = !finish;
+              weakSelf?.seek = !finish
               if (weakSelf?.userPause == false){
-                  weakSelf?.playVideo();
+                  weakSelf?.playVideo()
               }
           })
     }

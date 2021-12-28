@@ -48,7 +48,7 @@ extension ApiMoya : TargetType{
           case .apiMovie:
               return "/index.php/app/ios/type/index"
         case .getAppVersion:
-            return "/lookup"
+            return "/cn/lookup"
           default :
               return ""
           }

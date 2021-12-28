@@ -126,7 +126,7 @@ class AVPlayController: BaseConnectionController,playerDelegate,playVideoDelegat
                 self.reloadData()
             }) { (error) in
                 self.dismiss()
-                ATAlertView.showAlertView(title: "网络问题,是否重试" + error, message: nil, normals: ["取消"], hights: ["确定"]) { (title , index) in
+                ATAlertView.showAlertView(title: "视频资源暂时无法加载,请稍后访问或切换网络后重试" + error, message: nil, normals: ["取消"], hights: ["确定"]) { (title , index) in
                     if index > 0{
                         self.loadData()
                     }else{

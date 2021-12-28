@@ -103,6 +103,17 @@ extension UserDefaults {
         return todayString == lastString ? true : false
     }
     
+    static func setHasShowNewFeature(flag: Bool) {
+        let hasShowNewFeature = "hasShowNewFeature"
+        UserDefaults.standard.set(flag, forKey: hasShowNewFeature)
+        UserDefaults.standard.synchronize()
+    }
+    
+    static func isShowNewFeature() -> Bool {
+        let hasShowNewFeature = "hasShowNewFeature"
+        return UserDefaults.standard.bool(forKey: hasShowNewFeature)
+    }
+    
     static func setVersionChecked(flag: Bool) {
         let versionChecked = "hasBeenChecked"
         UserDefaults.standard.set(flag, forKey: versionChecked)
