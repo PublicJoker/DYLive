@@ -127,7 +127,8 @@ class AVPlayController: BaseConnectionController,playerDelegate,playVideoDelegat
             }) { (error) in
                 self.dismiss()
                 ATAlertView.showAlertView(title: "视频资源暂时无法加载,请稍后访问或切换网络后重试" + error, message: nil, normals: ["取消"], hights: ["确定"]) { (title , index) in
-                    if index > 0{
+                    if index > 0 {
+                        self.isYun = !self.isYun//切换云播尝试
                         self.loadData()
                     }else{
                         self.goBackAction()
@@ -166,12 +167,12 @@ class AVPlayController: BaseConnectionController,playerDelegate,playVideoDelegat
                 self.collectionView.reloadData()
                 self.endRefresh(more: false)
             }else{
-                self.endRefreshFailure()
+//                self.endRefreshFailure()
                 self.dismiss()
                 self.tryAgain(title: info.vod_name)
             }
         }else{
-            self.endRefreshFailure()
+//            self.endRefreshFailure()
             self.dismiss()
             self.tryAgain(title: self.info!.player_vod.vod_name)
         }
@@ -201,11 +202,12 @@ class AVPlayController: BaseConnectionController,playerDelegate,playVideoDelegat
         MGJRouter.open(playUrl)
     }
     private func tryAgain(title : String){
-        ATAlertView.showAlertView(title: "视频资源暂时无法加载,请稍后访问或切换网络后重试", message: nil, normals:["取消"], hights:["重试"]) { (title, index) in
-            if index > 0{
+//        ATAlertView.showAlertView(title: "视频资源暂时无法加载,请稍后访问或切换网络后重试", message: nil, normals:["取消"], hights:["重试"]) { (title, index) in
+//            if index > 0 {
+                self.isYun = !self.isYun//切换云播尝试
                 self.loadData()
-            }
-        }
+//            }
+//        }
     }
     private func loadDataQueue(){
         AVFavDataQueue.getFavData(movieId: self.movieId!) { (movie) in
