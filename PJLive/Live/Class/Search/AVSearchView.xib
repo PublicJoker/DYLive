@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iN0-l3-epB" customClass="AVSearchView" customModule="PJLive" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="349" height="173"/>
+            <rect key="frame" x="0.0" y="0.0" width="345" height="48"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DN6-cw-RJe">
-                    <rect key="frame" x="7" y="129" width="44" height="44"/>
+                    <rect key="frame" x="7" y="4" width="44" height="44"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="Gjv-Ee-7Cg"/>
                         <constraint firstAttribute="width" constant="44" id="OPH-me-5fr"/>
@@ -22,7 +22,7 @@
                     <state key="normal" image="icon_nav_back"/>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TZd-HA-gCk">
-                    <rect key="frame" x="279" y="136" width="55" height="30"/>
+                    <rect key="frame" x="275" y="11" width="55" height="30"/>
                     <color key="backgroundColor" red="0.64313725489999995" green="0.64313725489999995" blue="0.64313725489999995" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="55" id="Aoz-WP-3Cr"/>
@@ -32,7 +32,7 @@
                     <state key="normal" title="搜索"/>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="98S-mt-fG4">
-                    <rect key="frame" x="41" y="136" width="223" height="30"/>
+                    <rect key="frame" x="41" y="11" width="219" height="30"/>
                     <subviews>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_search" translatesAutoresizingMaskIntoConstraints="NO" id="lYf-xY-7bE">
                             <rect key="frame" x="10" y="7.5" width="15" height="15"/>
@@ -42,7 +42,7 @@
                             </constraints>
                         </imageView>
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="你想看的都在这里" textAlignment="natural" minimumFontSize="15" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="O2t-nt-o6F">
-                            <rect key="frame" x="30" y="0.0" width="188" height="30"/>
+                            <rect key="frame" x="30" y="0.0" width="184" height="30"/>
                             <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
@@ -78,7 +78,7 @@
                 <outlet property="searchBtn" destination="TZd-HA-gCk" id="JLL-ga-JwY"/>
                 <outlet property="textField" destination="O2t-nt-o6F" id="q9d-Wb-dAy"/>
             </connections>
-            <point key="canvasLocation" x="89.130434782608702" y="419.53125"/>
+            <point key="canvasLocation" x="86.231884057971016" y="461.38392857142856"/>
         </view>
     </objects>
     <resources>

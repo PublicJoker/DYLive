@@ -201,7 +201,7 @@ class AVPlayController: BaseConnectionController,playerDelegate,playVideoDelegat
         MGJRouter.open(playUrl)
     }
     private func tryAgain(title : String){
-        ATAlertView.showAlertView(title:title + "无法播放是否重试！", message: nil, normals:["取消"], hights:["重试"]) { (title, index) in
+        ATAlertView.showAlertView(title: "视频资源暂时无法加载,请稍后访问或切换网络后重试", message: nil, normals:["取消"], hights:["重试"]) { (title, index) in
             if index > 0{
                 self.loadData()
             }

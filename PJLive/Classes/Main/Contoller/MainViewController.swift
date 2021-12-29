@@ -19,6 +19,7 @@ class MainViewController: UITabBarController {
         addChildVc("Follow")
         addChildVc("Profile")
         
+        UserDefaults.setHasShowNewFeature(flag: true)
         delegate = self
     }
     

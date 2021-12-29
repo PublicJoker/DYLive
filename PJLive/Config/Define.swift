@@ -109,6 +109,17 @@ extension UserDefaults {
         UserDefaults.standard.synchronize()
     }
     
+    static func setIsPlaying(flag: Bool) {
+        let hasShowNewFeature = "isPlaying"
+        UserDefaults.standard.set(flag, forKey: hasShowNewFeature)
+        UserDefaults.standard.synchronize()
+    }
+    
+    static func isPlaying() -> Bool {
+        let hasShowNewFeature = "isPlaying"
+        return UserDefaults.standard.bool(forKey: hasShowNewFeature)
+    }
+    
     static func isShowNewFeature() -> Bool {
         let hasShowNewFeature = "hasShowNewFeature"
         return UserDefaults.standard.bool(forKey: hasShowNewFeature)

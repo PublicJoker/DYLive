@@ -153,7 +153,7 @@ extension HomeViewController {
     
     private func setUpNavigationBar() {
         //1. 设置左侧 item
-        let searchView = UIView(frame:CGRect(x: kDefaultMargin, y: 0, width: kScreenW * 0.55, height: 44))
+        let searchView = UIView(frame:CGRect(x: kDefaultMargin, y: kTopSafeH, width: kScreenW * 0.55, height: 44))
         let searchBtn = UIButton(frame: CGRect(x: 0, y: 5, width: kScreenW * 0.55, height: 34))
         searchBtn.setTitle("你想看的都在这里", for: .normal)
         searchBtn.titleLabel?.font = UIFont.systemFont(ofSize: 14)

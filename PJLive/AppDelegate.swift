@@ -22,11 +22,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         appLaunchOptions = launchOptions
         
+        UserDefaults.setHasShowNewFeature(flag: false)
+
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = BaseViewController()
         window?.backgroundColor = .white
         window?.makeKeyAndVisible()
-        
         //1. 设置 Tabbar 的 tintColor
         UITabBar.appearance().tintColor = .purple
         return true
@@ -84,16 +85,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.backgroundColor = .white
         
         if checked {//更换图标,显示新特性
-            UserDefaults.setHasShowNewFeature(flag: true)
             window?.rootViewController = MainViewController()
             window?.makeKeyAndVisible()
-            requestIDFA()
             changeIcon()
+            requestIDFA()
         } else {
-            initAudio()
             window?.rootViewController = IATViewController()
             window?.makeKeyAndVisible()
-            
+            initAudio()
             requestIDFA()
         }
     }
@@ -268,6 +267,8 @@ extension AppDelegate : JPUSHRegisterDelegate {
     }
     
     func applicationDidBecomeActive(_ application: UIApplication) {
-        autoUpdate()
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+        self.autoUpdate()
+//        }
     }
 }
