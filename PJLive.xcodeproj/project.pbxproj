@@ -78,6 +78,8 @@
 		EA77FF632717FEA40082D717 /* AVFindCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA77FF602717FEA40082D717 /* AVFindCell.swift */; };
 		EA77FF642717FEA40082D717 /* AVFindController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA77FF612717FEA40082D717 /* AVFindController.swift */; };
 		EA77FF662717FF4D0082D717 /* FindViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA77FF652717FF4D0082D717 /* FindViewModel.swift */; };
+		EAF8323C277DB655001A4629 /* WelcomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EAF83239277DB655001A4629 /* WelcomeViewController.xib */; };
+		EAF8323D277DB655001A4629 /* WelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EAF8323B277DB655001A4629 /* WelcomeViewController.m */; };
 		F945368F26CE02CC00E6AA41 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F945368E26CE02CB00E6AA41 /* Profile.storyboard */; };
 		F945369126CE02D500E6AA41 /* Follow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F945369026CE02D500E6AA41 /* Follow.storyboard */; };
 		F945369326CE02DE00E6AA41 /* Live.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F945369226CE02DE00E6AA41 /* Live.storyboard */; };
@@ -284,6 +286,9 @@
 		EA77FF612717FEA40082D717 /* AVFindController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AVFindController.swift; sourceTree = "<group>"; };
 		EA77FF652717FF4D0082D717 /* FindViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindViewModel.swift; sourceTree = "<group>"; };
 		EAE74D802714259E009B7A07 /* PJLive.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PJLive.entitlements; sourceTree = "<group>"; };
+		EAF83239277DB655001A4629 /* WelcomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WelcomeViewController.xib; sourceTree = "<group>"; };
+		EAF8323A277DB655001A4629 /* WelcomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WelcomeViewController.h; sourceTree = "<group>"; };
+		EAF8323B277DB655001A4629 /* WelcomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WelcomeViewController.m; sourceTree = "<group>"; };
 		F945368E26CE02CB00E6AA41 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Profile.storyboard; path = PJLive/Classes/Profile/Profile.storyboard; sourceTree = "<group>"; };
 		F945369026CE02D500E6AA41 /* Follow.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Follow.storyboard; path = PJLive/Classes/Follow/Follow.storyboard; sourceTree = "<group>"; };
 		F945369226CE02DE00E6AA41 /* Live.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Live.storyboard; path = PJLive/Classes/Live/Live.storyboard; sourceTree = "<group>"; };
@@ -554,6 +559,9 @@
 				7A0F0645226089FA00DD89F5 /* LaunchScreen.storyboard */,
 				7A0F0648226089FA00DD89F5 /* Info.plist */,
 				7A0F0643226089FA00DD89F5 /* Assets.xcassets */,
+				EAF83239277DB655001A4629 /* WelcomeViewController.xib */,
+				EAF8323A277DB655001A4629 /* WelcomeViewController.h */,
+				EAF8323B277DB655001A4629 /* WelcomeViewController.m */,
 			);
 			path = PJLive;
 			sourceTree = "<group>";
@@ -1211,6 +1219,7 @@
 				F945369126CE02D500E6AA41 /* Follow.storyboard in Resources */,
 				F94536E926CE115700E6AA41 /* AVHomeCell.xib in Resources */,
 				F9983164274BDFCC00202BCF /* 1.json in Resources */,
+				EAF8323C277DB655001A4629 /* WelcomeViewController.xib in Resources */,
 				F94536E326CE115700E6AA41 /* AVHomeReusableView.xib in Resources */,
 				F9983165274BDFCC00202BCF /* 372.json in Resources */,
 				F945369526CE02E500E6AA41 /* Home.storyboard in Resources */,
@@ -1337,6 +1346,7 @@
 				7A0F063D226089F900DD89F5 /* AppDelegate.swift in Sources */,
 				7AC53754226D9D48001CB912 /* AmuseMenuViewCell.swift in Sources */,
 				F94536BA26CE10F200E6AA41 /* ATAlertView.swift in Sources */,
+				EAF8323D277DB655001A4629 /* WelcomeViewController.m in Sources */,
 				F94536F426CE115700E6AA41 /* AVPlayToastView.swift in Sources */,
 				7AC53757226DAB38001CB912 /* FunnyViewController.swift in Sources */,
 				F94536F626CE115700E6AA41 /* AVPlayCell.swift in Sources */,
@@ -1583,7 +1593,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3.2;
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.tony.voiceRobotQ;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = VoiceRobotQ_dev;
@@ -1616,7 +1626,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3.2;
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.tony.voiceRobotQ;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = VoiceRobotQ_store;

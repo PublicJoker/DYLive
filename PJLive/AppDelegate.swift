@@ -68,18 +68,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
-    func initAudio() {
-        //设置sdk的工作路径
-        let cachePath = NSSearchPathForDirectoriesInDomains(.cachesDirectory, .userDomainMask, true).first!
-        
-        IFlySetting.setLogFilePath(cachePath)
-        
-        //创建语音配置,appid必须要传入，仅执行一次则可
-        let initString = "appid=9097437c"
-        //所有服务启动前，需要确保执行createUtility
-        IFlySpeechUtility.createUtility(initString)
-    }
-    
     func showNewFeature(_ checked: Bool) {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.backgroundColor = .white
@@ -92,11 +80,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } else {
             window?.rootViewController = IATViewController()
             window?.makeKeyAndVisible()
-            initAudio()
-            requestIDFA()
         }
     }
-    
     
     func requestIDFA() {
         if #available(iOS 14, *) {
@@ -268,7 +253,7 @@ extension AppDelegate : JPUSHRegisterDelegate {
     
     func applicationDidBecomeActive(_ application: UIApplication) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-        self.autoUpdate()
+            self.autoUpdate()
         }
     }
 }

@@ -32,6 +32,7 @@ pod 'JPush', '~> 3.7'
 pod 'LLCycleScrollView', '~> 1.5'
 # 穿山甲 SDK版本 >=3.4.0.0 - https://www.pangle.cn/support/doc/5fbdb5eb1ee5c2001d3f0c79
 pod 'Ads-CN'
+pod 'lottie-ios'
 end
 
 # 指定target的swift版本

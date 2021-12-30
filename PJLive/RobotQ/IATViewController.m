@@ -59,9 +59,21 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self initAudio];
     [self p_setupViews];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didChangeLan) name:@"Lan" object:nil];
+}
+
+- (void)initAudio {
+    //设置sdk的工作路径
+    NSString *cachePath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject];
+    [IFlySetting setLogFilePath:cachePath];
+    //创建语音配置,appid必须要传入，仅执行一次则可
+    NSString *initString = @"appid=9097437c";
+    //所有服务启动前，需要确保执行createUtility
+    [IFlySpeechUtility createUtility:initString];
 }
 
 - (void)didChangeLan {
@@ -518,9 +530,6 @@
 #pragma mark 有界面，听写结果回调resultArray：听写结果 isLast：表示最后一次
 - (void)onResult:(NSArray *)resultArray isLast:(BOOL)isLast
 {
-    
-    
-    
     NSMutableString *result = [[NSMutableString alloc] init];
     NSDictionary *dic = [resultArray objectAtIndex:0];
     for (NSString *key in dic) {
@@ -633,6 +642,5 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    
 }
 @end

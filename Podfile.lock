@@ -24,6 +24,7 @@ PODS:
   - Kingfisher (4.10.1)
   - LLCycleScrollView (1.6.0):
     - Kingfisher
+  - lottie-ios (3.2.3)
   - MBProgressHUD (1.2.0)
   - MGJRouter_Swift (0.1.2)
   - MJRefresh (3.4.3)
@@ -64,6 +65,7 @@ DEPENDENCIES:
   - JPush (~> 3.7)
   - Kingfisher (~> 4.10)
   - LLCycleScrollView (~> 1.5)
+  - lottie-ios
   - MBProgressHUD (~> 1.2)
   - MGJRouter_Swift (~> 0.1)
   - Moya (~> 13.0)
@@ -89,6 +91,7 @@ SPEC REPOS:
     - JPush
     - Kingfisher
     - LLCycleScrollView
+    - lottie-ios
     - MBProgressHUD
     - MGJRouter_Swift
     - MJRefresh
@@ -118,6 +121,7 @@ SPEC CHECKSUMS:
   JPush: e455ad2a7b854bca8149df085772d6c4f79b2416
   Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
   LLCycleScrollView: a08f666671f9fd1a205df9defebc3c217d59abc8
+  lottie-ios: c058aeafa76daa4cf64d773554bccc8385d0150e
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
   MGJRouter_Swift: ae89cc7c4c82618b636cc9c7b15636e516080d3c
   MJRefresh: 53e3e3219f204425ee6d3e62e8733d3295944cd6
@@ -133,6 +137,6 @@ SPEC CHECKSUMS:
   VTMagic: b49e5f456dbcbfd9a3588ba92417233a105bc193
   XCGLogger: 1943831ef907df55108b0b18657953f868de973b
 
-PODFILE CHECKSUM: 0c657e682d5aa5a654106e1002f54d0bc62821b9
+PODFILE CHECKSUM: cb4471ab9d14c15a63f19c929f1bad81f3b5e919
 
 COCOAPODS: 1.10.1
