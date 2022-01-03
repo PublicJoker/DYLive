@@ -10,6 +10,7 @@ import UIKit
 import MGJRouter_Swift
 import SwiftyJSON
 import Moya
+import AdSupport
 
 private let kHeaderViewID = "kHeaderViewID"
 
@@ -94,7 +95,27 @@ class AVPlayController: BaseConnectionController,playerDelegate,playVideoDelegat
         self.view.sendSubviewToBack(self.playerView)
         
         collectionView.register(UINib(nibName: "CollectionHeaderView", bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: kHeaderViewID)
+        
+        showAd()
     }
+    
+    lazy var splashAdView: BUSplashAdView = {
+        let frame = playerView.bounds
+        let adView = BUSplashAdView(slotID: "887544324", frame: frame)
+        adView.tolerateTimeout = 5
+//        adView.hideSkipButton = true//隐藏跳过按钮
+        return adView
+    }()
+    
+    func showAd() {
+        DispatchQueue.main.async {
+            self.splashAdView.delegate = self
+            self.splashAdView.loadAdData()
+            self.playView.addSubview(self.splashAdView)
+            self.splashAdView.rootViewController = self
+        }
+    }
+    
     
     private func loadData(){
         self.refreshData(page:RefreshPageStart)
@@ -126,7 +147,7 @@ class AVPlayController: BaseConnectionController,playerDelegate,playVideoDelegat
                 self.reloadData()
             }) { (error) in
                 self.dismiss()
-                ATAlertView.showAlertView(title: "视频资源暂时无法加载,请稍后访问或切换网络后重试" + error, message: nil, normals: ["取消"], hights: ["确定"]) { (title , index) in
+                ATAlertView.showAlertView(title: "视频资源暂时无法加载,请稍后访问或切换网络后重试", message: nil, normals: ["取消"], hights: ["确定"]) { (title , index) in
                     if index > 0 {
                         self.isYun = !self.isYun//切换云播尝试
                         self.loadData()
@@ -461,7 +482,7 @@ class AVPlayController: BaseConnectionController,playerDelegate,playVideoDelegat
             headerView.subTitleLabel.text = "(如不能正常播放，请切换资源)"
         case 1:
             headerView.titleLabel.text = "集选"
-            headerView.subTitleLabel.text = "(如遇播放卡顿，请下载观看)"
+            headerView.subTitleLabel.text = ""//"(如遇播放卡顿，请下载观看)"
         default:
             headerView.titleLabel.text = "推荐"
             headerView.subTitleLabel.text = nil
@@ -489,6 +510,24 @@ class AVPlayController: BaseConnectionController,playerDelegate,playVideoDelegat
         return .allButUpsideDown
     }
     
+}
+
+extension AVPlayController: BUSplashAdDelegate {
+    func splashAdDidClickSkip(_ splashAd: BUSplashAdView) {
+        splashAd.removeFromSuperview()
+    }
+    
+    func splashAdDidLoad(_ splashAd: BUSplashAdView) {
+        
+    }
+    
+    func splashAdCountdown(toZero splashAd: BUSplashAdView) {
+        splashAd.removeFromSuperview()
+    }
+    
+    func splashAd(_ splashAd: BUSplashAdView, didFailWithError error: Error?) {
+        splashAd.removeFromSuperview()
+    }
 }
 
 extension AVPlayController: UIApplicationDelegate {
