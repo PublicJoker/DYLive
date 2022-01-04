@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ssh-mE-RpY">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ssh-mE-RpY">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -26,11 +26,11 @@
             </objects>
             <point key="canvasLocation" x="1692.753623188406" y="-552.45535714285711"/>
         </scene>
-        <!--首页-->
+        <!--Base Navigation Controller-->
         <scene sceneID="Hnj-EV-BHJ">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ssh-mE-RpY" customClass="BaseNavigationController" customModule="PJLive" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="首页" image="btn_home_normal" selectedImage="btn_home_selected" id="CiD-7a-UGS"/>
+                    <tabBarItem key="tabBarItem" title="" image="btn_home_normal" selectedImage="btn_home_selected" id="CiD-7a-UGS"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="mW8-GK-wa8">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>

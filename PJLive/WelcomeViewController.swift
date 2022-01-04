@@ -21,7 +21,9 @@ class WelcomeViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        showBg()
+        if isChecked {
+            showBg()
+        }
         autoUpdate()
         requestIDFA()
     }
@@ -34,6 +36,7 @@ class WelcomeViewController: UIViewController {
         
         if UserDefaults.isVersionChecked() {//版本已过审
             adsBgView.isHidden = false
+            adsBgView.image = UIImage(named: "splash_slogan")
             logoImg.image = UIImage(named: "splash_logo")
         } else {
             adsBgView.isHidden = false

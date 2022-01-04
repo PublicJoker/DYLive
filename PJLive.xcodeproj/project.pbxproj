@@ -94,6 +94,20 @@
 		EA46E61D2783E311001C9A78 /* 398.json in Resources */ = {isa = PBXBuildFile; fileRef = EA46E6042783E311001C9A78 /* 398.json */; };
 		EA46E61E2783E311001C9A78 /* 376.json in Resources */ = {isa = PBXBuildFile; fileRef = EA46E6052783E311001C9A78 /* 376.json */; };
 		EA46E61F2783E311001C9A78 /* 395.json in Resources */ = {isa = PBXBuildFile; fileRef = EA46E6062783E311001C9A78 /* 395.json */; };
+		EA46E64A278444E8001C9A78 /* 微信截图_20210830174029.png in Resources */ = {isa = PBXBuildFile; fileRef = EA46E63C278444E8001C9A78 /* 微信截图_20210830174029.png */; };
+		EA46E64B278444E8001C9A78 /* like_button.json in Resources */ = {isa = PBXBuildFile; fileRef = EA46E63D278444E8001C9A78 /* like_button.json */; };
+		EA46E64C278444E8001C9A78 /* reward.json in Resources */ = {isa = PBXBuildFile; fileRef = EA46E63E278444E8001C9A78 /* reward.json */; };
+		EA46E64D278444E8001C9A78 /* tab_my.json in Resources */ = {isa = PBXBuildFile; fileRef = EA46E63F278444E8001C9A78 /* tab_my.json */; };
+		EA46E64E278444E8001C9A78 /* tab_home.json in Resources */ = {isa = PBXBuildFile; fileRef = EA46E640278444E8001C9A78 /* tab_home.json */; };
+		EA46E64F278444E8001C9A78 /* default_image_placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = EA46E641278444E8001C9A78 /* default_image_placeholder.png */; };
+		EA46E650278444E8001C9A78 /* frame_pager_empty.png in Resources */ = {isa = PBXBuildFile; fileRef = EA46E642278444E8001C9A78 /* frame_pager_empty.png */; };
+		EA46E651278444E8001C9A78 /* 微信图片_20210830173722.png in Resources */ = {isa = PBXBuildFile; fileRef = EA46E643278444E8001C9A78 /* 微信图片_20210830173722.png */; };
+		EA46E652278444E8001C9A78 /* menu.json in Resources */ = {isa = PBXBuildFile; fileRef = EA46E644278444E8001C9A78 /* menu.json */; };
+		EA46E653278444E8001C9A78 /* 微信截图_20210830173852.png in Resources */ = {isa = PBXBuildFile; fileRef = EA46E645278444E8001C9A78 /* 微信截图_20210830173852.png */; };
+		EA46E654278444E8001C9A78 /* icon_empty.png in Resources */ = {isa = PBXBuildFile; fileRef = EA46E646278444E8001C9A78 /* icon_empty.png */; };
+		EA46E655278444E8001C9A78 /* share.png in Resources */ = {isa = PBXBuildFile; fileRef = EA46E647278444E8001C9A78 /* share.png */; };
+		EA46E656278444E8001C9A78 /* moving_arrow.json in Resources */ = {isa = PBXBuildFile; fileRef = EA46E648278444E8001C9A78 /* moving_arrow.json */; };
+		EA46E657278444E8001C9A78 /* tab_find.json in Resources */ = {isa = PBXBuildFile; fileRef = EA46E649278444E8001C9A78 /* tab_find.json */; };
 		EA77FF542715188E0082D717 /* SettingController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA77FF522715188E0082D717 /* SettingController.xib */; };
 		EA77FF552715188E0082D717 /* SettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA77FF532715188E0082D717 /* SettingController.swift */; };
 		EA77FF5827157C320082D717 /* ShareController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA77FF5627157C320082D717 /* ShareController.xib */; };
@@ -302,6 +316,20 @@
 		EA46E6042783E311001C9A78 /* 398.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 398.json; sourceTree = "<group>"; };
 		EA46E6052783E311001C9A78 /* 376.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 376.json; sourceTree = "<group>"; };
 		EA46E6062783E311001C9A78 /* 395.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 395.json; sourceTree = "<group>"; };
+		EA46E63C278444E8001C9A78 /* 微信截图_20210830174029.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "微信截图_20210830174029.png"; sourceTree = "<group>"; };
+		EA46E63D278444E8001C9A78 /* like_button.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = like_button.json; sourceTree = "<group>"; };
+		EA46E63E278444E8001C9A78 /* reward.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = reward.json; sourceTree = "<group>"; };
+		EA46E63F278444E8001C9A78 /* tab_my.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = tab_my.json; sourceTree = "<group>"; };
+		EA46E640278444E8001C9A78 /* tab_home.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = tab_home.json; sourceTree = "<group>"; };
+		EA46E641278444E8001C9A78 /* default_image_placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = default_image_placeholder.png; sourceTree = "<group>"; };
+		EA46E642278444E8001C9A78 /* frame_pager_empty.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = frame_pager_empty.png; sourceTree = "<group>"; };
+		EA46E643278444E8001C9A78 /* 微信图片_20210830173722.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "微信图片_20210830173722.png"; sourceTree = "<group>"; };
+		EA46E644278444E8001C9A78 /* menu.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = menu.json; sourceTree = "<group>"; };
+		EA46E645278444E8001C9A78 /* 微信截图_20210830173852.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "微信截图_20210830173852.png"; sourceTree = "<group>"; };
+		EA46E646278444E8001C9A78 /* icon_empty.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_empty.png; sourceTree = "<group>"; };
+		EA46E647278444E8001C9A78 /* share.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = share.png; sourceTree = "<group>"; };
+		EA46E648278444E8001C9A78 /* moving_arrow.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = moving_arrow.json; sourceTree = "<group>"; };
+		EA46E649278444E8001C9A78 /* tab_find.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = tab_find.json; sourceTree = "<group>"; };
 		EA77FF522715188E0082D717 /* SettingController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingController.xib; sourceTree = "<group>"; };
 		EA77FF532715188E0082D717 /* SettingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingController.swift; sourceTree = "<group>"; };
 		EA77FF5627157C320082D717 /* ShareController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShareController.xib; sourceTree = "<group>"; };
@@ -569,6 +597,7 @@
 		7A0F064E22608A5A00DD89F5 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				EA46E638278443DD001C9A78 /* Lottie */,
 				7A0F065422608A5A00DD89F5 /* Main */,
 				7A0F064F22608A5A00DD89F5 /* Home */,
 				7A0F065322608A5A00DD89F5 /* Live */,
@@ -863,6 +892,35 @@
 				EA46E6062783E311001C9A78 /* 395.json */,
 			);
 			path = detail;
+			sourceTree = "<group>";
+		};
+		EA46E638278443DD001C9A78 /* Lottie */ = {
+			isa = PBXGroup;
+			children = (
+				EA46E63B278444E8001C9A78 /* src */,
+			);
+			path = Lottie;
+			sourceTree = "<group>";
+		};
+		EA46E63B278444E8001C9A78 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				EA46E63C278444E8001C9A78 /* 微信截图_20210830174029.png */,
+				EA46E63D278444E8001C9A78 /* like_button.json */,
+				EA46E63E278444E8001C9A78 /* reward.json */,
+				EA46E63F278444E8001C9A78 /* tab_my.json */,
+				EA46E640278444E8001C9A78 /* tab_home.json */,
+				EA46E641278444E8001C9A78 /* default_image_placeholder.png */,
+				EA46E642278444E8001C9A78 /* frame_pager_empty.png */,
+				EA46E643278444E8001C9A78 /* 微信图片_20210830173722.png */,
+				EA46E644278444E8001C9A78 /* menu.json */,
+				EA46E645278444E8001C9A78 /* 微信截图_20210830173852.png */,
+				EA46E646278444E8001C9A78 /* icon_empty.png */,
+				EA46E647278444E8001C9A78 /* share.png */,
+				EA46E648278444E8001C9A78 /* moving_arrow.json */,
+				EA46E649278444E8001C9A78 /* tab_find.json */,
+			);
+			path = src;
 			sourceTree = "<group>";
 		};
 		EA77FF51271518640082D717 /* Mine */ = {
@@ -1199,6 +1257,7 @@
 				7A0F0647226089FA00DD89F5 /* LaunchScreen.storyboard in Resources */,
 				7AC53755226D9D48001CB912 /* AmuseMenuViewCell.xib in Resources */,
 				EA46E60C2783E311001C9A78 /* 397.json in Resources */,
+				EA46E650278444E8001C9A78 /* frame_pager_empty.png in Resources */,
 				EA46E60B2783E311001C9A78 /* 381.json in Resources */,
 				EA46E61C2783E311001C9A78 /* 361.json in Resources */,
 				F9983158274BDFCC00202BCF /* find_list.json in Resources */,
@@ -1208,8 +1267,12 @@
 				EA46E6092783E311001C9A78 /* 363.json in Resources */,
 				EA46E6102783E311001C9A78 /* 368.json in Resources */,
 				7AF1CCF32265D981002DBE91 /* CollectionHeaderView.xib in Resources */,
+				EA46E652278444E8001C9A78 /* menu.json in Resources */,
+				EA46E64B278444E8001C9A78 /* like_button.json in Resources */,
 				EA46E6112783E311001C9A78 /* 391.json in Resources */,
 				EA46E6132783E311001C9A78 /* 372.json in Resources */,
+				EA46E64A278444E8001C9A78 /* 微信截图_20210830174029.png in Resources */,
+				EA46E64E278444E8001C9A78 /* tab_home.json in Resources */,
 				7A82A1E22271627E00915D9C /* ProfileHeaderView.xib in Resources */,
 				7AF1CCF72265DDEC002DBE91 /* CollectionNormalCell.xib in Resources */,
 				7A82A1DE22715B5C00915D9C /* TableProfileNormalCell.xib in Resources */,
@@ -1218,9 +1281,12 @@
 				F945370F26CED86300E6AA41 /* 2021@3x.png in Resources */,
 				F945369126CE02D500E6AA41 /* Follow.storyboard in Resources */,
 				F94536E926CE115700E6AA41 /* AVHomeCell.xib in Resources */,
+				EA46E64F278444E8001C9A78 /* default_image_placeholder.png in Resources */,
 				EA46E6122783E311001C9A78 /* 1.json in Resources */,
 				F9DFA1F427834781009B69CE /* WelcomeViewController.xib in Resources */,
+				EA46E654278444E8001C9A78 /* icon_empty.png in Resources */,
 				F94536E326CE115700E6AA41 /* AVHomeReusableView.xib in Resources */,
+				EA46E657278444E8001C9A78 /* tab_find.json in Resources */,
 				EA46E61B2783E311001C9A78 /* 394.json in Resources */,
 				F945369526CE02E500E6AA41 /* Home.storyboard in Resources */,
 				7A0F0642226089F900DD89F5 /* Main.storyboard in Resources */,
@@ -1234,14 +1300,19 @@
 				EA46E60E2783E311001C9A78 /* 365.json in Resources */,
 				7AC53751226D912A001CB912 /* AmuseMenuView.xib in Resources */,
 				EA46E60A2783E311001C9A78 /* 374.json in Resources */,
+				EA46E653278444E8001C9A78 /* 微信截图_20210830173852.png in Resources */,
 				7AF1CD2C2269639F002DBE91 /* RecommendCycleView.xib in Resources */,
 				EA77FF622717FEA40082D717 /* AVFindCell.xib in Resources */,
 				EA77FF542715188E0082D717 /* SettingController.xib in Resources */,
 				EA46E61A2783E311001C9A78 /* 389.json in Resources */,
+				EA46E64C278444E8001C9A78 /* reward.json in Resources */,
+				EA46E64D278444E8001C9A78 /* tab_my.json in Resources */,
 				F94536E126CE115700E6AA41 /* ATHomeHotCell.xib in Resources */,
+				EA46E655278444E8001C9A78 /* share.png in Resources */,
 				EA46E6152783E311001C9A78 /* 371.json in Resources */,
 				F94536F126CE115700E6AA41 /* AVSearchView.xib in Resources */,
 				EA46E6182783E311001C9A78 /* 392.json in Resources */,
+				EA46E651278444E8001C9A78 /* 微信图片_20210830173722.png in Resources */,
 				F945371026CED86300E6AA41 /* 2021@2x.png in Resources */,
 				EA46E61E2783E311001C9A78 /* 376.json in Resources */,
 				7A82A1EC2271885D00915D9C /* ProfileBtnsCell.xib in Resources */,
@@ -1250,6 +1321,7 @@
 				EA77FF5827157C320082D717 /* ShareController.xib in Resources */,
 				EA46E6162783E311001C9A78 /* 384.json in Resources */,
 				7AF1CCFB2266B457002DBE91 /* CollectionPrettyCell.xib in Resources */,
+				EA46E656278444E8001C9A78 /* moving_arrow.json in Resources */,
 				7AF1CD3622699F38002DBE91 /* RecommendGameView.xib in Resources */,
 				7A82A1D222714E9E00915D9C /* FollowHeaderView.xib in Resources */,
 				F94536BC26CE10F200E6AA41 /* AVPlayView.xib in Resources */,
@@ -1595,7 +1667,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3.1;
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.tony.voiceRobotQ;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = VoiceRobotQ_dev;
@@ -1628,7 +1700,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3.1;
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.tony.voiceRobotQ;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = VoiceRobotQ_store;
