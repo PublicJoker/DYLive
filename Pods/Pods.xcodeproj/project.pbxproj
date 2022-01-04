@@ -892,7 +892,6 @@
 		18D2F790653CAB622350113FEB0471E5 /* BuiltInBridgeType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BuiltInBridgeType.swift; path = Source/BuiltInBridgeType.swift; sourceTree = "<group>"; };
 		19844B41913434DEF706DC782923D22E /* XCGLogger-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "XCGLogger-Info.plist"; sourceTree = "<group>"; };
 		199889A70E125BEBB513A92EC01018BA /* ImageCache.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageCache.swift; path = Sources/ImageCache.swift; sourceTree = "<group>"; };
-		1A54828EBF3162D60D8B817FC494D8B7 /* libjpush-ios-3.7.0.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; path = "libjpush-ios-3.7.0.a"; sourceTree = "<group>"; };
 		1A7A717891CD23E13FAD11AF69AD94EF /* AnimatedImageView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AnimatedImageView.swift; path = Sources/AnimatedImageView.swift; sourceTree = "<group>"; };
 		1B1944400F8C057F50964FAEFD35C028 /* UMDevice.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = UMDevice.debug.xcconfig; sourceTree = "<group>"; };
 		1B5728592F843F5B34385F4A120C71AF /* DataTransform.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DataTransform.swift; path = Source/DataTransform.swift; sourceTree = "<group>"; };
@@ -968,7 +967,6 @@
 		34EAEFB39F9B459962DA1BD8419C0454 /* ReflectionHelper.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ReflectionHelper.swift; path = Source/ReflectionHelper.swift; sourceTree = "<group>"; };
 		35EAB0D7E6C401CC79F2E646DA3A8334 /* Moya-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Moya-dummy.m"; sourceTree = "<group>"; };
 		360E9AADF094D8DBF0BD5365114FB12E /* CompositionLayersInitializer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CompositionLayersInitializer.swift; path = "lottie-swift/src/Private/LayerContainers/Utility/CompositionLayersInitializer.swift"; sourceTree = "<group>"; };
-		361383724D01E137525BA7B3217FC292 /* BUCNAuxiliary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BUCNAuxiliary.framework; path = PangleSDK/BUCNAuxiliary.framework; sourceTree = "<group>"; };
 		362D987B810D422F2E08D49C0D67818C /* FMDatabase.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FMDatabase.h; path = src/fmdb/FMDatabase.h; sourceTree = "<group>"; };
 		3695D699D7900341A18290E81F769119 /* ConstraintAttributes.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintAttributes.swift; path = Source/ConstraintAttributes.swift; sourceTree = "<group>"; };
 		3695FE92DBE1DEA790746BD32D0C821B /* UIColor+Hue.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIColor+Hue.swift"; path = "Source/iOS+tvOS/UIColor+Hue.swift"; sourceTree = "<group>"; };
@@ -987,6 +985,7 @@
 		3D25064A4260900893CD473B33371D95 /* LayerDebugging.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LayerDebugging.swift; path = "lottie-swift/src/Private/Utility/Debugging/LayerDebugging.swift"; sourceTree = "<group>"; };
 		3D55F910B12F06F9934E2FFB1E7A2318 /* ATKit_Swift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ATKit_Swift.release.xcconfig; sourceTree = "<group>"; };
 		3D6FF68D9479CB553AEB0F56E508381B /* ConstraintPriorityTarget.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintPriorityTarget.swift; path = Source/ConstraintPriorityTarget.swift; sourceTree = "<group>"; };
+		3D8250F7D23D9AEBEB0CF5FB51A1CE05 /* BUAdSDK.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = BUAdSDK.bundle; path = SDK/BUAdSDK.bundle; sourceTree = "<group>"; };
 		3DD3F52FB4566421AA96C21266EAF236 /* ImageView+Kingfisher.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ImageView+Kingfisher.swift"; path = "Sources/ImageView+Kingfisher.swift"; sourceTree = "<group>"; };
 		3E3F1C6DC3A389ACE920D0974F14C1B8 /* MJRefreshAutoGifFooter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshAutoGifFooter.h; path = MJRefresh/Custom/Footer/Auto/MJRefreshAutoGifFooter.h; sourceTree = "<group>"; };
 		3EEA4AE37E88F4BEDFE947C111C5AEF2 /* SVProgressHUD.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SVProgressHUD.release.xcconfig; sourceTree = "<group>"; };
@@ -1007,7 +1006,6 @@
 		43B72DEC7CDE92B37BF6EC0FCA67FF47 /* ATKit_Swift-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ATKit_Swift-dummy.m"; sourceTree = "<group>"; };
 		4408C3CB35239218904BD19EF9744EF2 /* CompositionLayer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CompositionLayer.swift; path = "lottie-swift/src/Private/LayerContainers/CompLayers/CompositionLayer.swift"; sourceTree = "<group>"; };
 		44A56DC7CA171D261690CA4D34B82D32 /* VTMagic-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "VTMagic-dummy.m"; sourceTree = "<group>"; };
-		45107552DEB46C52ED0105C4DC9CC9BE /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = PangleSDK/LICENSE; sourceTree = "<group>"; };
 		457109170F681C687FBA8E844F4A97B4 /* Serializer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Serializer.swift; path = Source/Serializer.swift; sourceTree = "<group>"; };
 		458B2790EC607ED70AF7A77A340193EC /* LayerModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LayerModel.swift; path = "lottie-swift/src/Private/Model/Layers/LayerModel.swift"; sourceTree = "<group>"; };
 		462D3C43DF1A5D49D69083812A91739F /* MJRefresh.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MJRefresh.release.xcconfig; sourceTree = "<group>"; };
@@ -1170,6 +1168,7 @@
 		818F0FFC9F6EB14C8FC1459BEEEB8BFA /* SVProgressHUD.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SVProgressHUD.modulemap; sourceTree = "<group>"; };
 		81AB03646DDFDFB74F0D4D2C453047F4 /* MJRefreshAutoNormalFooter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshAutoNormalFooter.h; path = MJRefresh/Custom/Footer/Auto/MJRefreshAutoNormalFooter.h; sourceTree = "<group>"; };
 		81F4CC77030F256ACB4F2FECB854490B /* KeyframeExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KeyframeExtensions.swift; path = "lottie-swift/src/Private/Utility/Interpolatable/KeyframeExtensions.swift"; sourceTree = "<group>"; };
+		8206081091E85CE7E17C03112D623754 /* BUFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BUFoundation.framework; path = SDK/BUFoundation.framework; sourceTree = "<group>"; };
 		825FAE08D86AC38FD48AFAF3E67B71AB /* ResponseSerialization.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ResponseSerialization.swift; path = Source/ResponseSerialization.swift; sourceTree = "<group>"; };
 		82668375C8C08C8751C963F666EB2807 /* ATRefresh_Swift-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ATRefresh_Swift-dummy.m"; sourceTree = "<group>"; };
 		83C0FFF9AAE446F9592D2544597EE0FB /* ConstraintRelatableTarget.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintRelatableTarget.swift; path = Source/ConstraintRelatableTarget.swift; sourceTree = "<group>"; };
@@ -1258,7 +1257,6 @@
 		AA7D1A8C1095D0C25C87C906320BDA83 /* VTMagic-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "VTMagic-prefix.pch"; sourceTree = "<group>"; };
 		AA85386CF8B7F849C142596CA47660B4 /* ColorExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ColorExtension.swift; path = "lottie-swift/src/Private/Utility/Primitives/ColorExtension.swift"; sourceTree = "<group>"; };
 		AB6707BE5E9D324423651B79A979E9BC /* ConstraintInsets.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintInsets.swift; path = Source/ConstraintInsets.swift; sourceTree = "<group>"; };
-		ABD0C8788797643AAFD2086FAF98236E /* BUAdSDK.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = BUAdSDK.bundle; path = PangleSDK/BUAdSDK.bundle; sourceTree = "<group>"; };
 		AC150AA9AE454B8FA352932897EA4B49 /* GroupOutputNode.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GroupOutputNode.swift; path = "lottie-swift/src/Private/NodeRenderSystem/Nodes/OutputNodes/GroupOutputNode.swift"; sourceTree = "<group>"; };
 		AC460FC03E05FCE12FAB35D5E47A1D90 /* Cancellable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Cancellable.swift; path = Sources/Moya/Cancellable.swift; sourceTree = "<group>"; };
 		AD08182E23A946CBE9D0913336353527 /* FMDatabaseQueue.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FMDatabaseQueue.m; path = src/fmdb/FMDatabaseQueue.m; sourceTree = "<group>"; };
@@ -1317,7 +1315,9 @@
 		C70E06D41D14D2EE3EEED4921342D212 /* ConstraintMakerExtendable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintMakerExtendable.swift; path = Source/ConstraintMakerExtendable.swift; sourceTree = "<group>"; };
 		C81B5C4F03ED42530C8C305CE8A66732 /* Ads-CN.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Ads-CN.debug.xcconfig"; sourceTree = "<group>"; };
 		C82E4A48BC03773F3FF055E76CAE3E84 /* VTMagicController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VTMagicController.h; path = VTMagic/VTMagicController.h; sourceTree = "<group>"; };
+		C8C562430C4042215B5BDDAC13DE22C9 /* BUCNAuxiliary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BUCNAuxiliary.framework; path = SDK/BUCNAuxiliary.framework; sourceTree = "<group>"; };
 		C9106AEF2740B4A7412CE06F58E0BA7F /* FMResultSet.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FMResultSet.h; path = src/fmdb/FMResultSet.h; sourceTree = "<group>"; };
+		C95503BE8B6CF234D4982C82C34331A4 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = SDK/LICENSE; sourceTree = "<group>"; };
 		C9683845FB8026AF80BA222E57AEAFFF /* GradientStrokeNode.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GradientStrokeNode.swift; path = "lottie-swift/src/Private/NodeRenderSystem/Nodes/RenderNodes/GradientStrokeNode.swift"; sourceTree = "<group>"; };
 		CA9E38A0110A68C64F4429B81230446D /* BundleImageProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BundleImageProvider.swift; path = "lottie-swift/src/Public/iOS/BundleImageProvider.swift"; sourceTree = "<group>"; };
 		CB00BAB76130F11A9F228588962EEA9E /* JCore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = JCore.release.xcconfig; sourceTree = "<group>"; };
@@ -1355,6 +1355,7 @@
 		D9297C58F5146FF13B2EAF2C9AB7BE57 /* MGJRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MGJRouter.swift; path = Source/MGJRouter.swift; sourceTree = "<group>"; };
 		D975EB962A2390D8F3B82ED9E3054D42 /* lottie-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "lottie-ios.debug.xcconfig"; sourceTree = "<group>"; };
 		DB04A5713CB7928D40767E9316C930C1 /* AnimatedControl.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AnimatedControl.swift; path = "lottie-swift/src/Public/iOS/AnimatedControl.swift"; sourceTree = "<group>"; };
+		DB16CEB6EB6DC32FEFFB1371CACA7B52 /* BUAdSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BUAdSDK.framework; path = SDK/BUAdSDK.framework; sourceTree = "<group>"; };
 		DB547707191C14B02D13D673B794BF9D /* UIViewController+VTMagic.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIViewController+VTMagic.h"; path = "VTMagic/UIViewController+VTMagic.h"; sourceTree = "<group>"; };
 		DB76F3D69F89593FEBFFF917ADEAFC73 /* UINavigationController+FDFullscreenPopGesture.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UINavigationController+FDFullscreenPopGesture.h"; path = "FDFullscreenPopGesture/UINavigationController+FDFullscreenPopGesture.h"; sourceTree = "<group>"; };
 		DB8AE5C21D791CF528F31ED433D540A8 /* Result-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Result-dummy.m"; sourceTree = "<group>"; };
@@ -1378,7 +1379,6 @@
 		E49D6D248DD1CEE584E6776B9164A1B2 /* MJRefresh.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = MJRefresh.framework; path = MJRefresh.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4F73BF8F8650D730F9E872B34EE9FD6 /* ObjcExceptionBridging.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ObjcExceptionBridging.debug.xcconfig; sourceTree = "<group>"; };
 		E533D9D89735AEA63D5CC267D864F27A /* GradientFillNode.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GradientFillNode.swift; path = "lottie-swift/src/Private/NodeRenderSystem/Nodes/RenderNodes/GradientFillNode.swift"; sourceTree = "<group>"; };
-		E53CF51E013ACB2E22BDE5C0858B374F /* BUAdSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BUAdSDK.framework; path = PangleSDK/BUAdSDK.framework; sourceTree = "<group>"; };
 		E61A7CEE8C8513FCCE32519025F88CA5 /* CGFloatExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CGFloatExtensions.swift; path = "lottie-swift/src/Private/Utility/Extensions/CGFloatExtensions.swift"; sourceTree = "<group>"; };
 		E6273B21C0F5001525E4DCA875CB7CAD /* ConstraintItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintItem.swift; path = Source/ConstraintItem.swift; sourceTree = "<group>"; };
 		E7028FE1A49DDF68DC46DC57F9A8D551 /* URL+Moya.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "URL+Moya.swift"; path = "Sources/Moya/URL+Moya.swift"; sourceTree = "<group>"; };
@@ -1430,7 +1430,6 @@
 		F9809F0938783D710189435BBE73F43A /* FDFullscreenPopGesture.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FDFullscreenPopGesture.release.xcconfig; sourceTree = "<group>"; };
 		F9EE87AD9170C9C2E89EFD5753AD52BB /* FMDatabaseQueue.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FMDatabaseQueue.h; path = src/fmdb/FMDatabaseQueue.h; sourceTree = "<group>"; };
 		F9F1B634C9A29492F07420517E252CD0 /* LLViewExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LLViewExtensions.swift; path = Lib/LLCycleScrollView/LLViewExtensions.swift; sourceTree = "<group>"; };
-		FA8628920769D4ACE4D3D051D4AF9913 /* BUFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BUFoundation.framework; path = PangleSDK/BUFoundation.framework; sourceTree = "<group>"; };
 		FB474D90D3AB7F07E6DF05E71E3328EC /* ConstraintViewDSL.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintViewDSL.swift; path = Source/ConstraintViewDSL.swift; sourceTree = "<group>"; };
 		FBAFE2237BFD852C7AC307420541063D /* Trim.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Trim.swift; path = "lottie-swift/src/Private/Model/ShapeItems/Trim.swift"; sourceTree = "<group>"; };
 		FC21E11599264BC8297EB97354A9423F /* XCGLogger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = XCGLogger.framework; path = XCGLogger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1440,6 +1439,7 @@
 		FEBD7AD12992BF002CD11DF4C5DCEA3D /* AnimationKeypathExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AnimationKeypathExtension.swift; path = "lottie-swift/src/Private/Utility/Extensions/AnimationKeypathExtension.swift"; sourceTree = "<group>"; };
 		FEF5D8F558E67BE7477F2021942AC892 /* MGJRouter_Swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = MGJRouter_Swift.framework; path = MGJRouter_Swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF006A034E3A6F465C6F0A3916D82542 /* ExtendCustomModelType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExtendCustomModelType.swift; path = Source/ExtendCustomModelType.swift; sourceTree = "<group>"; };
+		FF0865B26FBE0C70215081C64663858C /* libjpush-ios-3.7.4.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; path = "libjpush-ios-3.7.4.a"; sourceTree = "<group>"; };
 		FF5F349C7D3C5DE91ACDD8BFF3214382 /* FilepathImageProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FilepathImageProvider.swift; path = "lottie-swift/src/Public/iOS/FilepathImageProvider.swift"; sourceTree = "<group>"; };
 		FFD59170AC60AC75D9C680D724490200 /* NetworkLoggerPlugin.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NetworkLoggerPlugin.swift; path = Sources/Moya/Plugins/NetworkLoggerPlugin.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1677,6 +1677,14 @@
 			path = "../Target Support Files/FMDB";
 			sourceTree = "<group>";
 		};
+		08D62F4D445336B739011283EED86D68 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8206081091E85CE7E17C03112D623754 /* BUFoundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		0B2F17017591467F1DDA94A7FA155786 /* Moya */ = {
 			isa = PBXGroup;
 			children = (
@@ -1834,14 +1842,6 @@
 			);
 			name = XCGLogger;
 			path = XCGLogger;
-			sourceTree = "<group>";
-		};
-		2A04F28E48F02FA0F1650D88BE25D4DD /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				ABD0C8788797643AAFD2086FAF98236E /* BUAdSDK.bundle */,
-			);
-			name = Resources;
 			sourceTree = "<group>";
 		};
 		2CBA3560327B65C6F084F24A11ED24D7 /* Support Files */ = {
@@ -2051,14 +2051,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		33A402116B1C629EEE26DA2B9DA934DF /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				FA8628920769D4ACE4D3D051D4AF9913 /* BUFoundation.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		380005CECD1F23E3ED0D38E1069D3FA4 /* Kingfisher */ = {
 			isa = PBXGroup;
 			children = (
@@ -2098,7 +2090,7 @@
 				76708BFDEE48841BEE87BAA0F0D22B4C /* BUAdSDK */,
 				D152670AF531480009350BFC4C214314 /* BUFoundation */,
 				46C7ED67EB1085DE310C27BF4742F9CB /* Domestic */,
-				6B13791BA6CF979CCAACFC81CDE92E9B /* Resources */,
+				719DC8DE16DF85F213FABBF355390644 /* Resources */,
 				D48AEAA8AA32BCDBFC71038EDCD3ED13 /* Support Files */,
 			);
 			name = "Ads-CN";
@@ -2123,11 +2115,19 @@
 			path = SVProgressHUD;
 			sourceTree = "<group>";
 		};
+		3D42E3F1C95DC2F086D31EF066015D07 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DB16CEB6EB6DC32FEFFB1371CACA7B52 /* BUAdSDK.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		439CE46898A0E11CE5BDD5E7DF726640 /* JPush */ = {
 			isa = PBXGroup;
 			children = (
 				234977280CD3F532FBB2445F49E0A2BF /* JPUSHService.h */,
-				880C7875F0ADC49942112C4F52BF2C7B /* Frameworks */,
+				FC857F7892AC87BA02CA35E7E5357BD1 /* Frameworks */,
 				C4618F4701EC2E428CABC4AA07A35A23 /* Support Files */,
 			);
 			name = JPush;
@@ -2152,7 +2152,7 @@
 		46C7ED67EB1085DE310C27BF4742F9CB /* Domestic */ = {
 			isa = PBXGroup;
 			children = (
-				F53AEA9AB8A6DE44A74DBD4020C5AB2E /* Frameworks */,
+				AE9511999ED7BCA471BE8675B154FB72 /* Frameworks */,
 			);
 			name = Domestic;
 			sourceTree = "<group>";
@@ -2298,14 +2298,6 @@
 			path = UMAPM;
 			sourceTree = "<group>";
 		};
-		6B13791BA6CF979CCAACFC81CDE92E9B /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				45107552DEB46C52ED0105C4DC9CC9BE /* LICENSE */,
-			);
-			name = Resources;
-			sourceTree = "<group>";
-		};
 		6B679B5DDF00C2AF8F3C0EE89475B473 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -2319,6 +2311,14 @@
 			);
 			name = "Support Files";
 			path = "../Target Support Files/MJRefresh";
+			sourceTree = "<group>";
+		};
+		719DC8DE16DF85F213FABBF355390644 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C95503BE8B6CF234D4982C82C34331A4 /* LICENSE */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		71E0A505F397AE9FB5A4309ECD42FCB3 /* LLCycleScrollView */ = {
@@ -2341,8 +2341,8 @@
 		76708BFDEE48841BEE87BAA0F0D22B4C /* BUAdSDK */ = {
 			isa = PBXGroup;
 			children = (
-				A82FFA740D69B4FBFE3C6F4243F62AEF /* Frameworks */,
-				2A04F28E48F02FA0F1650D88BE25D4DD /* Resources */,
+				3D42E3F1C95DC2F086D31EF066015D07 /* Frameworks */,
+				B4CAB4527F7D7E9FB1025F1F262E57E9 /* Resources */,
 			);
 			name = BUAdSDK;
 			sourceTree = "<group>";
@@ -2451,14 +2451,6 @@
 			);
 			name = HandyJSON;
 			path = HandyJSON;
-			sourceTree = "<group>";
-		};
-		880C7875F0ADC49942112C4F52BF2C7B /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				1A54828EBF3162D60D8B817FC494D8B7 /* libjpush-ios-3.7.0.a */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		898335830F2812800C71F75BF12446D6 /* FMDB */ = {
@@ -2576,14 +2568,6 @@
 			path = "../Target Support Files/Result";
 			sourceTree = "<group>";
 		};
-		A82FFA740D69B4FBFE3C6F4243F62AEF /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				E53CF51E013ACB2E22BDE5C0858B374F /* BUAdSDK.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		A9AF4D3A81DDD727C037A4441067D6B8 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -2597,6 +2581,14 @@
 			);
 			name = "Support Files";
 			path = "../Target Support Files/VTMagic";
+			sourceTree = "<group>";
+		};
+		AE9511999ED7BCA471BE8675B154FB72 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C8C562430C4042215B5BDDAC13DE22C9 /* BUCNAuxiliary.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		AECC8F2CBDE1F323E9BC6E0D242F88A2 /* Support Files */ = {
@@ -2629,6 +2621,14 @@
 				FDF8A7781C5FC95AB48F670167D3D496 /* ObjectiveCMarker.m */,
 			);
 			name = ObjcExceptionBridging;
+			sourceTree = "<group>";
+		};
+		B4CAB4527F7D7E9FB1025F1F262E57E9 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3D8250F7D23D9AEBEB0CF5FB51A1CE05 /* BUAdSDK.bundle */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		B7E56491EC2A557A57F22AA61F551AAC /* UMCCommon */ = {
@@ -2811,7 +2811,7 @@
 		D152670AF531480009350BFC4C214314 /* BUFoundation */ = {
 			isa = PBXGroup;
 			children = (
-				33A402116B1C629EEE26DA2B9DA934DF /* Frameworks */,
+				08D62F4D445336B739011283EED86D68 /* Frameworks */,
 			);
 			name = BUFoundation;
 			sourceTree = "<group>";
@@ -2935,14 +2935,6 @@
 			path = Alamofire;
 			sourceTree = "<group>";
 		};
-		F53AEA9AB8A6DE44A74DBD4020C5AB2E /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				361383724D01E137525BA7B3217FC292 /* BUCNAuxiliary.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		F7A9BBCDA82DE7DF623B58AB2873ADA7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -3004,6 +2996,14 @@
 			);
 			name = ObjcExceptionBridging;
 			path = ObjcExceptionBridging;
+			sourceTree = "<group>";
+		};
+		FC857F7892AC87BA02CA35E7E5357BD1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FF0865B26FBE0C70215081C64663858C /* libjpush-ios-3.7.4.a */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -3698,8 +3698,8 @@
 		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1100;
-				LastUpgradeCheck = 1100;
+				LastSwiftUpdateCheck = 1240;
+				LastUpgradeCheck = 1240;
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 10.0";

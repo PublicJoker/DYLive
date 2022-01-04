@@ -7,24 +7,153 @@
 //
 
 import UIKit
+import AppTrackingTransparency
+import AdSupport
 
 class WelcomeViewController: UIViewController {
-
+    
+    @IBOutlet weak var logoImg: UIImageView!
+    @IBOutlet weak var adsBgView: UIImageView!
+    
+    var isChecked: Bool = UserDefaults.isVersionChecked()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        showBg()
+        autoUpdate()
+        requestIDFA()
     }
 
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func autoUpdate() {
+        if UserDefaults.isFirstLaunchOfNewVersion() {//当前版本首次启动.重置标识位(升级APP)
+            UserDefaults.setVersionChecked(flag: false)
+            UserDefaults.setHasShowNewFeature(flag: false)
+        }
+        
+        if UserDefaults.isVersionChecked() {//版本已过审
+            adsBgView.isHidden = false
+            logoImg.image = UIImage(named: "splash_logo")
+        } else {
+            adsBgView.isHidden = false
+            adsBgView.image = UIImage(named: "AppLogo")
+            logoImg.image = UIImage(named: "bg_custom_update")
+            getCheckStatus()
+        }
     }
-    */
+    
+    func showBg() {
+        if isChecked {
+            adsBgView.isHidden = false
+            adsBgView.image = UIImage(named: "app_logo")
+            logoImg.image = UIImage(named: "splash_logo")
+        } else {
+            adsBgView.isHidden = false
+            adsBgView.image = UIImage(named: "AppLogo")
+            logoImg.image = UIImage(named: "bg_custom_update")
+        }
+    }
+    
+    func getCheckStatus() {
+        ApiMoya.apiMoyaRequest(target: ApiMoya.getAppVersion(appId: "1581815639")) { json in
+            let model = AppVersion.deserialize(from: json.rawString())
+            //线上版本
+            let appStoreVersion = model?.results.first?.version ?? ""
+            //当前版本号
+            let currentVersion = UserDefaults.currentVersionNum()
+            //当前版本已上线 = 当前版本<=线上版本
+            let checked = currentVersion.compare(appStoreVersion) != .orderedDescending
+            self.isChecked = checked
+            UserDefaults.setVersionChecked(flag: checked)//更新状态标识
+            self.showBg()
+            if checked { self.changeIcon() }
+        } failure: { error in
+//            self.showLive(false)
+        }
+    }
+    
+    func requestIDFA() {
+        initAd()
+        
+        if #available(iOS 14, *) {
+            ATTrackingManager.requestTrackingAuthorization(completionHandler: { status in
+                if status == .authorized {//已授权
+    
+                }
+            })
+        }
+    }
+    
+    func initAd() {
+        BUAdSDKManager.setAppID("5208554")
+        
+        #if DEBUG
+        BUAdSDKManager.setLoglevel(.debug)
+        #endif
+        
+        /// Coppa 0 adult, 1 child
+        BUAdSDKManager.setCoppa(0)
+        
+        DispatchQueue.main.async {
+            self.splashAdView.delegate = self
+            self.splashAdView.loadAdData()
+            self.view.addSubview(self.splashAdView)
+            self.splashAdView.rootViewController = self
+        }
+    }
+    
+    lazy var splashAdView: BUSplashAdView = {
+        let frame = UIScreen.main.bounds
+        let adView = BUSplashAdView(slotID: "887544324", frame: frame)
+        adView.tolerateTimeout = 10
+//        adView.hideSkipButton = true//隐藏跳过按钮
+        return adView
+    }()
 
+    func changeIcon() {
+        if #available(iOS 10.3, *) {
+            guard UIApplication.shared.supportsAlternateIcons else {
+                return
+            }
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                UIApplication.shared.setAlternateIconName("2021") { error in
+                    print(error?.localizedDescription ?? "")
+                }
+            }
+        }
+    }
+}
+
+extension WelcomeViewController: BUSplashAdDelegate {
+    func changeHomePage() {
+        if isChecked {
+            kAppdelegate?.window?.rootViewController = MainViewController()
+        } else {
+            kAppdelegate?.window?.rootViewController = IATViewController()
+        }
+    }
+    
+    func splashAdDidClickSkip(_ splashAd: BUSplashAdView) {
+        splashAd.removeFromSuperview()
+        
+        changeHomePage()
+    }
+    
+    func splashAdDidLoad(_ splashAd: BUSplashAdView) {
+        
+    }
+    
+    func splashAdCountdown(toZero splashAd: BUSplashAdView) {
+        splashAd.removeFromSuperview()
+        
+        changeHomePage()
+    }
+    
+    func splashAd(_ splashAd: BUSplashAdView, didFailWithError error: Error?) {
+        splashAd.removeFromSuperview()
+        
+        changeHomePage()
+    }
 }

@@ -1,11 +1,11 @@
 PODS:
-  - Ads-CN (4.0.0.1):
-    - Ads-CN/BUAdSDK (= 4.0.0.1)
-  - Ads-CN/BUAdSDK (4.0.0.1):
+  - Ads-CN (4.2.0.2):
+    - Ads-CN/BUAdSDK (= 4.2.0.2)
+  - Ads-CN/BUAdSDK (4.2.0.2):
     - Ads-CN/BUFoundation
     - Ads-CN/Domestic
-  - Ads-CN/BUFoundation (4.0.0.1)
-  - Ads-CN/Domestic (4.0.0.1)
+  - Ads-CN/BUFoundation (4.2.0.2)
+  - Ads-CN/Domestic (4.2.0.2)
   - Alamofire (4.9.1)
   - ATKit_Swift (0.2.4)
   - ATRefresh_Swift (0.2.2):
@@ -108,7 +108,7 @@ SPEC REPOS:
     - XCGLogger
 
 SPEC CHECKSUMS:
-  Ads-CN: 3e71a8df13766114f385e4e76681a949cbbfeac8
+  Ads-CN: 9fe60236f2433ea9091842729ea2c93c3bc84134
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
   ATKit_Swift: 2303e6f461fcaccff31f5e455a287994f9edc3fe
   ATRefresh_Swift: ea95c33edbddf7ef3144f81dada27ff7f47f5218

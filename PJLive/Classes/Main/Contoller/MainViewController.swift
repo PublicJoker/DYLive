@@ -14,6 +14,9 @@ class MainViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        //1. 设置 Tabbar 的 tintColor
+        UITabBar.appearance().tintColor = .purple
+        
         addChildVc("Home")
 //        addChildVc("Live")
         addChildVc("Follow")

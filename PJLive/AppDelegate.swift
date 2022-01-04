@@ -10,7 +10,6 @@
 import UIKit
 import Alamofire
 import AppTrackingTransparency
-import AdSupport
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -25,103 +24,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UserDefaults.setHasShowNewFeature(flag: false)
 
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = BaseViewController()
         window?.backgroundColor = .white
+        window?.rootViewController = WelcomeViewController()
         window?.makeKeyAndVisible()
-        //1. 设置 Tabbar 的 tintColor
-        UITabBar.appearance().tintColor = .purple
         return true
     }
-    
-    func autoUpdate() {
-        if UserDefaults.isFirstLaunchOfNewVersion() {//当前版本首次启动.重置标识位(升级APP)
-            UserDefaults.setVersionChecked(flag: false)
-            UserDefaults.setHasShowNewFeature(flag: false)
-        }
-        
-        if UserDefaults.isVersionChecked() {//版本已过审
-            if UserDefaults.isShowNewFeature() {
-                return
-            } else {
-                self.showNewFeature(true)//new feature
-            }
-        } else {
-            self.showNewFeature(false)//old feature
-            getCheckStatus()
-        }
-    }
-    
-    func getCheckStatus() {
-        ApiMoya.apiMoyaRequest(target: ApiMoya.getAppVersion(appId: "1581815639")) { json in
-            let model = AppVersion.deserialize(from: json.rawString())
-            //线上版本
-            let appStoreVersion = model?.results.first?.version ?? ""
-            //当前版本号
-            let currentVersion = UserDefaults.currentVersionNum()
-            //当前版本已上线 = 当前版本<=线上版本
-            let checked = currentVersion.compare(appStoreVersion) != .orderedDescending
-            
-            UserDefaults.setVersionChecked(flag: checked)//更新状态标识
-            if checked { self.showNewFeature(true) }
-        } failure: { error in
-//            self.showLive(false)
-        }
-    }
-    
-    func showNewFeature(_ checked: Bool) {
-        window = UIWindow(frame: UIScreen.main.bounds)
-        window?.backgroundColor = .white
-        
-        if checked {//更换图标,显示新特性
-            window?.rootViewController = MainViewController()
-            window?.makeKeyAndVisible()
-            changeIcon()
-            requestIDFA()
-        } else {
-            window?.rootViewController = IATViewController()
-            window?.makeKeyAndVisible()
-        }
-    }
-    
-    func requestIDFA() {
-        if #available(iOS 14, *) {
-            ATTrackingManager.requestTrackingAuthorization(completionHandler: { [self] status in
-                if status == .authorized {//已授权
-                    initAd()
-                }
-            })
-        } else {
-            initAd()
-        }
-    }
-    
-    func initAd() {
-        BUAdSDKManager.setAppID("5208554")
-        
-        #if DEBUG
-        BUAdSDKManager.setLoglevel(.debug)
-        #endif
-        
-        /// Coppa 0 adult, 1 child
-        BUAdSDKManager.setCoppa(0)
-        
-        DispatchQueue.main.async {
-            self.splashAdView.delegate = self
-            self.splashAdView.loadAdData()
-            let rootVC = self.window?.rootViewController
-            rootVC?.view.addSubview(self.splashAdView)
-            self.splashAdView.rootViewController = rootVC
-        }
-    }
-    
-    lazy var splashAdView: BUSplashAdView = {
-        let frame = UIScreen.main.bounds
-        let adView = BUSplashAdView(slotID: "887544324", frame: frame)
-        adView.tolerateTimeout = 10
-//        adView.hideSkipButton = true//隐藏跳过按钮
-        return adView
-    }()
-    
+
     open func supportedInterfaceOrientations(for window: UIWindow?) -> UIInterfaceOrientationMask{
         return .allButUpsideDown//支持倒立除外的其他方向
     }
@@ -134,41 +42,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }else{
                 //强制设置成横屏
                 UIDevice.current.setValue(UIInterfaceOrientation.landscapeRight.rawValue, forKey: "orientation")
-                
             }
         }
-    }
-    
-    func changeIcon() {
-        if #available(iOS 10.3, *) {
-            guard UIApplication.shared.supportsAlternateIcons else {
-                return
-            }
-            
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                UIApplication.shared.setAlternateIconName("2021") { error in
-                    print(error?.localizedDescription ?? "")
-                }
-            }
-        }
-    }
-}
-
-extension AppDelegate: BUSplashAdDelegate {
-    func splashAdDidClickSkip(_ splashAd: BUSplashAdView) {
-        splashAd.removeFromSuperview()
-    }
-    
-    func splashAdDidLoad(_ splashAd: BUSplashAdView) {
-        
-    }
-    
-    func splashAdCountdown(toZero splashAd: BUSplashAdView) {
-        splashAd.removeFromSuperview()
-    }
-    
-    func splashAd(_ splashAd: BUSplashAdView, didFailWithError error: Error?) {
-        splashAd.removeFromSuperview()
     }
 }
 
@@ -252,8 +127,6 @@ extension AppDelegate : JPUSHRegisterDelegate {
     }
     
     func applicationDidBecomeActive(_ application: UIApplication) {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            self.autoUpdate()
-        }
+        
     }
 }

@@ -93,7 +93,10 @@ extension FindViewModel {
     
     // 请求分类数据
     func requestCategoryData(listId: Int, finishCallback: @escaping () -> ()) {
-        let fileUrl = Bundle.main.url(forResource: "\(listId)", withExtension: ".json")!
+        guard let fileUrl = Bundle.main.url(forResource: "\(listId)", withExtension: ".json") else {
+            return
+        }
+        
         let jsonArr = try! JSON(data: Data(contentsOf: fileUrl)).arrayObject!
         
         //获取分类视频数据

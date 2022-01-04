@@ -35,7 +35,7 @@ extension ApiMoya : TargetType{
         case .getAppVersion:
             return URL.init(string: "https://itunes.apple.com")!
         case let .apiShowYun(movieId):
-            return URL.init(string: "http://m3u8.dbyunzy.com/api.php/provide/vod/?ac=detail&ids=\(movieId)")!
+            return URL.init(string: "https://m3u8.dbyunzy.com/api.php/provide/vod/?ac=detail&ids=\(movieId)")!
         default:
             return URL.init(string: "http://api.haidan.me")!
         }
