@@ -19,15 +19,17 @@ class MainViewController: UITabBarController {
         super.viewDidLoad()
 
         //1. 设置 Tabbar 的 tintColor
-        UITabBar.appearance().tintColor = .purple
+        UITabBar.appearance().tintColor = .blue
         
         addChildVc("Home")
 //        addChildVc("Live")
         addChildVc("Follow")
         addChildVc("Profile")
-        
+
         UserDefaults.setHasShowNewFeature(flag: true)
         delegate = self
+        
+//        setupAnimation(self, self.viewControllers!.first!)
     }
     
     private func addChildVc(_ name : String) {
@@ -60,7 +62,7 @@ extension MainViewController: UITabBarControllerDelegate {
         // tabbar1 。。。 tabbar3
         let view = AnimationView(name: lottieNameArr[index])
         view.frame = frame
-        view.contentMode = .scaleAspectFill
+        view.contentMode = .scaleAspectFit
         view.animationSpeed = 1
         return view
     }
@@ -72,8 +74,9 @@ extension MainViewController: UITabBarControllerDelegate {
         }
         
     //        1. 获取当前点击的是第几个
-        let index = tabBarVC.viewControllers?.index(of: viewController)
+        let index = tabBarVC.viewControllers?.firstIndex(of: viewController)
         var tabBarSwappableImageViews = [UIImageView]()
+        var tabBarButtons = [Any]()
         
     //        2.遍历取出所有的 tabBarButton
         for tempView in tabBarVC.tabBar.subviews {
@@ -95,17 +98,16 @@ extension MainViewController: UITabBarControllerDelegate {
                             }
                         }
                     }
-                
-                
+                tabBarButtons.append(tempView)
             }
         }
         
         
     //        3. 找到当前的UITabBarButton
         let currentTabBarSwappableImageView = tabBarSwappableImageViews[index!]
-        
+        let currentTabBarButton = tabBarButtons[index!]
     //        4. 获取UITabBarButton中的 UITabBarSwappableImageView 并隐藏
-        var frame = currentTabBarSwappableImageView.frame
+        var frame = (currentTabBarButton as? UIView)?.frame ?? CGRect.zero
         frame.origin.x = 0
         frame.origin.y = 0
         var animation: AnimationView? = getAnimationViewAtTabBarIndex(index!, frame)
@@ -118,7 +120,7 @@ extension MainViewController: UITabBarControllerDelegate {
         currentTabBarSwappableImageView.isHidden = true
         
     //        6. 执行动画，动画结束后 显示 UITabBarSwappableImageView 移除 动画 view 并置空
-        animation!.play(fromProgress: 0, toProgress: 1) { (finished) in
+        animation!.play(fromProgress: 0.1, toProgress: 1) { (finished) in
             currentTabBarSwappableImageView.isHidden = false
             animation!.removeFromSuperview()
              animation = nil

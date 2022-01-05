@@ -25,9 +25,14 @@ class WelcomeViewController: UIViewController {
             showBg()
         }
         autoUpdate()
-        requestIDFA()
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        requestIDFA()
+    }
+    
     func autoUpdate() {
         if UserDefaults.isFirstLaunchOfNewVersion() {//当前版本首次启动.重置标识位(升级APP)
             UserDefaults.setVersionChecked(flag: false)
@@ -77,13 +82,13 @@ class WelcomeViewController: UIViewController {
     }
     
     func requestIDFA() {
-        initAd()
-        
         if #available(iOS 14, *) {
             ATTrackingManager.requestTrackingAuthorization(completionHandler: { status in
                 if status == .authorized {//已授权
-    
+                    
                 }
+                
+                self.initAd()
             })
         }
     }
