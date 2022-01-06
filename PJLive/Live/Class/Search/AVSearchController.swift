@@ -9,42 +9,74 @@
 import UIKit
 import ATKit_Swift
 class AVSearchController: BaseTableViewController,searchDelegate {
+    private lazy var hotWords: [String] = {
+        return []
+    }()
+    
     private lazy var listData : [Any] = {
         return []
     }()
     private var _keyWord : String?
     private var keyWord  : String?{
         set{
-            _keyWord = newValue ?? "";
-            self.refreshData(page:RefreshPageStart);
-        }get{
-            return _keyWord ?? "";
+            _keyWord = newValue ?? ""
+            self.refreshData(page:RefreshPageStart)
+            isSearchMode = _keyWord!.count > 0
+        } get {
+            return _keyWord ?? ""
         }
     }
+    
+    var isSearchMode = false
+    
     private lazy var searchView : AVSearchView = {
-        let searchView = AVSearchView.instanceView();
+        let searchView = AVSearchView.instanceView()
         searchView.delegate = self
-        searchView.backBtn.addTarget(self, action: #selector(back), for: .touchUpInside);
-        return searchView;
+        searchView.backBtn.addTarget(self, action: #selector(back), for: .touchUpInside)
+        return searchView
     }()
+    
     override func back(animated: Bool) {
         super.back(animated: false)
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.fd_prefersNavigationBarHidden = true;
-        self.view.addSubview(self.searchView);
+        self.fd_prefersNavigationBarHidden = true
+        self.view.addSubview(self.searchView)
         self.searchView.snp.makeConstraints { (make) in
-            make.top.equalTo(0);
-            make.left.right.equalToSuperview();
-            make.height.equalTo(NAVI_BAR_HIGHT);
+            make.top.equalTo(kTopSafeH)
+            make.left.right.equalToSuperview()
+            make.height.equalTo(NAVI_BAR_HIGHT)
         }
         self.tableView.snp.remakeConstraints { (make) in
-            make.left.right.bottom.equalToSuperview();
-            make.top.equalTo(self.searchView.snp.bottom);
+            make.left.right.bottom.equalToSuperview()
+            make.top.equalTo(self.searchView.snp.bottom)
         }
-        self.setupRefresh(scrollView: self.tableView, options: .defaults);
+        self.setupRefresh(scrollView: self.tableView, options: .defaults)
+        
+        getHotWords()
     }
+    
+    func getHotWords() {
+        NetWorkTools.requestData(type: .get, URLString: kAppdelegate?.appConfig?.hotUrl ?? "", parameters: nil) { (result) in
+            //1.1. 将 result 转成字典类型
+            guard let resultDic = result as? [String : NSObject] else {
+                return
+            }
+            
+            //1.2. 根据 data 该 key，获取数组
+            guard let dataArray = resultDic["data"] as? [[String : NSObject]] else {
+                return
+            }
+            
+            dataArray.forEach { dic in
+                self.hotWords.append("\(dic["id"]!)  \(dic["text"]!)")
+            }
+            self.tableView.reloadData()
+        }
+    }
+    
     override func refreshData(page: Int) {
         if self.keyWord!.count > 0 {
             let hud = MBProgressHUD.showAdded(to: view, animated: true)
@@ -87,11 +119,11 @@ class AVSearchController: BaseTableViewController,searchDelegate {
         }else{
             AVSearchDataQueue.getKeyWords(page: page, size: RefreshPageSize) { (datas) in
                 if page == RefreshPageStart{
-                    self.listData.removeAll();
+                    self.listData.removeAll()
                 }
-                self.listData.append(contentsOf: datas);
-                self.tableView.reloadData();
-                self.endRefresh(more: datas.count >= RefreshPageSize);
+                self.listData.append(contentsOf: datas)
+                self.tableView.reloadData()
+                self.endRefresh(more: datas.count >= RefreshPageSize)
             }
         }
     }
@@ -99,7 +131,7 @@ class AVSearchController: BaseTableViewController,searchDelegate {
         self.keyWord = text;
         if text.count > 0 {
             let keyWord = text.trimmingCharacters(in: .whitespacesAndNewlines);
-            self.inseartData(keyWord: keyWord);
+            self.inseartData(keyWord: keyWord)
         }else{
             self.refreshData(page: RefreshPageStart)
         }
@@ -111,65 +143,127 @@ class AVSearchController: BaseTableViewController,searchDelegate {
             }
         }
     }
+    
     func searchView(searchView: AVSearchView, keyWord: String) {
-        self.searchText(text: keyWord);
+        if searchView.searchBtn.currentTitle == "取消" {
+            if searchView.textField.text == "" {
+                back(animated: true)
+            } else {
+                searchView.textField.text = ""
+                self.searchText(text: "")
+            }
+        } else {
+            self.searchText(text: keyWord)
+        }
     }
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1;
+        return isSearchMode ? 1 : 2
     }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.listData.count;
+        if isSearchMode {
+            return listData.count
+        } else {
+            return section == 0 ? hotWords.count/2 : listData.count
+        }
     }
+    
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension;
+        if isSearchMode {
+            return UITableView.automaticDimension
+        } else {
+            return isSearchMode ? 0 : indexPath.section == 0 ? 30 : 40
+        }
     }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let object = self.listData[indexPath.row];
-        if object is String{
-            let cell = AVSearchCell.cellForTableView(tableView: tableView, indexPath: indexPath);
-            cell.titleLab.text = (self.listData[indexPath.row] as! String);
-            return cell;
-        }else if object is VideoModel{
+        if isSearchMode {
+            let object = self.listData[indexPath.row]
             let cell = AVSearchResultCell.cellForTableView(tableView: tableView, indexPath: indexPath)
             let video = (object as! VideoModel)
             cell.imageV.kf.setImage(with: URL(string: video.vod_pic))
             cell.titleLab.text = video.vod_name
             cell.subTitleLab.text = video.vod_actor
             return cell
+        } else {
+            if indexPath.section == 0 {
+                let cell = AVSearchCell.cellForTableView(tableView: tableView, indexPath: indexPath)
+                cell.titleLab.text = hotWords[indexPath.row * 2]
+                cell.subTitleLab.text = hotWords[indexPath.row * 2 + 1]
+                cell.lineView.alpha = 0
+                cell.selectionStyle = .none
+                cell.tapBlock = { index in
+                    let keyword = self.hotWords[indexPath.row * 2 + index].components(separatedBy: "  ").last ?? ""
+                    self.searchText(text: keyword)
+                    self.searchView.keyWord = keyword
+                }
+                return cell
+            } else {
+                let cell = AVSearchCell.cellForTableView(tableView: tableView, indexPath: indexPath)
+                cell.titleLab.text = listData[indexPath.row] as? String
+                cell.selectionStyle = .none
+                cell.subTitleLab.text = ""
+                cell.lineView.alpha = 1
+                return cell
+            }
         }
-        return UITableViewCell.cellForTableView(tableView: tableView, indexPath: indexPath);
     }
+    
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return isSearchMode ? 0 : 44
+    }
+    
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if isSearchMode {
+            return nil
+        } else {
+            let label = UILabel(frame: CGRect(x: 0, y: 0, width: kScreenW, height: 44))
+            label.backgroundColor = .white
+            label.font = UIFont.boldSystemFont(ofSize: 18)
+            label.text = section == 0 ? "    热搜" : "    搜索历史"
+            return label
+        }
+    }
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true);
-        let object = self.listData[indexPath.row];
-        if object is String{
-            self.searchText(text: (object as! String))
-            self.searchView.keyWord = self.keyWord;
-
-        }else if object is VideoModel{
-            let model : VideoModel = object as! VideoModel;
-            AppJump.jumpToPlayControl(movieId: model.vod_id);
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        if isSearchMode {
+            let object = self.listData[indexPath.row]
+            let model : VideoModel = object as! VideoModel
+            AppJump.jumpToPlayControl(movieId: model.vod_id)
+        } else {
+            if indexPath.section == 0 {
+//                let keyword = hotWords[indexPath.row * 2].components(separatedBy: "  ").last ?? ""
+//                self.searchText(text: keyword)
+//                self.searchView.keyWord = keyword
+            } else {
+                let keyword = listData[indexPath.row] as! String
+                self.searchText(text: keyword)
+                self.searchView.keyWord = keyword
+            }
         }
     }
+    
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        let object = self.listData[indexPath.row];
-        return (object is String) ? true : false
+        return indexPath.section != 0
     }
+    
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
-        return UITableViewCell.EditingStyle.delete;
+        return UITableViewCell.EditingStyle.delete
     }
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let row = UITableViewRowAction.init(style: .default, title: "删除") { (row, inde) in
             let object = self.listData[indexPath.row];
             if object is String{
-                self.deleteAction(title: object as! String);
+                self.deleteAction(title: object as! String)
             }
         };
-        return [row];
+        return [row]
     }
     func deleteAction(title : String){
         AVSearchDataQueue.deleteKeyWord(keyWord: title) { (success) in
-            self.refreshData(page: RefreshPageStart);
+            self.refreshData(page: RefreshPageStart)
         }
     }
 }

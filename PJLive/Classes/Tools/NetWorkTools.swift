@@ -54,14 +54,19 @@ class NetWorkTools {
             
             //3. 获取数据
             guard let result = response.result.value else {
-                print(response.result.error?.localizedDescription)
+                print(response.result.error?.localizedDescription ?? "")
                 return
             }
             
-            debugPrint("""
-    \(URLString) -- \(type)\n
-    \(parameters?.description ?? "")
-    \(result)
+            guard let resultDic = result as? [String : NSObject] else {
+                return
+            }
+            
+            print("""
+    请求: \(URLString) -- \(type)
+    参数: \(parameters?.description ?? "")
+    返回: \(resultDic)
+    
     """)
             //4. 将结果返回
             finishCallback(result as AnyObject)
@@ -69,4 +74,15 @@ class NetWorkTools {
         
     }
 
+    // MARK: 字符串转字典
+    class func stringToJson(_ str: String) -> [String : Any] {
+        guard let data = str.data(using: String.Encoding.utf8) else {
+            return [:]
+        }
+        
+        guard let dict = try? JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.mutableContainers) as? [String : Any] else {
+            return [:]
+        }
+        return dict
+    }
 }

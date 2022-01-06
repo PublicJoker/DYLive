@@ -30,11 +30,15 @@ public final class SLPrintParameterAndJson: NSObject, PluginType {
         }
         
         #if DEBUG
-        print("""
+        NSLog("""
             \(Date().transformToString(formatStr: "yyyy-MM-dd HH:mm:ss:sss")) 发送请求:
-            1.API:\n\(request.request?.url?.absoluteString ?? "") -- \(request.request?.httpMethod ?? "")
-            2.参数:\n\(NSString(data: (request.request?.httpBody ?? Data()), encoding: String.Encoding.utf8.rawValue)?.removingPercentEncoding ?? "")
-            3.请求头:\n\(target.headers ?? [:])\n<=====
+            1.API:
+            \(request.request?.url?.absoluteString ?? "") -- \(request.request?.httpMethod ?? "")
+            2.参数:
+            \(NSString(data: (request.request?.httpBody ?? Data()), encoding: String.Encoding.utf8.rawValue)?.removingPercentEncoding ?? "")
+            3.请求头:
+            \(target.headers ?? [:])
+            <=====
             """)
         #endif
     }
@@ -56,20 +60,30 @@ public final class SLPrintParameterAndJson: NSObject, PluginType {
             DispatchQueue.global().async {
                 do {
                     let jsonObiect = try response.mapJSON()
-                    print("""
+                    NSLog("""
                         \(Date().transformToString(formatStr: "yyyy-MM-dd HH:mm:ss:sss")) 请求成功:
-                        1.API:\n\(response.request?.url?.absoluteString ?? "") -- \(response.request?.httpMethod ?? "")
-                        2.参数:\n\(NSString(data: (response.request?.httpBody ?? Data()), encoding: String.Encoding.utf8.rawValue) ?? "")
-                        3.请求头:\n\(target.headers ?? [:])
-                        4.接口返回:\n\(JSON(jsonObiect))\n<=====
+                        1.API:
+                        \(response.request?.url?.absoluteString ?? "") -- \(response.request?.httpMethod ?? "")
+                        2.参数:
+                        \((String(data: (response.request?.httpBody ?? Data()), encoding: .utf8) ?? ""))
+                        3.请求头:
+                        \(target.headers ?? [:])
+                        4.接口返回:
+                        \(JSON(jsonObiect))
+                        <=====
                         """)
                 } catch {
-                    print("""
+                    NSLog("""
                             \(Date().transformToString(formatStr: "yyyy-MM-dd HH:mm:ss:sss")) 接口异常: -- statusCode:\(response.statusCode)
-                            1.API:\n\(response.request?.url?.absoluteString ?? "") -- \(response.request?.httpMethod ?? "")
-                            2.参数:\n\(NSString(data: (response.request?.httpBody ?? Data()), encoding: String.Encoding.utf8.rawValue) ?? "")
-                            3.请求头:\n\(target.headers ?? [:])
-                            4.接口返回:\n\(response.data))\n<=====
+                            1.API:
+                            \(response.request?.url?.absoluteString ?? "") -- \(response.request?.httpMethod ?? "")
+                            2.参数:
+                            \(NSString(data: (response.request?.httpBody ?? Data()), encoding: String.Encoding.utf8.rawValue) ?? "")
+                            3.请求头:
+                            \(target.headers ?? [:])
+                            4.接口返回:
+                            \(response.data))
+                            <=====
                             """)
                 }
             }

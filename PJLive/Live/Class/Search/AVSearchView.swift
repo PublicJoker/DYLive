@@ -17,20 +17,22 @@ class AVSearchView: UIView,UITextFieldDelegate {
     @IBOutlet weak var textField: UITextField!
     weak var delegate : searchDelegate? = nil;
     var keyWord : String?{
-        didSet{
+        didSet {
             let text = keyWord ?? ""
-            self.textField.text = text ;
+            self.textField.text = text
             self.textFieldAction(sender:self.textField)
+            
+            searchBtn.setTitle("取消", for: .normal)
         }
     }
-    var _searchEnable: Bool?
+    var _searchEnable: Bool = true
     var searchEnable : Bool?{
         set{
-            _searchEnable = newValue ?? false;
-            self.searchBtn.isUserInteractionEnabled = _searchEnable!;
-            self.searchBtn.backgroundColor = _searchEnable! ? AppColor : UIColor.init(hex: "ededed");
+//            _searchEnable = newValue ?? false;
+//            self.searchBtn.isUserInteractionEnabled = _searchEnable!;
+            self.searchBtn.backgroundColor = _searchEnable ? AppColor : UIColor.init(hex: "ededed")
         }get{
-            return _searchEnable;
+            return _searchEnable
         }
     }
     override func awakeFromNib() {
@@ -49,26 +51,27 @@ class AVSearchView: UIView,UITextFieldDelegate {
         text = text.trimmingCharacters(in: .whitespacesAndNewlines)
         self.searchEnable = text.count > 0
         if text.count == 0 {
-            if let delegate = self.delegate{
+            searchBtn.setTitle("取消", for: .normal)
+            if let delegate = self.delegate {
                 delegate.searchView?(searchView: self, keyWord:"");
             }
+        } else {
+            searchBtn.setTitle("搜索", for: .normal)
         }
     }
     @objc private func searchAction(){
-        if textField.text?.count == 0 {
-            return;
-        }
-        if let delegate = self.delegate{
-            delegate.searchView?(searchView: self, keyWord:self.textField.text!);
+        if let delegate = self.delegate {
+            delegate.searchView?(searchView: self, keyWord:self.textField.text!)
+            searchBtn.setTitle("取消", for: .normal)
         }
     }
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField.text?.count == 0 {
             self.resignFirstResponders()
-            return false;
+            return false
         }
-        self.searchAction();
-        return true;
+        self.searchAction()
+        return true
     }
     func resignFirstResponders(){
         if self.textField.isFirstResponder {

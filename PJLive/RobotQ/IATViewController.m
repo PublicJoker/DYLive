@@ -22,6 +22,7 @@
 @property (nonatomic,strong)UIButton *delButton;//删除文字按钮
 @property (nonatomic,strong)UIButton *rewardButton;//激励视频按钮
 @property (nonatomic,strong)BUNativeExpressRewardedVideoAd *rewardedAd;
+@property (nonatomic,strong)BUNativeAdRelatedView *normalAd;
 
 @property(nonatomic,strong)UILabel *toLanguage;//
 @property(nonatomic,strong)UILabel *Language;//
@@ -251,12 +252,12 @@
     
     
     //激励视频按钮
-    CGRect rect9 = CGRectMake(60, CGRectGetMaxY(rect8)+30, kWidth-120, 30);
+    CGRect rect9 = CGRectMake(60, CGRectGetMaxY(rect8)+20, kWidth-120, 44);
     self.rewardButton = [UIButton buttonWithType:UIButtonTypeCustom];
     self.rewardButton.frame=rect9;
     self.rewardButton.backgroundColor =[UIColor colorWithRed:0.2 green:0.5 blue:0.5 alpha:0.6];
     [self.rewardButton.layer setMasksToBounds:YES];
-    [self.rewardButton.layer setCornerRadius:10.0]; //设置矩形四个圆角半径
+    [self.rewardButton.layer setCornerRadius:22]; //设置矩形四个圆角半径
     [self.rewardButton.layer setBorderWidth:1.0]; //边框宽度
     
     [self.rewardButton setTitle:@"激励视频" forState:UIControlStateNormal];

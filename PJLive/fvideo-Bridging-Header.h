@@ -5,6 +5,13 @@
 #ifndef fvideo_Briding_Header_h
 #define fvideo_Briding_Header_h
 
+//修复打印不完整，打印中文显示Unicode码问题
+#ifndef __OPTIMIZE__
+#define NSLog(FORMAT, ...)  fprintf(stderr, "%s [%s-%d] %s\n", [[[NSDate date] descriptionWithLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"zh-Hans_US"]] UTF8String], [[[NSString stringWithUTF8String: __FILE__] lastPathComponent] UTF8String], __LINE__, [[[NSString alloc] initWithData:[[NSString stringWithFormat:FORMAT, ##__VA_ARGS__] dataUsingEncoding:NSUTF8StringEncoding] encoding:NSNonLossyASCIIStringEncoding] UTF8String]?[[[NSString alloc] initWithData:[[NSString stringWithFormat:FORMAT, ##__VA_ARGS__] dataUsingEncoding:NSUTF8StringEncoding] encoding:NSNonLossyASCIIStringEncoding] UTF8String]:[[NSString stringWithFormat: FORMAT, ## __VA_ARGS__] UTF8String]);
+#else
+#define NSLog(FORMAT, ...) nil
+#endif
+
 /// 极光推送
 #import "JPUSHService.h"
 // iOS10注册APNs所需头文件

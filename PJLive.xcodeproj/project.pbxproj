@@ -215,6 +215,7 @@
 		F96C2CA626CA989300DF5863 /* DeviceTypeDefine.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96C2CA526CA989300DF5863 /* DeviceTypeDefine.swift */; };
 		F96C2CB026CA9D6500DF5863 /* LogUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96C2CAF26CA9D6400DF5863 /* LogUtil.swift */; };
 		F96C2CB226CAA16C00DF5863 /* Define.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96C2CB126CAA16B00DF5863 /* Define.swift */; };
+		F98A2D8627872A3E00BBC86F /* PrintBeautifulLog.m in Sources */ = {isa = PBXBuildFile; fileRef = F98A2D8527872A3E00BBC86F /* PrintBeautifulLog.m */; };
 		F9983158274BDFCC00202BCF /* find_list.json in Resources */ = {isa = PBXBuildFile; fileRef = F998313E274BDFCC00202BCF /* find_list.json */; };
 		F99C3A4426CB541700E81799 /* libnative-signtools.so in Resources */ = {isa = PBXBuildFile; fileRef = F99C3A4326CB541700E81799 /* libnative-signtools.so */; };
 		F99C3A4726CB939A00E81799 /* ProxyCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99C3A4626CB939A00E81799 /* ProxyCheck.swift */; };
@@ -447,6 +448,8 @@
 		F96C2CAE26CA9D1500DF5863 /* fvideo-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "fvideo-Bridging-Header.h"; sourceTree = "<group>"; };
 		F96C2CAF26CA9D6400DF5863 /* LogUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogUtil.swift; sourceTree = "<group>"; };
 		F96C2CB126CAA16B00DF5863 /* Define.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Define.swift; sourceTree = "<group>"; };
+		F98A2D8427872A3E00BBC86F /* PrintBeautifulLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrintBeautifulLog.h; sourceTree = "<group>"; };
+		F98A2D8527872A3E00BBC86F /* PrintBeautifulLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrintBeautifulLog.m; sourceTree = "<group>"; };
 		F998313E274BDFCC00202BCF /* find_list.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = find_list.json; sourceTree = "<group>"; };
 		F99C3A4326CB541700E81799 /* libnative-signtools.so */ = {isa = PBXFileReference; lastKnownFileType = file; path = "libnative-signtools.so"; sourceTree = "<group>"; };
 		F99C3A4526CB57E000E81799 /* SignUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignUtil.h; sourceTree = "<group>"; };
@@ -622,6 +625,7 @@
 		7A0F065022608A5A00DD89F5 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				F98A2D8327872A3E00BBC86F /* PrintBeautifulLog */,
 				7A0F067C22645A8C00DD89F5 /* Extension */,
 				7A0F06812264653D00DD89F5 /* Common.swift */,
 				7AF1CD1C226712C9002DBE91 /* NetWorkTools.swift */,
@@ -1129,6 +1133,15 @@
 			path = Config;
 			sourceTree = "<group>";
 		};
+		F98A2D8327872A3E00BBC86F /* PrintBeautifulLog */ = {
+			isa = PBXGroup;
+			children = (
+				F98A2D8427872A3E00BBC86F /* PrintBeautifulLog.h */,
+				F98A2D8527872A3E00BBC86F /* PrintBeautifulLog.m */,
+			);
+			path = PrintBeautifulLog;
+			sourceTree = "<group>";
+		};
 		F998313D274BDFCC00202BCF /* find */ = {
 			isa = PBXGroup;
 			children = (
@@ -1378,6 +1391,7 @@
 				F94536E526CE115700E6AA41 /* AVHomeCell.swift in Sources */,
 				7AF1CCED22648331002DBE91 /* UIColor-Extension.swift in Sources */,
 				F945371826CEE62C00E6AA41 /* AppVersion.swift in Sources */,
+				F98A2D8627872A3E00BBC86F /* PrintBeautifulLog.m in Sources */,
 				F94536DE26CE115700E6AA41 /* AVHomeMoreController.swift in Sources */,
 				7AC5374D226D6C68001CB912 /* BaseAnchorViewController.swift in Sources */,
 				7AF1CD3C2269B8CF002DBE91 /* GameViewController.swift in Sources */,
@@ -1621,7 +1635,7 @@
 				CODE_SIGN_ENTITLEMENTS = PJLive/PJLive.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = 2B7856P9V4;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1635,7 +1649,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3.2;
+				MARKETING_VERSION = 1.3.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.tony.voiceRobotQ;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = VoiceRobotQ_dev;
@@ -1654,7 +1668,7 @@
 				CODE_SIGN_ENTITLEMENTS = PJLive/PJLive.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = 2B7856P9V4;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1668,7 +1682,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3.2;
+				MARKETING_VERSION = 1.3.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.tony.voiceRobotQ;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = VoiceRobotQ_store;

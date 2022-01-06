@@ -68,6 +68,8 @@ class ConfigModel: NSObject {
                     banner.append(CycleModel(dict: dict))
                 }
             }
+        } else {
+            super.setValue(value, forKey: key)
         }
     }
     
