@@ -27,7 +27,7 @@ class ProfileHeaderView: UIView {
     fileprivate var names : [[String : Any]] = [["name":"全部历史","icon_name":"icon_my_history"],
                                                 ["name":"我的下载","icon_name":"icon_my_download"],
                                                 ["name":"我喜欢的","icon_name":"icon_my_like"],
-                                                ["name":"去除广告","icon_name":"icon_my_reward"],
+//                                                ["name":"去除广告","icon_name":"icon_my_reward"],
                                                 ["name":"设置中心","icon_name":"icon_my_setting"],
                                                 ["name":"分享好友","icon_name":"icon_my_share"]]
     
@@ -96,35 +96,38 @@ extension ProfileHeaderView : UICollectionViewDataSource, UICollectionViewDelega
         switch indexPath.row {
         case 0:
             AppJump.jumpToHisControl()
-        case 1:
-            SVProgressHUD.setDefaultStyle(.dark)
-            SVProgressHUD.setDefaultAnimationType(.native)
-            SVProgressHUD.setMinimumDismissTimeInterval(1.5)
-            SVProgressHUD.showInfo(withStatus: "功能开发中,敬请期待")
+//        case 1:
+//            SVProgressHUD.setDefaultStyle(.dark)
+//            SVProgressHUD.setDefaultAnimationType(.native)
+//            SVProgressHUD.setMinimumDismissTimeInterval(1.5)
+//            SVProgressHUD.showInfo(withStatus: "即将上线,敬请期待")
         case 2:
             AppJump.jumpToFavControl()
         case 3:
-            DispatchQueue.main.async {
-                self.splashAdView.delegate = self
-
-                guard let rootVC = kAppdelegate?.window?.rootViewController as? UITabBarController,
-                      let navi = rootVC.selectedViewController as? UINavigationController,
-                      let vc = navi.topViewController
-                else { return }
-
-                self.splashAdView.rootViewController = vc
-                vc.view.addSubview(self.splashAdView)
-                self.splashAdView.loadAdData()
-                AppJump.showRewardAlert(rootVC: vc)
-//                vc.view.addSubview(self.splashAdView)
+//            DispatchQueue.main.async {
+//                self.splashAdView.delegate = self
+//
+//                guard let rootVC = kAppdelegate?.window?.rootViewController as? UITabBarController,
+//                      let navi = rootVC.selectedViewController as? UINavigationController,
+//                      let vc = navi.topViewController
+//                else { return }
+//
 //                self.splashAdView.rootViewController = vc
-            }
-        case 4:
+//                vc.view.addSubview(self.splashAdView)
+//                self.splashAdView.loadAdData()
+//                AppJump.showRewardAlert(rootVC: vc)
+////                vc.view.addSubview(self.splashAdView)
+////                self.splashAdView.rootViewController = vc
+//            }
+//        case 4:
             AppJump.jumpToSettingControl()
-        case 5:
+        case 4:
             AppJump.jumpToShareControl()
         default:
-            NSLog("...")
+            SVProgressHUD.setDefaultStyle(.dark)
+            SVProgressHUD.setDefaultAnimationType(.native)
+            SVProgressHUD.setMinimumDismissTimeInterval(1.5)
+            SVProgressHUD.showInfo(withStatus: "即将上线,敬请期待")
         }
     }
     

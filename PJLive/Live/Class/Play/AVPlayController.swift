@@ -222,13 +222,18 @@ class AVPlayController: BaseConnectionController,playerDelegate,playVideoDelegat
         }
         MGJRouter.open(playUrl)
     }
-    private func tryAgain(title : String){
-//        ATAlertView.showAlertView(title: "视频资源暂时无法加载,请稍后访问或切换网络后重试", message: nil, normals:["取消"], hights:["重试"]) { (title, index) in
-//            if index > 0 {
-                self.isYun = !self.isYun//切换云播尝试
-                self.loadData()
-//            }
-//        }
+    private func tryAgain(title : String) {
+        
+        if isYun == false {
+            self.isYun = true//切换云播尝试
+            self.loadData()
+        } else {
+            ATAlertView.showAlertView(title: "视频资源暂时无法加载,请稍后访问或切换网络后重试", message: nil, normals:["取消"], hights:["重试"]) { (title, index) in
+                if index > 0 {
+                    self.loadData()
+                }
+            }
+        }
     }
     private func loadDataQueue(){
         AVFavDataQueue.getFavData(movieId: self.movieId!) { (movie) in
@@ -350,7 +355,7 @@ class AVPlayController: BaseConnectionController,playerDelegate,playVideoDelegat
             break
         case .error:
             self.dismiss()
-            self.tryAgain(title: "播放失败,")
+            self.tryAgain(title: "播放失败")
             break
         default:
             break
