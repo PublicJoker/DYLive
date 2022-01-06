@@ -21,22 +21,20 @@ class MainViewController: UITabBarController {
         //1. 设置 Tabbar 的 tintColor
         UITabBar.appearance().tintColor = .blue
         
-        addChildVc("Home")
-//        addChildVc("Live")
-        addChildVc("Follow")
-        addChildVc("Profile")
+        addChildVc("Home", "首页")
+        addChildVc("Follow", "发现")
+        addChildVc("Profile", "我的")
 
         UserDefaults.setHasShowNewFeature(flag: true)
         delegate = self
-        
-//        setupAnimation(self, self.viewControllers!.first!)
     }
     
-    private func addChildVc(_ name : String) {
+    private func addChildVc(_ name : String, _ title: String) {
         
         //1. 通过 storyboard 来获取控制器
         let childVc = UIStoryboard(name: name, bundle: nil).instantiateInitialViewController()!
         
+        childVc.title = title
         //2. 将自控制器添加
         addChild(childVc)
     }
@@ -54,7 +52,7 @@ extension MainViewController: UITabBarControllerDelegate {
     }
 
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
-        setupAnimation(tabBarController, viewController)
+//        setupAnimation(tabBarController, viewController)
     }
     
     private func getAnimationViewAtTabBarIndex(_ index: Int, _ frame: CGRect)-> AnimationView{

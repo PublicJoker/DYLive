@@ -101,7 +101,7 @@ class AVPlayController: BaseConnectionController,playerDelegate,playVideoDelegat
     
     lazy var splashAdView: BUSplashAdView = {
         let frame = playerView.bounds
-        let adView = BUSplashAdView(slotID: "887544324", frame: frame)
+        let adView = BUSplashAdView(slotID: "946575695", frame: frame)
         adView.tolerateTimeout = 5
 //        adView.hideSkipButton = true//隐藏跳过按钮
         return adView

@@ -58,5 +58,13 @@ class AppJump: NSObject {
         vc.hidesBottomBarWhenPushed = true
         UIViewController.rootTopPresentedController().navigationController?.pushViewController(vc, animated: false)
     }
+    
+    class func showRewardAlert(rootVC: UIViewController) {
+        let vc = BaseViewController()
+        vc.modalPresentationStyle = .pageSheet
+        UIViewController.rootTopPresentedController().present(vc, animated: true, completion: nil)
+//        vc.hidesBottomBarWhenPushed = true
+//        UIViewController.rootTopPresentedController().navigationController?.pushViewController(vc, animated: false)
+    }
 }
 

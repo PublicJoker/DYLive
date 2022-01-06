@@ -34,17 +34,13 @@ class WelcomeViewController: UIViewController {
     }
     
     func autoUpdate() {
-        if UserDefaults.isFirstLaunchOfNewVersion() {//当前版本首次启动.重置标识位(升级APP)
-            UserDefaults.setVersionChecked(flag: false)
-            UserDefaults.setHasShowNewFeature(flag: false)
-        }
-        
         if UserDefaults.isVersionChecked() {//版本已过审
             adsBgView.isHidden = false
             adsBgView.image = UIImage(named: "splash_slogan")
             logoImg.image = UIImage(named: "splash_logo")
         } else {
-            adsBgView.isHidden = false
+            adsBgView.isHidden = true
+            logoImg.isHidden = true
             adsBgView.image = UIImage(named: "AppLogo")
             logoImg.image = UIImage(named: "bg_custom_update")
             getCheckStatus()
@@ -58,8 +54,8 @@ class WelcomeViewController: UIViewController {
             logoImg.image = UIImage(named: "splash_logo")
         } else {
             adsBgView.isHidden = false
-            adsBgView.image = UIImage(named: "AppLogo")
-            logoImg.image = UIImage(named: "bg_custom_update")
+//            adsBgView.image = UIImage(named: "AppLogo")
+//            logoImg.image = UIImage(named: "bg_custom_update")
         }
     }
     
@@ -114,7 +110,7 @@ class WelcomeViewController: UIViewController {
     lazy var splashAdView: BUSplashAdView = {
         let frame = UIScreen.main.bounds
         let adView = BUSplashAdView(slotID: "887544324", frame: frame)
-        adView.tolerateTimeout = 10
+        adView.tolerateTimeout = 20
 //        adView.hideSkipButton = true//隐藏跳过按钮
         return adView
     }()
@@ -139,7 +135,9 @@ extension WelcomeViewController: BUSplashAdDelegate {
         if isChecked {
             kAppdelegate?.window?.rootViewController = MainViewController()
         } else {
-            kAppdelegate?.window?.rootViewController = IATViewController()
+            let vc = IATViewController()
+            kAppdelegate?.window?.rootViewController = vc
+            vc.userId = kAppdelegate?.keyChainUuid ?? ""
         }
     }
     

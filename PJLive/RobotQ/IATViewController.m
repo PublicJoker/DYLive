@@ -1,9 +1,11 @@
 
 #import "Headers.h"
+#import <BUAdSDK/BUAdSDK.h>
+//#import "PJLive-Swift.h"
 
 #define kWidth self.view.frame.size.width
 #define kHeight self.view.frame.size.height
-@interface IATViewController ()<IFlySpeechRecognizerDelegate,IFlyRecognizerViewDelegate,UIActionSheetDelegate>
+@interface IATViewController ()<IFlySpeechRecognizerDelegate,IFlyRecognizerViewDelegate,UIActionSheetDelegate, BUNativeExpressRewardedVideoAdDelegate>
 
 @property (nonatomic, strong) NSString *pcmFilePath;//音频文件路径
 @property (nonatomic,strong)IFlyRecognizerView *iflyRecognizerView;//带界面的识别对象
@@ -18,6 +20,8 @@
 
 @property (nonatomic,strong)UIButton *calButton;//语音计算器按钮
 @property (nonatomic,strong)UIButton *delButton;//删除文字按钮
+@property (nonatomic,strong)UIButton *rewardButton;//激励视频按钮
+@property (nonatomic,strong)BUNativeExpressRewardedVideoAd *rewardedAd;
 
 @property(nonatomic,strong)UILabel *toLanguage;//
 @property(nonatomic,strong)UILabel *Language;//
@@ -246,8 +250,62 @@
     [self.view addSubview:self.delButton];
     
     
+    //激励视频按钮
+    CGRect rect9 = CGRectMake(60, CGRectGetMaxY(rect8)+30, kWidth-120, 30);
+    self.rewardButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.rewardButton.frame=rect9;
+    self.rewardButton.backgroundColor =[UIColor colorWithRed:0.2 green:0.5 blue:0.5 alpha:0.6];
+    [self.rewardButton.layer setMasksToBounds:YES];
+    [self.rewardButton.layer setCornerRadius:10.0]; //设置矩形四个圆角半径
+    [self.rewardButton.layer setBorderWidth:1.0]; //边框宽度
     
+    [self.rewardButton setTitle:@"激励视频" forState:UIControlStateNormal];
+    [self.rewardButton addTarget:self action:@selector(rewardAction) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:self.rewardButton];
+}
+
+- (void)rewardAction {
+    /// 读取钥匙串中的userId
+    BURewardedVideoModel *model = [[BURewardedVideoModel alloc] init];
+    model.userId = self.userId;
+    model.rewardName = @"4小时免广告";
+    model.rewardAmount = 2 * 60 * 60;
     
+    self.rewardedAd = [[BUNativeExpressRewardedVideoAd alloc] initWithSlotID:@"946575694" rewardedVideoModel:model];
+    self.rewardedAd.delegate = self;
+    // optional
+//    self.rewardedAd.rewardPlayAgainInteractionDelegate = self.expressRewardedVideoAgainDelegateObj;
+    [self.rewardedAd loadAdData];
+}
+
+#pragma mark - BUNativeExpressRewardedVideoAdDelegate
+- (void)nativeExpressRewardedVideoAdDidDownLoadVideo:(BUNativeExpressRewardedVideoAd *)rewardedVideoAd {
+    /// 建议在此回调方法中进行广告的展示操作，可保证播放流畅和展示流畅，用户体验更好。
+    [self showRewardVideoAd];
+}
+
+/// 同一次请求的广告最多只能计一次展示，重复的展示会被系统过滤。
+/// 因此建议开发者在用户观看完广告后在nativeExpressRewardedVideoAdDidClose回调里将原来的广告对象置为nil 保证广告对象为新的请求对象
+- (void)nativeExpressRewardedVideoAdDidClose:(BUNativeExpressRewardedVideoAd *)rewardedVideoAd {
+    //在此回调方法中可进行广告的置空操作
+    self.rewardedAd = nil;
+}
+
+//依据返回的verify（YES/NO）为依据进行激励视频的发放处理
+- (void)nativeExpressRewardedVideoAdServerRewardDidSucceed:(BUNativeExpressRewardedVideoAd *)rewardedVideoAd verify:(BOOL)verify {
+    NSString *result = [NSString stringWithFormat:@"广告激励结果: verify:%@ rewardName:%@ rewardMount:%ld userId:%@",verify?@"true":@"false",rewardedVideoAd.rewardedVideoModel.rewardName,(long)rewardedVideoAd.rewardedVideoModel.rewardAmount, rewardedVideoAd.rewardedVideoModel.userId];
+    NSLog(@"%@", result);
+    
+    if (verify) {
+        
+    }
+}
+
+//show的时候会进行WKWebview的渲染，建议一次最多展示三个广告，如果超过3个会很大概率导致WKWebview渲染失败。当然一般情况下激励视频一次只会show一个
+- (void)showRewardVideoAd {
+    if (self.rewardedAd) {
+        [self.rewardedAd showAdFromRootViewController:self];
+    }
 }
 
 #pragma mark  清除文字按钮
@@ -267,6 +325,10 @@
     
      //要翻译的字符串
      NSString *q=self.textView.text;
+    
+    if (q.length == 0) {
+        return;
+    }
     
     //UTF-8编码
      NSString *dataUTF8 = [q stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
@@ -628,12 +690,12 @@
     CC_MD5(cStr, n, result);
     
     NSString *s=[NSString stringWithFormat:
-           @"%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x",
-           result[0], result[1], result[2], result[3],
-           result[4], result[5], result[6], result[7],
-           result[8], result[9], result[10], result[11],
-           result[12], result[13], result[14], result[15]
-           ];
+                     @"%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x",
+                 result[0], result[1], result[2], result[3],
+                 result[4], result[5], result[6], result[7],
+                 result[8], result[9], result[10], result[11],
+                 result[12], result[13], result[14], result[15]
+    ];
     NSLog(@"加密后s=%@",s);
     
     //大写%02X，小写%02x

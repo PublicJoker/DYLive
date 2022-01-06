@@ -9,24 +9,46 @@
 
 import UIKit
 import Alamofire
-import AppTrackingTransparency
+
+let KeyChain = "userId"
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    var appLaunchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil
+    public var keyChainUuid: String {
+        var uuid: String? = KeychainManager.keyChainReadData(identifier: KeyChain) as? String
+        
+        if uuid == nil {
+            uuid = UIDevice.current.identifierForVendor?.uuidString ?? ""
+            // 存储数据
+            let saveBool = KeychainManager.keyChainSaveData(data: uuid as Any, withIdentifier: KeyChain)
+            if saveBool {
+                print("存储成功:\(uuid!)")
+            } else {
+                print("存储失败")
+            }
+        }
+        return uuid!
+    }
+    
+    var appConfig: ConfigModel? = nil
     var window: UIWindow?
 
     var makeOrientation :UIInterfaceOrientation?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        appLaunchOptions = launchOptions
         
-        UserDefaults.setHasShowNewFeature(flag: false)
-
+//        if UserDefaults.isFirstLaunchOfNewVersion() {//当前版本首次启动.重置标识位(升级APP)
+//            UserDefaults.setVersionChecked(flag: false)
+//            UserDefaults.setHasShowNewFeature(flag: false)
+//        }
+        
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.backgroundColor = .white
         window?.rootViewController = WelcomeViewController()
         window?.makeKeyAndVisible()
+        
+        // 三方SDK初始化(延迟初始化,避免与请求ATT权限弹框冲突)
+        PlatformConfig.shared.init3rdSDK(application: application, launchOptions: launchOptions)
         return true
     }
 
@@ -107,7 +129,6 @@ extension AppDelegate : JPUSHRegisterDelegate {
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         // Required, iOS 7 Support
         JPUSHService.handleRemoteNotification(userInfo)
-                
         completionHandler(UIBackgroundFetchResult.newData)
     }
     
@@ -115,7 +136,6 @@ extension AppDelegate : JPUSHRegisterDelegate {
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         // 在极光平台注册deviceToken
         JPUSHService.registerDeviceToken(deviceToken)
-        
     }
 
     // 获取token 失败
@@ -127,6 +147,25 @@ extension AppDelegate : JPUSHRegisterDelegate {
     }
     
     func applicationDidBecomeActive(_ application: UIApplication) {
-        
+        if UserDefaults.isVersionChecked() && UserDefaults.isShowNewFeature() == false {
+            window?.rootViewController = WelcomeViewController()
+            window?.makeKeyAndVisible()
+            
+            changeIcon()
+        }
+    }
+    
+    func changeIcon() {
+        if #available(iOS 10.3, *) {
+            guard UIApplication.shared.supportsAlternateIcons else {
+                return
+            }
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                UIApplication.shared.setAlternateIconName("2021") { error in
+                    print(error?.localizedDescription ?? "")
+                }
+            }
+        }
     }
 }

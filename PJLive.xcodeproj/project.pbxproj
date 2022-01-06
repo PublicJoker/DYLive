@@ -22,7 +22,6 @@
 		7A82A1D022714E7400915D9C /* FollowHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A82A1CF22714E7400915D9C /* FollowHeaderView.swift */; };
 		7A82A1D222714E9E00915D9C /* FollowHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A82A1D122714E9E00915D9C /* FollowHeaderView.xib */; };
 		7A82A1D42271545000915D9C /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A82A1D32271545000915D9C /* ProfileViewController.swift */; };
-		7A82A1D6227158A600915D9C /* LiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A82A1D5227158A600915D9C /* LiveViewController.swift */; };
 		7A82A1DD22715B5C00915D9C /* TableProfileNormalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A82A1DB22715B5C00915D9C /* TableProfileNormalCell.swift */; };
 		7A82A1DE22715B5C00915D9C /* TableProfileNormalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A82A1DC22715B5C00915D9C /* TableProfileNormalCell.xib */; };
 		7A82A1E02271626B00915D9C /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A82A1DF2271626B00915D9C /* ProfileHeaderView.swift */; };
@@ -108,6 +107,7 @@
 		EA46E655278444E8001C9A78 /* share.png in Resources */ = {isa = PBXBuildFile; fileRef = EA46E647278444E8001C9A78 /* share.png */; };
 		EA46E656278444E8001C9A78 /* moving_arrow.json in Resources */ = {isa = PBXBuildFile; fileRef = EA46E648278444E8001C9A78 /* moving_arrow.json */; };
 		EA46E657278444E8001C9A78 /* tab_find.json in Resources */ = {isa = PBXBuildFile; fileRef = EA46E649278444E8001C9A78 /* tab_find.json */; };
+		EA46E6ED278689D6001C9A78 /* KeyChainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA46E6EC278689D6001C9A78 /* KeyChainManager.swift */; };
 		EA77FF542715188E0082D717 /* SettingController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA77FF522715188E0082D717 /* SettingController.xib */; };
 		EA77FF552715188E0082D717 /* SettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA77FF532715188E0082D717 /* SettingController.swift */; };
 		EA77FF5827157C320082D717 /* ShareController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA77FF5627157C320082D717 /* ShareController.xib */; };
@@ -244,7 +244,6 @@
 		7A82A1CF22714E7400915D9C /* FollowHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowHeaderView.swift; sourceTree = "<group>"; };
 		7A82A1D122714E9E00915D9C /* FollowHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FollowHeaderView.xib; sourceTree = "<group>"; };
 		7A82A1D32271545000915D9C /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		7A82A1D5227158A600915D9C /* LiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveViewController.swift; sourceTree = "<group>"; };
 		7A82A1DB22715B5C00915D9C /* TableProfileNormalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableProfileNormalCell.swift; sourceTree = "<group>"; };
 		7A82A1DC22715B5C00915D9C /* TableProfileNormalCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableProfileNormalCell.xib; sourceTree = "<group>"; };
 		7A82A1DF2271626B00915D9C /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
@@ -330,6 +329,7 @@
 		EA46E647278444E8001C9A78 /* share.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = share.png; sourceTree = "<group>"; };
 		EA46E648278444E8001C9A78 /* moving_arrow.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = moving_arrow.json; sourceTree = "<group>"; };
 		EA46E649278444E8001C9A78 /* tab_find.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = tab_find.json; sourceTree = "<group>"; };
+		EA46E6EC278689D6001C9A78 /* KeyChainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainManager.swift; sourceTree = "<group>"; };
 		EA77FF522715188E0082D717 /* SettingController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingController.xib; sourceTree = "<group>"; };
 		EA77FF532715188E0082D717 /* SettingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingController.swift; sourceTree = "<group>"; };
 		EA77FF5627157C320082D717 /* ShareController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShareController.xib; sourceTree = "<group>"; };
@@ -584,6 +584,7 @@
 				F96C2CA226CA971900DF5863 /* Config */,
 				7A0F064E22608A5A00DD89F5 /* Classes */,
 				7A0F063C226089F900DD89F5 /* AppDelegate.swift */,
+				EA46E6EC278689D6001C9A78 /* KeyChainManager.swift */,
 				F9DFA1F127834781009B69CE /* WelcomeViewController.swift */,
 				F9DFA1F227834781009B69CE /* WelcomeViewController.xib */,
 				F96C2CAE26CA9D1500DF5863 /* fvideo-Bridging-Header.h */,
@@ -600,7 +601,6 @@
 				EA46E638278443DD001C9A78 /* Lottie */,
 				7A0F065422608A5A00DD89F5 /* Main */,
 				7A0F064F22608A5A00DD89F5 /* Home */,
-				7A0F065322608A5A00DD89F5 /* Live */,
 				7A0F065122608A5A00DD89F5 /* Follow */,
 				7A0F065222608A5A00DD89F5 /* Profile */,
 				7A0F065022608A5A00DD89F5 /* Tools */,
@@ -648,16 +648,6 @@
 				7A0F067622609A8400DD89F5 /* Contoller */,
 			);
 			path = Profile;
-			sourceTree = "<group>";
-		};
-		7A0F065322608A5A00DD89F5 /* Live */ = {
-			isa = PBXGroup;
-			children = (
-				7A0F067122609A7300DD89F5 /* Model */,
-				7A0F067222609A7300DD89F5 /* View */,
-				7A0F067322609A7300DD89F5 /* Contoller */,
-			);
-			path = Live;
 			sourceTree = "<group>";
 		};
 		7A0F065422608A5A00DD89F5 /* Main */ = {
@@ -747,28 +737,6 @@
 				7AC53753226D9D48001CB912 /* AmuseMenuViewCell.xib */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		7A0F067122609A7300DD89F5 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		7A0F067222609A7300DD89F5 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		7A0F067322609A7300DD89F5 /* Contoller */ = {
-			isa = PBXGroup;
-			children = (
-				7A82A1D5227158A600915D9C /* LiveViewController.swift */,
-			);
-			path = Contoller;
 			sourceTree = "<group>";
 		};
 		7A0F067422609A8400DD89F5 /* Model */ = {
@@ -1440,6 +1408,7 @@
 				EA77FF632717FEA40082D717 /* AVFindCell.swift in Sources */,
 				7AC53759226DAE29001CB912 /* FunnyViewModel.swift in Sources */,
 				F94536B526CE10F200E6AA41 /* BaseDataQueue.m in Sources */,
+				EA46E6ED278689D6001C9A78 /* KeyChainManager.swift in Sources */,
 				F945370226CE117400E6AA41 /* BaseViewController.swift in Sources */,
 				F945370526CE117400E6AA41 /* BaseRefreshController.swift in Sources */,
 				F945370726CE117400E6AA41 /* BaseModel.swift in Sources */,
@@ -1464,7 +1433,6 @@
 				F945370926CE22B400E6AA41 /* MoyaPlugin.swift in Sources */,
 				7A82A1D42271545000915D9C /* ProfileViewController.swift in Sources */,
 				7AF1CD3422699F15002DBE91 /* RecommendGameView.swift in Sources */,
-				7A82A1D6227158A600915D9C /* LiveViewController.swift in Sources */,
 				EA77FF642717FEA40082D717 /* AVFindController.swift in Sources */,
 				F94536B726CE10F200E6AA41 /* AVFavDataQueue.swift in Sources */,
 				F94536A226CE0FC900E6AA41 /* ApiMoya.swift in Sources */,
@@ -1667,7 +1635,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3.1;
+				MARKETING_VERSION = 1.3.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.tony.voiceRobotQ;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = VoiceRobotQ_dev;
@@ -1700,7 +1668,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3.1;
+				MARKETING_VERSION = 1.3.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.tony.voiceRobotQ;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = VoiceRobotQ_store;

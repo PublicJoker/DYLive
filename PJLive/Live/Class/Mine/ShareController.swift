@@ -28,7 +28,8 @@ class ShareController: BaseViewController {
         copyBtn.layer.cornerRadius = 25
         copyBtn.layer.masksToBounds = true
         
-        qrcodeView.image = UIImage.createQRCode("http://www.chaoying.vip", image: UIImage(named: "app_logo"), borderWidth: 0)
+        let downloadUrl = kAppdelegate?.appConfig?.url ?? "http://www.chaoying.vip"
+        qrcodeView.image = UIImage.createQRCode(downloadUrl, image: UIImage(named: "app_logo"), borderWidth: 0)
         view.backgroundColor = kBgColor
     }
 

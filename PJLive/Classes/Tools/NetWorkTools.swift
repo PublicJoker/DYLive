@@ -49,20 +49,20 @@ class NetWorkTools {
         //1. 获取类型
         let method = type == .get ? HTTPMethod.get : HTTPMethod.post
         
-        debugPrint("""
-\(URLString) -- \(type)\n
-\(parameters?.description ?? "")
-""")
-        
         //2. 发送请求
         Alamofire.request(URLString, method: method, parameters: parameters).responseJSON { (response) in
             
             //3. 获取数据
             guard let result = response.result.value else {
-                print(response.result.error)
+                print(response.result.error?.localizedDescription)
                 return
             }
             
+            debugPrint("""
+    \(URLString) -- \(type)\n
+    \(parameters?.description ?? "")
+    \(result)
+    """)
             //4. 将结果返回
             finishCallback(result as AnyObject)
         }

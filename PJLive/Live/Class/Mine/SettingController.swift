@@ -22,6 +22,7 @@ class SettingController: BaseViewController {
 
         showNavTitle(title: "设置中心")
         view.backgroundColor = kBgColor
+        emailLabel.text = kAppdelegate?.appConfig?.mail ?? ""
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -50,6 +51,7 @@ class SettingController: BaseViewController {
     
     @IBAction func onClickClearCache(_ sender: UIButton) {
         cacheSizeLabel.text = "0KB"
+        SVProgressHUD.showSuccess(withStatus: "缓存已清除")
     }
     
     @IBAction func onClickCopyEmail(_ sender: UIButton) {

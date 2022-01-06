@@ -8,6 +8,7 @@
 //
 
 import UIKit
+import Result
 
 class RecommendViewModel : BaseViewModel {
     
@@ -15,7 +16,6 @@ class RecommendViewModel : BaseViewModel {
     lazy var cycleModels : [CycleModel] = [CycleModel]()
 //    lazy var bigDataGroup = [VideoGroupModel]()
 //    private lazy var prettyDataGroup : AnchorGroupModel = AnchorGroupModel()
-
 }
 
 
@@ -61,21 +61,18 @@ extension RecommendViewModel {
     // http://capi.douyucdn.cn/api/v1/slide/6?version=2.300
     func requestCycleData(finishCallback : @escaping () -> ()) {
         
-        NetWorkTools.requestData(type: .get, URLString: "http://cy.yinyinapp.cn/banner.json", parameters: nil) { (result) in
+        NetWorkTools.requestData(type: .get, URLString: "http://cy.yinyinapp.cn/ios-config.json", parameters: nil) { (result) in
             
-            //1. 获取整体的字典数据
-            guard let dataArray = result["data"] as? [[String: NSObject]] else { return }
-
-            //3. 字典转模型对象
-            for dict in dataArray {
-                self.cycleModels.append(CycleModel(dict: dict))
-            }
+            guard let dataDic = result["data"] as? [String: NSObject] else { return }
+           
+            let config = ConfigModel(dict: dataDic)
+            
+            // 更新app全局配置
+            kAppdelegate?.appConfig = config
+            self.cycleModels.append(contentsOf: config.banner)
             
             finishCallback()
             
         }
-        
     }
-    
-    
 }
