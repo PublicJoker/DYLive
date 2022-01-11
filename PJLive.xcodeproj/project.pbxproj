@@ -104,7 +104,7 @@
 		EA46E652278444E8001C9A78 /* menu.json in Resources */ = {isa = PBXBuildFile; fileRef = EA46E644278444E8001C9A78 /* menu.json */; };
 		EA46E653278444E8001C9A78 /* 微信截图_20210830173852.png in Resources */ = {isa = PBXBuildFile; fileRef = EA46E645278444E8001C9A78 /* 微信截图_20210830173852.png */; };
 		EA46E654278444E8001C9A78 /* icon_empty.png in Resources */ = {isa = PBXBuildFile; fileRef = EA46E646278444E8001C9A78 /* icon_empty.png */; };
-		EA46E655278444E8001C9A78 /* share.png in Resources */ = {isa = PBXBuildFile; fileRef = EA46E647278444E8001C9A78 /* share.png */; };
+		EA46E655278444E8001C9A78 /* share_web.png in Resources */ = {isa = PBXBuildFile; fileRef = EA46E647278444E8001C9A78 /* share_web.png */; };
 		EA46E656278444E8001C9A78 /* moving_arrow.json in Resources */ = {isa = PBXBuildFile; fileRef = EA46E648278444E8001C9A78 /* moving_arrow.json */; };
 		EA46E657278444E8001C9A78 /* tab_find.json in Resources */ = {isa = PBXBuildFile; fileRef = EA46E649278444E8001C9A78 /* tab_find.json */; };
 		EA46E6ED278689D6001C9A78 /* KeyChainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA46E6EC278689D6001C9A78 /* KeyChainManager.swift */; };
@@ -327,7 +327,7 @@
 		EA46E644278444E8001C9A78 /* menu.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = menu.json; sourceTree = "<group>"; };
 		EA46E645278444E8001C9A78 /* 微信截图_20210830173852.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "微信截图_20210830173852.png"; sourceTree = "<group>"; };
 		EA46E646278444E8001C9A78 /* icon_empty.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_empty.png; sourceTree = "<group>"; };
-		EA46E647278444E8001C9A78 /* share.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = share.png; sourceTree = "<group>"; };
+		EA46E647278444E8001C9A78 /* share_web.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = share_web.png; sourceTree = "<group>"; };
 		EA46E648278444E8001C9A78 /* moving_arrow.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = moving_arrow.json; sourceTree = "<group>"; };
 		EA46E649278444E8001C9A78 /* tab_find.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = tab_find.json; sourceTree = "<group>"; };
 		EA46E6EC278689D6001C9A78 /* KeyChainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainManager.swift; sourceTree = "<group>"; };
@@ -888,7 +888,7 @@
 				EA46E644278444E8001C9A78 /* menu.json */,
 				EA46E645278444E8001C9A78 /* 微信截图_20210830173852.png */,
 				EA46E646278444E8001C9A78 /* icon_empty.png */,
-				EA46E647278444E8001C9A78 /* share.png */,
+				EA46E647278444E8001C9A78 /* share_web.png */,
 				EA46E648278444E8001C9A78 /* moving_arrow.json */,
 				EA46E649278444E8001C9A78 /* tab_find.json */,
 			);
@@ -1289,7 +1289,7 @@
 				EA46E64C278444E8001C9A78 /* reward.json in Resources */,
 				EA46E64D278444E8001C9A78 /* tab_my.json in Resources */,
 				F94536E126CE115700E6AA41 /* ATHomeHotCell.xib in Resources */,
-				EA46E655278444E8001C9A78 /* share.png in Resources */,
+				EA46E655278444E8001C9A78 /* share_web.png in Resources */,
 				EA46E6152783E311001C9A78 /* 371.json in Resources */,
 				F94536F126CE115700E6AA41 /* AVSearchView.xib in Resources */,
 				EA46E6182783E311001C9A78 /* 392.json in Resources */,

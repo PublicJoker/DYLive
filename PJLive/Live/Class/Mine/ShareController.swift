@@ -28,21 +28,36 @@ class ShareController: BaseViewController {
         copyBtn.layer.cornerRadius = 25
         copyBtn.layer.masksToBounds = true
         
-        let downloadUrl = kAppdelegate?.appConfig?.url ?? "http://www.chaoying.vip"
+        let downloadUrl = kAppdelegate?.appConfig?.webUrl ?? (kAppdelegate?.appConfig?.url ?? "http://www.chaoying.vip")
         qrcodeView.image = UIImage.createQRCode(downloadUrl, image: UIImage(named: "app_logo"), borderWidth: 0)
         view.backgroundColor = kBgColor
     }
 
     @IBAction func shareAction(_ sender: Any) {
-        let image = self.qrcodeView.image!
-        let activityVC = UIActivityViewController.init(activityItems: [image], applicationActivities: nil)
-        //设置不出现的项目
-        activityVC.excludedActivityTypes = [.assignToContact]
-        present(activityVC, animated: true)
+//        let image = self.qrcodeView.image!
+        DispatchQueue.main.async {
+            let imageData = UIImage(named: "share_web")!.jpegData(compressionQuality: 1)
+            let image = UIImage(data: imageData!)!
+
+            //一个字符串
+            let shareString = kAppdelegate?.appConfig?.share_content ?? "超影App, 你想看的都在这里"
+            //一个URL
+            let shareURL = URL(string: kAppdelegate?.appConfig?.webUrl ?? "http://www.chaoying.vip")!
+            //初始化一个UIActivity
+            let activity = UIActivity()
+            let activityItems = [image, shareString, shareURL] as [Any]
+            let activities = [activity]
+
+            let activityVC = UIActivityViewController.init(activityItems: activityItems, applicationActivities: activities)
+            //排除一些服务：例如复制到粘贴板，拷贝到通讯录
+            activityVC.excludedActivityTypes = [.copyToPasteboard, .assignToContact]
+            self.present(activityVC, animated: true)
+        }
     }
     
     @IBAction func saveAction(_ sender: Any) {
-        let image = self.qrcodeView.image!
+//        let image = self.qrcodeView.image!
+        let image = UIImage(named: "share")!
         
         /// 先判断相册权限是否开启
         AVCaptureSessionManager.checkAuthorizationStatusForPhotoLibrary(grant: { [weak self] in
@@ -70,7 +85,7 @@ class ShareController: BaseViewController {
     
     @IBAction func copyLink(_ sender: Any) {
         let pas = UIPasteboard.general
-        pas.string = "http://www.chaoying.vip"
+        pas.string = kAppdelegate?.appConfig?.webUrl ?? (kAppdelegate?.appConfig?.url ?? "http://www.chaoying.vip")
         SVProgressHUD.showSuccess(withStatus: "复制成功")
         SVProgressHUD.dismiss(withDelay: 1.0)
     }
@@ -108,7 +123,7 @@ extension UIImage {
             //如果有一个头像的话，将头像加入二维码中心
             if var image = image {
                 //给头像加一个白色边框
-                image = circleImageWithImage(image, borderWidth: borderWidth!, borderColor: UIColor.white)
+                image = circleImageWithImage(image, borderWidth: 8, borderColor: UIColor.white)
                 //合成图片
                 let newImage = syntheticImage(qrCodeImage, iconImage: image, width: 100, height: 100)
                 

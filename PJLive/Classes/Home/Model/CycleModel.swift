@@ -52,6 +52,8 @@ class ConfigModel: NSObject {
     @objc var key: String = ""
     /// 联系邮箱
     @objc var mail: String = ""
+    /// 分享文案
+    @objc var share_content: String = ""
     /// 首页轮播
     @objc var banner: [CycleModel] = []
     
