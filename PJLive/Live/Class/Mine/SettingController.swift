@@ -22,7 +22,6 @@ class SettingController: BaseViewController {
 
         showNavTitle(title: "设置中心")
         view.backgroundColor = kBgColor
-        emailLabel.text = kAppdelegate?.appConfig?.mail ?? ""
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -32,11 +31,7 @@ class SettingController: BaseViewController {
         let downloadStatus = UserDefaults.standard.bool(forKey: "kCanDownloadOn4G")
         playSwitch.isOn = playStatus
         downloadSwitch.isOn = downloadStatus
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        
+        emailLabel.text = kAppdelegate?.appConfig?.mail ?? ""
     }
     
     @IBAction func onSwitchChangedForPlay(_ sender: UISwitch) {

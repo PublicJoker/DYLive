@@ -61,7 +61,7 @@ extension RecommendViewModel {
     // http://capi.douyucdn.cn/api/v1/slide/6?version=2.300
     func requestCycleData(finishCallback : @escaping () -> ()) {
         
-        NetWorkTools.requestData(type: .get, URLString: "http://cy.yinyinapp.cn/ios-config.json", parameters: nil) { (result) in
+        NetWorkTools.requestData(type: .post, URLString: "http://cy.yinyinapp.cn/ios-config.json", parameters: nil) { (result) in
             
             guard let dataDic = result["data"] as? [String: NSObject] else { return }
            
