@@ -30,6 +30,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return uuid!
     }
     
+    var launchOptions: [UIApplication.LaunchOptionsKey: Any] = [:]
+    
     var appConfig: ConfigModel? = nil
     var window: UIWindow?
 
@@ -41,14 +43,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //            UserDefaults.setVersionChecked(flag: false)
 //            UserDefaults.setHasShowNewFeature(flag: false)
 //        }
+        self.launchOptions = launchOptions ?? [:]
         
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.backgroundColor = .white
         window?.rootViewController = WelcomeViewController()
         window?.makeKeyAndVisible()
-        
-        // 三方SDK初始化(延迟初始化,避免与请求ATT权限弹框冲突)
-        PlatformConfig.shared.init3rdSDK(application: application, launchOptions: launchOptions)
         return true
     }
 

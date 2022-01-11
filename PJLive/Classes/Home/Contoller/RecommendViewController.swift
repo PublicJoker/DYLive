@@ -42,6 +42,12 @@ class RecommendViewController: BaseAnchorViewController {
 
 // MARK: 设置 UI 界面
 extension RecommendViewController {
+    override func viewDidAppear(_ animated: Bool) {
+        super .viewDidAppear(animated)
+        
+        // 三方SDK初始化(延迟初始化,避免与请求ATT权限弹框冲突)
+        PlatformConfig.shared.init3rdSDK(application: UIApplication.shared, launchOptions: kAppdelegate!.launchOptions)
+    }
     
     override func setUpUI() {
         

@@ -83,9 +83,13 @@ class WelcomeViewController: UIViewController {
                 if status == .authorized {//已授权
                     
                 }
-                
                 self.initAd()
             })
+        } else {
+            if ASIdentifierManager.shared().isAdvertisingTrackingEnabled {
+                
+            }
+            self.initAd()
         }
     }
     
@@ -110,7 +114,6 @@ class WelcomeViewController: UIViewController {
     lazy var splashAdView: BUSplashAdView = {
         let frame = UIScreen.main.bounds
         let adView = BUSplashAdView(slotID: "887544324", frame: frame)
-        adView.tolerateTimeout = 20
 //        adView.hideSkipButton = true//隐藏跳过按钮
         return adView
     }()

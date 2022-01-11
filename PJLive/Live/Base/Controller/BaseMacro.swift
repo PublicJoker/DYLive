@@ -12,7 +12,7 @@ import SwiftyJSON
 import ATRefresh_Swift
 import ATKit_Swift
 
-let kAppdelegate  : AppDelegate? = UIApplication.shared.delegate as? AppDelegate
+let kAppdelegate: AppDelegate? = UIApplication.shared.delegate as? AppDelegate
 public let SCREEN_WIDTH  :CGFloat  = UIScreen.main.bounds.size.width
 public let SCREEN_HEIGHT :CGFloat  = UIScreen.main.bounds.size.height
 
