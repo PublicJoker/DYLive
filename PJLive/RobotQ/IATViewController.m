@@ -2,6 +2,7 @@
 #import "Headers.h"
 #import <BUAdSDK/BUAdSDK.h>
 //#import "PJLive-Swift.h"
+#import "SVProgressHUD.h"
 
 #define kWidth self.view.frame.size.width
 #define kHeight self.view.frame.size.height
@@ -280,9 +281,25 @@
 }
 
 #pragma mark - BUNativeExpressRewardedVideoAdDelegate
+- (void)nativeExpressRewardedVideoAdDidLoad:(BUNativeExpressRewardedVideoAd *)rewardedVideoAd {
+    [self showRewardVideoAd];
+}
+
+- (void)nativeExpressRewardedVideoAd:(BUNativeExpressRewardedVideoAd *)rewardedVideoAd didFailWithError:(NSError *)error {
+    self.rewardedAd = nil;
+}
+
+- (void)nativeExpressRewardedVideoAdViewRenderFail:(BUNativeExpressRewardedVideoAd *)rewardedVideoAd error:(NSError *)error {
+    self.rewardedAd = nil;
+}
+
+- (void)nativeExpressRewardedVideoAdDidClickSkip:(BUNativeExpressRewardedVideoAd *)rewardedVideoAd {
+    self.rewardedAd = nil;
+}
+
 - (void)nativeExpressRewardedVideoAdDidDownLoadVideo:(BUNativeExpressRewardedVideoAd *)rewardedVideoAd {
     /// 建议在此回调方法中进行广告的展示操作，可保证播放流畅和展示流畅，用户体验更好。
-    [self showRewardVideoAd];
+//    [self showRewardVideoAd];
 }
 
 /// 同一次请求的广告最多只能计一次展示，重复的展示会被系统过滤。
@@ -298,7 +315,8 @@
     NSLog(@"%@", result);
     
     if (verify) {
-        
+        [SVProgressHUD showSuccessWithStatus:@"感谢您的支持😄"];
+//        [SVProgressHUD showSuccessWithStatus:@"获得激励时长: 20分钟"];
     }
 }
 
