@@ -263,7 +263,7 @@
     
     [self.rewardButton setTitle:@"激励视频" forState:UIControlStateNormal];
     [self.rewardButton addTarget:self action:@selector(rewardAction) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:self.rewardButton];
+//    [self.view addSubview:self.rewardButton];
 }
 
 - (void)rewardAction {
