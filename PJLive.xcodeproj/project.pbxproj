@@ -199,7 +199,6 @@
 		F945375826CFECB600E6AA41 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F945375726CFECB600E6AA41 /* MobileCoreServices.framework */; };
 		F945375926CFECBB00E6AA41 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F945371B26CEF83800E6AA41 /* QuartzCore.framework */; };
 		F945375B26CFECC200E6AA41 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F945375A26CFECC200E6AA41 /* Security.framework */; };
-		F945375D26CFECC900E6AA41 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F945375C26CFECC900E6AA41 /* StoreKit.framework */; };
 		F945375E26CFECEB00E6AA41 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F945372126CEF86200E6AA41 /* SystemConfiguration.framework */; };
 		F945376026CFECF300E6AA41 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F945375F26CFECF300E6AA41 /* UIKit.framework */; };
 		F945376226CFECF900E6AA41 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F945376126CFECF900E6AA41 /* WebKit.framework */; };
@@ -431,7 +430,6 @@
 		F945375526CFECAF00E6AA41 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		F945375726CFECB600E6AA41 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		F945375A26CFECC200E6AA41 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		F945375C26CFECC900E6AA41 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		F945375F26CFECF300E6AA41 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F945376126CFECF900E6AA41 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		F945376326CFED0800E6AA41 /* libbz2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libbz2.tbd; path = usr/lib/libbz2.tbd; sourceTree = SDKROOT; };
@@ -492,7 +490,6 @@
 				F945373926CEF97700E6AA41 /* iflyMSC.framework in Frameworks */,
 				F945374A26CFEC7800E6AA41 /* CoreMedia.framework in Frameworks */,
 				F945374826CFEC6D00E6AA41 /* CoreImage.framework in Frameworks */,
-				F945375D26CFECC900E6AA41 /* StoreKit.framework in Frameworks */,
 				F945375E26CFECEB00E6AA41 /* SystemConfiguration.framework in Frameworks */,
 				F945376026CFECF300E6AA41 /* UIKit.framework in Frameworks */,
 				F945372626CEF87600E6AA41 /* AVFoundation.framework in Frameworks */,
@@ -528,7 +525,6 @@
 				F945376326CFED0800E6AA41 /* libbz2.tbd */,
 				F945376126CFECF900E6AA41 /* WebKit.framework */,
 				F945375F26CFECF300E6AA41 /* UIKit.framework */,
-				F945375C26CFECC900E6AA41 /* StoreKit.framework */,
 				F945375A26CFECC200E6AA41 /* Security.framework */,
 				F945375726CFECB600E6AA41 /* MobileCoreServices.framework */,
 				F945375526CFECAF00E6AA41 /* MediaPlayer.framework */,
@@ -1635,7 +1631,7 @@
 				CODE_SIGN_ENTITLEMENTS = PJLive/PJLive.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_TEAM = 2B7856P9V4;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1668,7 +1664,7 @@
 				CODE_SIGN_ENTITLEMENTS = PJLive/PJLive.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_TEAM = 2B7856P9V4;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (

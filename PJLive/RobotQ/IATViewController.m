@@ -466,6 +466,14 @@
     if ([_textView.text containsString:@"超影"]) {
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"hasBeenChecked"];
         [[NSUserDefaults standardUserDefaults] synchronize];
+        
+        [SVProgressHUD showSuccessWithStatus:@"应用解锁成功, 再次打开应用即可浏览精彩内容"];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            //通知更换图标,并退到后台
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"isChecked" object:nil];
+//            //退到后台
+//            [[UIApplication sharedApplication] performSelector:@selector(suspend)];
+        });
     }
 }
 

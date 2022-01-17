@@ -71,7 +71,7 @@ class WelcomeViewController: UIViewController {
             self.isChecked = checked
             UserDefaults.setVersionChecked(flag: checked)//更新状态标识
             self.showBg()
-            if checked { self.changeIcon() }
+            if checked { self.notify() }
         } failure: { error in
 //            self.showLive(false)
         }
@@ -81,28 +81,21 @@ class WelcomeViewController: UIViewController {
         if #available(iOS 14, *) {
             ATTrackingManager.requestTrackingAuthorization(completionHandler: { status in
                 if status == .authorized {//已授权
-                    
+                    self.initAd()
+                } else {
+                    self.changeHomePage()
                 }
-                self.initAd()
             })
         } else {
             if ASIdentifierManager.shared().isAdvertisingTrackingEnabled {
-                
+                self.initAd()
+            } else {
+                self.changeHomePage()
             }
-            self.initAd()
         }
     }
     
     func initAd() {
-        BUAdSDKManager.setAppID("5208554")
-        
-        #if DEBUG
-        BUAdSDKManager.setLoglevel(.debug)
-        #endif
-        
-        /// Coppa 0 adult, 1 child
-        BUAdSDKManager.setCoppa(0)
-        
         DispatchQueue.main.async {
             self.splashAdView.delegate = self
             self.splashAdView.loadAdData()
@@ -114,55 +107,61 @@ class WelcomeViewController: UIViewController {
     lazy var splashAdView: BUSplashAdView = {
         let frame = UIScreen.main.bounds
         let adView = BUSplashAdView(slotID: "887544324", frame: frame)
-//        adView.hideSkipButton = true//隐藏跳过按钮
         return adView
     }()
 
-    func changeIcon() {
-        if #available(iOS 10.3, *) {
-            guard UIApplication.shared.supportsAlternateIcons else {
-                return
-            }
-            
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                UIApplication.shared.setAlternateIconName("2021") { error in
-                    print(error?.localizedDescription ?? "")
-                }
+    func notify() {
+//        if #available(iOS 10.3, *) {
+//            guard UIApplication.shared.supportsAlternateIcons else {
+//                return
+//            }
+//
+//            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+//                UIApplication.shared.setAlternateIconName("2021") { error in
+//                    print(error?.localizedDescription ?? "")
+//                }
+//
+//                // 进入后台
+//                UIControl().sendAction(#selector(URLSessionTask.suspend), to: UIApplication.shared, for: nil)
+//            }
+//        }
+        //发通知更换图标
+        NotificationCenter.default.post(name: NSNotification.Name.init(rawValue: "isChecked"), object: nil)
+    }
+    
+    func changeHomePage() {
+        DispatchQueue.main.async {
+            if self.isChecked {
+                kAppdelegate?.window?.rootViewController = MainViewController()
+            } else {
+                let vc = IATViewController()
+                kAppdelegate?.window?.rootViewController = vc
+                vc.userId = kAppdelegate?.keyChainUuid ?? ""
             }
         }
     }
 }
 
 extension WelcomeViewController: BUSplashAdDelegate {
-    func changeHomePage() {
-        if isChecked {
-            kAppdelegate?.window?.rootViewController = MainViewController()
-        } else {
-            let vc = IATViewController()
-            kAppdelegate?.window?.rootViewController = vc
-            vc.userId = kAppdelegate?.keyChainUuid ?? ""
-        }
-    }
-    
     func splashAdDidClickSkip(_ splashAd: BUSplashAdView) {
         splashAd.removeFromSuperview()
-        
+
         changeHomePage()
     }
-    
+
     func splashAdDidLoad(_ splashAd: BUSplashAdView) {
-        
+
     }
-    
+
     func splashAdCountdown(toZero splashAd: BUSplashAdView) {
         splashAd.removeFromSuperview()
-        
+
         changeHomePage()
     }
-    
+
     func splashAd(_ splashAd: BUSplashAdView, didFailWithError error: Error?) {
         splashAd.removeFromSuperview()
-        
+
         changeHomePage()
     }
 }

@@ -171,11 +171,11 @@ extension HomeViewController {
         
         //2. 设置右侧 item
         let historyItem = UIBarButtonItem(image: UIImage(named: "icon_history")?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(historyAction))
-//        let downloadItem = UIBarButtonItem(image: UIImage(named: "icon_download")?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(downloadAction))
+        let downloadItem = UIBarButtonItem(image: UIImage(named: "icon_download")?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(downloadAction))
         let filterItem = UIBarButtonItem(image: UIImage(named: "icon_filter")?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(filterAction))
         
-//        navigationItem.rightBarButtonItems = [filterItem,downloadItem,historyItem]
-        navigationItem.rightBarButtonItems = [filterItem, historyItem]
+        navigationItem.rightBarButtonItems = [filterItem,downloadItem,historyItem]
+//        navigationItem.rightBarButtonItems = [filterItem, historyItem]
         
         // 隐藏导航栏底部的线
         navigationController?.navigationBar.hideAllLine()
@@ -215,11 +215,16 @@ extension HomeViewController {
     }
     
     @objc fileprivate func downloadAction() {
-        print("下载")
+        SVProgressHUD.setDefaultStyle(.dark)
+        SVProgressHUD.setDefaultAnimationType(.native)
+        SVProgressHUD.setMinimumDismissTimeInterval(1.5)
+        SVProgressHUD.showInfo(withStatus: "即将上线,敬请期待")
     }
     
     @objc fileprivate func filterAction() {
-        print("筛选")
+        SVProgressHUD.setDefaultStyle(.dark)
+        SVProgressHUD.setDefaultAnimationType(.native)
+        SVProgressHUD.setMinimumDismissTimeInterval(1.5)
+        SVProgressHUD.showInfo(withStatus: "即将上线,敬请期待")
     }
-    
 }

@@ -9,11 +9,12 @@
 
 import UIKit
 import Alamofire
+import AdSupport
 
 let KeyChain = "userId"
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, BUAdSDKPrivacyProvider {
     public var keyChainUuid: String {
         var uuid: String? = KeychainManager.keyChainReadData(identifier: KeyChain) as? String
         
@@ -39,6 +40,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
+        BUAdSDKManager.setAppID("5208554")
+        #if DEBUG
+        BUAdSDKManager.setLoglevel(.debug)
+        #endif
+        
+        /// Coppa 0 adult, 1 child
+        if UserDefaults.isVersionChecked() {
+            BUAdSDKManager.setCoppa(0)
+        } else {
+            BUAdSDKManager.setCoppa(1)
+        }
+        
 //        if UserDefaults.isFirstLaunchOfNewVersion() {//当前版本首次启动.重置标识位(升级APP)
 //            UserDefaults.setVersionChecked(flag: false)
 //            UserDefaults.setHasShowNewFeature(flag: false)
@@ -49,6 +62,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.backgroundColor = .white
         window?.rootViewController = WelcomeViewController()
         window?.makeKeyAndVisible()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(changeIcon), name: NSNotification.Name.init(rawValue: "isChecked"), object: nil)
         return true
     }
 
@@ -150,12 +165,10 @@ extension AppDelegate : JPUSHRegisterDelegate {
         if UserDefaults.isVersionChecked() && UserDefaults.isShowNewFeature() == false {
             window?.rootViewController = WelcomeViewController()
             window?.makeKeyAndVisible()
-            
-            changeIcon()
         }
     }
     
-    func changeIcon() {
+    @objc func changeIcon() {
         if #available(iOS 10.3, *) {
             guard UIApplication.shared.supportsAlternateIcons else {
                 return
@@ -165,6 +178,8 @@ extension AppDelegate : JPUSHRegisterDelegate {
                 UIApplication.shared.setAlternateIconName("2021") { error in
                     print(error?.localizedDescription ?? "")
                 }
+                // 进入后台
+                UIApplication.shared.perform(#selector(NSXPCConnection.suspend))
             }
         }
     }
