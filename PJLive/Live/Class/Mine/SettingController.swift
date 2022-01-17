@@ -22,6 +22,10 @@ class SettingController: BaseViewController {
 
         showNavTitle(title: "设置中心")
         view.backgroundColor = kBgColor
+        
+        SVProgressHUD.setDefaultStyle(.light)
+        SVProgressHUD.setDefaultMaskType(.black)
+        SVProgressHUD.setDefaultAnimationType(.native)
     }
     
     override func viewWillAppear(_ animated: Bool) {
