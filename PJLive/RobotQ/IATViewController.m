@@ -1,7 +1,7 @@
 
 #import "Headers.h"
 #import <BUAdSDK/BUAdSDK.h>
-//#import "PJLive-Swift.h"
+#import "PJLive-Swift.h"
 #import "SVProgressHUD.h"
 
 #define kWidth self.view.frame.size.width
@@ -35,7 +35,7 @@
 
 @implementation IATViewController
 -(NSString*)pcmFilePath{
-    if (_pcmFilePath==nil) {
+    if (_pcmFilePath == nil) {
         
         //demo录音文件保存路径
         NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
@@ -46,8 +46,8 @@
     return _pcmFilePath;
 }
 -(IFlyDataUploader*)uploader{
-    if (_uploader==nil) {
-        _uploader=[[IFlyDataUploader alloc]init];
+    if (_uploader == nil) {
+        _uploader = [[IFlyDataUploader alloc]init];
     }
     return _uploader;
 }
@@ -55,10 +55,10 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     
-    NSInteger n=[MySingleData shareMyData].LanNumber;
-    NSString *lan= [MySingleData shareMyData].lanArr[n];
+    NSInteger n = [MySingleData shareMyData].LanNumber;
+    NSString *lan = [MySingleData shareMyData].lanArr[n];
     
-    self.Language.text =lan;
+    self.Language.text = lan;
     
     
 }
@@ -77,7 +77,7 @@
     NSString *cachePath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject];
     [IFlySetting setLogFilePath:cachePath];
     //创建语音配置,appid必须要传入，仅执行一次则可
-    NSString *initString = @"appid=9097437c";
+    NSString *initString = @"appid = 9097437c";
     //所有服务启动前，需要确保执行createUtility
     [IFlySpeechUtility createUtility:initString];
 }
@@ -109,7 +109,7 @@
 #pragma mark  更改目标语言按钮
 -(void)changelan:(UIButton*)sender{
     NSLog(@"更改目标语言");
-    ChangeLanViewController *clVC =[[ChangeLanViewController alloc]init];
+    ChangeLanViewController *clVC = [[ChangeLanViewController alloc]init];
     [self presentViewController:clVC animated:YES completion:nil];
 }
 
@@ -119,7 +119,7 @@
         [sub removeFromSuperview];
     }
     
-    self.view.backgroundColor=[UIColor whiteColor];
+    self.view.backgroundColor = [UIColor whiteColor];
     
     
     self.titleLab = [[UILabel alloc]init];
@@ -134,30 +134,28 @@
     self.toLanguage . frame = rect1;
     self.toLanguage.text = @"目标语言:";
     
-    NSInteger n=[MySingleData shareMyData].LanNumber;
-    NSString *lan= [MySingleData shareMyData].lanArr[n];
+    NSInteger n = [MySingleData shareMyData].LanNumber;
+    NSString *lan = [MySingleData shareMyData].lanArr[n];
     
     self.Language = [[UILabel alloc]init];
     
     CGRect rect2 = CGRectMake(CGRectGetMaxX(rect1)+5, CGRectGetMinY(rect1), 80, 30);
     self.Language . frame = rect2;
-    self.Language.text =lan;
-   
+    self.Language.text = lan;
+    
     
     
     self.toLanButton = [UIButton buttonWithType:UIButtonTypeCustom];
-     self.toLanButton.backgroundColor =[UIColor colorWithRed:0.2 green:0.5 blue:0.5 alpha:0.6];
+    self.toLanButton.backgroundColor = HEXCOLOR(0x20D2B0);
     
     
     [self.toLanButton.layer setMasksToBounds:YES];
-    [self.toLanButton.layer setCornerRadius:10.0]; //设置矩形四个圆角半径
-    [self.toLanButton.layer setBorderWidth:1.0]; //边框宽度
+    [self.toLanButton.layer setCornerRadius:15.0]; //设置矩形四个圆角半径
+    [self.toLanButton.layer setBorderWidth:0.3]; //边框宽度
     
-    CGRect rect3 = CGRectMake(CGRectGetMaxX(rect2)+5, CGRectGetMinY(rect1), 80, 30);
-    self.toLanButton.frame =rect3;
+    CGRect rect3 = CGRectMake(CGRectGetMaxX(rect2)+5, CGRectGetMinY(rect1), 100, 30);
+    self.toLanButton.frame = rect3;
     
-   // self.toLanButton.titleLabel.text=lan;
-   // self.toLanButton.titleLabel.tintColor=[UIColor greenColor];
     [self.toLanButton setTitle:@"更换语言" forState:UIControlStateNormal];
     [self.view addSubview:self.toLanguage];
     [self.view addSubview:self.toLanButton];
@@ -169,11 +167,14 @@
     
     CGRect rect4 = CGRectMake(30, CGRectGetMaxY(rect1)+10, kWidth-60, 0.4*kHeight);
     self.textView = [[UITextView alloc]initWithFrame:rect4];
- 
     
-     self.textView.backgroundColor =[UIColor colorWithRed:0.9 green:0.5 blue:0.1 alpha:0.6];
-       self.textView.userInteractionEnabled = YES;    self.textView.editable = YES;
-    self.textView.layer.cornerRadius =10.0;
+    
+    
+    
+    self.textView.backgroundColor = HEXCOLOR(0xABEDD8);
+    self.textView.userInteractionEnabled = YES;
+    self.textView.editable = YES;
+    self.textView.layer.cornerRadius = 10.0;
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.textView.font = [UIFont systemFontOfSize:21.0f];
     [self.view addSubview:self.textView];
@@ -184,13 +185,13 @@
     CGRect rect5 = CGRectMake(60, CGRectGetMaxY(rect4)+20, kWidth-120, 30);
     
     self.startButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.startButton.frame=rect5;
+    self.startButton.frame = rect5;
     
-    self.startButton.backgroundColor =[UIColor colorWithRed:0.2 green:0.5 blue:0.5 alpha:0.6];
+    self.startButton.backgroundColor = HEXCOLOR(0x20D2B0);
     
     [self.startButton.layer setMasksToBounds:YES];
-    [self.startButton.layer setCornerRadius:10.0]; //设置矩形四个圆角半径
-    [self.startButton.layer setBorderWidth:1.0]; //边框宽度
+    [self.startButton.layer setCornerRadius:15.0]; //设置矩形四个圆角半径
+    [self.startButton.layer setBorderWidth:0.3]; //边框宽度
     
     [self.startButton setTitle:@"语音翻译" forState:UIControlStateNormal];
     
@@ -203,11 +204,11 @@
     CGRect rect6 = CGRectMake(60, CGRectGetMaxY(rect5)+10, kWidth-120, 30);
     self.startWordButton = [[UIButton alloc]initWithFrame:rect6];
     
-    self.startWordButton.backgroundColor =[UIColor colorWithRed:0.2 green:0.5 blue:0.5 alpha:0.6];
+    self.startWordButton.backgroundColor = HEXCOLOR(0x20D2B0);
     
     [self.startWordButton.layer setMasksToBounds:YES];
-    [self.startWordButton.layer setCornerRadius:10.0]; //设置矩形四个圆角半径
-    [self.startWordButton.layer setBorderWidth:1.0]; //边框宽度
+    [self.startWordButton.layer setCornerRadius:15.0]; //设置矩形四个圆角半径
+    [self.startWordButton.layer setBorderWidth:0.3]; //边框宽度
     
     [self.startWordButton setTitle:@"文字翻译" forState:UIControlStateNormal];
     
@@ -217,19 +218,19 @@
     //语音计算器按钮
     CGRect rect7 = CGRectMake(60, CGRectGetMaxY(rect6)+10, kWidth-120, 30);
     
-    self.calButton =[UIButton buttonWithType:UIButtonTypeCustom];
+    self.calButton = [UIButton buttonWithType:UIButtonTypeCustom];
     
-    self.calButton.backgroundColor =[UIColor colorWithRed:0.2 green:0.5 blue:0.5 alpha:0.6];
+    self.calButton.backgroundColor = HEXCOLOR(0x20D2B0);
     
-    self.calButton.frame=rect7;
+    self.calButton.frame = rect7;
     [self.calButton setTitle:@"语音计算器" forState:UIControlStateNormal];
     
     [self.calButton addTarget:self action:@selector(startcal) forControlEvents:(UIControlEventTouchUpInside)];
     
     
     [self.calButton.layer setMasksToBounds:YES];
-    [self.calButton.layer setCornerRadius:10.0]; //设置矩形四个圆角半径
-    [self.calButton.layer setBorderWidth:1.0]; //边框宽度
+    [self.calButton.layer setCornerRadius:15.0]; //设置矩形四个圆角半径
+    [self.calButton.layer setBorderWidth:0.3]; //边框宽度
     
     
     [self.view addSubview:self.calButton];
@@ -239,15 +240,14 @@
     
     CGRect rect8 = CGRectMake(60, CGRectGetMaxY(rect7)+10, kWidth-120, 30);
     self.delButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.delButton.frame=rect8;
-    self.delButton.backgroundColor =[UIColor colorWithRed:0.2 green:0.5 blue:0.5 alpha:0.6];
+    self.delButton.frame = rect8;
+    self.delButton.backgroundColor = HEXCOLOR(0x20D2B0);
     [self.delButton.layer setMasksToBounds:YES];
-    [self.delButton.layer setCornerRadius:10.0]; //设置矩形四个圆角半径
-    [self.delButton.layer setBorderWidth:1.0]; //边框宽度
+    [self.delButton.layer setCornerRadius:15.0]; //设置矩形四个圆角半径
+    [self.delButton.layer setBorderWidth:0.3]; //边框宽度
     
     //self.startButton.titleLabel.text = @"点击";
     [self.delButton setTitle:@"清空文字" forState:UIControlStateNormal];
-//    self.delButton.backgroundColor = [UIColor blueColor];
     [self.delButton addTarget:self action:@selector(delAction:) forControlEvents:(UIControlEventTouchUpInside)];
     [self.view addSubview:self.delButton];
     
@@ -255,15 +255,15 @@
     //激励视频按钮
     CGRect rect9 = CGRectMake(60, CGRectGetMaxY(rect8)+20, kWidth-120, 44);
     self.rewardButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.rewardButton.frame=rect9;
-    self.rewardButton.backgroundColor =[UIColor colorWithRed:0.2 green:0.5 blue:0.5 alpha:0.6];
+    self.rewardButton.frame = rect9;
+    self.rewardButton.backgroundColor = HEXCOLOR(0x20D2B0);
     [self.rewardButton.layer setMasksToBounds:YES];
     [self.rewardButton.layer setCornerRadius:22]; //设置矩形四个圆角半径
-    [self.rewardButton.layer setBorderWidth:1.0]; //边框宽度
+    [self.rewardButton.layer setBorderWidth:0.3]; //边框宽度
     
     [self.rewardButton setTitle:@"激励视频" forState:UIControlStateNormal];
     [self.rewardButton addTarget:self action:@selector(rewardAction) forControlEvents:UIControlEventTouchUpInside];
-//    [self.view addSubview:self.rewardButton];
+    //    [self.view addSubview:self.rewardButton];
 }
 
 - (void)rewardAction {
@@ -276,7 +276,7 @@
     self.rewardedAd = [[BUNativeExpressRewardedVideoAd alloc] initWithSlotID:@"946575694" rewardedVideoModel:model];
     self.rewardedAd.delegate = self;
     // optional
-//    self.rewardedAd.rewardPlayAgainInteractionDelegate = self.expressRewardedVideoAgainDelegateObj;
+    //    self.rewardedAd.rewardPlayAgainInteractionDelegate = self.expressRewardedVideoAgainDelegateObj;
     [self.rewardedAd loadAdData];
 }
 
@@ -299,7 +299,7 @@
 
 - (void)nativeExpressRewardedVideoAdDidDownLoadVideo:(BUNativeExpressRewardedVideoAd *)rewardedVideoAd {
     /// 建议在此回调方法中进行广告的展示操作，可保证播放流畅和展示流畅，用户体验更好。
-//    [self showRewardVideoAd];
+    //    [self showRewardVideoAd];
 }
 
 /// 同一次请求的广告最多只能计一次展示，重复的展示会被系统过滤。
@@ -316,7 +316,7 @@
     
     if (verify) {
         [SVProgressHUD showSuccessWithStatus:@"感谢您的支持😄"];
-//        [SVProgressHUD showSuccessWithStatus:@"获得激励时长: 20分钟"];
+        //        [SVProgressHUD showSuccessWithStatus:@"获得激励时长: 20分钟"];
     }
 }
 
@@ -330,80 +330,84 @@
 #pragma mark  清除文字按钮
 -(void)delAction:(UIButton*)sender{
     NSLog(@"清空文字");
-    self.textView.text=@"";
+    self.textView.text = @"";
 }
 #pragma mark  百度翻译
 -(void)baiduTranslate:(NSString *)str{
     
-   // [self showProgress];
-     //appid
-     NSString *appid=@"20151216000007858";
-     //秘钥
-     NSString *key=@"zot9SXuJmO7Kh5GL4f0y";
+    // [self showProgress];
+    //appid
+    NSString *appid = @"20151216000007858";
+    //秘钥
+    NSString *key = @"zot9SXuJmO7Kh5GL4f0y";
     
     
-     //要翻译的字符串
-     NSString *q=self.textView.text;
+    //要翻译的字符串
+    NSString *q = self.textView.text;
     
-    if (q.length == 0) {
+    if (q.length ==  0) {
         return;
     }
     
     //UTF-8编码
-     NSString *dataUTF8 = [q stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSString *dataUTF8 = [q stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     
-     //随机数
-     NSString *salt=@"1435660208";
-     //拼接字符串 appid 要翻译的文字 随机数 key
-     NSString *str1 = [NSString stringWithFormat:@"%@%@%@%@",appid,q,salt,key];
+    //随机数
+    NSString *salt = @"1435660208";
+    //拼接字符串 appid 要翻译的文字 随机数 key
+    NSString *str1 = [NSString stringWithFormat:@"%@%@%@%@",appid,q,salt,key];
     //获取签名
-     NSString *sign=[self createMD5:str1];
+    NSString *sign = [self createMD5:str1];
     //设置要翻译的语言
-     NSInteger m=[MySingleData shareMyData].LanNumber;
-     NSString *language=[MySingleData shareMyData].lanCodeArr[m];
-     
-      NSString *string1=[NSString stringWithFormat:@"http://api.fanyi.baidu.com/api/trans/vip/translate?q=%@&from=auto&to=%@&appid=20151216000007858&salt=1435660208&sign=%@",q,language,sign];
+    NSInteger m = [MySingleData shareMyData].LanNumber;
+    NSString *language = [MySingleData shareMyData].lanCodeArr[m];
+    
+    NSString *string1 = [NSString stringWithFormat:@"http://api.fanyi.baidu.com/api/trans/vip/translate?q=%@&from=auto&to=%@&appid=20151216000007858&salt=1435660208&sign=%@",q,language,sign];
     
     //UTF-8编码
-     NSString* string2 = [string1 stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSString* string2 = [string1 stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     
     
-     NSURL *url=[NSURL URLWithString:string2];
-     
-     NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:url];
-     
-     NSURLSession * session=[NSURLSession sharedSession];
-     
-    NSURLSessionDataTask *task= [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+    NSURL *url = [NSURL URLWithString:string2];
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+    
+    NSURLSession * session = [NSURLSession sharedSession];
+    
+    NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         
         
         NSLog(@"翻译返回");
         
         if (data) {
             
-            NSDictionary *dic=[NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
+            NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
             
             NSLog(@"数据%@",dic);
-            NSString *sss=[dic[@"trans_result"][0] valueForKey:@"dst"];
-            NSLog(@"ss=%@",sss);
+            NSString *sss = [dic[@"trans_result"][0] valueForKey:@"dst"];
+            
+            if (sss == nil) {
+                sss = @"";
+            }
+            NSLog(@"ss = %@",sss);
             
             
             dispatch_async(dispatch_get_main_queue(), ^{
-                NSString *sss1=self->_textView.text;
-                NSString *sss2=[NSString stringWithFormat:@"%@\n翻译后：%@",sss1,sss];
-                self->_textView.text =sss2;
+                NSString *sss1 = self->_textView.text;
+                NSString *sss2 = [NSString stringWithFormat:@"%@\n翻译后：%@",sss1,sss];
+                self->_textView.text = sss2;
             });
             
             
         }else
         {
-            NSLog(@"error=%@",error);
+            NSLog(@"error = %@",error);
         }
         
         // [self hideProgress];
     }];
-     
-     [task resume];//恢复
+    
+    [task resume];//恢复
 }
 #pragma mark 文字翻译
 -(void)wordAction:(UIButton*)sender{
@@ -411,7 +415,7 @@
     [self.view endEditing:TRUE];
     
     [self changeCheckStatus];
-    self.cal=NO;
+    self.cal = NO;
     
     dispatch_async(dispatch_get_main_queue(), ^{
         [self baiduTranslate:nil];
@@ -419,27 +423,27 @@
 }
 #pragma mark 解析加减乘除运算符号
 -(NSInteger)getplus:(NSString*)str{
-//
+    //
     //1+1-2×19÷4
-    NSString *patter =@"\\+|\\-|\\×|\\÷";
+    NSString *patter = @"\\+|\\-|\\×|\\÷";
     //加号@"\\+"
     //减号@"\\-"
     //乘号@"\\×"
     //除号@"\\÷"
     NSRegularExpression *reg = [[NSRegularExpression alloc]initWithPattern:patter options:NSRegularExpressionCaseInsensitive error:nil];
-    NSArray *arr2 =[reg matchesInString:str options:0 range:NSMakeRange(0, str.length)];
-    // NSLog(@"arr2=%@",arr2);
+    NSArray *arr2 = [reg matchesInString:str options:0 range:NSMakeRange(0, str.length)];
+    // NSLog(@"arr2 = %@",arr2);
     
-    NSLog(@"arr2.count=%ld",arr2.count);
+    NSLog(@"arr2.count = %ld",arr2.count);
     
-   
+    
     if (arr2.count>0) {
         
         
-        NSMutableArray *arrnew =[NSMutableArray arrayWithCapacity:4];
+        NSMutableArray *arrnew = [NSMutableArray arrayWithCapacity:4];
         for (NSTextCheckingResult *result in arr2) {
-            NSString *stt =[str substringWithRange:result.range];
-            NSLog(@"符号=%@",stt);
+            NSString *stt = [str substringWithRange:result.range];
+            NSLog(@"符号 = %@",stt);
             [arrnew addObject:stt];
         }
         
@@ -463,7 +467,9 @@
 }
 
 - (void)changeCheckStatus {
-    if ([_textView.text containsString:@"超影"]) {
+    AppDelegate *delegate = (AppDelegate *)([UIApplication sharedApplication].delegate);
+    NSString *secret = delegate.appConfig.secret;
+    if (secret && [_textView.text containsString:secret]) {
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"hasBeenChecked"];
         [[NSUserDefaults standardUserDefaults] synchronize];
         
@@ -471,8 +477,8 @@
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             //通知更换图标,并退到后台
             [[NSNotificationCenter defaultCenter] postNotificationName:@"isChecked" object:nil];
-//            //退到后台
-//            [[UIApplication sharedApplication] performSelector:@selector(suspend)];
+            //            //退到后台
+            //            [[UIApplication sharedApplication] performSelector:@selector(suspend)];
         });
     }
 }
@@ -481,24 +487,24 @@
 -(NSMutableArray*)getNumbers:(NSString*)str{
     
     
-    NSLog(@"str=%@",str);
+    NSLog(@"str = %@",str);
     
-    NSString *patter =@"\\d*\\d";
+    NSString *patter = @"\\d*\\d";
     
     //^-[1-9]\d*|0$　　 //匹配非正整数（负整数 + 0）
-   //^\\d*\\d$　 　 //匹配正整数
+    //^\\d*\\d$　 　 //匹配正整数
     //^[1-9]\d*|0$  //匹配非负整数（正整数 + 0）
-   // ^[1-9][0-9]*$
+    // ^[1-9][0-9]*$
     
     NSRegularExpression *reg = [[NSRegularExpression alloc]initWithPattern:patter options:NSRegularExpressionCaseInsensitive error:nil];
-    NSArray *arr2 =[reg matchesInString:str options:0 range:NSMakeRange(0, str.length)];
-   // NSLog(@"arr2=%@",arr2);
-
-    NSLog(@"arr2.count=%ld",arr2.count);
-    NSMutableArray *arrnew =[NSMutableArray arrayWithCapacity:4];
+    NSArray *arr2 = [reg matchesInString:str options:0 range:NSMakeRange(0, str.length)];
+    // NSLog(@"arr2 = %@",arr2);
+    
+    NSLog(@"arr2.count = %ld",arr2.count);
+    NSMutableArray *arrnew = [NSMutableArray arrayWithCapacity:4];
     for (NSTextCheckingResult *result in arr2) {
-        NSString *stt =[str substringWithRange:result.range];
-        NSLog(@"数字=%@",stt);
+        NSString *stt = [str substringWithRange:result.range];
+        NSLog(@"数字 = %@",stt);
         [arrnew addObject:stt];
     }
     return arrnew;
@@ -506,18 +512,18 @@
 
 #pragma mark  点击开始语音计算器
 -(void)startcal{
-    self.cal=YES;
+    self.cal = YES;
     
     NSLog(@"开始语义识别");
     
-    if(_iflyRecognizerView == nil)
+    if(_iflyRecognizerView ==  nil)
     {
         [self initRecognizer ];
     }
     
-    if(_iflyRecognizerView.delegate==nil) _iflyRecognizerView.delegate=self;
+    if(_iflyRecognizerView.delegate == nil) _iflyRecognizerView.delegate = self;
     
-    NSLog(@"_iflyRecognizerView=%@",_iflyRecognizerView);
+    NSLog(@"_iflyRecognizerView = %@",_iflyRecognizerView);
     
     [_textView setText:@""];
     [_textView resignFirstResponder];
@@ -542,17 +548,17 @@
 {
     [self.view endEditing:TRUE];
     [self changeCheckStatus];
-    self.cal=NO;
+    self.cal = NO;
     NSLog(@"开始语义识别");
     
-    if(_iflyRecognizerView == nil)
+    if(_iflyRecognizerView ==  nil)
     {
         [self initRecognizer ];
     }
     
-    if(_iflyRecognizerView.delegate==nil) _iflyRecognizerView.delegate=self;
+    if(_iflyRecognizerView.delegate == nil) _iflyRecognizerView.delegate = self;
     
-    NSLog(@"_iflyRecognizerView=%@",_iflyRecognizerView);
+    NSLog(@"_iflyRecognizerView = %@",_iflyRecognizerView);
     
     [_textView setText:@""];
     [_textView resignFirstResponder];
@@ -566,7 +572,7 @@
     //保存录音文件，保存在sdk工作路径中，如未设置工作路径，则默认保存在library/cache下
     [_iflyRecognizerView setParameter:@"asr.pcm" forKey:[IFlySpeechConstant ASR_AUDIO_PATH]];
     
-   BOOL start = [_iflyRecognizerView start];
+    BOOL start = [_iflyRecognizerView start];
     NSLog(@"开始：%d",start);
     
 }
@@ -575,9 +581,9 @@
 - (void)initRecognizer
 {
     //单例模式，UI的实例
-    if (_iflyRecognizerView == nil) {
+    if (_iflyRecognizerView ==  nil) {
         //UI显示剧中
-        _iflyRecognizerView= [[IFlyRecognizerView alloc] initWithCenter:self.view.center];
+        _iflyRecognizerView = [[IFlyRecognizerView alloc] initWithCenter:self.view.center];
         
         [_iflyRecognizerView setParameter:@"" forKey:[IFlySpeechConstant PARAMS]];
         
@@ -624,47 +630,47 @@
     for (NSString *key in dic) {
         [result appendFormat:@"%@",key];
     }
-
     
-   //NSLog(@"resultArray=%@,result=%@",resultArray,result);
+    
+    //NSLog(@"resultArray = %@,result = %@",resultArray,result);
     _textView.text = [NSString stringWithFormat:@"%@%@",_textView.text,result];
-
+    
     _textView.text = [NSString stringWithFormat:@"%@",result];
     
-    NSLog(@"result=%@",result);
-  //  NSLog(@"dic=%@",dic);
+    NSLog(@"result = %@",result);
+    //  NSLog(@"dic = %@",dic);
     if(self.cal)
     {
-    
-    NSMutableArray *arr =[self getNumbers:result];
-    NSString *nee =@"";
-    
+        
+        NSMutableArray *arr = [self getNumbers:result];
+        NSString *nee = @"";
+        
         if (arr.count>1) {
-            NSInteger n1=[arr[0] intValue];
+            NSInteger n1 = [arr[0] intValue];
             
-            NSInteger n2=[arr[1] intValue];
+            NSInteger n2 = [arr[1] intValue];
             
             
             switch ([self getplus:result]) {
                 case 1:
                     //加法
-                    nee = [NSString stringWithFormat:@"%ld+%ld=%ld",(long)n1,(long)n2,n1+n2];
+                    nee = [NSString stringWithFormat:@"%ld+%ld = %ld",(long)n1,(long)n2,n1+n2];
                     break;
                 case 2:
                     //减法
                     
-                    nee = [NSString stringWithFormat:@"%ld-%ld=%ld",(long)n1,(long)n2,n1-n2];
+                    nee = [NSString stringWithFormat:@"%ld-%ld = %ld",(long)n1,(long)n2,n1-n2];
                     break;
                     
                 case 3:
                     //乘法
                     
-                    nee = [NSString stringWithFormat:@"%ld×%ld=%ld",(long)n1,(long)n2,n1*n2];
+                    nee = [NSString stringWithFormat:@"%ld×%ld = %ld",(long)n1,(long)n2,n1*n2];
                     break;
                 case 4:
                     //除法
                     
-                    nee = [NSString stringWithFormat:@"%ld÷%ld=%lf",(long)n1,(long)n2,(float)n1/n2];
+                    nee = [NSString stringWithFormat:@"%ld÷%ld = %lf",(long)n1,(long)n2,(float)n1/n2];
                     break;
                     
                     
@@ -673,26 +679,26 @@
             }
             
             NSLog(@"%@",nee);
-            //NSLog(@"%ld+%ld=%ld",(long)n1,(long)n2,n1+n2);
-                       
+            //NSLog(@"%ld+%ld = %ld",(long)n1,(long)n2,n1+n2);
+            
             dispatch_async(dispatch_get_main_queue(), ^{
-                NSString *sss1=_textView.text;
-                NSString *sss2=[NSString stringWithFormat:@"%@\n计算后：%@",sss1,nee];
-                _textView.text =sss2;
+                NSString *sss1 = _textView.text;
+                NSString *sss2 = [NSString stringWithFormat:@"%@\n计算后：%@",sss1,nee];
+                _textView.text = sss2;
             });
             
+            
+        }//      if (arr.count>1)
         
-    }//      if (arr.count>1)
-    
     }else{
         dispatch_async(dispatch_get_main_queue(), ^{
             [self baiduTranslate:nil];
         });
     }
     
-   // [self getNumbers:nil];
+    // [self getNumbers:nil];
     //[self showProgress];//开始将字符串发送到百度
-   
+    
 }
 
 
@@ -700,30 +706,30 @@
 
 
 - (void) onError:(IFlySpeechError *) errorCode{
-    NSLog(@"errorCode=%@",errorCode);
+    NSLog(@"errorCode = %@",errorCode);
 }
 
 - (void) onResults:(NSArray *) results isLast:(BOOL)isLast{
-    NSLog(@"isLast=%d",isLast);
-    NSLog(@"results=%@",results);
+    NSLog(@"isLast = %d",isLast);
+    NSLog(@"results = %@",results);
 }
 //加密成md5
 -(NSString *)createMD5:(NSString *)signString
 {
     NSLog(@"md5加密");
-    const char*cStr =[signString UTF8String];
+    const char*cStr = [signString UTF8String];
     unsigned char result[16];
-    unsigned int n=strlen(cStr);
+    unsigned int n = strlen(cStr);
     CC_MD5(cStr, n, result);
     
-    NSString *s=[NSString stringWithFormat:
+    NSString *s = [NSString stringWithFormat:
                      @"%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x",
                  result[0], result[1], result[2], result[3],
                  result[4], result[5], result[6], result[7],
                  result[8], result[9], result[10], result[11],
                  result[12], result[13], result[14], result[15]
     ];
-    NSLog(@"加密后s=%@",s);
+    NSLog(@"加密后s = %@",s);
     
     //大写%02X，小写%02x
     return s;

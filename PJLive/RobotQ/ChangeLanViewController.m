@@ -10,11 +10,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
-    self.tableview = [[UITableView alloc]initWithFrame:self.view.frame style:UITableViewStylePlain];
+    self.tableview = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame) - 40) style:UITableViewStylePlain];
     [self.view addSubview:self.tableview];
-    self.tableview.delegate=self;
-    self.tableview.dataSource=self;
+    self.tableview.delegate = self;
+    self.tableview.dataSource = self;
     
     
     [self.tableview registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
@@ -45,7 +44,9 @@
     UITableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     
     
-    cell.textLabel.text = [MySingleData shareMyData].lanArr[indexPath.row];
+    NSString *title = [MySingleData shareMyData].lanArr[indexPath.row];
+    cell.accessoryType = [MySingleData shareMyData].LanNumber == indexPath.row ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
+    cell.textLabel.text = title;
     return cell;
     
     

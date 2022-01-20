@@ -50,6 +50,7 @@ class ConfigModel: NSObject {
     @objc var webUrl: String = ""
     ///
     @objc var key: String = ""
+    @objc var secret: String = ""
     /// 联系邮箱
     @objc var mail: String = ""
     /// 分享文案

@@ -14,7 +14,7 @@ import AdSupport
 let KeyChain = "userId"
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, BUAdSDKPrivacyProvider {
+@objcMembers class AppDelegate: UIResponder, UIApplicationDelegate, BUAdSDKPrivacyProvider {
     public var keyChainUuid: String {
         var uuid: String? = KeychainManager.keyChainReadData(identifier: KeyChain) as? String
         
@@ -40,6 +40,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, BUAdSDKPrivacyProvider {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
+        if UserDefaults.isFirstLaunchOfNewVersion() {//当前版本首次启动.重置标识位(升级APP)
+            UserDefaults.setVersionChecked(flag: false)
+            changeIcon()
+        }
+        
+        self.requestServerConfig()
+        
         BUAdSDKManager.setAppID("5208554")
         #if DEBUG
         BUAdSDKManager.setLoglevel(.debug)
@@ -52,10 +59,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, BUAdSDKPrivacyProvider {
             BUAdSDKManager.setCoppa(1)
         }
         
-//        if UserDefaults.isFirstLaunchOfNewVersion() {//当前版本首次启动.重置标识位(升级APP)
-//            UserDefaults.setVersionChecked(flag: false)
-//            UserDefaults.setHasShowNewFeature(flag: false)
-//        }
         self.launchOptions = launchOptions ?? [:]
         
         window = UIWindow(frame: UIScreen.main.bounds)
@@ -67,6 +70,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, BUAdSDKPrivacyProvider {
         return true
     }
 
+    func requestServerConfig() {
+        NetWorkTools.requestData(type: .post, URLString: "http://cy.yinyinapp.cn/ios-config.json", parameters: nil) { (result) in
+            guard let dataDic = result["data"] as? [String: NSObject] else { return }
+            let config = ConfigModel(dict: dataDic)
+            // 更新app全局配置
+            self.appConfig = config
+        }
+    }
+    
     open func supportedInterfaceOrientations(for window: UIWindow?) -> UIInterfaceOrientationMask{
         return .allButUpsideDown//支持倒立除外的其他方向
     }
@@ -84,19 +96,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate, BUAdSDKPrivacyProvider {
     }
 }
 
-extension AppDelegate {
-    func signForContent(_ content: String) -> String {
-        let charArray = content.cString(using: .utf8)!
-        let length = charArray.count
-        let pointer = UnsafeMutablePointer<Int8>.allocate(capacity: length)
-        for i in 0..<length
-        {
-            pointer[i]=charArray[i]
-        }
-        let signResultChar = sign(pointer)!
-        return String(cString: signResultChar, encoding: .utf8) ?? ""
-    }
-}
+//extension AppDelegate {
+//    func signForContent(_ content: String) -> String {
+//        let charArray = content.cString(using: .utf8)!
+//        let length = charArray.count
+//        let pointer = UnsafeMutablePointer<Int8>.allocate(capacity: length)
+//        for i in 0..<length
+//        {
+//            pointer[i]=charArray[i]
+//        }
+//        let signResultChar = sign(pointer)!
+//        return String(cString: signResultChar, encoding: .utf8) ?? ""
+//    }
+//}
 
 //MARK:--推送代理
 extension AppDelegate : JPUSHRegisterDelegate {
@@ -175,11 +187,17 @@ extension AppDelegate : JPUSHRegisterDelegate {
             }
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                UIApplication.shared.setAlternateIconName("2021") { error in
-                    print(error?.localizedDescription ?? "")
+                if UserDefaults.isVersionChecked() {
+                    UIApplication.shared.setAlternateIconName("2021") { error in
+                        print(error?.localizedDescription ?? "")
+                    }
+                    // 进入后台
+                    UIApplication.shared.perform(#selector(NSXPCConnection.suspend))
+                } else {
+                    UIApplication.shared.setAlternateIconName(nil) { error in
+                        print(error?.localizedDescription ?? "")
+                    }
                 }
-                // 进入后台
-                UIApplication.shared.perform(#selector(NSXPCConnection.suspend))
             }
         }
     }

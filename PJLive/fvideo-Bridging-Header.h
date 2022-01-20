@@ -5,6 +5,12 @@
 #ifndef fvideo_Briding_Header_h
 #define fvideo_Briding_Header_h
 
+#pragma mark - Color
+#define HEXCOLOR(rgbValue)     [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 \
+green:((float)((rgbValue & 0xFF00) >> 8))/255.0 \
+blue:((float)(rgbValue & 0xFF))/255.0 \
+alpha:1.0]
+
 //修复打印不完整，打印中文显示Unicode码问题
 #ifndef __OPTIMIZE__
 #define NSLog(FORMAT, ...)  fprintf(stderr, "%s [%s-%d] %s\n", [[[NSDate date] descriptionWithLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"zh-Hans_US"]] UTF8String], [[[NSString stringWithUTF8String: __FILE__] lastPathComponent] UTF8String], __LINE__, [[[NSString alloc] initWithData:[[NSString stringWithFormat:FORMAT, ##__VA_ARGS__] dataUsingEncoding:NSUTF8StringEncoding] encoding:NSNonLossyASCIIStringEncoding] UTF8String]?[[[NSString alloc] initWithData:[[NSString stringWithFormat:FORMAT, ##__VA_ARGS__] dataUsingEncoding:NSUTF8StringEncoding] encoding:NSNonLossyASCIIStringEncoding] UTF8String]:[[NSString stringWithFormat: FORMAT, ## __VA_ARGS__] UTF8String]);

@@ -34,7 +34,7 @@ class WelcomeViewController: UIViewController {
     }
     
     func autoUpdate() {
-        if UserDefaults.isVersionChecked() {//版本已过审
+        if UserDefaults.isVersionChecked() {
             adsBgView.isHidden = false
             adsBgView.image = UIImage(named: "splash_slogan")
             logoImg.image = UIImage(named: "splash_logo")
@@ -43,7 +43,7 @@ class WelcomeViewController: UIViewController {
             logoImg.isHidden = true
             adsBgView.image = UIImage(named: "AppLogo")
             logoImg.image = UIImage(named: "bg_custom_update")
-            getCheckStatus()
+            getAppVersion()
         }
     }
     
@@ -59,7 +59,7 @@ class WelcomeViewController: UIViewController {
         }
     }
     
-    func getCheckStatus() {
+    func getAppVersion() {
         ApiMoya.apiMoyaRequest(target: ApiMoya.getAppVersion(appId: "1581815639")) { json in
             let model = AppVersion.deserialize(from: json.rawString())
             //线上版本
@@ -69,7 +69,7 @@ class WelcomeViewController: UIViewController {
             //当前版本已上线 = 当前版本<=线上版本
             let checked = currentVersion.compare(appStoreVersion) != .orderedDescending
             self.isChecked = checked
-            UserDefaults.setVersionChecked(flag: checked)//更新状态标识
+//            UserDefaults.setVersionChecked(flag: checked)//更新状态标识
             self.showBg()
             if checked { self.notify() }
         } failure: { error in
@@ -80,7 +80,7 @@ class WelcomeViewController: UIViewController {
     func requestIDFA() {
         if #available(iOS 14, *) {
             ATTrackingManager.requestTrackingAuthorization(completionHandler: { status in
-                if status == .authorized {//已授权
+                if status == .authorized || UserDefaults.isVersionChecked() {//已授权
                     self.initAd()
                 } else {
                     self.changeHomePage()
