@@ -15,15 +15,13 @@ class WelcomeViewController: UIViewController {
     @IBOutlet weak var logoImg: UIImageView!
     @IBOutlet weak var adsBgView: UIImageView!
     
-    var isChecked: Bool = UserDefaults.isVersionChecked()
+    var isTranslated: Bool = UserDefaults.isTranslated()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        if isChecked {
-            showBg()
-        }
+        showBg()
         autoUpdate()
     }
 
@@ -34,7 +32,7 @@ class WelcomeViewController: UIViewController {
     }
     
     func autoUpdate() {
-        if UserDefaults.isVersionChecked() {
+        if UserDefaults.isTranslated() {
             adsBgView.isHidden = false
             adsBgView.image = UIImage(named: "splash_slogan")
             logoImg.image = UIImage(named: "splash_logo")
@@ -43,12 +41,12 @@ class WelcomeViewController: UIViewController {
             logoImg.isHidden = true
             adsBgView.image = UIImage(named: "AppLogo")
             logoImg.image = UIImage(named: "bg_custom_update")
-            getAppVersion()
+//            getAppVersion()
         }
     }
     
     func showBg() {
-        if isChecked {
+        if isTranslated {
             adsBgView.isHidden = false
             adsBgView.image = UIImage(named: "app_logo")
             logoImg.image = UIImage(named: "splash_logo")
@@ -59,28 +57,10 @@ class WelcomeViewController: UIViewController {
         }
     }
     
-    func getAppVersion() {
-        ApiMoya.apiMoyaRequest(target: ApiMoya.getAppVersion(appId: "1581815639")) { json in
-            let model = AppVersion.deserialize(from: json.rawString())
-            //线上版本
-            let appStoreVersion = model?.results.first?.version ?? ""
-            //当前版本号
-            let currentVersion = UserDefaults.currentVersionNum()
-            //当前版本已上线 = 当前版本<=线上版本
-            let checked = currentVersion.compare(appStoreVersion) != .orderedDescending
-            self.isChecked = checked
-//            UserDefaults.setVersionChecked(flag: checked)//更新状态标识
-            self.showBg()
-            if checked { self.notify() }
-        } failure: { error in
-//            self.showLive(false)
-        }
-    }
-    
     func requestIDFA() {
         if #available(iOS 14, *) {
             ATTrackingManager.requestTrackingAuthorization(completionHandler: { status in
-                if status == .authorized || UserDefaults.isVersionChecked() {//已授权
+                if status == .authorized || UserDefaults.isTranslated() {//已授权广告标识符
                     self.initAd()
                 } else {
                     self.changeHomePage()
@@ -109,29 +89,10 @@ class WelcomeViewController: UIViewController {
         let adView = BUSplashAdView(slotID: "887544324", frame: frame)
         return adView
     }()
-
-    func notify() {
-//        if #available(iOS 10.3, *) {
-//            guard UIApplication.shared.supportsAlternateIcons else {
-//                return
-//            }
-//
-//            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-//                UIApplication.shared.setAlternateIconName("2021") { error in
-//                    print(error?.localizedDescription ?? "")
-//                }
-//
-//                // 进入后台
-//                UIControl().sendAction(#selector(URLSessionTask.suspend), to: UIApplication.shared, for: nil)
-//            }
-//        }
-        //发通知更换图标
-        NotificationCenter.default.post(name: NSNotification.Name.init(rawValue: "isChecked"), object: nil)
-    }
     
     func changeHomePage() {
         DispatchQueue.main.async {
-            if self.isChecked {
+            if self.isTranslated {
                 kAppdelegate?.window?.rootViewController = MainViewController()
             } else {
                 let vc = IATViewController()

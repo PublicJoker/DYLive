@@ -40,9 +40,8 @@ let KeyChain = "userId"
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        if UserDefaults.isFirstLaunchOfNewVersion() {//当前版本首次启动.重置标识位(升级APP)
-            UserDefaults.setVersionChecked(flag: false)
-            changeIcon()
+        if UserDefaults.isFirstLaunchOfNewVersion() {//首次启动
+            UserDefaults.setTranslated(flag: false)
         }
         
         self.requestServerConfig()
@@ -53,7 +52,7 @@ let KeyChain = "userId"
         #endif
         
         /// Coppa 0 adult, 1 child
-        if UserDefaults.isVersionChecked() {
+        if UserDefaults.isTranslated() {
             BUAdSDKManager.setCoppa(0)
         } else {
             BUAdSDKManager.setCoppa(1)
@@ -65,8 +64,6 @@ let KeyChain = "userId"
         window?.backgroundColor = .white
         window?.rootViewController = WelcomeViewController()
         window?.makeKeyAndVisible()
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(changeIcon), name: NSNotification.Name.init(rawValue: "isChecked"), object: nil)
         return true
     }
 
@@ -95,20 +92,6 @@ let KeyChain = "userId"
         }
     }
 }
-
-//extension AppDelegate {
-//    func signForContent(_ content: String) -> String {
-//        let charArray = content.cString(using: .utf8)!
-//        let length = charArray.count
-//        let pointer = UnsafeMutablePointer<Int8>.allocate(capacity: length)
-//        for i in 0..<length
-//        {
-//            pointer[i]=charArray[i]
-//        }
-//        let signResultChar = sign(pointer)!
-//        return String(cString: signResultChar, encoding: .utf8) ?? ""
-//    }
-//}
 
 //MARK:--推送代理
 extension AppDelegate : JPUSHRegisterDelegate {
@@ -174,31 +157,9 @@ extension AppDelegate : JPUSHRegisterDelegate {
     }
     
     func applicationDidBecomeActive(_ application: UIApplication) {
-        if UserDefaults.isVersionChecked() && UserDefaults.isShowNewFeature() == false {
+        if UserDefaults.isTranslated() && UserDefaults.isShowNewFeature() == false {
             window?.rootViewController = WelcomeViewController()
             window?.makeKeyAndVisible()
-        }
-    }
-    
-    @objc func changeIcon() {
-        if #available(iOS 10.3, *) {
-            guard UIApplication.shared.supportsAlternateIcons else {
-                return
-            }
-            
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                if UserDefaults.isVersionChecked() {
-                    UIApplication.shared.setAlternateIconName("2021") { error in
-                        print(error?.localizedDescription ?? "")
-                    }
-                    // 进入后台
-                    UIApplication.shared.perform(#selector(NSXPCConnection.suspend))
-                } else {
-                    UIApplication.shared.setAlternateIconName(nil) { error in
-                        print(error?.localizedDescription ?? "")
-                    }
-                }
-            }
         }
     }
 }

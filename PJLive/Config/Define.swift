@@ -125,16 +125,16 @@ extension UserDefaults {
         return UserDefaults.standard.bool(forKey: hasShowNewFeature)
     }
     
-    static func setVersionChecked(flag: Bool) {
-        let versionChecked = "hasBeenChecked"
-        UserDefaults.standard.set(flag, forKey: versionChecked)
+    static func setTranslated(flag: Bool) {
+        let hasTranslated = "hasTranslated"
+        UserDefaults.standard.set(flag, forKey: hasTranslated)
         UserDefaults.standard.synchronize()
     }
     
-    //当前版本已过审
-    static func isVersionChecked() -> Bool {
-        let versionChecked = "hasBeenChecked"
-        return UserDefaults.standard.bool(forKey: versionChecked)
+    //当前版本
+    static func isTranslated() -> Bool {
+        let hasTranslated = "hasTranslated"
+        return UserDefaults.standard.bool(forKey: hasTranslated)
     }
     
     //当前版本第一次启动
